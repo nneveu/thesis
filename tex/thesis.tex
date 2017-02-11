@@ -1,63 +1,206 @@
-\documentclass{article}     % onecolumn (second format)
 
-\usepackage{graphicx,xcolor,enumitem}
-\usepackage[ruled]{algorithm2e}
-\usepackage{amsmath,amssymb}
-\usepackage{subfigure,tikz,fullpage}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\usepackage{mathptmx}      % use Times fonts if available on your TeX system
+% Nicole's Thesis, IIT 2018
 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{iitthesis}
 
-\usepackage[normalem]{ulem} % For \sout
-\newcommand\hcancel[2][black]{\setbox0=\hbox{$#2$}\rlap{\raisebox{.45\ht0}{\textcolor{#1} {\rule{\wd0}{1pt}}}}#2} 
-\newcommand{\replace}[2]{{\color{red}\sout{#1}\color{black}{\color{red}#2\color{black}}}} %TeX source markup.
-\newcommand{\replacemath}[2]{{\hcancel[red]{#1}{}{\color{red}#2\color{black}}}} %TeX source markup.
-\newcommand{\swnote}[1]{\textsf{{\color{blue}{ SW note:}   #1
-}}\marginpar{{\textbf{Comment}}}}
-\newcommand{\jlnote}[1]{\textsf{{\color{violet}{ JL note:}   #1 }}}
-\newcommand{\nnnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
-\newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
-\newcommand{\R}{\mathbb{R}}  % The reals
-\newcommand{\cW}{\mathcal{W}}  % Workers
-\newcommand{\cD}{\mathcal{D}}          % Box-constrained domain
-\newcommand{\tn}{\textnormal}
-\newcommand{\minimize}{\operatornamewithlimits{minimize}}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\newcommand{\fGamma}{\operatorname{\Gamma}}
-\newcommand{\vol}[1] {\operatorname{vol}\left( #1 \right)}
-
-\newtheorem{assumption}{Assumption}
-
-\newcommand{\thmref}[1]{Theorem~\ref{thm:#1}}
-\newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
-\newcommand{\figrefs}[2]{Figs.~\ref{fig:#1}--\ref{fig:#2}}
-\newcommand{\asref}[1]{Assumption~\ref{ass:#1}}
-\newcommand{\subasref}[2]{Assumption~\ref{ass:#1}\ref{subass:#2}}
-\newcommand{\algref}[1]{Algorithm~\ref{alg:#1}}
-\newcommand{\secref}[1]{Section~\ref{sec:#1}}
-\newcommand{\tabref}[1]{Table~\ref{tab:#1}}
-
-\newcommand{\cI}{I}%\mathcal{I}}
-\newcommand{\inda}{\Theta_1}%\mathcal{J}}
-\newcommand{\indb}{\Theta_2}%\mathcal{J}}
-\newcommand{\dinda}{\Omega_1}%\mathcal{J}}
-\newcommand{\dindb}{\Omega_2}%\mathcal{J}}
-
-\newcommand{\co}[1]{\mathbf{co}\left\{#1\right\}}
-\newcommand{\cop}[1]{\mathbf{co}\left(#1\right)}
-\DeclareMathOperator*{\coA}{\mathbf{co}}
-\newcommand{\ds}{\displaystyle}
-% \newcommand{\defined}{\equiv}
-\newcommand{\defined}{\triangleq}
-% Insert the name of "your journal" with
+% Document Options:
 %
+% Note if you want to save paper when printing drafts,
+% replace the above line by
+%
+%   \documentclass[draft]{iitthesis}
+%
+% See Help file for more about options.
+
+\usepackage[dvips]{graphicx}    % This package is used for Figures
+\usepackage{rotating}           % This package is used for landscape mode.
+\usepackage{epsfig}
+\usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
+% Packages are explained in the Help document.
+
+
 \begin{document}
 
-\title{AWA Optimization Problems}
+\title{Staged Dielectric Two Beam Acceleration at the Argonne Wakefield Accelerator Facility}
 
-\author{Nicole Neveu \and 
-        John Power \and
-	        Jeffrey Larson 
-		        %etc.
-			}
+\author{Nicole Neveu }
+\degree{Doctor of Philosophy}
+\dept{Physics}
+\date{May 2018}
+\copyrightnoticetrue      % crate copyright page or not
+%\coadvisortrue           % add co-advisor. activate it by removing % symbol to add co-advisor
+\maketitle                % create title and copyright pages
+
+
+\prelimpages         % Settings of preliminary pages are done with \prelimpages command
+
+%%%  Acknowledgement %%%
+\begin{acknowledgement}     % acknowledgement environment, this is optional
+	\par  Family, Lalo, Linda, John, AWA group
+	% or \input{acknowledgement.tex} % you need a separate acknowledgement.tex file to include it.
+\end{acknowledgement}
+
+% Table of Contents
+\tableofcontents
+\clearpage
+
+% List of Tables
+\listoftables
+
+\clearpage
+
+%List of Figures
+\listoffigures
+
+\clearpage
+
+%List of Symbols(optional)
+
+\listofsymbols
+\SymbolDefinition{$c$}{Speed of Light}
+\SymbolDefinition{$\epsilon$}{Dielectric Permittivity}
+\SymbolDefinition{$\epsilon$}{6D Phase Space Emittance}
+\SymbolDefinition{$\gamma$}{Relativistic Kinetic Energy}
+
+\clearpage
+
+%%% Abstract %%%
+\begin{abstract}           % abstract environment, this is optional
+	\par Staged two beam acceleration using dielectric structures was achieved
+	at the Argonne Wakefield Accelerator. In this thesis, I discuss the beam 
+	line design and simulation, followed by experimental results of said
+	beam line.  
+\end{abstract}
+
+
+\textpages     % Settings of text-pages are done with \textpages command
+
+\Chapter{INTRODUCTION}
+
+\Section{Motivation} \label{sec:int}
+
+\Section{Argonne Wakefield Accelerator Facility}
+
+\Section{Dielectric Structures}
+
+\Subsection{Power Generation}
+
+\Subsection{Accelerating Structures}
+
+\Section{Design Requirements}
+
+% An example for enumerate
+\begin{enumerate}
+	\item Kicker Design
+	\item Septum Design
+	\item Optimization 
+	mainly muscle
+\end{enumerate}
+
+% A quotation example
+% Every quota must be accompanied by a reference to the source
+% in a footnote or in the Bibliography
+\begin{quotation}
+	test
+\end{quotation}
+
+\clearpage
+
+\Chapter{Beam Dynamics}
+
+\Section{Code and Resources Used}
+
+\Section{Optimization Techniques}
+
+\Section{Simulation Results}
+
+\footnote{My Footnote} 
+
+
+\Chapter{Experimental Results}
+
+\Section{Kicker Installation}
+
+\Section{Septum Installation} 
+
+\Section{Measurement of Single Stage Power Extraction}
+
+\Section{Measurement of Single Stage Accelerating Gradient}
+
+\Section{Measurement of Staged Two Beam Acceleration}
+
+
+\Chapter{CONCLUSION}
+%   \input{Conclusion.tex}
+You need a Conclusion.tex file
+
+
+\Section{Summary}
+
+
+This was just to create a sample section...
+
+\clearpage
+
+
+%
+% APPENDIX
+%
+\appendix
+
+\Appendix{Calculations?}
+
+......
+
+\moretox
+
+\Appendix{OPAL stuff? MCS Stuff?}
+
+Your second appendix text....
+
+\Appendix{Name of your Third Appendix}
+
+Your third appendix text....
+%
+% BIBLIOGRAPHY
+%
+% you have two options: 1) create bibliography manually,
+% 2) create bibliography automatically. See BibliographyHelp.pdf file for details.
+
+
+\bibliographystyle{plain}
+\bibliography{mybib}
+
+\end{document}  % end of document
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

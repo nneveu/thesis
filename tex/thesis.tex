@@ -19,12 +19,17 @@
 \usepackage{rotating}           % This package is used for landscape mode.
 \usepackage{epsfig}
 \usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
-% Packages are explained in the Help document.
+\usepackage{siunitx}
 
+%% Only for editing process...TAKE OUT for FINAL DRAFT
+\usepackage{graphicx,xcolor,enumitem}
+\newcommand{\lsnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
+\newcommand{\nrnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
+\newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
 
 \begin{document}
 
-\title{Staged Dielectric Two Beam Acceleration at the Argonne Wakefield Accelerator Facility}
+\title{Staged Metallic and Dielectric Two Beam Acceleration at the Argonne Wakefield Accelerator Facility}
 
 \author{Nicole Neveu }
 \degree{Doctor of Philosophy}
@@ -40,7 +45,7 @@
 %%%  Acknowledgement %%%
 \begin{acknowledgement}     % acknowledgement environment, this is optional
 	\par  Family, Lalo, Linda, John, AWA group
-	% or \input{acknowledgement.tex} % you need a separate acknowledgement.tex file to include it.
+	%\input{ackno.tex} % you need a separate acknowledgement.tex file to include it.
 \end{acknowledgement}
 
 % Table of Contents
@@ -82,13 +87,123 @@
 
 \Section{Motivation} \label{sec:int}
 
+If there is ever a next generation of accelerators dedicated to High Energy Physics
+(HEP), they will be of the TeV scale. Reduction in the size and cost
+of such machines is key to their feasibility, and can be accomplished
+through accelerator technology R\&D. Investigation into a 
+high gradient candidate for future HEP machines was underway
+at the Argonne Wakefield Accelerator (AWA) facility. A
+short pulse, two-beam acceleration (TBA) scheme using 
+wakefield power extractors, and accelerating structures made 
+of dielectric and metallic materials was designed and tested. 
+The goal of AWA is to demonstrate a gradient of
+\SI{250}{MV/m}, using a TBA dielectric scheme. If successful, this would
+be the only facility in the world capable of such gradients used for
+acceleration of a beam.
+
+Despite the advantage of higher gradients, there is still experimental work
+needed to prove it is a viable candidate for implementation at an HEP or user facility.
+TBA requires a drive beam to pass through a decelerating structure and
+lose energy through wakefield generation. The electromagnetic wake
+is coupled from the decelerator into an accelerating structure, where
+the electric field is used to accelerate a second beam. This requires
+two complete and separate beamlines operating synchronously with each other.  
+The two-beam structures can be metallic or dielectric. Dielectric
+structures, having no irises, are simple to manufacture and have demonstrated
+high gradient capability at \SI{100}{MV/m}. %\cite{WeiPaper}. 
+
+The Compact Linear Collider (CLIC) collaboration, proposes a similar TBA scheme with
+a 240ns pulse design. This limits the acceleration gradient
+to roughly \SI{150}{MV/m} at room temperature due to rf breakdown \cite{CLICdesignReport}.
+Higher gradients could be reached when driven by a very short drive
+beam pulse, such as the 20ns pulse length proposed by AWA. %\cite{WeiPaper}. 
+\nrnote{Understand and explain why short pulse can give higher gradients. 
+Because higher peak power is tolerable, but average power stays the same?}
+While the two groups vary on approach, it is agreed that TBA would 
+require less infrastructure when constructing a linear TeV scale machine, 
+versus the cost of more conventional technology. 
+For example, a case study was done using traditional \SI{50}{MW} sources.
+It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
+\SI{9.2}{TW} power specification in CLIC reports \cite{CLICdesignReport}. 
+In comparison to CLIC's 48 km projected length to reach 3 TeV, the Next Linear
+Collider (NLC) collaboration projected a length of \SI{26}{km} using X-band klystrons,
+only to reach an energy of \SI{1}{TeV}. %\cite{NLC}. 
+The power supplied to the witness beam in TBA is similar to
+power provided by traditional accelerator technology. 
+The key difference is the amount of infrastructure and cost 
+needed to transport the power. Theoretically, TBA can deliver
+the same amount of power as conventional methods with less 
+infrastructure, and therefore lower cost, in the case of a high energy machine. 
+
+Before a true study of the power and infrastructure trade offs 
+can be done, the feasibility of staged TBA must be understood, 
+as no high energy machine can be built with out a staging.
+Staging is the ability to use two accelerating modules back to back to accelerate 
+the same particle bunch. While simple in principle, the difficulties 
+to achieve staging should not be underwritten. Demonstration of staging proves 
+that a TBA scheme can be scaled to high energies, and whether it is 
+feasible to use such methods. Single stage TBA, and staging 
+in a simplified scheme have been demonstrated at the AWA in 2016. 
+Demonstration of the full-scale dielectric staging scheme is the 
+subject of this thesis. The fully staged beamline was designed and 
+simulated. Installation of the beam line occurred in 2017.
+Optimization of the bunch trian timing took place, the two 
+beam lines were synchronized and experimental measurements 
+of staged TBA were taken. 
+Experimental results and comparison to simulations, along 
+with the following beam dynamics analysis is shown here.
+
+
 \Section{Argonne Wakefield Accelerator Facility}
+
+The AWA facility consist of two rf photoinjector electron guns operating
+at 1.3 GHz, and three subsequent beamlines. %\cite{AWAlayout}. 
+Two of the beamlines are currently used for staged TBA, and the
+third is used for Emittance Exchange experiments (EEX). A layout of
+the facility is shown in Fig. \ref{fig:bunker}. 
+
+The beam line located on the right side of Fig. \ref{fig:bunker} is called the
+drive line. The rf photoinjector on the drive line uses a semiconducting
+CsTe cathode, and is followed by a linear accelerator (linac). The
+drive linac uses six copper cavities and four klystrons to accelerate the drive beam
+to energies of 50-70 MeV. The amount of bunches generated in the drive
+gun can vary from 1, 2, 4, 6, and 8 bunches. When multiple bunches
+are generated, the grouping is called a bunch train. Generation of
+these variable bunch trains is accomplished by splitting the pulsed
+UV laser beam before it enters the gun and hits the cathode. The splitting
+takes place in a complex network of UV optics located near the drive
+gun. The optics set up is called a beam splitter, or mulitsplitter,
+and trains are created at a rate of 0.5, 1, or 2 Hz. This timing is
+called a pulse, or the repetition rate of the machine. A picture of
+the AWA multi splitter table is shown in Fig. \ref{fig:optics}. 
+\begin{figure}
+	\begin{center}
+		%\includegraphics[width=\linewidth]{images/quads1}
+		\label{fig:bunker}
+	\end{center}
+\end{figure}
+\begin{figure}
+	\begin{center}
+		%\includegraphics[width=.75\textwidth]{thesis/images/quads1}
+		\caption{Multisplitter Optics}
+		\label{fig:optics}
+	\end{center}
+\end{figure}
+
+
+The witness line rf photoinjector, located on the left side of Figure
+1, uses a Mg cathode and the following linac consists of one copper
+accelerating cavity. Prior to the multisplitter table, shown in
+Fig. \ref{fig:optics}, the laser pulse is split between the drive and witness side.
+This set up allows only one bunch per pulse on the witness line. Also
+note that the beam from the drive line travels in the opposite direction
+than the beam in the witness line. 
 
 \Section{Dielectric Structures}
 
-\Subsection{Power Generation}
+\subsection{Power Generation}
 
-\Subsection{Accelerating Structures}
+\subsection{Accelerating Structures}
 
 \Section{Design Requirements}
 
@@ -127,11 +242,16 @@
 \Section{Septum Installation} 
 
 \Section{Measurement of Single Stage Power Extraction}
+\subsection{Low Charge}
+\subsection{High Charge}
 
 \Section{Measurement of Single Stage Accelerating Gradient}
+\subsection{Low Charge}
+\subsection{High Charge}
 
 \Section{Measurement of Staged Two Beam Acceleration}
-
+\subsection{Low Charge}
+\subsection{High Charge}
 
 \Chapter{CONCLUSION}
 %   \input{Conclusion.tex}
@@ -155,24 +275,18 @@ This was just to create a sample section...
 
 ......
 
-\moretox
+%\moretox
 
 \Appendix{OPAL stuff? MCS Stuff?}
 
 Your second appendix text....
 
-\Appendix{Name of your Third Appendix}
-
-Your third appendix text....
+\newpage
 %
 % BIBLIOGRAPHY
 %
-% you have two options: 1) create bibliography manually,
-% 2) create bibliography automatically. See BibliographyHelp.pdf file for details.
-
-
 \bibliographystyle{plain}
-\bibliography{mybib}
+\bibliography{mythesis}
 
 \end{document}  % end of document
 

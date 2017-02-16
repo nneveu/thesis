@@ -13,7 +13,7 @@ git status (shows you what you have added or commited or if you are up to date)
 
 How to add changes: 
 
-git add "thesis.tex" (this adds your local edits)
+git add thesis.tex (this adds your local edits)
 
 git commit -m "Message about edits" (this comines all edits and gets ready to send them)
 

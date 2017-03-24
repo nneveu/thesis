@@ -44,7 +44,7 @@
 
 %%%  Acknowledgement %%%
 \begin{acknowledgement}     % acknowledgement environment, this is optional
-	\par  Family, Lalo, Linda, John, AWA group
+	\par  Family, Lalo, Linda, John, AWA group, Jeff
 	%\input{ackno.tex} % you need a separate acknowledgement.tex file to include it.
 \end{acknowledgement}
 
@@ -85,7 +85,7 @@
 
 \Chapter{INTRODUCTION}
 
-\Section{Motivation} \label{sec:int}
+\section{Motivation} \label{sec:int}
 
 If there is ever a next generation of accelerators dedicated to High Energy Physics
 (HEP), they will be of the TeV scale. Reduction in the size and cost
@@ -110,13 +110,13 @@ the electric field is used to accelerate a second beam. This requires
 two complete and separate beamlines operating synchronously with each other.  
 The two-beam structures can be metallic or dielectric. Dielectric
 structures, having no irises, are simple to manufacture and have demonstrated
-high gradient capability at \SI{100}{MV/m}. %\cite{WeiPaper}. 
+high gradient capability at \SI{100}{MV/m} \cite{WeiPaper}. 
 
 The Compact Linear Collider (CLIC) collaboration, proposes a similar TBA scheme with
-a 240ns pulse design. This limits the acceleration gradient
+a \SI{240}{ns} pulse design. This limits the acceleration gradient
 to roughly \SI{150}{MV/m} at room temperature due to rf breakdown \cite{CLICdesignReport}.
 Higher gradients could be reached when driven by a very short drive
-beam pulse, such as the 20ns pulse length proposed by AWA. %\cite{WeiPaper}. 
+beam pulse, such as the 20ns pulse length proposed by AWA \cite{WeiPaper}. 
 \nrnote{Understand and explain why short pulse can give higher gradients. 
 Because higher peak power is tolerable, but average power stays the same?}
 While the two groups vary on approach, it is agreed that TBA would 
@@ -125,7 +125,7 @@ versus the cost of more conventional technology.
 For example, a case study was done using traditional \SI{50}{MW} sources.
 It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
 \SI{9.2}{TW} power specification in CLIC reports \cite{CLICdesignReport}. 
-In comparison to CLIC's 48 km projected length to reach 3 TeV, the Next Linear
+In comparison to CLIC's 48 km projected length to reach \SI{3}{TeV}, the Next Linear
 Collider (NLC) collaboration projected a length of \SI{26}{km} using X-band klystrons,
 only to reach an energy of \SI{1}{TeV}. %\cite{NLC}. 
 The power supplied to the witness beam in TBA is similar to
@@ -153,14 +153,11 @@ of staged TBA were taken.
 Experimental results and comparison to simulations, along 
 with the following beam dynamics analysis is shown here.
 
-\lsnote{test test test!}
-
 \Section{Argonne Wakefield Accelerator Facility}
-
 % \lsnote{testing this }
 
 The AWA facility consist of two rf photoinjector electron guns operating
-at 1.3 GHz, and three subsequent beamlines. %\cite{AWAlayout}. 
+at \SI{1.3}{GHz}, and three subsequent beamlines. %\cite{AWAlayout}. 
 Two of the beamlines are currently used for staged TBA, and the
 third is used for Emittance Exchange experiments (EEX). A layout of
 the facility is shown in Fig. \ref{fig:bunker}. 
@@ -169,14 +166,14 @@ The beam line located on the right side of Fig. \ref{fig:bunker} is called the
 drive line. The rf photoinjector on the drive line uses a semiconducting
 CsTe cathode, and is followed by a linear accelerator (linac). The
 drive linac uses six copper cavities and four klystrons to accelerate the drive beam
-to energies of 50-70 MeV. The amount of bunches generated in the drive
-gun can vary from 1, 2, 4, 6, and 8 bunches. When multiple bunches
+to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
+laser pulse can vary from 1, 2, 4, 6, and 8 bunches. When multiple bunches
 are generated, the grouping is called a bunch train. Generation of
 these variable bunch trains is accomplished by splitting the pulsed
 UV laser beam before it enters the gun and hits the cathode. The splitting
 takes place in a complex network of UV optics located near the drive
 gun. The optics set up is called a beam splitter, or mulitsplitter,
-and trains are created at a rate of 0.5, 1, or 2 Hz. This timing is
+and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
 called a pulse, or the repetition rate of the machine. A picture of
 the AWA multi splitter table is shown in Fig. \ref{fig:optics}. 
 \begin{figure}
@@ -202,13 +199,15 @@ This set up allows only one bunch per pulse on the witness line. Also
 note that the beam from the drive line travels in the opposite direction
 than the beam in the witness line. 
 
-\Section{Dielectric Structures}
+\section{Dielectric Structures}
 
 \subsection{Power Generation}
 
 \subsection{Accelerating Structures}
 
-\Section{Design Requirements}
+\section{Two Beam Acceleartion}
+
+\subsection{AWA Design Requirements}
 
 % An example for enumerate
 \begin{enumerate}
@@ -228,32 +227,54 @@ than the beam in the witness line.
 
 \Chapter{Beam Dynamics}
 
-\Section{Code and Resources Used}
+\section{Code and Resources Used}
 
-\Section{Optimization Techniques}
+To simulate beam dynamics, the particle-in-cell code OPAL was used \cite{opal}. 
+It was chosen for two reasons:
+\begin{itemize}
+	\item Transverse space charge calculation 
+	\item Option to run the code in parallel
+\end{itemize} 
 
-\Section{Simulation Results}
+The first item is crucial to standard operations at the AWA. Especially in the 
+case of TBA, high charge is needed on drive beam line, therefore transverse 
+space charge must be calculated in the simulations to give realistic results.
 
-\footnote{My Footnote} 
+The second item dramatically reduced the amount of simulation time needed. 
+Typical running conditions were on 16 cores, and for random samples up to 128 cores.
+
+\section{Optimization Techniques}
+
+\section{Simulation Results}
+Simulations were done for both the drive and witness beam line. 
+This included both photoinjectors, linacs, and wakefield effects. 
+
+\subsection{Gun Simulations}
+At 40nC the usable gun phase range (for the 3D field map) is 
+$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
+as the region where all particles are emitted from the gun. 
+i.e. at $40^\circ$, particles were lost.  
+
+\subsection{Linac Simulations and Pareto Front}
+In order to optimize the beam entering the TBA experimental area, 
+simulations were done to minimize the emittance after the 6 cavity linac
+on the drive side. 
 
 
 \Chapter{Experimental Results}
+\footnote{My Footnote} 
 
 \Section{Kicker Installation}
 
 \Section{Septum Installation} 
 
 \Section{Measurement of Single Stage Power Extraction}
-\subsection{Low Charge}
-\subsection{High Charge}
+
 
 \Section{Measurement of Single Stage Accelerating Gradient}
-\subsection{Low Charge}
-\subsection{High Charge}
 
 \Section{Measurement of Staged Two Beam Acceleration}
-\subsection{Low Charge}
-\subsection{High Charge}
+
 
 \Chapter{CONCLUSION}
 %   \input{Conclusion.tex}

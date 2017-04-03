@@ -29,7 +29,7 @@
 
 \begin{document}
 
-\title{Staged Metallic and Dielectric Two Beam Acceleration at the Argonne Wakefield Accelerator Facility}
+\title{Design for Staged Two Beam Acceleration at the Argonne Wakefield Accelerator Facility}
 
 \author{Nicole Neveu }
 \degree{Doctor of Philosophy}
@@ -74,20 +74,19 @@
 
 %%% Abstract %%%
 \begin{abstract}           % abstract environment, this is optional
-	\par Staged two beam acceleration using dielectric structures was achieved
-	at the Argonne Wakefield Accelerator. In this thesis, I discuss the beam 
-	line design and simulation, followed by experimental results of said
-	beam line.  
+	\par Staged two beam acceleration using dielectric structures has yet to 
+	be achieved anywhere in the world. In this thesis, I discuss the beam 
+	line design and simulation, followed by experimental results of a 
+	beam line with the potential for dielectric TBA.   
 \end{abstract}
-
 
 \textpages     % Settings of text-pages are done with \textpages command
 
 \Chapter{INTRODUCTION}
 
-\section{Motivation} \label{sec:int}
+\Section{Motivation} \label{sec:motivation}
 
-If there is ever a next generation of accelerators dedicated to High Energy Physics
+If there is ever a new generation of accelerators dedicated to High Energy Physics
 (HEP), they will be of the TeV scale. Reduction in the size and cost
 of such machines is key to their feasibility, and can be accomplished
 through accelerator technology R\&D. Investigation into a 
@@ -95,20 +94,20 @@ high gradient candidate for future HEP machines was underway
 at the Argonne Wakefield Accelerator (AWA) facility. A
 short pulse, two-beam acceleration (TBA) scheme using 
 wakefield power extractors, and accelerating structures made 
-of dielectric and metallic materials was designed and tested. 
+of metallic materials was designed. 
 The goal of AWA is to demonstrate a gradient of
 \SI{250}{MV/m}, using a TBA dielectric scheme. If successful, this would
 be the only facility in the world capable of such gradients used for
 acceleration of a beam.
 
 Despite the advantage of higher gradients, there is still experimental work
-needed to prove it is a viable candidate for implementation at an HEP or user facility.
+needed to prove dielectric TBA is a viable candidate for implementation at an HEP or user facility.
 TBA requires a drive beam to pass through a decelerating structure and
 lose energy through wakefield generation. The electromagnetic wake
 is coupled from the decelerator into an accelerating structure, where
 the electric field is used to accelerate a second beam. This requires
 two complete and separate beamlines operating synchronously with each other.  
-The two-beam structures can be metallic or dielectric. Dielectric
+The wakefield structures can be metallic or dielectric. Dielectric
 structures, having no irises, are simple to manufacture and have demonstrated
 high gradient capability at \SI{100}{MV/m} \cite{WeiPaper}. 
 
@@ -122,7 +121,7 @@ Because higher peak power is tolerable, but average power stays the same?}
 While the two groups vary on approach, it is agreed that TBA would 
 require less infrastructure when constructing a linear TeV scale machine, 
 versus the cost of more conventional technology. 
-For example, a case study was done using traditional \SI{50}{MW} sources.
+For example, a case study was done using traditional \SI{50}{MW} klystron sources.
 It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
 \SI{9.2}{TW} power specification in CLIC reports \cite{CLICdesignReport}. 
 In comparison to CLIC's 48 km projected length to reach \SI{3}{TeV}, the Next Linear
@@ -143,22 +142,24 @@ the same particle bunch. While simple in principle, the difficulties
 to achieve staging should not be underwritten. Demonstration of staging proves 
 that a TBA scheme can be scaled to high energies, and whether it is 
 feasible to use such methods. Single stage TBA, and staging 
-in a simplified scheme have been demonstrated at the AWA in 2016. 
-Demonstration of the full-scale dielectric staging scheme is the 
-subject of this thesis. The fully staged beamline was designed and 
-simulated. Installation of the beam line occurred in 2017.
-Optimization of the bunch trian timing took place, the two 
-beam lines were synchronized and experimental measurements 
-of staged TBA were taken. 
+in a simplified scheme have been demonstrated at the AWA in 2016.
+\nrnote{Not any more? - Demonstration of the full-scale dielectric staging scheme is the 
+	subject of this thesis.} 
+Desing and partial testing of a full-scale staging scheme is the 
+subject of this thesis. The branched drive beam line was designed and 
+simulated. 
+Optimization of the bunch train timing took place, \nrnote{not? - the two 
+	beam lines were synchronized and experimental measurements 
+	of staged TBA were taken. }
 Experimental results and comparison to simulations, along 
 with the following beam dynamics analysis is shown here.
 
-\Section{Argonne Wakefield Accelerator Facility}
-% \lsnote{testing this }
+\Section{Argonne Wakefield Accelerator Facility} \label{sec:facility}
 
+% \lsnote{testing this }
 The AWA facility consist of two rf photoinjector electron guns operating
-at \SI{1.3}{GHz}, and three subsequent beamlines. %\cite{AWAlayout}. 
-Two of the beamlines are currently used for staged TBA, and the
+at \SI{1.3}{GHz}, and three subsequent beam lines. %\cite{AWAlayout}. 
+Two of the beam lines are currently used for staged TBA, and the
 third is used for Emittance Exchange experiments (EEX). A layout of
 the facility is shown in Fig. \ref{fig:bunker}. 
 
@@ -175,7 +176,8 @@ takes place in a complex network of UV optics located near the drive
 gun. The optics set up is called a beam splitter, or mulitsplitter,
 and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
 called a pulse, or the repetition rate of the machine. A picture of
-the AWA multi splitter table is shown in Fig. \ref{fig:optics}. 
+the AWA multisplitter table is shown in Fig. \ref{fig:optics}. Optimization 
+of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
 \begin{figure}
 	\begin{center}
 		%\includegraphics[width=\linewidth]{images/quads1}
@@ -190,7 +192,6 @@ the AWA multi splitter table is shown in Fig. \ref{fig:optics}.
 	\end{center}
 \end{figure}
 
-
 The witness line rf photoinjector, located on the left side of Figure
 1, uses a Mg cathode and the following linac consists of one copper
 accelerating cavity. Prior to the multisplitter table, shown in
@@ -199,15 +200,26 @@ This set up allows only one bunch per pulse on the witness line. Also
 note that the beam from the drive line travels in the opposite direction
 than the beam in the witness line. 
 
-\section{Dielectric Structures}
+\iffalse
+\Section{Dielectric Structures}
 
-\subsection{Power Generation}
+\Subsection{Power Generation}
 
-\subsection{Accelerating Structures}
+\Subsection{Accelerating Structures}
 
-\section{Two Beam Acceleartion}
+\Section{Two Beam Acceleration}
+\fi
 
-\subsection{AWA Design Requirements}
+
+\Section{AWA Design Requirements} \label{sec:requirements}
+
+In order to design and test the desired beam line, three technologies 
+new to the AWA were investigated. These include a kicker, septum magnets, 
+and non-GA optimization algorithms.
+
+\Subsection{Kicker Design}
+
+A kicker designed and implemented by Indiana University \cite{IU} was used as the base 
 
 % An example for enumerate
 \begin{enumerate}
@@ -225,9 +237,9 @@ than the beam in the witness line.
 
 \clearpage
 
-\Chapter{Beam Dynamics}
+\Chapter{Beam Dynamics}  
 
-\section{Code and Resources Used}
+\Section{Code and Resources Used}\label{sec:code}
 
 To simulate beam dynamics, the particle-in-cell code OPAL was used \cite{opal}. 
 It was chosen for two reasons:
@@ -243,28 +255,28 @@ space charge must be calculated in the simulations to give realistic results.
 The second item dramatically reduced the amount of simulation time needed. 
 Typical running conditions were on 16 cores, and for random samples up to 128 cores.
 
-\section{Optimization Techniques}
+\Section{Optimization Techniques} \label{sec:opt}
 
-\section{Simulation Results}
+\Section{Simulation Results} \label{sec:simulations}
 Simulations were done for both the drive and witness beam line. 
 This included both photoinjectors, linacs, and wakefield effects. 
 
-\subsection{Gun Simulations}
+\Subsection{Gun Simulations}
 At 40nC the usable gun phase range (for the 3D field map) is 
 $-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
 as the region where all particles are emitted from the gun. 
 i.e. at $40^\circ$, particles were lost.  
 
-\subsection{Linac Simulations and Pareto Front}
+\Subsection{Linac Simulations and Pareto Front} \label{sec:pareto}
 In order to optimize the beam entering the TBA experimental area, 
 simulations were done to minimize the emittance after the 6 cavity linac
 on the drive side. 
 
 
-\Chapter{Installation and Experimental Results}
+\Chapter{Installation and Experimental Results} 
 \footnote{My Footnote} 
 
-\Section{Laser Pulse Train Improvement}
+\Section{Laser Pulse Train Improvement} \label{sec:uvoptics}
 
 \Section{Kicker Installation}
 
@@ -273,9 +285,9 @@ on the drive side.
 \Section{Measurement of Single Stage Power Extraction}
 
 
-\Section{Measurement of Single Stage Accelerating Gradient}
+%\Section{Measurement of Single Stage Accelerating Gradient}
 
-\Section{Measurement of Staged Two Beam Acceleration}
+%\Section{Measurement of Staged Two Beam Acceleration}
 
 
 \Chapter{CONCLUSION}

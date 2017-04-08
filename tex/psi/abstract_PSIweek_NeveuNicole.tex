@@ -1,0 +1,25 @@
+\documentclass{article}     % onecolumn (second format)
+\usepackage{subfigure,tikz,fullpage}
+\usepackage{mathptmx}      % use Times fonts if available on your TeX system
+
+\newcommand{\jlnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
+\newcommand{\nnnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
+\newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
+
+\begin{document}
+	
+\section{Photoinjector optimization using opt-pilot and OPAL-T}
+	
+The goal of the week at PSI would be to generate a Pareto front 
+for a photoinjector using opt-pilot and OPAL-T. The multi-objective
+problem of interest is based on a currently installed and operated 
+beam line at the Argonne Wakefield Accelerator facility. The simulation
+model includes a 1.5 cell rf gun, solenoids, 6 identical 
+accelerating cavities, 4 quads, and 2 dipoles. 
+There are 14 variables over which we will optimize: 
+gun phase, laser radius, laser FWHM, solenoid strength, the phase 
+of each accelerating cavity, and quad strengths. 
+The objectives are emittance and bunch length.
+If time permits, we would create Pareto fronts for several charge values.    
+	
+\end{document}

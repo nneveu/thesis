@@ -26,3 +26,8 @@ tex/*.pdf
 *.mtc1
 *.out
 *.synctex.gz
+*.pdf
+*.eps
+*.pgf
+*.nav
+*.snm

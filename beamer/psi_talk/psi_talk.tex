@@ -1,0 +1,142 @@
+\documentclass{beamer}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usecolortheme{dove}
+%\usepackage{siunits}
+
+\include{header}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{NormalANLMaroon}}
+\title[LANS Seminar]
+{Photoinjector simulations for the Argonne Wakefield Accelerator facility}
+\author[Speaker]{Nicole Neveu}
+\subtitle{}
+\institute[ANL/IIT]{Argonne National Laboratory\\Illinois Institute of Technology}
+\date{\today}
+
+
+%\include{tikz}
+\begin{document}
+
+\setbeamertemplate{footline}{}
+{
+%\setbeamercolor{frametitle}{fg=black}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{TitleANLMaroon}}
+\logo{%
+  \makebox[0.95\paperwidth]{%
+    \includegraphics[width=3cm,keepaspectratio]{IIT_logo}%
+    \hfill%
+    %\includegraphics[width=1cm,keepaspectratio]{IIT_logo_blk}%
+  }%
+}
+
+\frame{\titlepage}
+}
+
+\setbeamertemplate{footline}[page number]{
+\logo{%
+  \makebox[0.95\paperwidth]{%
+    %\includegraphics[width=3cm,keepaspectratio]{IIT_logo}%
+    \hfill%
+    \includegraphics[width=3cm,keepaspectratio]{IIT_logo_blk}%
+  }%
+}
+
+%\addtobeamertemplate{frametitle}{}{%
+%\begin{tikzpicture}[remember picture,overlay]
+%\node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{IIT_logo}};
+%\end{tikzpicture}}
+
+
+
+% FRAME: overview
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+% ========================================
+% main slides come here
+% ========================================
+\section{Facility Introduction}
+\begin{frame}
+  \frametitle{Introduction and Background}
+\end{frame}
+
+\section{Gun Benchmark: ASTRA, GPT, OPAL-t}
+\begin{frame}
+  \frametitle{Before we start ...}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Benchmark: ASTRA, GPT, OPAL-t}
+  \begin{itemize}
+    \item{Motivated by my inexperience}
+    \item{Used RF map from AWA photocathode gun}
+    \item{Used PITZ operating conditions as input parmaeters}
+    \item{Poster presented at NAPAC'16: THPOA46}
+    \item{Spoiler: No major differences found}
+    \item{Please don't ask hard questions about ASTRA and GPT!}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Code Features}
+\begin{table}
+\begin{tabular}{l l l}
+\toprule
+\textbf{ASTRA} & \textbf{GPT} & \textbf{OPAL}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Model and Input Parameters}
+\begin{table}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Benchmark Results}
+\end{frame}
+
+
+\section{Initial Optimization Results}
+\begin{frame}
+  \frametitle{nice results}
+\end{frame}
+
+
+\section{Future Work with optPilot}
+\begin{frame}
+  \frametitle{OptPilot}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+

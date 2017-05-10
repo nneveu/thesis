@@ -41,6 +41,7 @@
 
 \setbeamertemplate{navigation symbols}{}
 
+
 %------------------------------------------------------
 \begin{document}
 \setbeamertemplate{footline}{}
@@ -120,27 +121,33 @@
 \end{frame}
 
 \begin{frame}
-	%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 	\frametitle{Code Features}
-	\begin{table}\centering
-		\begin{tabular}{l l l l}
+	\begin{table}
+		\begin{minipage}{\textwidth}
+			\begin{center}
+			\setcounter{mpfootnote}{\value{footnote}}%
+			\renewcommand{\thempfootnote}{\arabic{mpfootnote}}%		
+		\begin{tabular}{l c c c}
 			\toprule
 			\textbf{Feature} & \textbf{ASTRA} & \textbf{GPT} & \textbf{OPAL}\\
 			\midrule
 			Windows     		& \cmark & \cmark & \xmark \\ 
 			Mac         		& \cmark & \cmark & \cmark \\
 			Linux       		& \cmark & \cmark & \cmark \\
-			Open Source 		& \xmark & \xmark & \cmark \\
-			Parallel    		& \xmark\footnote[1]{A parallel version is available at DESY} & \xmark & \cmark \\
+			Open Source 		& \xmark & \alert \xmark & \color{black!30!green}\cmark \\
+			Parallel    		& \alert \xmark\footnote[1]{A parallel version is available at DESY} & \alert \xmark & \color{black!30!green}\cmark \\
 			Autophase   		& \cmark & \xmark & \cmark \\
 			Adaptive Time Step 	& \xmark & \cmark & \xmark \\
 			3D Space Charge 	& \cmark & \cmark & \cmark \\
-			Wakefields  		& \cmark & \xmark\footnote[2]{In house module was written at AWA\label{note2}} & \cmark \\
-			CSR         		& \xmark & \xmark\textsuperscript{\ref{note2}} & \cmark \\
+			Wakefields  		& \cmark & \xmark\footnote[2]{In house module was written at AWA\label{note2}} & \color{black!30!green}\cmark \\
+			CSR         		& \alert \xmark & \xmark\textsuperscript{\ref{note2}} & \color{black!30!green}\cmark \\
 			\bottomrule
 		\end{tabular}
 		%\caption{Table caption}
-	\end{table}
+	\end{center}
+	\end{minipage}
+\end{table}
+
 \end{frame}
 
 \begin{frame}
@@ -214,16 +221,13 @@
   \Wider[4em]{
   All codes matched within $5\%$. \\
   Well below measurement thresholds at AWA.\\  
-  \vfill \vfill
+  \vskip12pt
   \includegraphics[width=0.49\linewidth]{wikitestNoMinStep}\hfill \includegraphics[width=0.49\linewidth]{wikitest5mNoMinStep}
 }
 \end{frame}
 
 %--------------------------------------------------------------------------------------------
-\section{Future Work with optPilot}
-\begin{frame}
-  \frametitle{OptPilot}
-\end{frame}
+\section{New Beam line}
 
 \begin{frame}
   \frametitle{New beam line under design}
@@ -231,14 +235,14 @@
 \def \gunleft {-1.0}
 \def \gunright {0.3}
 \def \loneright {1.0}
-\def \ltworight {3.5}
-\def \lthreeright {5.0}
-\def \lfourright {7.0}
-\def \lfiveright {8.5}
-\def \lsixright {10}
+\def \ltworight {2.0}
+\def \lthreeright {3.0}
+\def \lfourright {4.0}
+\def \lfiveright {5.0}
+\def \lsixright {6.0}
         \centering
         \begin{center}
-                \begin{tikzpicture}[scale=0.7]
+                \begin{tikzpicture}[scale=0.7]%,use optics
                 %Gun drawings
                 \draw[fill=orange, very thick, rounded corners =0.1cm] (\gunleft,0.5)rectangle (\gunright,1.5) node[pos=.5, white] {\textbf{Gun}} ;
 
@@ -281,23 +285,124 @@
 
 
                 %Quad drawings
-                %\draw[fill=black!60!green] (12.52, 1.0) ellipse (0.3cm and 0.9cm);
-                %\draw[fill=black!60!green] (13.28, 1.0) ellipse (0.3cm and 0.9cm);
+                \draw[fill=black!60!green] (7.8, 1.0) ellipse (0.2cm and 0.9cm);
+                \draw[fill=black!60!green] (8.3, 1.0) ellipse (0.2cm and 0.9cm);
+                \draw[fill=black!60!green] (8.8, 1.0) ellipse (0.2cm and 0.9cm);
+                \draw[fill=black!60!green] (9.3, 1.0) ellipse (0.2cm and 0.9cm);
 
-                \draw[very thick] (\gunleft,-5.0) -- (14,-5.0);
-                \draw[latex-latex] (\gunleft,-5.0) -- (14,-5.0) ;
-                \foreach \x in  {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5} %tick marks
-                \draw[shift={(\x,-5.0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-                \foreach \x in {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5}
-                \draw[shift={(\x,-5.2)},color=black] (0pt,0pt) node[below] {$\x$};
+				%Kicker 
+				\draw[fill=orange, ultra thick, rounded corners =0.1cm] (\lsixright+4.2,0.5)rectangle ({\lsixright+0.84+5},1.5) node[pos=.5, white] {$Kicker$};
+				
+                \draw[very thick] (\lsixright+5.9,1.0) -- (14,-0.5);
+                
+                \node[] at (\lsixright+6.5,-1.0) {Septum};
+                \draw[fill=black!60!green, ultra thick, rounded corners =0.1cm] (\lsixright+7,0.5)rectangle ({\lsixright+8},-0.5) node[pos=.5, white] {$Kicker$};
+                %\draw[latex-latex] (\gunleft,-5.0) -- (14,-5.0) ;
+                %\foreach \x in  {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5} %tick marks
+                %\draw[shift={(\x,-5.0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+                %\foreach \x in {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5}
+                %\draw[shift={(\x,-5.2)},color=black] (0pt,0pt) node[below] {$\x$};
 
                 \end{tikzpicture}
    \end{center}
 }
+\begin{itemize}
+	\item all four quads 
+	\item Distance between quads and septum
+	\item Distance between kicker and septum
+	\item Distance between septum and dipole
+\end{itemize}
+
 \end{frame}
 
 %--------------------------------------------------------------------------------------------
 \section{Initial Python Optimization Results}
+\begin{frame}
+	\frametitle{Initial Optimization Work (Linac only)}
+	  \begin{minipage}{0.9\textwidth}
+	  \begin{itemize}
+	  	\item{Determine what emittance we can expect from the linac}
+	  	\item{Minimize beam at entrance of quads = $z_1$}
+	  	\item{Used pre-packaged algorithm BOBYQA}
+	  	\item{Varied 10 parameters:}
+	  \end{itemize}
+       \centering
+		\setcounter{mpfootnote}{\value{footnote}}%
+ 		\renewcommand{\thempfootnote}{\arabic{mpfootnote}}%	
+       \begin{tabular}{ l *{3}{c}}
+       	%\toprule
+       	\textbf{Variable} & \textbf{Range} & \textbf{Unit} \\
+       	\midrule
+       	Solenoid Strength & $ 0 \le S_3 \le 440$  & amps \\
+       	Phase of Gun & $-60 \le \phi_g \le 60$  & degrees \\
+       	Laser Radius  & $0.1 \le R \le 30$  & mm \\
+       	Laser FWHM  & $2 \le T \le $10  & ps \\
+       	Cavity Phase & $-20 \le \phi_L \le 20$\footnote[1]{$\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$} & degrees
+       		%\bottomrule    
+       	\end{tabular}
+       \end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linac Optimization}
+	 \begin{itemize}
+		  	\item{1,000 point sample was done}
+		  	\item{132 simulations completed w/o error}
+		  	\item{Scaled and shifted raw values to remove unit dependence}
+	 \end{itemize}
+	 \begin{align*}
+	 \bar{\epsilon}_x (v,z_1) = \frac{ \epsilon_x (v,z_1) - \epsilon_{\min} } { \epsilon_{\max} - \epsilon_{\min} }
+	 \end{align*}
+	 
+	 \begin{itemize}
+	  	\item{Used 11 weights from 0-1}
+	  	\item{Solved 11 optimization problems $f(v,w)$ using BOBYQA}
+	 \end{itemize}
+	 \begin{gather*}
+	 w\in\left\{ 0, 0.1, \ldots, 1 \right\}\\ \\
+	 f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
+	 \end{gather*}
+	
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{BOBYQA Results}
+	Progress during each BOBYQA run
+	\includegraphics[width=0.9\textwidth]{THPAB155f2}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Approximate Pareto Front}
+	\centering
+	Trade off between emittance and bunch length
+	\includegraphics[width=0.9\textwidth]{THPAB155f1}
+\end{frame}
+
+
+\begin{frame}
+		\begin{minipage}{0.5\textwidth}
+						
+		\end{minipage}%\hspace{0.2cm}
+		\begin{minipage}{0.5\textwidth}
+			\begin{center}
+	
+			\end{center}
+		\end{minipage}
+\end{frame}
+
+
+\begin{frame}
+	\huge Thanks for your time!!\\ 
+	\vskip12pt
+	\large and special thanks to Andreas and Christof for always answering my OPAL-t questions by email. 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Backup: Optimized Gun Results}
+	\includegraphics[width=1.0\textwidth]{THPAB155f3}
+\end{frame}
+
 
 
 \end{document}

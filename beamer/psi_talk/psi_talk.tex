@@ -83,6 +83,7 @@
       \begin{itemize}
         \item{Charge 0.1-100nC}
         \item{Energy up to 70 MeV}
+        
       \end{itemize}
       \item{\underline{\textbf{Witness Line}}: $Mg$ cathode, 1 linac cavity}
       \begin{itemize}
@@ -90,23 +91,41 @@
         \item{Energy up to 15 MeV}
       \end{itemize}
     \end{itemize}
-    \item{Current experiments include:}
-    \begin{itemize}
-      \item{Two Beam Acceleration (TBA)}
-      \item{Dielectric accelerating and decelerating structure tests}
-      \item{Emittance Exchange (EEX)}
-      \item{Electron Radiography Imaging (ERI)}
-      \item{Cathode Studies}
-    \end{itemize}  
-  \end{itemize}
+\end{itemize}
+\centering
+ \includegraphics[width=0.55\linewidth]{./pics/drive_gun}
+
 }
 \end{frame}
 
 \begin{frame}
 \frametitle{AWA Facility}
-\includegraphics[width=0.49\linewidth]{./pics/drive_gun}\hfill\includegraphics[width=0.49\linewidth]{./pics/TBA_overhead}\\
-\includegraphics[width=0.49\linewidth]{./pics/dielectrics}\hfill\includegraphics[width=0.49\linewidth]{./pics/EEX}
+Current experiments include:
+    \begin{itemize}
+    	\item{Two Beam Acceleration (TBA)}
+    	\item{Dielectric accelerating and decelerating structure tests}
+    	\item{Beam line design for TBA = my thesis}
+    \end{itemize}
+    \vspace{0.5cm}
+\includegraphics[width=0.49\linewidth]{./pics/TBA_overhead}\hfill\includegraphics[width=0.49\linewidth]{./pics/dielectrics}
+
 \end{frame}
+
+\begin{frame}
+	\frametitle{AWA Facility}
+	Current experiments include:
+	\begin{itemize}
+		\item{Emittance Exchange (EEX)}
+		\item{Electron Radiography Imaging (ERI)}
+		\item{Cathode Studies}
+	\end{itemize}
+	\vspace{0.3cm}
+	\centering
+	\includegraphics[width=0.7\linewidth]{./pics/EEX}
+\end{frame}
+
+
+
 %--------------------------------------------------------------------------------------------
 \section{Gun Benchmark: ASTRA, GPT, OPAL-t}
 \begin{frame}
@@ -123,13 +142,15 @@
     \item{Spoiler: No major differences found at 1 nC}
         \begin{itemize}
         	\item However, a lot of work to match input parameters
-        	\item Some disagreement found in later work, when using NONEQUIL emission model at high charge
         \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Code Features}
+	\centering
+	Why I use OPAL...
+	\vspace{-0.2cm}
 	\begin{table}
 		\begin{minipage}{\textwidth}
 			\begin{center}
@@ -142,7 +163,7 @@
 			Windows     		& \cmark & \cmark & \xmark \\ 
 			Mac         		& \cmark & \cmark & \cmark \\
 			Linux       		& \cmark & \cmark & \cmark \\
-			Open Source 		& \xmark & \alert \xmark & \color{black!30!green}\cmark \\
+			Open Source 		& \alert \xmark & \alert \xmark & \color{black!30!green}\cmark \\
 			Parallel    		& \alert \xmark\footnote[1]{A parallel version is available at DESY} & \alert \xmark & \color{black!30!green}\cmark \\
 			Autophase   		& \cmark & \xmark & \cmark \\
 			Adaptive Time Step 	& \xmark & \cmark & \xmark \\
@@ -235,18 +256,18 @@
 \end{frame}
 
 %--------------------------------------------------------------------------------------------
-\section{Initial Python Optimization Results}
+\section{Linac Optimization}
 \begin{frame}
-	\frametitle{Initial Optimization Work (Linac only)}
+	\frametitle{Optimization using scalarization (Linac only)}
 	\Wider[4em]{
 	  \begin{minipage}{0.6\textwidth}
 	  \begin{itemize}
 	  	\item{Determine what emittance and bunch length we can expect from the linac}
-	  	\item{Understand beam at entrance of quads}
 	  	\begin{itemize}
+		  	\item{Understand beam at entrance of quads}
 	  		\item After $L_6$: $z_1=12.51$ m
 	  	\end{itemize}
-	  	\item{Used pre-packaged algorithm BOBYQA}
+	  	\item{Used algorithm BOBYQA from NLopt}
 	  	\item{Varied 10 parameters:}
 	  \end{itemize}
 	  \end{minipage}%
@@ -263,10 +284,10 @@
 		\begin{center}
 		\begin{tikzpicture}[scale=0.55]%,use optics
 		%Gun drawings
-		\draw[fill=orange, very thick, rounded corners =0.1cm] (\gunleft,0.5)rectangle (\gunright,1.5) node[pos=.5, white] {\textbf{Gun}} ;
+		\draw[fill=orange, very thick, rounded corners =0.1cm] (\gunleft-0.2,0.5)rectangle (\gunright,1.5) node[pos=.5, white] {\textbf{Gun}} ;
 		
 		%S1
-		\node[] at (-1.3,2.9) {$S_1$};
+		\node[] at (-1.5,2.9) {$S_1$};
 		\draw[ultra thick, fill=black!60!green] (-1.4,-0.5)rectangle  (-1.0,0.5) node[pos=.5, white] {} ;
 		\draw[black, ultra thick] (-1.4,-0.5) -- (-1.0,0.5);
 		\draw[black, ultra thick] (-1.4,0.5) -- (-1.0,-0.5);
@@ -334,7 +355,7 @@
 	  	\item{Solved 11 optimization problems $f(v,w)$ using BOBYQA}
 	 \end{itemize}
 	 \begin{gather*}
-	 w\in\left\{ 0, 0.1, \ldots, 1 \right\}\\ \\
+	 w\in\left\{ 0, \,0.1, \,0.2, \ldots, 1 \right\}\\ \\
 	 f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
 	 \end{gather*}
 	
@@ -351,13 +372,21 @@
 	\frametitle{Approximate Pareto Front}
 	\centering
 	Trade off between emittance and bunch length
-	\includegraphics[width=0.9\textwidth]{THPAB155f1}
+	\includegraphics[width=0.85\textwidth]{THPAB155f1}
+	\begin{itemize}
+		\item In total, 2,492 simulations made this plot.
+	\end{itemize}
 \end{frame}
 
-\section{New Beam line}
+\begin{frame}
+	\begin{center}
+		\url{www.mcs.anl.gov/~jlarson/AWA}.
+	\end{center}
+\end{frame}
+\section{Future Work}
 
 \begin{frame}
-	\frametitle{New beam line under design}
+	\frametitle{Beam line under design}
 	\Wider[4em]{
 		\def \gunleft {-1.0}
 		\def \gunright {0.3}
@@ -367,9 +396,10 @@
 		\def \lfourright {4.0}
 		\def \lfiveright {5.0}
 		\def \lsixright {6.0}
+		\def \quadone {7.5}
 		\centering
 		\begin{center}
-			\begin{tikzpicture}[scale=0.7]%,use optics
+			\begin{tikzpicture}[scale=0.6]%,use optics
 			%Gun drawings
 			\draw[fill=orange, very thick, rounded corners =0.1cm] (\gunleft,0.5)rectangle (\gunright,1.5) node[pos=.5, white] {\textbf{Gun}} ;
 			
@@ -412,47 +442,49 @@
 			
 			
 			%Quad drawings
-			\draw[fill=black!60!green] (7.8, 1.0) ellipse (0.2cm and 0.9cm);
-			\draw[fill=black!60!green] (8.3, 1.0) ellipse (0.2cm and 0.9cm);
-			\draw[fill=black!60!green] (8.8, 1.0) ellipse (0.2cm and 0.9cm);
-			\draw[fill=black!60!green] (9.3, 1.0) ellipse (0.2cm and 0.9cm);
+			\draw[fill=black!60!green] (\quadone, 1.0) ellipse (0.2cm and 0.9cm);
+			\draw[fill=black!60!green] (\quadone+0.5, 1.0) ellipse (0.2cm and 0.9cm);
+			\draw[fill=black!60!green] (\quadone+1.0, 1.0) ellipse (0.2cm and 0.9cm);
+			\draw[fill=black!60!green] (\quadone+1.5, 1.0) ellipse (0.2cm and 0.9cm);
+			
+			%Line between kicker and septum
+			\draw[very thick] (\lsixright+5.3,1.0) -- (12.5,0.7);
 			
 			%Kicker 
-			\draw[fill=orange, ultra thick, rounded corners =0.1cm] (\lsixright+4.2,0.5)rectangle ({\lsixright+0.84+5},1.5) node[pos=.5, white] {$Kicker$};
+			\draw[fill=orange, ultra thick, rounded corners =0.1cm] (\lsixright+3.5,0.5)rectangle ({\lsixright+0.84+4.6},1.5) node[pos=.5, white] {$Kicker$};
 			
-			\draw[very thick] (\lsixright+5.9,1.0) -- (14,-0.5);
-			
-			\node[] at (\lsixright+6.5,-1.0) {Septum};
-			\draw[fill=black!60!green, ultra thick, rounded corners =0.1cm] (\lsixright+7,0.5)rectangle ({\lsixright+8},-0.5) node[pos=.5, white] {$Kicker$};
+			%Septum
+			\node[] at (12.7,1.5) {Septum};
+			\draw[fill=black!60!green, ultra thick, rounded corners =0.1cm] (12.2,0.9)rectangle ({13.2},-0.1) node[pos=.5, white] {};
 			%\draw[latex-latex] (\gunleft,-5.0) -- (14,-5.0) ;
 			%\foreach \x in  {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5} %tick marks
 			%\draw[shift={(\x,-5.0)},color=black] (0pt,3pt) -- (0pt,-3pt);
 			%\foreach \x in {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5}
 			%\draw[shift={(\x,-5.2)},color=black] (0pt,0pt) node[below] {$\x$};
 			
+			%Line between kicker and septum
+			\draw[very thick] (13.25,0.2) -- (14.5,-0.5);
+			
+			%Dipole
+			\node[] at (15,-1.7) {Dipole};
+			\draw[fill=black!60!green, ultra thick, rounded corners =0.1cm] (14.5,0.0)rectangle ({15.6},-1.0) node[pos=.5, white] {};
+			
+			%Line between septum and dipole
+			\draw[very thick] (15.6,-0.5) -- (16.5,-0.5);
 			\end{tikzpicture}
 		\end{center}
+
 	}
-	Optimization Parameters
+	
+	Optimization Parameters:
 	\begin{itemize}
 		\item Four quads 
 		\item Distance between quads and septum
 		\item Distance between kicker and septum
 		\item Distance between septum and dipole
+		\item Plus, 10 variables in gun and linac 
 	\end{itemize}
 	
-\end{frame}
-
-
-\begin{frame}
-		\begin{minipage}{0.5\textwidth}
-						
-		\end{minipage}%\hspace{0.2cm}
-		\begin{minipage}{0.5\textwidth}
-			\begin{center}
-	
-			\end{center}
-		\end{minipage}
 \end{frame}
 
 
@@ -467,8 +499,19 @@
 	\includegraphics[width=1.0\textwidth]{THPAB155f3}
 \end{frame}
 
+\iffalse
 
-
+\begin{frame}
+	\begin{minipage}{0.5\textwidth}
+		
+	\end{minipage}%\hspace{0.2cm}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			
+		\end{center}
+	\end{minipage}
+\end{frame}
+\fi
 \end{document}
 
 

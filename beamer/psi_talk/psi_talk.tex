@@ -35,7 +35,7 @@
 	\makebox[0.95\paperwidth]{%
 		%\includegraphics[width=3cm,keepaspectratio]{IIT_logo}%
 		\hfill%
-		\includegraphics[width=3cm,keepaspectratio]{IIT_logo_blk}%
+		\includegraphics[width=2.5cm,keepaspectratio]{IIT_logo_blk}%
 	}%
 }
 
@@ -44,7 +44,7 @@
 
 %------------------------------------------------------
 \begin{document}
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}[page number]{}
 {
 	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{TitleANLMaroon}}
 	\logo{%
@@ -57,7 +57,7 @@
 	\frame{\titlepage}
 }
 
-\setbeamertemplate{footline}[page number]{}	
+%\setbeamertemplate{footline}[]{}	
 	
 % FRAME: overview
 \begin{frame}
@@ -257,6 +257,19 @@ Current experiments include:
 
 %--------------------------------------------------------------------------------------------
 \section{Linac Optimization}
+
+\begin{frame}
+    \frametitle{Linac Optimization: Code Used}
+    \begin{itemize}
+    	\setlength\itemsep{2em}
+        \item Used python library NLopt: \url{http://ab-initio.mit.edu/wiki/index.php/Main_Page}
+        
+        \item Code summary can be found at: \url{http://www.mcs.anl.gov/~jlarson/AWA}
+        
+        \item Complete repo at: \url{git@xgitlab.cels.anl.gov:jmlarson/emittance_minimization.git}
+    \end{itemize}	
+\end{frame}
+
 \begin{frame}
 	\frametitle{Optimization using scalarization (Linac only)}
 	\Wider[4em]{
@@ -378,11 +391,6 @@ Current experiments include:
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\begin{center}
-		\url{www.mcs.anl.gov/~jlarson/AWA}.
-	\end{center}
-\end{frame}
 \section{Future Work}
 
 \begin{frame}
@@ -492,6 +500,7 @@ Current experiments include:
 	\huge Thanks for your time!!\\ 
 	\vskip12pt
 	\large and special thanks to Andreas and Christof for always answering my OPAL-t questions by email. 
+	
 \end{frame}
 
 \begin{frame}

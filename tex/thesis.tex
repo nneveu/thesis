@@ -19,7 +19,7 @@
 \usepackage{rotating}           % This package is used for landscape mode.
 \usepackage{epsfig}
 \usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
-%\usepackage{siunitx}
+\usepackage{siunitx}
 
 %% Only for editing process...TAKE OUT for FINAL DRAFT
 \usepackage{graphicx,xcolor,enumitem}
@@ -96,7 +96,7 @@ short pulse, two-beam acceleration (TBA) scheme using
 wakefield power extractors, and accelerating structures made 
 of metallic materials was designed. 
 The goal of AWA is to demonstrate a gradient of
-%\SI{250}{MV/m}, using a TBA dielectric scheme. If successful, this would
+\SI{250}{MV/m}, using a TBA dielectric scheme. If successful, this would
 be the only facility in the world capable of such gradients used for
 acceleration of a beam.
 
@@ -109,11 +109,11 @@ the electric field is used to accelerate a second beam. This requires
 two complete and separate beamlines operating synchronously with each other.  
 The wakefield structures can be metallic or dielectric. Dielectric
 structures, having no irises, are simple to manufacture and have demonstrated
-%high gradient capability at \SI{100}{MV/m} \cite{WeiPaper}. 
+high gradient capability at \SI{100}{MV/m} \cite{WeiPaper}. 
 
 The Compact Linear Collider (CLIC) collaboration, proposes a similar TBA scheme with
-%a \SI{240}{ns} pulse design. This limits the acceleration gradient
-%to roughly \SI{150}{MV/m} at room temperature due to rf breakdown \cite{CLICdesignReport}.
+a \SI{240}{ns} pulse design. This limits the acceleration gradient
+to roughly \SI{150}{MV/m} at room temperature due to rf breakdown \cite{CLICdesignReport}.
 Higher gradients could be reached when driven by a very short drive
 beam pulse, such as the 20ns pulse length proposed by AWA \cite{WeiPaper}. 
 \nrnote{Understand and explain why short pulse can give higher gradients. 
@@ -121,12 +121,12 @@ Because higher peak power is tolerable, but average power stays the same?}
 While the two groups vary on approach, it is agreed that TBA would 
 require less infrastructure when constructing a linear TeV scale machine, 
 versus the cost of more conventional technology. 
-%For example, a case study was done using traditional \SI{50}{MW} klystron sources.
+For example, a case study was done using traditional \SI{50}{MW} klystron sources.
 It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
-%\SI{9.2}{TW} power specification in CLIC reports \cite{CLICdesignReport}. 
-%In comparison to CLIC's 48 km projected length to reach \SI{3}{TeV}, the Next Linear
-%Collider (NLC) collaboration projected a length of \SI{26}{km} using X-band klystrons,
-%only to reach an energy of \SI{1}{TeV}. %\cite{NLC}. 
+\SI{9.2}{TW} power specification in CLIC reports \cite{CLICdesignReport}. 
+In comparison to CLIC's 48 km projected length to reach \SI{3}{TeV}, the Next Linear
+Collider (NLC) collaboration projected a length of \SI{26}{km} using X-band klystrons,
+only to reach an energy of \SI{1}{TeV}. %\cite{NLC}. 
 The power supplied to the witness beam in TBA is similar to
 power provided by traditional accelerator technology. 
 The key difference is the amount of infrastructure and cost 
@@ -158,7 +158,7 @@ with the following beam dynamics analysis is shown here.
 
 % \lsnote{testing this }
 The AWA facility consist of two rf photoinjector electron guns operating
-%at \SI{1.3}{GHz}, and three subsequent beam lines. %\cite{AWAlayout}. 
+at \SI{1.3}{GHz}, and three subsequent beam lines. 
 Two of the beam lines are currently used for staged TBA, and the
 third is used for Emittance Exchange experiments (EEX). A layout of
 the facility is shown in Fig. \ref{fig:bunker}. 
@@ -167,14 +167,14 @@ The beam line located on the right side of Fig. \ref{fig:bunker} is called the
 drive line. The rf photoinjector on the drive line uses a semiconducting
 CsTe cathode, and is followed by a linear accelerator (linac). The
 drive linac uses six copper cavities and four klystrons to accelerate the drive beam
-%to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
+to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
 laser pulse can vary from 1, 2, 4, 6, and 8 bunches. When multiple bunches
 are generated, the grouping is called a bunch train. Generation of
 these variable bunch trains is accomplished by splitting the pulsed
 UV laser beam before it enters the gun and hits the cathode. The splitting
 takes place in a complex network of UV optics located near the drive
 gun. The optics set up is called a beam splitter, or mulitsplitter,
-%and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
+and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
 called a pulse, or the repetition rate of the machine. A picture of
 the AWA multisplitter table is shown in Fig. \ref{fig:optics}. Optimization 
 of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
@@ -300,9 +300,19 @@ simulations were done to minimize the emittance after the 6 cavity linac
 on the drive side. 
 
 
-\Chapter{Hardware Improvements and Installation}
+\Chapter{Hardware Improvements and Installation}%________________________________
 
 \Section{Laser Pulse Train Improvement} \label{sec:uvoptics}
+
+In order to generate the drive bunch trains needed for TBA, a UV laser pulse is split 
+by four optical splitters into trains of eight pulses. See Fig~\ref{fig:multisplit} 
+for optics configuration. Optical delay lines (two mirrors) near each splitter 
+separate pulses by extending the distance that each pulse travels. The length of each delay line 
+is a multiple of the repetition rate wavelength, 1.3 GHz. This produces a separation of 
+1 $\lambda$ between each UV pulse. Ideally, to extract maximum power from the train, 
+each electron bunch in the drive train would have the same amount of charge. 
+However, that would require perfect 50/50 splitters. The previously installed splitters were rated at a tolerance of ± 5\%, and a joule meter was used to measure the laser energy in pulses one through eight. The results indicated the ratio of reflection to transmission for each splitter was R/T ≈ 45/55. This caused an uneven laser intensity distribution, because the bunch intensity depends on the path it takes through the multisplitter optics. For example, laser pulses that are reflected on multiple splitters have the lowest intensities (when using the ± 5\% splitters). Consider the path of laser pulse four as shown in Fig. 2. The pulse is transmitted through split-ters 1, 2, and 4, but is reflected by splitter 3. Therefore, this bunch had a fairly high intensity, because it was transmitted multiple times. This trend was reflected in the electron bunch trains generated in the gun. In the worst case, the laser intensity of bunch six was 50\% that of bunch one, see Fig 3. 
+To improve the intensity distribution, splitters with a tolerance of ± 3\% were purchased, installed, and the laser energy was measured. The quality of the splitters was near tolerance again, and the bias leaned toward the re-flection, R/T ≈ 53/47. With the bias now reversed, the trend in intensity distribution is also reversed, see Fig 3. The possibility of using a combination of splitters from the ± 3\% and ± 5\% sets was explored. Using a python script to compare all possible combinations, it was de-termined that using only ± 3\% splitters would result in the lowest variation in the train intensity. 
 
 Electron bunches in a photoinjector are created through the photoelectric effect. 
 At the AWA, a pulsed UV laser is propagated through two relay lines of UV optics to either
@@ -312,14 +322,15 @@ splitting the original laser pulse into two pulses by a UV splitter on the
 ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
 bunch operation. The second pulse is sent to a UV multispitter table, shown in 
 Fig.~\ref{fig:multisplit} where it is split into trains of various lengths. Eight pulses are 
-used for TBA drive trains, and ideally, each pulse generated by the multisplitter would be exactly identical.
+used for TBA drive trains, 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[scale=0.4]{images/multisplitter}\caption{UV Multisplitter}
+		\includegraphics[scale=0.4]{images/multisplitter}\caption{UV Multisplitter optics table.
+			The drive gun is located to the right of this table.}
 	\end{center}
 	\label{fig:multisplit}
 \end{figure}
-While ideal is unattainable, improving the laser pulse train intensity distribution helps
+improving the laser pulse train intensity distribution helps
 produce an RF power pulse that is closer to uniform. This is key because the generated power depends on both the 
 charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. However, as no experiment is perfect, 
 several factors contribute to non-uniformity in the bunches. These include the cathode material
@@ -332,7 +343,7 @@ meaning each splitter has a slightly different value for transmitted (T) and ref
 Measurements of the UV splitters were done to determine the T/R ratio for 
 each splitter. The measurements took place in the laser room, close to the source of the laser.
 The setup included two power meters; one to measure the raw T/R values and one to measure 
-the background, ASC. This quantity is known to drift with temperature and operating time. 
+the background, ASE. This quantity is known to drift with temperature and operating time. 
 This is the main contributor to background shot to shot noise in the laser pulse. 
 The ASE value was measured when each T/R measurement was taken, then divided out of the T/R 
 measurements to prevent bias do to the background drifts. 

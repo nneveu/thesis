@@ -26,6 +26,9 @@
 \newcommand{\lsnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
 \newcommand{\nrnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
 \newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes,arrows,decorations.markings,shadows,positioning}
 
 \begin{document}
 
@@ -299,74 +302,6 @@ In order to optimize the beam entering the TBA experimental area,
 simulations were done to minimize the emittance after the 6 cavity linac
 on the drive side. 
 
-
-\Chapter{Hardware Improvements and Installation}%________________________________
-
-\Section{Laser Pulse Train Improvement} \label{sec:uvoptics}
-
-In order to generate the drive bunch trains needed for TBA, a UV laser pulse is split 
-by four optical splitters into trains of eight pulses. See Fig~\ref{fig:multisplit} 
-for optics configuration. Optical delay lines (two mirrors) near each splitter 
-separate pulses by extending the distance that each pulse travels. The length of each delay line 
-is a multiple of the repetition rate wavelength, 1.3 GHz. This produces a separation of 
-1 $\lambda$ between each UV pulse. Ideally, to extract maximum power from the train, 
-each electron bunch in the drive train would have the same amount of charge. 
-However, that would require perfect 50/50 splitters. The previously installed splitters were rated at a tolerance of ± 5\%, and a joule meter was used to measure the laser energy in pulses one through eight. The results indicated the ratio of reflection to transmission for each splitter was R/T ≈ 45/55. This caused an uneven laser intensity distribution, because the bunch intensity depends on the path it takes through the multisplitter optics. For example, laser pulses that are reflected on multiple splitters have the lowest intensities (when using the ± 5\% splitters). Consider the path of laser pulse four as shown in Fig. 2. The pulse is transmitted through split-ters 1, 2, and 4, but is reflected by splitter 3. Therefore, this bunch had a fairly high intensity, because it was transmitted multiple times. This trend was reflected in the electron bunch trains generated in the gun. In the worst case, the laser intensity of bunch six was 50\% that of bunch one, see Fig 3. 
-To improve the intensity distribution, splitters with a tolerance of ± 3\% were purchased, installed, and the laser energy was measured. The quality of the splitters was near tolerance again, and the bias leaned toward the re-flection, R/T ≈ 53/47. With the bias now reversed, the trend in intensity distribution is also reversed, see Fig 3. The possibility of using a combination of splitters from the ± 3\% and ± 5\% sets was explored. Using a python script to compare all possible combinations, it was de-termined that using only ± 3\% splitters would result in the lowest variation in the train intensity. 
-
-Electron bunches in a photoinjector are created through the photoelectric effect. 
-At the AWA, a pulsed UV laser is propagated through two relay lines of UV optics to either
-the drive or witness gun. An in-vacuum mirror then directs the pulse to the photocathode.
-When TBA experiments are run, both beam lines are operated simultaneously. This is accomplished by
-splitting the original laser pulse into two pulses by a UV splitter on the 
-ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
-bunch operation. The second pulse is sent to a UV multispitter table, shown in 
-Fig.~\ref{fig:multisplit} where it is split into trains of various lengths. Eight pulses are 
-used for TBA drive trains, 
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale=0.4]{images/multisplitter}\caption{UV Multisplitter optics table.
-			The drive gun is located to the right of this table.}
-	\end{center}
-	\label{fig:multisplit}
-\end{figure}
-improving the laser pulse train intensity distribution helps
-produce an RF power pulse that is closer to uniform. This is key because the generated power depends on both the 
-charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. However, as no experiment is perfect, 
-several factors contribute to non-uniformity in the bunches. These include the cathode material
-(i.e. slightly different QE along the surface), shot to shot noise in the laser pulse, 
-distortion due to traveling through air, and the quality of the optics. The last is especially important 
-in determining the intensity of each laser pulse in the train.  The UV optics are not perfect, 
-meaning each splitter has a slightly different value for transmitted (T) and reflected (R) pulses. 
-
-\Subsection{UV Splitter Measurements} \label{sec:splitmeasure}
-Measurements of the UV splitters were done to determine the T/R ratio for 
-each splitter. The measurements took place in the laser room, close to the source of the laser.
-The setup included two power meters; one to measure the raw T/R values and one to measure 
-the background, ASE. This quantity is known to drift with temperature and operating time. 
-This is the main contributor to background shot to shot noise in the laser pulse. 
-The ASE value was measured when each T/R measurement was taken, then divided out of the T/R 
-measurements to prevent bias do to the background drifts. 
-Several configurations were tested this way: S-polarization, P-polarization, 
-and laser incident on back or front of the coating. Whether the laser pulse hit the front or back of the optic
-had no measurable effect on the T/R ratio. Polarization did have a significant effect on
-the results, which led to more careful observation of this in the future.
-The following plot shows the splitters were performing at about 55/45 ratio, meaning
-pulses that were reflected more than one time could have significantly lower intensities than other bunches. 
-\begin{figure}[h]
-	\begin{center}
-		%\includegraphics[scale=0.5]{images/orig_train_intensity}\caption{Original Pulse Train Intensity}
-	\end{center}
-	\label{fig:origtrain}
-\end{figure}
-
-\Subsection{Pulse Train Intensity Measurements} The results in \ref{sec:splitmeasure} predict that
-bunches that are transmitted multiple times will contain lower intensity than other
-bunches depending on the path through the multisplitter.
-by 1$\lambda$ in space by a mirror delay leg. 
-
-\footnote{My Footnote} 
-
 \Section{Kicker}
 
 \Subsection{Kicker Design}
@@ -423,6 +358,137 @@ From these equations, variable parameters include the gap height, length of the 
 the kinetic energy of the beam. The largest drive beam energy achievable at the AWA is 75 MeV. 
 Thesis work will include the optimization of these parameters to obtain the largest angle possible.
 Simulations have begun to set boundary conditions on the variable parameters. 
+
+
+
+\Chapter{Hardware Improvements and Installation}%________________________________
+
+\Section{Laser Pulse Train Improvement} \label{sec:uvoptics}
+
+In order to generate the drive bunch trains needed for TBA, a UV laser pulse is split 
+by four optical splitters into trains of eight pulses. See Fig~\ref{fig:multisplit} 
+for optics configuration.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=1.0\textwidth]{images/multisplitter}\caption{UV multisplitter optics table.}
+			%The drive gun is located to the right of this table.}
+	\end{center}
+	\label{fig:multisplit}
+\end{figure}
+Optical delay lines (two mirrors) near each splitter 
+separate pulses in space and time by extending the distance that each pulse travels. 
+The length of each delay line is a multiple of the repetition rate wavelength, 1.3 GHz. 
+This produces a separation of 1 $\lambda$ between each UV pulse. 
+Ideally, to extract maximum power from the train, 
+each electron bunch in the drive train would have the same amount of charge. 
+However, that would require splitters with a perfect reflection to transmission ratio (T/R = 50/50).
+The previously installed splitters were rated at a tolerance of 50 \%± 5\%, 
+and a joule meter was used to measure the energy in laser pulses one through eight. 
+The results indicated the ratio of reflection to transmission for each splitter was T/R ≈ 55/45. 
+This caused an uneven laser intensity distribution, because the bunch intensity depends on the path 
+it takes through the multisplitter optics. For example, laser pulses that are reflected on multiple 
+splitters have the lowest intensities (when using the ± 5\% splitters). 
+Consider the path of laser pulse four as shown in Fig.~\ref{fig:tikz}. 
+\def \delayvertical {1.5}
+\def \delayoneleft {5.0}
+\def \delaytworight{10.0}
+
+\def \sone {-0.5}
+\def \stwo {\sone+1.5}
+\def \sthree {\stwo+1.5}
+\def \sfour {\sthree+1.5}
+
+\begin{figure*}
+	\centering
+	\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+		\node[] at (3.5,4.5) {$T$};
+		\node[] at (3.5,3.0) {$R$};
+		\node[] at (3.5,1.5) {$T$};
+		\node[] at (3.5,0.0) {$T$};
+		\draw[very thick] (10.5,\sone) -- (9.5,\sone+1); % Splitter 1
+		\draw[very thick] (10.5,\stwo) -- (9.5,\stwo+1); % Splitter 2
+		\draw[very thick] (10.5,\sthree) -- (9.5,\sthree+1); % Splitter 3
+		\draw[very thick] (10.5,\sfour) -- (9.5,\sfour+1); % Splitter 4
+		
+		\draw[cyan, very thick] (\delayoneleft,0.0) -- (20.0,0.0); % Incoming pulse line
+		\draw[cyan,very thick] (\delayoneleft,0.0) -- (\delayoneleft,\delayvertical); % Delay Leg 1 (a)
+		\draw[cyan,very thick] (\delayoneleft,\delayvertical) -- (15,\delayvertical); % Pulse after delay 1
+		
+		\draw[cyan,very thick] (\delaytworight,\delayvertical*2) -- (15,\delayvertical*2);
+		\draw[cyan,very thick] (15,\delayvertical) -- (15,\delayvertical+1.5);
+		\draw[cyan,very thick] (10,\delayvertical*2) -- (10,\delayvertical*4);
+		
+		
+			
+		\end{tikzpicture}
+	\end{center} \label{fig:tikz}
+\caption{Laser pulse path through multisplitter. T indicates when the laser pulse is 
+	transmitted through the splitter, and R stands for when the laser pulse is reflected by the splitter.}
+\end{figure*}
+
+The pulse is transmitted through split-ters 1, 2, and 4, but is reflected by splitter 3. Therefore, this bunch had a fairly high intensity, because it was transmitted multiple times. This trend was reflected in the electron bunch trains generated in the gun. In the worst case, the laser intensity of bunch six was 50\% that of bunch one, see Fig 3. 
+To improve the intensity distribution, splitters with a tolerance of ± 3\% were purchased, installed, and the laser energy was measured. The quality of the splitters was near tolerance again, and the bias leaned toward the re-flection, R/T ≈ 53/47. With the bias now reversed, the trend in intensity distribution is also reversed, see Fig 3. The possibility of using a combination of splitters from the ± 3\% and ± 5\% sets was explored. Using a python script to compare all possible combinations, it was de-termined that using only ± 3\% splitters would result in the lowest variation in the train intensity. 
+
+Electron bunches in a photoinjector are created through the photoelectric effect. 
+At the AWA, a pulsed UV laser is propagated through two relay lines of UV optics to either
+the drive or witness gun. An in-vacuum mirror then directs the pulse to the photocathode.
+When TBA experiments are run, both beam lines are operated simultaneously. This is accomplished by
+splitting the original laser pulse into two pulses by a UV splitter on the 
+ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
+bunch operation. The second pulse is sent to a UV multispitter table, shown in 
+Fig.~\ref{fig:multisplit} where it is split into trains of various lengths. Eight pulses are 
+used for TBA drive trains, 
+
+improving the laser pulse train intensity distribution helps
+produce an RF power pulse that is closer to uniform. This is key because the generated power depends on both the 
+charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. However, as no experiment is perfect, 
+several factors contribute to non-uniformity in the bunches. These include the cathode material
+(i.e. slightly different QE along the surface), shot to shot noise in the laser pulse, 
+distortion due to traveling through air, and the quality of the optics. The last is especially important 
+in determining the intensity of each laser pulse in the train.  The UV optics are not perfect, 
+meaning each splitter has a slightly different value for transmitted (T) and reflected (R) pulses. 
+
+\Subsection{UV Splitter Measurements} \label{sec:splitmeasure}
+Measurements of the UV splitters were done to determine the T/R ratio for 
+each splitter. The measurements took place in the laser room, close to the source of the laser.
+The setup included two power meters; one to measure the raw T/R values and one to measure 
+the background, ASE. This quantity is known to drift with temperature and operating time. 
+This is the main contributor to background shot to shot noise in the laser pulse. 
+The ASE value was measured when each T/R measurement was taken, then divided out of the T/R 
+measurements to prevent bias do to the background drifts. 
+Several configurations were tested this way: S-polarization, P-polarization, 
+and laser incident on back or front of the coating. Whether the laser pulse hit the front or back of the optic
+had no measurable effect on the T/R ratio. Polarization did have a significant effect on
+the results, which led to more careful observation of this in the future.
+The following plot shows the splitters were performing at about 55/45 ratio, meaning
+pulses that were reflected more than one time could have significantly lower intensities than other bunches. 
+\begin{figure}[h]
+	\begin{center}
+		%\includegraphics[scale=0.5]{images/orig_train_intensity}\caption{Original Pulse Train Intensity}
+	\end{center}
+	\label{fig:origtrain}
+\end{figure}
+
+\Subsection{Pulse Train Intensity Measurements} The results in \ref{sec:splitmeasure} predict that
+bunches that are transmitted multiple times will contain lower intensity than other
+bunches depending on the path through the multisplitter.
+by 1$\lambda$ in space by a mirror delay leg. 
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=1.0\textwidth]{images/splitter_improvement}\caption{Pulse Train Intensity Measurements}
+	\end{center}
+	\label{fig:origtrain}
+\end{figure}
+
+
+\Section{RF Measurements}
+In order to accurately simulate the RF fields in the cavities on the drive and witness line, 
+a set of detailed measurements were done to determine the power in each cavity. 
+Measurements started with the drive gun. 
+
+\footnote{My Footnote} 
 
 \Subsection{Kicker Installation and Tests}
 

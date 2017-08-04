@@ -15,20 +15,22 @@
 %
 % See Help file for more about options.
 
-\usepackage[dvips]{graphicx}    % This package is used for Figures
+\usepackage{graphicx}    % This package is used for Figures
 \usepackage{rotating}           % This package is used for landscape mode.
 \usepackage{epsfig}
 \usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
 \usepackage{siunitx}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes,arrows,decorations.markings,shadows,positioning}
 
 %% Only for editing process...TAKE OUT for FINAL DRAFT
 \usepackage{graphicx,xcolor,enumitem}
 \newcommand{\lsnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
 \newcommand{\nrnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
 \newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
-\usepackage{tikz}
-\usetikzlibrary{shapes.misc}
-\usetikzlibrary{shapes,arrows,decorations.markings,shadows,positioning}
+
 
 \begin{document}
 
@@ -388,7 +390,7 @@ by five optical splitters into two trains of eight pulses.
 The optics set up is shown in Fig~\ref{fig:multisplit}. 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=0.5\textwidth]{images/multisplitter}\caption{UV multisplitter optics table.}
+		%\includegraphics[width=0.5\textwidth]{images/multisplitter}\caption{UV multisplitter optics table.}
 	\end{center}
 	\label{fig:multisplit}
 \end{figure}
@@ -448,13 +450,13 @@ The pulse is transmitted through splitters 1, 2, and 4, but is reflected by spli
 		\draw[very thick] (10.5,\sthree) -- (9.5,\sthree+1); % Splitter 3
 		\draw[very thick] (10.5,\sfour) -- (9.5,\sfour+1); % Splitter 4
 		
-		\draw[cyan, very thick] (\delayoneleft,0.0) -- (20.0,0.0); % Incoming pulse line
-		\draw[cyan,very thick] (\delayoneleft,0.0) -- (\delayoneleft,\delayvertical); % Delay Leg 1 (a)
-		\draw[cyan,very thick] (\delayoneleft,\delayvertical) -- (15,\delayvertical); % Pulse after delay 1
+		\draw[cyan, very thick] (\delayoneleft,0.0) -- (20.0,0.0) % Incoming pulse line
+		to(\delayoneleft,0.0) -- (\delayoneleft,\delayvertical) % Delay Leg 1 (a)
+		to(\delayoneleft,\delayvertical) -- (15,\delayvertical); % Pulse after delay 1
 		
-		\draw[cyan,very thick] (\mycenter,\delayvertical*2) -- (\delaytworight,\delayvertical*2);
-		\draw[cyan,very thick] (\delaytworight,\delayvertical) -- (\delaytworight,\delayvertical+1.5);
-		\draw[cyan,very thick] (\mycenter,\delayvertical*2) -- (\mycenter,\delayvertical*4);
+		\draw[cyan,very thick] (\mycenter,\delayvertical*2) -- (\delaytworight,\delayvertical*2)
+		to(\delaytworight,\delayvertical) -- (\delaytworight,\delayvertical+1.5)
+		to(\mycenter,\delayvertical*2) -- (\mycenter,\delayvertical*4);
 		
 		\draw[cyan, very thick] (9.7,5.5) -- (10.0,6.0); % arrow head left
 		\draw[cyan, very thick] (10.0,6.0) -- (10.3,5.5); % arrow head right
@@ -462,14 +464,13 @@ The pulse is transmitted through splitters 1, 2, and 4, but is reflected by spli
 		\node[] at (18,0.5) {Laser pulse};
 		
 		\node[] at (8.75,-1.7) {$1\lambda$};
-		\draw[black, very thick] (\delayoneleft, -1) -- (\mycenter, -1);
+		\draw[black, very thick] (\delayoneleft, -1) -- (\delaytworight, -1);
 		\draw[black, very thick] (\delayoneleft, -1.5) -- (\delayoneleft, -0.5);
 		\draw[black, very thick] (\mycenter, -1.5) -- (\mycenter, -0.5);
 		
 		\node[] at (12.5,-1.7) {$2\lambda$};
-		\draw[black, very thick] (\mycenter, 3.5+\buffer) -- (\delaytworight, 3.5+\buffer);
 		\draw[black, very thick] (\delaytworight, 3.0+\buffer) -- (\delaytworight, 4.0+\buffer);
-		\draw[black, very thick] (\mycenter, 4.0+\buffer) -- (\mycenter, 3.0+\buffer);
+
 		\end{tikzpicture}
 	\end{center} 
 	\caption{Example of one laser pulse path through multisplitter. T indicates when the laser pulse is 
@@ -514,7 +515,7 @@ set up.
 	\end{center}
 	\label{fig:origtrain}
 \end{figure}
-The predictions in Eqs.~\ref{eq;i4-eqi6} don't account for mirror losses in the delay legs, 
+The predictions in Eqs.~\ref{eq;i4, eqi6} don't account for mirror losses in the delay legs, 
 so we expect some discrepancy there. However, the measured till agrees well with predictions. 
 Accounting for the last splitter, and normalizing to bunch one: 
 
@@ -523,8 +524,52 @@ Accounting for the last splitter, and normalizing to bunch one:
 
 \Section{RF Measurements}
 In order to accurately simulate the RF fields in the cavities on the drive and witness line, 
-a set of detailed measurements were done to determine the power in each cavity. 
+a set of detailed measurements were done to determine the power in each RF cavity.
 Measurements started with the drive gun. 
+
+\Subsection{Drive Gun Measurements} 
+\def \delayvertical {1.5}
+\begin{figure*}[h]
+	\begin{center}		
+		\begin{circuitikz}[scale=0.7]
+		\draw (0,0) to[csV=Gun] (2,0);
+		
+		%Short blue RF cable 
+		\node[] at (3.5,1) {RF cable};
+		\node[tlinestub] at (2,0){};
+		\node[] at (3.5,-1) {Short heliax};
+		
+		%Long RF cable
+		\node[] at (10,1) {RF cable};
+		\draw[] (4.6,0) to[short,-] ++(4,0);
+		\node[tlinestub] at (8.5,0){};
+		\node[] at (10,-1) {Long heliax to control room};
+		
+		%Short yellow RF cable
+		\node[] at (20,1) {RF cable};
+		\draw[] (4.6,0) to[short,-] ++(4,0);
+		\node[tlinestub] at (18.5,0){};
+		\node[] at (20,-1) {Heliax to 6Ghz scope or power meter};
+		
+		
+		\end{circuitikz}
+	\end{center} 
+	\caption{Experimental set up when measuring power in drive gun from the control room.}
+	\label{fig:tikzdrivegun}
+\end{figure*}
+
+
+
+\def \delayvertical {1.5}
+\begin{figure*}[h]
+	\begin{center}		
+		\begin{circuitikz}[scale=0.7]
+
+		\end{circuitikz}
+	\end{center} 
+	\caption{Experimental set up when calibrating cables connected to drive gun and 6 GHz scope.}
+	\label{fig:tikzcalibration}.
+\end{figure*}
 
 \Subsection{Kicker Installation and Tests}
 

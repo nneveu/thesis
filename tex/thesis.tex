@@ -527,7 +527,7 @@ In order to accurately simulate the RF fields in the cavities on the drive and w
 a set of detailed measurements were done to determine the power in each RF cavity.
 Measurements started with the drive gun. 
 
-\Subsection{Drive Gun Measurements} 
+\Subsection{Cable Calibration} 
 \def \delayvertical {1.5}
 \begin{figure*}[h]
 	\begin{center}		
@@ -537,7 +537,7 @@ Measurements started with the drive gun.
 		%Short blue RF cable 
 		\node[] at (3.5,1) {RF cable};
 		\node[tlinestub] at (2,0){};
-		\node[] at (3.5,-1) {Short heliax};
+		\node[] at (3.5,-1) {Short blue heliax};
 		
 		%Long RF cable
 		\node[] at (10,1) {RF cable};
@@ -549,17 +549,17 @@ Measurements started with the drive gun.
 		\node[] at (20,1) {RF cable};
 		\draw[] (4.6,0) to[short,-] ++(4,0);
 		\node[tlinestub] at (18.5,0){};
-		\node[] at (20,-1) {Heliax to 6Ghz scope or power meter};
+		\node[] at (20,-1) {Yellow heliax to 6Ghz scope or power meter};
 		
 		
 		\end{circuitikz}
 	\end{center} 
-	\caption{Experimental set up when measuring power in drive gun from the control room.}
+	\caption{Experimental set up calibrating the cables from gun to control room.}
 	\label{fig:tikzdrivegun}
 \end{figure*}
 
 
-
+\Subsection{Drive Gun Measurements}
 \def \delayvertical {1.5}
 \begin{figure*}[h]
 	\begin{center}		
@@ -567,7 +567,7 @@ Measurements started with the drive gun.
 
 		\end{circuitikz}
 	\end{center} 
-	\caption{Experimental set up when calibrating cables connected to drive gun and 6 GHz scope.}
+	\caption{Experimental set up when measuring power in drive gun from the control room.}
 	\label{fig:tikzcalibration}.
 \end{figure*}
 

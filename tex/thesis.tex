@@ -537,26 +537,29 @@ Measurements started with the drive gun.
 		\draw (0,0) to[csV=Gun] (2,0);
 		
 		%Short blue RF cable 
-		\node[] at (3.5,1) {RF cable};
+		\node[] at (3.5,1) {$C_{1}$};
 		\node[tlinestub] at (2,0){};
-		\node[] at (3.5,-1) {Short blue heliax};
+		\node[] at (3.5,-1) {};
 		
 		%Long RF cable
-		\node[] at (10,1) {RF cable};
+		\node[] at (7,1) {$C_{2}$};
 		\draw[] (4.6,0) to[short,-] ++(4,0);
+		\draw[] (9,0) to[short,-] ++(7,0);
 		\node[tlinestub] at (8.5,0){};
-		\node[] at (10,-1) {Long heliax to control room};
+		\node[] at (10,-1) {};
 		
 		%Short yellow RF cable
-		\node[] at (20,1) {RF cable};
+		\node[] at (15,1) {$C_{3}$};
 		\draw[] (4.6,0) to[short,-] ++(4,0);
-		\node[tlinestub] at (18.5,0){};
-		\node[] at (20,-1) {Yellow heliax to 6Ghz scope or power meter};
+		\node[tlinestub] at (12,0){};
+		%\node[] at (17,-1) {};
 		
 		
 		\end{circuitikz}
 	\end{center} 
-	\caption{Experimental set up calibrating the cables from gun to control room.}
+	\caption{Experimental set up calibrating the cables from gun to control room. 
+		Where $C_1$ is a short blue heliax, $C_2$ is a long heliax to the control room, 
+	and $C_3$ is a short yellow heliax to the 6 GHz scope.}
 	\label{fig:tikzdrivegun}
 \end{figure*}
 

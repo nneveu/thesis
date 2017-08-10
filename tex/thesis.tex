@@ -374,24 +374,22 @@ Simulations have begun to set boundary conditions on the variable parameters.
 
 \Section{Laser Pulse Train Improvement} \label{sec:uvoptics}
 
-improving the laser pulse train intensity distribution helps
+Improving the laser pulse train intensity distribution helps
 produce an RF power pulse that is closer to uniform. This is key because the generated power depends on both the 
 charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. However, as no experiment is perfect, 
 several factors contribute to non-uniformity in the bunches. These include the cathode material
 (i.e. slightly different QE along the surface), shot to shot noise in the laser pulse, 
 distortion due to traveling through air, and the quality of the optics. The last is especially important 
-in determining the intensity of each laser pulse in the train.  The UV optics are not perfect, 
-meaning each splitter has a slightly different value for transmitted (T) and reflected (R) pulses. 
+in determining the intensity of each laser pulse in the train.  
+Each splitter has a slightly different value for transmitted (T) and reflected (R) pulses. 
 
 \Subsection{UV Optics} 
 In order to generate the drive bunch trains needed for TBA, a UV laser pulse is split 
 by five optical splitters into two trains of eight pulses. 
-The optics set up is shown in Fig~\ref{fig:multisplit}. 
-
-Optical delay lines (two mirrors) near each splitter 
+The optics set up is shown in Fig~\ref{fig:optics}. Optical delay lines (two mirrors) near each splitter 
 separate pulses in space and time by extending the distance that each pulse travels. 
 The length of each delay line is a multiple of the RF frequency, 1.3 GHz. 
-In other words, a separation of $1\lambda=\SI{769}{ps}$ between each UV pulse. 
+In other words, a separation of $1\lambda=\SI{769}{ps}$ between each UV pulse is created. 
 This is done to synchronize the laser pulses with the RF supplied to the gun.
 Ideally, to extract maximum power from the train, each electron bunch would have the same amount of charge. 
 That would require splitters with a perfect transmission to reflection ratio ($T/R = 50/50$).
@@ -401,10 +399,11 @@ The previously installed splitters were rated at a tolerance of $50\%\pm5\%$.
 Measurements of the UV splitters were done to determine the T/R ratio for 
 each splitter. The measurements took place in the laser room, close to the source of the laser.
 The setup included two joule meters; one to measure the raw T/R values and one to measure 
-the background, ASE. This quantity is known to drift with temperature and operating time, 
-and is the main contributor to background shot to shot noise in the laser pulse. 
+the background. Amplified Spontaneous Emission (ASE), 
+is the main contributor to background shot to shot noise in the laser pulse,
+and is known to drift with temperature and operating time. 
 The ASE value was measured when each T/R measurement was taken, then divided out of the T/R 
-measurements to prevent bias do to the background drifts. 
+measurements to prevent bias due to background drifts. 
 
 Several configurations were tested this way: S-polarization, P-polarization, 
 and laser incident on back or front of the coating. 
@@ -415,7 +414,7 @@ The following plot shows the splitters were performing at about 55/45 ratio,
 The results indicated the ratio of reflection to transmission for each splitter ranged from 
 $T/R\approx55/45$ to $53/47$. 
 This caused an uneven laser intensity distribution, as the bunch intensity depends on the path 
-it takes through the multisplitter optics, meaning pulses that were reflected more than one
+it takes through the multisplitter optics. Pulses that were reflected more than one
 time could have significantly lower intensities than other bunches. 
 Consider the path of laser pulse four as shown in Fig.~\ref{fig:tikz}. 
 The pulse is transmitted through splitters 1, 2, and 4, but is reflected by splitter 3.
@@ -467,15 +466,15 @@ The pulse is transmitted through splitters 1, 2, and 4, but is reflected by spli
 
 		\end{tikzpicture}
 	\end{center} 
-	\caption{Example of one laser pulse path through multisplitter. T indicates when the laser pulse is 
+	\caption{Example of a laser pulse path through multisplitter. T indicates when the laser pulse is 
 		transmitted through the splitter, and R stands for when the laser pulse is reflected by the splitter. 
-		The operating wavelength is $\lambda = \SI{1.3}{GHz}$. Bends are accomplished with two UV mirrors, 
+		The operating wavelength is $\lambda = \SI{23}{cm}$. Bends are accomplished with two UV mirrors, 
 		one at each corner of the delay line.}
 	\label{fig:tikz}
 \end{figure*}
 
  
-Each splitter reduces the intensity of the pulse as a new one is generated. Expected intensities
+Each splitter reduces the intensity of the pulse as a new pulse is generated. Expected intensities
 can be predicted by using the measured T/R values for each splitter. For example, using $T/R=55/45$,
 in Fig~\ref{fig:tikz} the laser pulse is transmitted four times and reflected once: 
 \begin{equation}\label{eq:i4}
@@ -500,8 +499,9 @@ $\pm3\%$ splitters would result in the lowest variation in intensity.
 
 \Subsection{Train Intensity Measurements}
 To verify the predictions above, and show improvement using the $\pm3\%$,
-the intensity of bunches one through eight were measured using four splitters. This simplified the 
-experimental set up, and reduced interruption to beam time runs which were currently using the four splitter
+the intensity of bunches one through eight were measured using four splitters. 
+This simplified the experimental set up, and reduced interruption to beam time 
+runs which were using the four splitter
 set up.  
 \begin{figure}[h]
 	\begin{center}
@@ -509,12 +509,20 @@ set up.
 	\end{center}
 	\label{fig:origtrain}
 \end{figure}
-The predictions in Eqs.~\ref{eq;i4, eqi6} don't account for mirror losses in the delay legs, 
-so we expect some discrepancy there. However, the measured till agrees well with predictions. 
-Accounting for the last splitter, and normalizing to bunch one: 
+The predictions in Eqs.~\ref{eq:i4} and~\ref{eq:i6} don't account for mirror losses in the delay legs, 
+so we expect a lower value in experiment. To do a quick check on whether or not these results are 
+expected, consider laser pulse one and only four splitters (as was the experimental set up). 
+Laser pulse one has a similar path to laser pulse four (Eq.~\ref{eq:i4}). 
 
-%$I_4 = 0.88\cdot 0.55 = 0.48$ \\
-%$I_6 = 0.47 \cdot 0.55 = 0.26$
+\begin{equation}
+	I_1 = R \cdot T \cdot T \cdot T \cdot I_0 
+\end{equation}
+
+Given about $\pm10\%$ mirror loss in the delay legs, we expect laser pulse one and four 
+to be roughly the same intensity. This is shown in Fig.~\ref{fig:origtrain}. With the same 
+logic, we expect pulse six to have the largest deviation from pulse one, as it is reflected 
+three times and transmitted once in the four splitter set up. This expectation is also 
+confirmed by the results in Fig.~\ref{fig:origtrain}.
 
 \Section{RF Measurements}
 In order to accurately simulate the RF fields in the cavities on the drive and witness line, 

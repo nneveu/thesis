@@ -93,30 +93,26 @@
 \Section{Motivation} \label{sec:motivation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lsnote{\sout{If there is ever a} A} new generation of accelerators dedicated to High Energy Physics
-(HEP), \lsnote{\sout{they will} would likely} be of the TeV scale. Reduction in the size and cost
+A new generation of accelerators dedicated to High Energy Physics
+(HEP), would likely be of the TeV scale. Reduction in the size and cost
 of such machines is key to their feasibility, and can be accomplished
 through accelerator technology R\&D. Investigation into a 
-high gradient candidate for future HEP machines \lsnote{\sout{was underway} is an active research area}
+high gradient candidate for future HEP machines is an active research area
 at the Argonne Wakefield Accelerator (AWA) facility. A
 short pulse, two-beam acceleration (TBA) scheme using 
 wakefield power extractors, and accelerating structures made 
-of metallic materials was \lsnote{\sout{designed} demonstrated[ref]}. 
-\lsnote{\sout{The} A} goal of \lsnote{the} AWA \lsnote{group} is to demonstrate a gradient of
-\SI{250}{MV/m}, using a TBA dielectric scheme. If successful, this would
+of metallic materials was demonstrated~\cite{recent-tba}. 
+A goal of the AWA group is to demonstrate fully staged TBA, 
+achieving a gradient of 250 MV/m. If successful, this would
 be the only facility in the world capable of such gradients used for
 acceleration of a beam.
 
-\lsnote{In the second to last sentence above, I would be inclined to say `A goal of the AWA group is to demonstrate fully staged TBA, achieving a gradient of 250 MV/m.'  The phrase `dielectric scheme' is not yet well defined, and your particular thesis topic centers on the fully staged aspect.}
-
-\lsnote{\sout{Despite the advantage of higher gradients, there is still experimental work
-needed to prove dielectric TBA is a viable candidate for implementation at an HEP or user facility.}}
 TBA requires a drive beam to pass through a decelerating structure and
-lose energy through wakefield generation. The electromagnetic wake
+loss of energy through wakefield generation. The electromagnetic wake
 is coupled from the decelerator into an accelerating structure, where
-the electric field is used to accelerate a second beam. \lsnote{In order to have equivalent power 
-generation for each stage, \sout{This requires}}
-two complete and separate beamlines operating synchronously with each other \lsnote{are required}.  
+the electric field is used to accelerate a second beam. In order to have equivalent power 
+generation for each stage, two complete and separate beamlines 
+operating synchronously with each other are required.  
 The wakefield structures can be metallic or dielectric. Dielectric
 structures, having no irises, are simple to manufacture and have demonstrated
 high gradient capability at \SI{100}{MV/m} \cite{WeiPaper}. 
@@ -128,7 +124,7 @@ Higher gradients could be reached when driven by a very short drive
 beam pulse, such as the 20ns pulse length proposed by AWA \cite{WeiPaper}. 
 \nrnote{Understand and explain why short pulse can give higher gradients. 
 Because higher peak power is tolerable, but average power stays the same?}
-While the two groups vary on approach, \lsnote{\sout{it is agreed} they agree} that TBA would 
+While the two groups vary on approach, they agree that TBA would 
 require less infrastructure when constructing a linear TeV scale machine, 
 versus the cost of more conventional technology. 
 For example, a case study was done \lsnote{comparing the infrastructure needed when} using traditional \SI{50}{MW} klystron sources.
@@ -147,10 +143,10 @@ infrastructure, and therefore lower cost, in the case of a high energy machine.
 
 \lsnote{This next section of text should be a summary of what was done for your thesis, what the results were, and why they were important. Perhaps mapping them to the corresponding sections of your thesis.  The AWA facility and following sections should probably be in the next chapter.  You probably can't write these paragraphs until finishing your work.}
 
-Before a \lsnote{\sout{true study} detailed understanding} of the power and infrastructure trade offs 
-can be \lsnote{\sout{done} obtained}, the feasibility of staged TBA must be \lsnote{\sout{understood} be demonstrated as viable}, 
-as no high energy machine can be built \lsnote{without \sout{a}} staging.
-Staging is the ability to use two \lsnote{successive} accelerating modules \lsnote{\sout{back to back}} to \lsnote{synchronously} accelerate 
+Before a detailed understanding of the power and infrastructure trade offs 
+can be obtained, the feasibility of staged TBA must be be demonstrated as viable, 
+as no high energy machine can be built without staging.
+Staging is the ability to use two successive accelerating modules to synchronously accelerate 
 the same particle bunch. While simple in principle, the difficulties 
 \lsnote{\sout{to} in achieving} staging should not be \lsnote{\sout{underwritten} underestimated}. Demonstration of staging proves that a TBA scheme can be scaled to high energies, and whether it is 
 feasible to use such methods. Single stage TBA, and staging 
@@ -171,7 +167,6 @@ with the following beam dynamics analysis is shown here.
 \Section{Argonne Wakefield Accelerator Facility} \label{sec:facility}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 The AWA facility \lsnote{consists, consists is used for multiple items...} of two rf photoinjector electron guns operating
 at \SI{1.3}{GHz}, and three subsequent beam lines. 
 Two of the beam lines are currently used for staged TBA, and the
@@ -182,8 +177,8 @@ the facility is shown in Fig. \ref{fig:bunker}.
 Electron bunches in a photoinjector are created through the photoelectric effect. 
 At the AWA, a pulsed UV laser is propagated through two relay lines of UV optics to either
 the drive or witness gun. An in-vacuum mirror then directs the pulse to the photocathode.
-\lsnote{\sout{When TBA experiments are run, b}B}oth beam lines \lsnote{must be \sout{are}} operated simultaneously \lsnote{when the TBA experiments are run}. This is accomplished by
-splitting the original laser pulse into two pulses \lsnote{\sout{by}using} a UV splitter on the 
+Both beam lines must be operated simultaneously when the TBA experiments are run. This is accomplished by
+splitting the original laser pulse into two pulses using a UV splitter on the 
 ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
 bunch operation. The second pulse is sent to a UV multispitter table, shown in 
 Fig.~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
@@ -301,7 +296,7 @@ and non-GA optimization algorithms.
 
 
 \Chapter{Experimental Set Up}
-Before measurements or meaningful simulations can be done, 
+Before final measurements or meaningful simulations can be done, 
 a fair amount of set up and preliminary measurements 
 must be made and understood. 
 
@@ -327,8 +322,8 @@ This is done to synchronize the laser pulses with the RF supplied to the gun.
 \lsnote{The next sentence is a better start for the section, so I moved it to start the section \sout{Ideally, to extract maximum power from the train, each electron bunch would have the same amount of charge.} In order to achieve equally charged bunches, \sout{ That would require}} splitters with a perfect transmission to reflection ratio ($T/R = 50/50$) \lsnote{would be required}.
 
 \Subsection{UV Splitter Measurements} 
-The \lsnote{\sout{previously} initially} installed splitters were rated at a tolerance of $50\%\pm5\%$.
-Measurements of the UV splitters were done to determine the T/R \lsnote{(Transmission to Reflection)} ratio for 
+The initially installed splitters were rated at a tolerance of $50\%\pm5\%$.
+Measurements of the UV splitters were done to determine the T/R (Transmission to Reflection) ratio for 
 each splitter. The measurements took place in the laser room, close to the source of the laser.
 The setup included two joule meters; one to measure the raw T/R values and one to measure 
 the background. Amplified Spontaneous Emission (ASE), 
@@ -434,8 +429,7 @@ $\pm3\%$ splitters would result in the lowest variation in intensity.
 To verify the predictions above, and show improvement using the $\pm3\%$,
 the intensity of bunches one through eight were measured using four splitters. 
 This simplified the experimental set up, and reduced interruption to beam time 
-runs which were using the four splitter
-set up.  
+runs which were using the four splitter set up.  
 \iffalse
 \begin{figure}[h]
 	\begin{center}
@@ -469,18 +463,19 @@ a set of detailed measurements were done to determine the power in each RF cavit
 \lsnote{You have a gun section below, so you should mention that in this paragraph as well as the cavities.}
 
 \Subsection{Cable Calibration} \label{cablecal}
-There is a significant \lsnote{\sout{amount} length} of cable that connects the cavities to the control room.
-To calibrate these cables, a signal generator was placed in the tunnel and connected
-\lsnote{instead of the cavity. \sout{where the cavity normally is.}} Then a signal was sent to the control room where it was 
+There is a significant length of cable that connects the cavities to the control room.
+To calibrate these cables, a signal generator was placed in the tunnel. 
+Then a signal was sent to the control room where it was 
+where the cavity normally is. Then a signal was propagated to the control room where it was 
 measured and compared to the original power measurement in the tunnel. 
 \def \delayvertical {1.5}
 \iffalse
 \begin{figure*}[h]
-	\begin{center}		
+	\begin{center}	
 		\begin{circuitikz}[scale=0.7]
-			\node[] at (0.8,1.3) {Gun};
-			\draw (0,0) to[csV=] (2,0);
 			
+			\draw (0,0) to[csV=] (2,0);
+			\node[align=center] at (0.8,1.5) {Signal \\ Generator};
 			%Short blue RF cable 
 			\node[] at (3.5,1) {$C_{1}$};
 			\node[tlinestub] at (2,0){};
@@ -519,6 +514,16 @@ an}} attenuation \lsnote{\sout{of} is} $\SI{0.56}{dBm}$. However, one more cable
 subtracted from the overall attenuation. A short blue heliax was used to connect the 
 signal generator to the control room cables, as shown in Fig.~\ref{fig:tikzcalibration}.
 This cable not normally connected to the control room as shown in Fig.~\ref{fig:tikzdrivegun}. \lsnote{You should finish the thought - how much attenuation from the Heliax, and what is the adjusted correction?}
+=======
+
+The power reading in the control room was $P_{cr} = \SI{-9.48}{dBm}$, and the power reading in 
+the tunnel was $P_t = \SI{-8.92}{dBm}$. The cables and $\SI{10}{dB}$ attenuator connected 
+to the control are equivalent to an attenuation of $P_{o}\approx\SI{0.56}{dBm}$. 
+However, one more cable needs to be accounted for and 
+subtracted from the overall attenuation. A short blue heliax was used to connect the 
+signal generator to the control room cables, as shown in Fig.~\ref{fig:tikzcalibration}.
+This cable is not normally connected to the control room as shown in Fig.~\ref{fig:tikzdrivegun}.
+>>>>>>> Stashed changes
 
 \Subsection{Drive Gun Measurements}
 %Measurements started with the drive gun. 
@@ -558,17 +563,24 @@ This cable not normally connected to the control room as shown in Fig.~\ref{fig:
 			({\leftside+3},\topbox) node[pos=0.5, align=center] {Meter};
 		\end{circuitikz}
 	\end{center} 
-	\caption{Experimental set up calibrating the cables from gun to control room. 
+	\caption{Experimental set up measuring power from gun to control room. 
 		Where $A_1$ is $\SI{36}{dB}$ of attenuation attached to the gun pick up probe, 
 		$C_2$ is a long heliax to the control room, 
 		and $C_3$ is a short yellow heliax to the 6 GHz scope or power meter.}
 	\label{fig:tikzdrivegun}
 \end{figure*}
+<<<<<<< Updated upstream
 \fi
 Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-8.66}{dBm}$
 in the control room. \lsnote{You should described the figure in words here as well.} Now we must account for attenuation to know the true power
+=======
+
+Next power measurements were made with the pick up probe in the gun. 
+Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{3} \approx \SI{-8.66}{dBm}$
+in the control room. Now we must account for attenuation to know the true power
+>>>>>>> Stashed changes
 signal out of the gun. Starting with the cable attenuation from section \ref{cablecal}, 
-we can add ~\SI{0.56}{dBm} to the raw power meter reading, which gives $P_2=\SI{-8.1}{dBm}$.
+we can add $P_o\approx\SI{0.56}{dBm}$ to the raw power meter reading, which gives $P_2\approx\SI{-8.1}{dBm}$.
 Then converting to a more convenient unit: 
 \begin{equation}
 P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
@@ -581,28 +593,29 @@ P_2 = \SI{1}{[mW]} \cdot 10^{\SI{-0.81}{dBm}} = 0.155 \, \SI{}{[mW]}
 \end{equation}
 
 
-We can then use the relationship between power and attenuation to solve for the 
+With the power in units of mW, we can infer the strength of the original signal
+by using the relationship between power and attenuation \cite{pozar}. 
 power before the \SI{36}{dB} attenuator, $P_1$:
 \begin{equation}
 \SI{36}{[dB]} = 10 \cdot \log{\frac{P_{1}}{P_{2}}}
 \end{equation}
 \begin{equation}
-P_1 = 10^{3.6} \cdot P_2 
+P_1 = 10^{3.6} \cdot P_2 = \SI{617}{mW}
 \end{equation}
-The relationship between attenuation and power signals is as follows \cite{pozar}: 
+
+Somethings wrong here (above)....
 
 
-Using the power in units of mW, we can now back track through the attenuation
-to infer the strength of the original signal.
-
-Starting with the cables, we know the attenuation is ~\SI{0.56}{dBm}, which can 
-be converted to \SI{}{}
 
 
-\Subsection{Kicker Installation and Tests}
+
+
+
+
+%\Subsection{Kicker }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Septum Installation} 
+%\SubSection{Septum } 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Beam Dynamics}  

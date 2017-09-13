@@ -460,16 +460,38 @@ confirmed by the results in Fig.~\ref{fig:origtrain}.  \lsnote{You achieved a si
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In order to accurately simulate the RF fields in the cavities on the drive and witness line, 
 a set of detailed measurements were done to determine the power in each RF cavity.
+This includes power and energy measurements of the drive gun, and linac tanks 
+one through 6 on the drive line.
 \lsnote{You have a gun section below, so you should mention that in this paragraph as well as the cavities.}
 
 \Subsection{Cable Calibration} \label{cablecal}
 There is a significant length of cable that connects the cavities to the control room.
 To calibrate these cables, a signal generator was placed in the tunnel. 
-Then a signal was sent to the control room where it was 
-where the cavity normally is. Then a signal was propagated to the control room where it was 
+Then a signal was propagated to the control room where it was 
 measured and compared to the original power measurement in the tunnel. 
+\begin{figure*}[h]
+	\begin{center}	
+		\begin{circuitikz}[scale=0.7]
+            \draw (0,0) to[csV=] (2,0);
+            \node[align=center] at (0.8,1.5) {Signal \\ Generator};
+            
+			%Control room or power meter
+			\def \leftside {3}
+			\def \topbox {0.75}
+			\def \botbox {-0.75}
+			\draw (2.0, 0) -- (\leftside, 0);
+			\draw[fill=white, ultra thick, rounded corners =0.1cm] (\leftside,\botbox)rectangle  
+			({\leftside+3},\topbox) node[pos=0.5, align=center] {Meter};           
+		\end{circuitikz}
+    \end{center} 
+\caption{Refrence power reading was taken while power meter was directly connected to the 
+signal generator. The resulting power was $P_s=\SI{-8.92}{dBm}$}
+\label{fig:signalgenerator}
+\end{figure*}
+
+
 \def \delayvertical {1.5}
-\iffalse
+\iftrue
 \begin{figure*}[h]
 	\begin{center}	
 		\begin{circuitikz}[scale=0.7]
@@ -509,58 +531,66 @@ measured and compared to the original power measurement in the tunnel.
 \end{figure*}
 \fi
 The power reading in the control room was $P_c = \SI{-9.48}{dBm}$, and the power reading in 
-the tunnel was $P_t = \SI{-8.92}{dBm}$\lsnote{, so the\sout{. The cables connected to the control are equivalent to 
-an}} attenuation \lsnote{\sout{of} is} $\SI{0.56}{dBm}$. However, one more cable needs to be accounted for and 
+the tunnel from the signal generator was $P_s = \SI{-8.92}{dBm}$, so the
+attenuation is $\SI{0.56}{dB}$. However, one more cable needs to be accounted for and 
 subtracted from the overall attenuation. A short blue heliax was used to connect the 
 signal generator to the control room cables, as shown in Fig.~\ref{fig:tikzcalibration}.
 This cable not normally connected to the control room as shown in Fig.~\ref{fig:tikzdrivegun}. \lsnote{You should finish the thought - how much attenuation from the Heliax, and what is the adjusted correction?}
-=======
 
-The power reading in the control room was $P_{cr} = \SI{-9.48}{dBm}$, and the power reading in 
-the tunnel was $P_t = \SI{-8.92}{dBm}$. The cables and $\SI{10}{dB}$ attenuator connected 
-to the control are equivalent to an attenuation of $P_{o}\approx\SI{0.56}{dBm}$. 
-However, one more cable needs to be accounted for and 
-subtracted from the overall attenuation. A short blue heliax was used to connect the 
-signal generator to the control room cables, as shown in Fig.~\ref{fig:tikzcalibration}.
-This cable is not normally connected to the control room as shown in Fig.~\ref{fig:tikzdrivegun}.
->>>>>>> Stashed changes
 
 \Subsection{Drive Gun Measurements}
-%Measurements started with the drive gun. 
+After the cable calibration, the set up was returned to typical rf conditions as 
+shown in Fig.~\ref{fig:tikzdrivegun}. This includes a $\SI{36}{dB}$ attenuator 
+connected to the drive gun pick up probe, followed by a long heliax to the 
+control room, where the signal is used for Low Level RF (LLRF) control.
+Luckily, the LLRF signal box is connected with a minicuircuit that provides
+signal to two T's. \nrnote{need to describe LLRF better or take it out?}.
+One T is used for LLRF control, and the other was connected to a short 
+heliax, $C_3$, then to a $\SI{10}{dB}$ attenuator and finally to the 
+power meter. Next, the klystrons and phase shifters were set to supply 
+max power to the gun, typical of TBA running conditions. 
+Next power measurements were made with the pick up probe in the gun. 
 \def \delayvertical {1.5}
-\iffalse
+\iftrue
 \begin{figure*}[h]
 	\begin{center}		
 		\begin{circuitikz}[scale=0.7]
+			\def \leftside {17.0}
+			\def \topbox {0.75}
+			\def \botbox {-0.75}
+			
 			\node[] at (0.8,1.3) {Gun};
 			\draw (0,0) to[csV=] (2,0);
 			
+			\def \gunright {2}
 			%Attenuators
-			\node at (2, -0.50) {$P_1$};
-			\node at (5, -0.50) {$P_2$};
+			%\node at (2, -0.50) {$P_1$};
+			%\node at (5, -0.50) {$P_2$};
 			
-			\draw (2.0,0) to[R=$\SI{36}{dB}$, color=red] (5,0);
-			
+			\draw (\gunright,0) to[R=$\SI{53.2}{dB}$, color=red] (\gunright+2,0);
+			\draw (\gunright+2.5,0) to[R=$\SI{36}{dB}$, color=red] (\gunright+4.5,0);
+			\draw[] (\gunright+2.0,0) to[short,-] ++(0.5,0);
 			%Long RF cable
-			\node[] at (7,1) {$C_{2}$};
-			\node[tlinestub] at (5.5,0){};
+			
+			\node[] at (\gunright+6,1) {$C_{2}$};
+			\node[tlinestub] at (\gunright+4.5,0){};
+			\draw (9.0, 0) -- (10.0, 0);
+			\draw[fill=white, ultra thick, rounded corners =0.1cm] (\gunright+8.0,\botbox)rectangle  
+			({\gunright+11.0},\topbox) node[pos=0.5, align=center] {Splitter};
 			
 			%Short yellow RF cable
-			\node[] at (9.5,1) {$C_{3}$};
-			\node[tlinestub] at (8.1,0){};
-			\draw[] (4.6,0) to[short,-] ++(1,0);
-			%\node[] at (17,-1) {};
+			\draw (13.0, 0) -- (13.5, 0);
+			\node[] at (\gunright+13.0,1) {$C_{3}$};
+			\node[tlinestub] at (\gunright+11.5,0){};
 						
 			%10 dB attenuator
-			\draw (10.7,0) to[R=$\SI{10}{dB}$, color=red] (14,0);
+			\draw (16.0, 0) -- (16.5, 0);
+			\draw (\gunright+14.5,0) to[R=$\SI{10}{dB}$, color=red] (\gunright+16.5,0);
 			
 			%Control room or power meter
-			\def \leftside {14}
-			\def \topbox {0.75}
-			\def \botbox {-0.75}
-			%\draw (10.75, 0) -- (\leftside, 0);
-			\draw[fill=white, ultra thick, rounded corners =0.1cm] (\leftside,\botbox)rectangle  
-			({\leftside+3},\topbox) node[pos=0.5, align=center] {Meter};
+			\draw (18.5, 0) -- (\leftside+2, 0);
+			\draw[fill=white, ultra thick, rounded corners =0.1cm] (\leftside+2,\botbox)rectangle  
+			({\leftside+5},\topbox) node[pos=0.5, align=center] {Meter};
 		\end{circuitikz}
 	\end{center} 
 	\caption{Experimental set up measuring power from gun to control room. 
@@ -569,18 +599,15 @@ This cable is not normally connected to the control room as shown in Fig.~\ref{f
 		and $C_3$ is a short yellow heliax to the 6 GHz scope or power meter.}
 	\label{fig:tikzdrivegun}
 \end{figure*}
-<<<<<<< Updated upstream
 \fi
-Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-8.66}{dBm}$
-in the control room. \lsnote{You should described the figure in words here as well.} Now we must account for attenuation to know the true power
-=======
 
-Next power measurements were made with the pick up probe in the gun. 
-Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{3} \approx \SI{-8.66}{dBm}$
+Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-8.66}{dBm}$
 in the control room. Now we must account for attenuation to know the true power
->>>>>>> Stashed changes
-signal out of the gun. Starting with the cable attenuation from section \ref{cablecal}, 
-we can add $P_o\approx\SI{0.56}{dBm}$ to the raw power meter reading, which gives $P_2\approx\SI{-8.1}{dBm}$.
+signal out of the gun. 
+\begin{equation}
+P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{10}{dB} + \SI{-8.66}{dBm} = \SI{91.1}{dBm}
+\end{equation}
+
 Then converting to a more convenient unit: 
 \begin{equation}
 P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
@@ -589,27 +616,8 @@ P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
 P \, \SI{}{[mW]} = \SI{1}{[mW]} \cdot 10^{\frac{P \, [\SI{}{dBm}]}{\SI{10}{}}}
 \end{equation}
 \begin{equation} 
-P_2 = \SI{1}{[mW]} \cdot 10^{\SI{-0.81}{dBm}} = 0.155 \, \SI{}{[mW]} 
+P_2 = 10^{\SI{9.11}{dBm}} \cdot  \SI{1}{[mW]} = 1.26 \, \SI{}{[MW]} 
 \end{equation}
-
-
-With the power in units of mW, we can infer the strength of the original signal
-by using the relationship between power and attenuation \cite{pozar}. 
-power before the \SI{36}{dB} attenuator, $P_1$:
-\begin{equation}
-\SI{36}{[dB]} = 10 \cdot \log{\frac{P_{1}}{P_{2}}}
-\end{equation}
-\begin{equation}
-P_1 = 10^{3.6} \cdot P_2 = \SI{617}{mW}
-\end{equation}
-
-Somethings wrong here (above)....
-
-
-
-
-
-
 
 
 %\Subsection{Kicker }

@@ -540,16 +540,15 @@ This cable not normally connected to the control room as shown in Fig.~\ref{fig:
 
 \Subsection{Drive Gun Measurements}
 After the cable calibration, the set up was returned to typical rf conditions as 
-shown in Fig.~\ref{fig:tikzdrivegun}. This includes a $\SI{36}{dB}$ attenuator 
-connected to the drive gun pick up probe, followed by a long heliax to the 
-control room, where the signal is used for Low Level RF (LLRF) control.
-Luckily, the LLRF signal box is connected with a minicuircuit that provides
-signal to two T's. \nrnote{need to describe LLRF better or take it out?}.
-One T is used for LLRF control, and the other was connected to a short 
+shown in Fig.~\ref{fig:tikzdrivegun}. This includes $\SI{53.2}{dB}$ from the pick 
+up probe itself, a $\SI{36}{dB}$ additional attenuation connected to the 
+drive gun pick up probe, followed by a long heliax to the 
+control room. The signal split in the control room with a mini-circuit ZX10-2-12+. 
+One port is used for Low Level RF (LLRF) control, and the other port was connected to a short 
 heliax, $C_3$, then to a $\SI{10}{dB}$ attenuator and finally to the 
-power meter. Next, the klystrons and phase shifters were set to supply 
+power meter. Normally a load is placed at port two when no power meter is connected. 
+Next, the klystrons and phase shifters were set to supply 
 max power to the gun, typical of TBA running conditions. 
-Next power measurements were made with the pick up probe in the gun. 
 \def \delayvertical {1.5}
 \iftrue
 \begin{figure*}[h]
@@ -605,7 +604,7 @@ Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g
 in the control room. Now we must account for attenuation to know the true power
 signal out of the gun. 
 \begin{equation}
-P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{10}{dB} + \SI{-8.66}{dBm} = \SI{91.1}{dBm}
+P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{3}{dB}+\SI{10}{dB} - \SI{8.66}{dBm} = \SI{94.1}{dBm}
 \end{equation}
 
 Then converting to a more convenient unit: 
@@ -616,7 +615,7 @@ P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
 P \, \SI{}{[mW]} = \SI{1}{[mW]} \cdot 10^{\frac{P \, [\SI{}{dBm}]}{\SI{10}{}}}
 \end{equation}
 \begin{equation} 
-P_2 = 10^{\SI{9.11}{dBm}} \cdot  \SI{1}{[mW]} = 1.26 \, \SI{}{[MW]} 
+P_2 = 10^{\SI{9.11}{dBm}} \cdot  \SI{1}{[mW]} = 2.57 \, \SI{}{[MW]} 
 \end{equation}
 
 

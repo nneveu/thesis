@@ -127,11 +127,12 @@ Because higher peak power is tolerable, but average power stays the same?}
 While the two groups vary on approach, they agree that TBA would 
 require less infrastructure when constructing a linear TeV scale machine, 
 versus the cost of more conventional technology. 
-For example, a case study was done \lsnote{comparing the infrastructure needed when} using traditional \SI{50}{MW} klystron sources.
+For example, a case study was done comparing the infrastructure 
+needed when using traditional \SI{50}{MW} klystron sources.
 It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
-\SI{9.2}{TW} power \lsnote{as in the CLIC design \sout{specification in CLIC reports}} \cite{CLICdesignReport}. 
-In comparison to CLIC's 48 km projected \lsnote{machine} length \lsnote{needed} to reach \SI{3}{TeV}, the Next Linear
-Collider (NLC) collaboration projected a \lsnote{machine} length of \SI{26}{km} using X-band klystrons,
+\SI{9.2}{TW} power as in the CLIC design specification in CLIC reports \cite{CLICdesignReport}. 
+In comparison to CLIC's 48 km projected machine length needed to reach \SI{3}{TeV}, the Next Linear
+Collider (NLC) collaboration projected a machine length of \SI{26}{km} using X-band klystrons,
 only to reach an energy of \SI{1}{TeV}. %\cite{NLC}. 
 \lsnote{The text below is not well developed.  I guess since it is in this paragraph, you are trying to explain the statement that less infrastructure is required.  First, you don't say anything specifically about using an accelerator beam rather than a klystron - how does that save on equipment and space?  It is also confusing that you start by saying the power to the witness beam is conventional, abut then say there is a difference in infrastructure with nothing between  about why.}
 The power supplied to the witness beam in TBA is similar to
@@ -148,7 +149,8 @@ can be obtained, the feasibility of staged TBA must be be demonstrated as viable
 as no high energy machine can be built without staging.
 Staging is the ability to use two successive accelerating modules to synchronously accelerate 
 the same particle bunch. While simple in principle, the difficulties 
-\lsnote{\sout{to} in achieving} staging should not be \lsnote{\sout{underwritten} underestimated}. Demonstration of staging proves that a TBA scheme can be scaled to high energies, and whether it is 
+in achieving staging should not be underestimated. 
+Demonstration of staging proves that a TBA scheme can be scaled to high energies, and whether it is 
 feasible to use such methods. Single stage TBA, and staging 
 in a simplified scheme have been demonstrated at the AWA in 2016.
 \nrnote{Not any more? - Demonstration of the full-scale dielectric staging scheme is the 
@@ -167,7 +169,7 @@ with the following beam dynamics analysis is shown here.
 \Section{Argonne Wakefield Accelerator Facility} \label{sec:facility}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The AWA facility \lsnote{consists, consists is used for multiple items...} of two rf photoinjector electron guns operating
+The AWA facility houses two rf photoinjector electron guns operating
 at \SI{1.3}{GHz}, and three subsequent beam lines. 
 Two of the beam lines are currently used for staged TBA, and the
 third is used for Emittance Exchange experiments (EEX). A layout of
@@ -306,9 +308,13 @@ must be made and understood.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\lsnote{Ideally, to extract maximum power from a series of bunches, each electron bunch should have the same amount of charge.  Improving the laser pulse train intensity distribution improves the electron bunch charge distribution;} which  helps produce an RF power pulse that is closer to uniform. \lsnote{\sout{This is key because t}T}he generated power depends on both the charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. \lsnote{ \sout{However, as no experiment is perfect, s}}Several factors contribute to non-uniformity in the bunches. These include the cathode material
+Ideally, to extract maximum power from a series of bunches, each electron bunch should have the same amount of charge.  Improving the laser pulse train intensity distribution improves the electron bunch charge distribution; 
+which  helps produce an RF power pulse that is closer to uniform. 
+The generated power depends on both the charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. 
+Several factors contribute to non-uniformity in the bunches. These include the cathode material
 (i.e. slightly different QE along the surface), shot to shot noise in the laser pulse, 
-distortion \lsnote{of laser pulses} due to traveling through air, and the quality of the optics. The last is especially important in determining the intensity of each laser pulse in the train.  
+distortion of laser pulses due to traveling through air, and the quality of the optics. 
+The last is especially important in determining the intensity of each laser pulse in the train.  
 Each splitter has a slightly different value for transmitted (T) and reflected (R) pulses. 
 
 \Subsection{UV Optics} 
@@ -319,7 +325,8 @@ separate pulses in space and time by extending the distance that each pulse trav
 The length of each delay line is a multiple of the RF frequency, 1.3 GHz. 
 In other words, a separation of $1\lambda=\SI{769}{ps}$ between each UV pulse is created. 
 This is done to synchronize the laser pulses with the RF supplied to the gun.
-\lsnote{The next sentence is a better start for the section, so I moved it to start the section \sout{Ideally, to extract maximum power from the train, each electron bunch would have the same amount of charge.} In order to achieve equally charged bunches, \sout{ That would require}} splitters with a perfect transmission to reflection ratio ($T/R = 50/50$) \lsnote{would be required}.
+In order to achieve equally charged bunches, splitters with a perfect transmission 
+to reflection ratio ($T/R = 50/50$) would be required.
 
 \Subsection{UV Splitter Measurements} 
 The initially installed splitters were rated at a tolerance of $50\%\pm5\%$.
@@ -575,7 +582,10 @@ max power to the gun, typical of TBA running conditions.
 			\node[tlinestub] at (\gunright+4.5,0){};
 			\draw (9.0, 0) -- (10.0, 0);
 			\draw[fill=white, ultra thick, rounded corners =0.1cm] (\gunright+8.0,\botbox)rectangle  
+			%splitter
 			({\gunright+11.0},\topbox) node[pos=0.5, align=center] {Splitter};
+			\draw (11.5, 0.7) -- (11.5, 2);
+			\node[] at (11.5, 2.5) {LLRF};
 			
 			%Short yellow RF cable
 			\draw (13.0, 0) -- (13.5, 0);
@@ -592,10 +602,12 @@ max power to the gun, typical of TBA running conditions.
 			({\leftside+5},\topbox) node[pos=0.5, align=center] {Meter};
 		\end{circuitikz}
 	\end{center} 
-	\caption{Experimental set up measuring power from gun to control room. 
-		Where $A_1$ is $\SI{36}{dB}$ of attenuation attached to the gun pick up probe, 
-		$C_2$ is a long heliax to the control room, 
-		and $C_3$ is a short yellow heliax to the 6 GHz scope or power meter.}
+	\caption{Experimental set up when measuring power from gun to control room. 
+		Where $\SI{53.2}{dB}$ of attenuation is due to the gun probe itself, 
+		$\SI{36}{dB}$ of additional attenuation is attached to gun pick up probe cable in the tunnel, 
+		$C_2$ is a long heliax to the control room. The $\SI{3}{dB}$  splitter sends halft the signal to the   
+		low level RF (LLRF) control system, and half to the power meter. 
+		$C_3$ is a short yellow heliax that connects the meter to the splitter and on to the 6 GHz scope or power meter.}
 	\label{fig:tikzdrivegun}
 \end{figure*}
 \fi
@@ -615,7 +627,7 @@ P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
 P \, \SI{}{[mW]} = \SI{1}{[mW]} \cdot 10^{\frac{P \, [\SI{}{dBm}]}{\SI{10}{}}}
 \end{equation}
 \begin{equation} 
-P_2 = 10^{\SI{9.11}{dBm}} \cdot  \SI{1}{[mW]} = 2.57 \, \SI{}{[MW]} 
+P_2 = 10^{\SI{9.41}{dBm}} \cdot  \SI{1}{[mW]} = 2.57 \, \SI{}{[MW]} 
 \end{equation}
 
 
@@ -634,11 +646,16 @@ P_2 = 10^{\SI{9.11}{dBm}} \cdot  \SI{1}{[mW]} = 2.57 \, \SI{}{[MW]}
 
 \lsnote{You need to start the chapter with summary paragraphs.  (1) Why are simulations needed?  (2) What simulation work was done?  (3) What method was chosen and why?  (4) What were the results?  You can't put  all of that in now, since some of it is unknown, but you should do (1), (3) and part of (2).  Also, before launching into the OPAL stuff, you need to say a few words about the beam characteristics during TBA studies.  A table of beam characteristics would be good here, one for the drive beam, and one for the witness.  After presenting the beam characteristics, you can mention that space charge is a problem for the drive beam - since now they know the intensity.}
 
-To simulate beam dynamics, the particle-in-cell code OPAL was used \cite{opal}. \lsnote{You need a few sentences describing OPAL.  Also describe (briefly) what a PIC code is.  (Are there any other choices besides a PIC code?)}
-It was chosen for two reasons:
+To simulate beam dynamics, the particle-in-cell (PIC) code OPAL was used \cite{opal}. PIC codes simulate 
+the electromagnetic forces that particles see in an accelerator. This is done by mapping the input 
+particles onto a grid. Then in each time (or z) step, the forces due to space charge, accelerating gradients, 
+and magnets are calculated and applied to the grid. 
+\lsnote{You need a few sentences describing OPAL.  Also describe (briefly) what a PIC code is.  (Are there any other choices besides a PIC code?)}
+It was chosen for several reasons:
 \begin{itemize}
-	\item Transverse space charge calculation 
+	\item Able to calculate transverse space charge and wakefield forces 
 	\item Option to run the code in parallel
+	\item Data recorded in global and reference frames
 \end{itemize} 
 
 The first item is crucial to standard operations at the AWA. Especially in the 
@@ -679,7 +696,7 @@ on the drive side.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Subsection{Kicker Design}
 
-\lsnote{You need to start with a re-statement of the purpose of the kicker. \sout{The AWA group does not currently own a kicker, but the theory is well defined.}} 
+\lsnote{You need to start with a re-statement of the purpose of the kicker. }
 A design implemented by Indiana University (IU) \cite{iukicker}
 will be adapted to fit TBA requirements at the AWA. Redesign will require optimization
 of the length and gap between the kicker plates. \lsnote{Summarize what criteria are used to determine these.} Figure \ref{fig:IUkicker} shows the existing IU kicker.

@@ -605,18 +605,18 @@ max power to the gun, typical of TBA running conditions.
 	\caption{Experimental set up when measuring power from gun to control room. 
 		Where $\SI{53.2}{dB}$ of attenuation is due to the gun probe itself, 
 		$\SI{36}{dB}$ of additional attenuation is attached to gun pick up probe cable in the tunnel, 
-		$C_2$ is a long heliax to the control room. The $\SI{3}{dB}$  splitter sends halft the signal to the   
+		$C_2$ is a long heliax to the control room. The $\SI{10}{dB}$  splitter sends half the signal to the   
 		low level RF (LLRF) control system, and half to the power meter. 
 		$C_3$ is a short yellow heliax that connects the meter to the splitter and on to the 6 GHz scope or power meter.}
 	\label{fig:tikzdrivegun}
 \end{figure*}
 \fi
 
-Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-8.66}{dBm}$
+Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-14.18}{dBm}$
 in the control room. Now we must account for attenuation to know the true power
 signal out of the gun. 
 \begin{equation}
-P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{3}{dB}+\SI{10}{dB} - \SI{8.66}{dBm} = \SI{94.1}{dBm}
+P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{10}{dB}+ \SI{10}{dB} - \SI{14.18}{dBm} = \SI{95.58}{dBm}
 \end{equation}
 
 Then converting to a more convenient unit: 
@@ -627,7 +627,7 @@ P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
 P \, \SI{}{[mW]} = \SI{1}{[mW]} \cdot 10^{\frac{P \, [\SI{}{dBm}]}{\SI{10}{}}}
 \end{equation}
 \begin{equation} 
-P_2 = 10^{\SI{9.41}{dBm}} \cdot  \SI{1}{[mW]} = 2.57 \, \SI{}{[MW]} 
+P_2 = 10^{\SI{9.56}{dBm}} \cdot  \SI{1}{[mW]} = 3.6 \, \SI{}{[MW]} 
 \end{equation}
 
 

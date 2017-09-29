@@ -630,6 +630,80 @@ P \, \SI{}{[mW]} = \SI{1}{[mW]} \cdot 10^{\frac{P \, [\SI{}{dBm}]}{\SI{10}{}}}
 P_2 = 10^{\SI{9.56}{dBm}} \cdot  \SI{1}{[mW]} = 3.6 \, \SI{}{[MW]} 
 \end{equation}
 
+\Subsection{Linac Cavity Measurements}
+There are six linear accelerating (linac) cavities after the gun. 
+Each are connected to the control room in the same way as the gun. 
+The only differences are in the attenuation at the pick up probe and 
+the splitter attenuation. The power readings for each tank are: 
+$L_i=[-18.9,-12.2,-18.9,-17.8,-14.3]\pm \SI{0.05}{dBm}$. 
+
+\begin{equation}
+P_1 = \SI{0}{dB} + \SI{0}{dB} + \SI{0.56}{dB} + 
+\end{equation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Calibration of Energy Measurements} \label{sec:dipolecal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Energy measurements at the AWA are done with a traditional 
+spectrometer. This includes a dipole magnet and two Yittrium 
+Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
+
+\begin{figure*}[h]
+	\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+			
+			\node[] at (2.25,0.75) {Beam Direction};
+			\draw[ultra thick, ->] (0,0) -- (5.0, 0.0);
+			
+			\draw[fill=white, ultra thick, rounded corners =0.1cm] (5.0,1.0)rectangle  
+			(7.5,-1.0) node[pos=0.5, align=center] {Dipole};
+			
+			\draw[ultra thick] (7.5, 0.0) -- (10.0, 0.0);
+			\draw[ultra thick] (7.5, 0.5) -- (10.0, 1.5);
+						
+			\node[] at (10.5, 3) {YAG Screen 2};
+			\draw (10.4,1.75) circle (0.5cm);
+			
+			\node[] at (10.5, -1.0) {YAG Screen 1};
+			\draw (10.5,0) circle (0.5cm);
+			
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Spectrometer set up in all cases at AWA.}
+	\label{fig:spectrometer}
+\end{figure*}
+
+
+
+\Subsection{Energy Measurement Procedure}
+Taking an energy measurement requires a beam trajectory
+that is centered through the dipole. Otherwise, the beam 
+may experience excessive non-uniform fields 
+if it enters the beam off-axis. The centering is done with two 
+quads before the dipole. The center is found by focusing 
+in the x-direction, and then the y-direction. If the beam 
+moves to the left or the right as it is being focused, 
+the quad is "steering", and the beam is entering the magnets off-axis.
+Once the beam is centered through the quads on YAG screen 1, 
+the dipole is then turned on to bend the beam.
+The two YAG screens are positioned so that when the dipole is off, 
+a centered beam will hit YAG screen 1. When the dipole is turned
+on, the beam will appear at the center of YAG screen 2 when the 
+beam is bent $20^\circ$. In this way, the dipole strength can 
+then be used to determine the beam energy.
+
+\Subsection{Energy Calculation}
+To calculate the energy, we start with the trajectory of 
+the beam through the dipole, $\rho$. We know the effective 
+length of the magnetic field, $L_{eff} = \SI{0.3}{m}$, and
+we can assume a bend of $20^\circ$ (or $\SI{0.35}{}$ radians)
+based on the geometry of the spectrometer.
+
+
 
 %\Subsection{Kicker }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -690,7 +764,7 @@ simulations were done to minimize the emittance after the 6 cavity linac
 on the drive side. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Kicker}
+%\Section{Kicker}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

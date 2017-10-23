@@ -645,7 +645,7 @@ P_1 = \SI{0}{dB} + \SI{0}{dB} + \SI{0.56}{dB} +
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Calibration of Energy Measurements} \label{sec:dipolecal}
+\Section{Energy Measurements} \label{sec:dipolecal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Energy measurements at the AWA are done with a traditional 
@@ -683,7 +683,7 @@ Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
 Taking an energy measurement requires a beam trajectory
 that is centered through the dipole. Otherwise, the beam 
 may experience excessive non-uniform fields 
-if it enters the beam off-axis. The centering is done with two 
+if it enters the dipole off-axis. The centering is done with two 
 quads before the dipole. The center is found by focusing 
 in the x-direction, and then the y-direction. If the beam 
 moves to the left or the right as it is being focused, 
@@ -697,13 +697,69 @@ beam is bent $20^\circ$. In this way, the dipole strength can
 then be used to determine the beam energy.
 
 \Subsection{Energy Calculation}
-To calculate the energy, we start with the trajectory of 
-the beam through the dipole, $\rho$. We know the effective 
-length of the magnetic field, $L_{eff} = \SI{0.3}{m}$, and
-we can assume a bend of $20^\circ$ (or $\SI{0.35}{}$ radians)
-based on the geometry of the spectrometer.
+Based on the procedure above, there is one number which we 
+use to back calculate the mean energy. The amount of current
+supplied to the dipole is represented by the number of "counts"
+keyed into the control system. A counts to current line
+is calculated given the measurements shown in Table \ref{tab:counts}
+\begin{table}
+\begin{center}
+	\begin{tabular}{||c c||} 
+		\hline
+		Counts & Current [A] \\ [0.5ex] 
+		\hline\hline
+		1000 & 3.7 \\ 
+		\hline
+		5000 & 18.8 \\
+		\hline
+		10000 & 37.5 \\
+		\hline
+		15000 & 56.3 \\
+		\hline
+		
+	\end{tabular}
+\end{center}
+\caption{Counts to current data for the first dipole in the drive beam line.}
+\end{table}\label{tab:counts}
+Then the B-field is calculated given the current: 
+\begin{equation}
+	\SI{}{B\,[T]} = (180.9708\cdot \SI{}{I\,[A]} - 7.2053)\cdot 10^{-4}
+\end{equation}
+There are a few geometric calculations that need to be done using the magnetic field value. 
+before we can calculate the energy. 
+The radius of curvature, $\rho$, 
+can be calculated using the effective length of the dipole, L, and bending angle, $\theta$.
+\begin{equation}
+	\rho = \frac{L}{2\cdot \sin(\frac{\theta}{2})}
+\end{equation}
+Using $\rho$, and geometry, we can also estimate the x offset of the
+beam after the dipole: 
+\begin{equation}
+	\Delta x = \rho \left( 1- \cos\theta \right)
+\end{equation}
+Using this and the famous relationship, $B\rho$ \cite{Wiedemann},
+we can relate the B field and the beam momentum. 
+\begin{equation}
+	\SI{}{p\,\left[\frac{MeV}{c}\right]} = \frac{B\cdot \rho}{3.3356}\cdot 10^3
+\end{equation}
+We can then calculate the total energy by including the rest mass of the electrons \cite{Griffiths}:
+\begin{equation}
+	\SI{}{E\,[MeV]} = \sqrt{0.511^2+p^2}
+\end{equation}\label{eq:energy}
 
+\Subsubsection{Hard Edge Dipole Example}
+\nrnote{this example is more of a double check and reference for me than for the reader...}
+Since this calculation is used several time throughout the 
+beam line for different magnets, lets consider a hard edge 
+dipole, to show how the above equations can be used to determine
+the x offset after the magnet, and the beam energy. 
 
+Let's define the dipole length, $L=\SI{0.2}{[m]}$, angle, $\theta=\SI{20}{degrees}$. 
+The corresponding radius is $\rho = \SI{0.5759}{[m]}$. With these values we can now 
+calculate the offset, $\Delta x \approx \SI{34}{[mm]}$, which is confirmed by OPAL. 
+
+\nrnote{not sure if I want to include energy since it depends on measured counts....}
+Given a count of  energy of $\SI{64.8}{[MeV]}$ given measured counts of 
 
 %\Subsection{Kicker }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

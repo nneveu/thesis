@@ -20,6 +20,7 @@
 \usepackage{epsfig}
 \usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
 \usepackage{siunitx}
+\usepackage{url}
 \usepackage{tikz}
 \usepackage[american]{circuitikz}
 \usepackage[normalem]{ulem}
@@ -677,8 +678,6 @@ Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
 	\label{fig:spectrometer}
 \end{figure*}
 
-
-
 \Subsection{Energy Measurement Procedure}
 Taking an energy measurement requires a beam trajectory
 that is centered through the dipole. Otherwise, the beam 
@@ -760,6 +759,38 @@ calculate the offset, $\Delta x \approx \SI{34}{[mm]}$, which is confirmed by OP
 
 \nrnote{not sure if I want to include energy since it depends on measured counts....}
 Given a count of  energy of $\SI{64.8}{[MeV]}$ given measured counts of 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Transverse Beam Size Measurements} \label{sec:beamsize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Beam size measurements are taken by using YAG screens at multiple z locations along the beam line.
+The code used to produce all the following images can be found at this git repository:
+
+\url{https://github.com/nneveu/imageProcessing}
+
+\Subsection{Capturing Images}
+\nrnote{Add tikz picture here to show how camera is pointed into beam line with mirrors}
+
+\Subsection{Post Processing Images}
+A python script was written to take beam images and convert them to profiles in the x and y direction.
+This is done in a series of steps, and requires that one or more images can be used as a 
+background image and fiducial image. A background image must capture any dark current 
+that is present when the beam is not hitting the YAG screen. The fiducial image must 
+clearly show the edges of the YAG screen so that a mm/pixel conversion can be calculated.
+The following steps detail the post processing from raw image to transverse beam size estimate.
+
+\subsubsection{Step 1: Calculating the fiducial}
+
+\subsubsection{Step 2: Remove background intensity}
+
+\subsubsection{Step 3: Calculate x and y beam profile}
+
+\subsubsection{Step 4: Fit profile to calculate beam size}
+
+
+
 
 %\Subsection{Kicker }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -32,8 +32,38 @@
 \newcommand{\lsnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
 \newcommand{\nrnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
 \newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
-%\lsnote{\sout{ This is how you strike through text}}
 
+
+%Code formatting???
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \begin{document}
 
@@ -781,13 +811,13 @@ that is present when the beam is not hitting the YAG screen. The fiducial image 
 clearly show the edges of the YAG screen so that a mm/pixel conversion can be calculated.
 The following steps detail the post processing from raw image to transverse beam size estimate.
 
-\subsubsection{Step 1: Calculating the fiducial}
+\Subsubsection{Step 1: Calculating the fiducial}
 
-\subsubsection{Step 2: Remove background intensity}
+\Subsubsection{Step 2: Remove background intensity}
 
-\subsubsection{Step 3: Calculate x and y beam profile}
+\Subsubsection{Step 3: Calculate x and y beam profile}
 
-\subsubsection{Step 4: Fit profile to calculate beam size}
+\Subsubsection{Step 4: Fit profile to calculate beam size}
 
 
 
@@ -806,6 +836,22 @@ The following steps detail the post processing from raw image to transverse beam
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \lsnote{You need to start the chapter with summary paragraphs.  (1) Why are simulations needed?  (2) What simulation work was done?  (3) What method was chosen and why?  (4) What were the results?  You can't put  all of that in now, since some of it is unknown, but you should do (1), (3) and part of (2).  Also, before launching into the OPAL stuff, you need to say a few words about the beam characteristics during TBA studies.  A table of beam characteristics would be good here, one for the drive beam, and one for the witness.  After presenting the beam characteristics, you can mention that space charge is a problem for the drive beam - since now they know the intensity.}
+
+
+\nrnote{abstract from NAPAC}
+With  the  rapid  improvement  in  computing  resources  and  codes  in  recent  years,  
+accelerator  facilities  can  now achieve and rely on accurate beam dynamics simulations. 
+These  simulations  include  single  particle  effects  (e.g. particle tracking in a magnetic field) as well as collective effects  such  as  space  charge  (SC),  and  coherent  synchrotron  radiation  (CSR).
+Using portions of the Argonne Wakefield  Accelerator (AWA) as the benchmark model,  
+we simulated beam dynamics with three particle tracking codes.
+The AWA rf photoinjector was benchmarked, primarily to study SC, 
+in ASTRA, GPT, and OPAL-T using a \SI{1}{nC} beam. 
+A $20^{\circ}$ dipole magnet was used to benchmark 
+CSR effects in GPT and OPAL-T by bending a 1nC beam 
+at  energies  between  2  MeV  and  100  MeV.  In  this  paper  
+we  present  the  results,  and  discuss  the  similarities  and  
+differences between the codes.
+
 
 To simulate beam dynamics, the particle-in-cell (PIC) code OPAL was used \cite{opal}. PIC codes simulate 
 the electromagnetic forces that particles see in an accelerator. This is done by mapping the input 
@@ -828,6 +874,135 @@ Typical running conditions were on 16 cores, and for random samples up to 128 co
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Benchmarking}
+\nrnote{Copied and pasted benchmark here, need to clean up}
+%At 40nC the usable gun phase range (for the 3D field map) is 
+%$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
+%as the region where all particles are emitted from the gun. 
+%i.e. at $40^\circ$, particles were lost.  
+\nrnote{Intro}
+The AWA group has used several beam codes in the past including:
+T-STEP/PARMELA \cite{parmela}, ASTRA \cite{astra}, and GPT \cite{gpt}.  
+In order to take advantage of computing resources offered by 
+Argonne National Laboratory (ANL), an effort was made to investigate
+OPAL \cite{opal}, an open source and parallel code that comes in two flavors;  
+OPAL-CYL and OPAL-T. The latter was installed on the Blues and Bebop clusters
+at the Laboratory Computing Resource Center (LCRC) provided by ANL \cite{lcrc}. 
+Since no members of AWA had experience with OPAL-T, this benchmark 
+was done to compare results to GPT and ASTRA in two of the three 
+main collective effects of interest to the AWA: SC and CSR, 
+with wakefields being the other effect of interest. 
+
+\nrnote{this paragraph might need to move or be taken out}
+The AWA facility houses a 70 MeV RF photoinjector \cite{upgrades} with a large 
+dynamic range: 20 pC to 100 nC. In many cases, the beam is SC dominated. 
+In the AWA’s Emittance Exchange (EEX) beam line \cite{eex}, CSR has a large  
+effect on the beam as it passes through the dipoles, and wakefields
+are present in the two beam acceleration (TBA) beam line \cite{staging1}. ASTRA, 
+GPT, and OPAL-T are capable of simulating 3D SC, and wakefield effects.
+The latter two codes also include a CSR model, making them a good fit for the AWA.  
+
+\Subsection{Gun Simulations}
+The SC algorithms were probed using the AWA photoinjector, 
+a 1.5 cell copper standing-wave cavity at 1.3 GHz, 
+with bucking, focusing, and matching solenoids. 
+The rf gun and solenoid fields seen by the beam are shown in Fig. 1. 
+Note, in the remainder of this paper, the word gun is used 
+in place of photoinjector. The simulation parameters were chosen to 
+approximately generate the canonical “\SI{1}{\micro\metre} at 1 nC” case.
+The initial beam parameters were based on gun operations at PITZ \cite{pitz},
+due to the similarities between the PITZ and AWA rf guns.
+The PITZ parameters came close to achieving the \SI{1}{\micro\metre}
+target without any optimization. A coarse 1D minimization of the 
+emittance was done to determine the value of the laser radius 
+used in this benchmark. The resulting minimum emittance was   
+\SI{1.16}{\micro\metre}. A genetic and multi-objective optimizer
+was not used in any of the codes. A multiobjective genetic optimizer  
+may have been able to achieve a lower minimum emittance by varying
+the laser radius and matching solenoid simultaneously. \nrnote{this was done later w/ Jeff}
+The resulting minimum emittance was \SI{1.16}{\micro\metre}. 
+Figure 1: Magnet and electric fields in the gun. 
+
+The initial bunch distribution parameters as well as the 
+on-axis gun gradient () and magnetic field () used in 
+the benchmark are listed in Table 2. The rf gun and solenoid
+field maps were generated with the SUPERFISH/POISSON codes [13].
+The gradient was chosen to match typical operations at PITZ [11] 
+and the AWA. Note that the codes use various methods to model 
+the rf and magnetic fields, SC, and image charge. 
+The ASTRA simulations used the axial E field of the  
+gun and solenoids, and then expanded the fields to find the
+transverse components using the paraxial approximation (e.g.). 
+The simulations used a 2D cylindrical-symmetric SC algorithm with a uniform  
+particle-deposition mesh; see ASTRA user manual pg. 8 \cite{astra}.
+The radial and longitudinal number of cells composing the mesh 
+were taken to respectively  with  100k  particles.  
+The image charge close to the cathode was accounted for until the bunch reached 
+9.7-cm from the cathode surface. 
+GPT read in the 2D electric and magnetic field files,  
+and used a square 3D adaptive SC mesh of 
+with 100k particles, see spacecharge3Dmesh option in GPT manual pg. 132 \cite{gpt}.
+To calculate image charge, GPT uses a Dirichlet boundary condition at the  
+cathode (z=0). The calculation is turned off when the  
+distance between the beam and cathode is longer than the 
+mesh box. OPAL-T also read in the field maps, and used a block 
+structured equidistant SC mesh, see OPAL manual pg. 27 for SC calculation \cite{opal}.  
+
+Several square mesh sizes were run, the results plotted in 
+Fig. 2 and 3 correspond to a mesh of 46 with 1 million particles.  
+The image charge calculation uses a shifted integrated Green function \cite{imagecharge}.  
+In general, the simulation results are in reasonable agreement 
+and within expectations based on previous benchmarks \cite{codecompare}. 
+See Figs. 2 and 3 for beam envelopes in the gun and drift. 
+The apparent disagreement of emittance between ASTRA and the other
+two codes in the gun is because the former removes the angular momentum   
+induced by the solenoid, while the later two codes do not. 
+After the beam exits the solenoid, the emittance results  
+are in good agreement, as shown in Fig. 3.
+
+\Subsection{Dipole Simultaions}
+Simulations  of  a  hard  edge  dipole  were  done  in  GPT  
+and   OPAL-T   in   order   to   probe   CSR.   Short   
+mono-energetic  Gaussian  bunches  with  zero  initial  emittance  
+were sent through the dipole. Beam and dipole parameters 
+are shown in Table 3. The CSR routine used in OPAL-T is based on 
+the routine  used  in  ELEGANT  \cite{elegant}, which is known to assume  
+the beam is ultra-relativistic. The CSR routine in GPT  
+does  not  use  the  ultra-relativistic  approximation ($\beta=1$) 
+and  as  a  result,  works  at  all energies  \cite{gptcsr}.  
+Therefore, we expected  the  routines  to  match  well  at  high  energy  and  
+diverge  at  lower  energy.  Results  of  the  CSR  simulations  
+are  shown  in  Fig.  4.  As  expected,  the  results  between  
+GPT and OPAL-T disagree at low energies. 
+
+\Subsection{Convergence Study}
+Convergence runs were done for three parameters: 
+time step,  SC  mesh  size,  and  number  of  particles.  
+Each  case was tested in the gun using the same field maps and 
+baseline  settings  that  were  used  to  compare  SC  in  OPAL-T,  
+ASTRA, and GPT. All OPAL-T simulations were run on 
+16 cores, taking advantage of parallel calculations. 
+The number of particles was varied from 20k to 3.2  million.  
+The  longitudinal  parameters  (energy,  bunch length)  
+showed  no  variation,  but  there  were  slight  deviations 
+in the transverse emittance and beam size. The same results 
+were observed when the time step was varied from 0.1  to  10  ps.  
+The  grid  size  was  changed  from  32,  44,  46, and 64 cubed; 
+again the results lacked any major discrepancies.  
+In all cases, no appreciable differences were observed in the energy,
+emittance, beam size, or bunch length. In  most  cases,  
+if unreasonable  parameters  were chosen, 
+OPAL-T would not complete the run (crash or hang up).  
+
+\nrnote{conclusion}
+Based on the experience gained during this benchmark, 
+all  three  codes  are  capable  of  accurate  simulations.  With  
+respect  to  resources  at  the  AWA,  GPT  and  ASTRA  are  
+better  suited  for  use  on  windows,  and  OPAL-T  is  better  
+suited to Linux and parallel system
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Optimization Techniques} \label{sec:opt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -836,13 +1011,6 @@ Typical running conditions were on 16 cores, and for random samples up to 128 co
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Simulations were done for both the drive and witness beam line. 
 This included both photoinjectors, linacs, and wakefield effects. 
-
-\Subsection{Benchmarking: Gun Simulations}
-\nrnote{Add benchmark here}
-At 40nC the usable gun phase range (for the 3D field map) is 
-$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
-as the region where all particles are emitted from the gun. 
-i.e. at $40^\circ$, particles were lost.  
 
 \Subsection{Linac Simulations and Pareto Front} \label{sec:pareto}
 
@@ -944,9 +1112,80 @@ This was just to create a sample section...
 %
 \appendix
 
-\Appendix{Calculations?}
+\Appendix{How to build OPAL on Bebop}
+This set of instructions is tailored to the bebop cluster at ANL. 
+Intel compilers and intel-MPI were used to build OPAL and all 
+the libraries it is dependent on.
+\begin{enumerate}[label=Step \arabic*:]
+	\item Load modules 
 
-......
+I purge modules first, this will force an error message if any changes
+to the system modules occur.
+\begin{lstlisting}
+	module purge
+	module load intel
+	module load intel-mpi 
+	module load cmake 
+	module load gmp   
+	module load mpfr  
+	module load mpc   
+	module load hdf5   
+	module load gsl   
+	module load intel-mkl
+	module load szip
+\end{lstlisting}
+
+    \item Set environment variables for compilers 
+ 
+These variables point to intel compilers. 
+\begin{lstlisting}
+CC=mpiicc;CXX=mpiicpc;F90=ifort;F77=ifort
+export CC CXX F90 F77
+\end{lstlisting}
+
+    \item Set enviornment variables for self built libraries.
+    
+I built these libraries separately because they were not available as 
+modules on the cluster. 
+
+\begin{lstlisting}
+	export PATH="/blues/gpfs/home/neveu/git/H5hut-2.0.0rc3/build:${PATH}"
+	
+	export H5HUT_HOME=$HOME/git/H5hut-2.0.0rc3/build_intel
+	export H5HUT_PREFIX=$H5HUT_HOME
+	export H5HUT_DIR=$H5HUT_HOME
+	export H5HUT_INCLUDE_DIR=$H5HUT_HOME/include
+	export H5HUT_LIBRARY_DIR=$H5HUT_HOME/lib
+	
+	export BOOST_HOME=$HOME/git/boost_1_62_0/build/
+	export BOOST_DIR=$BOOST_HOME
+	export BOOST_PREFIX=$BOOST_HOME
+	export BOOST_INCLUDE_DIR=$BOOST_HOME/include
+	export BOOST_LIBRARY_DIR=$BOOST_HOME/lib
+	export BOOST_ROOT=/home/neveu/git/boost_1_62_0/
+	echo $BOOST_ROOT
+	echo $BOOST_DIR
+\end{lstlisting}
+
+    \item Call cmake 
+    
+There are two cmake calls I use depending on if I'm building for 
+BDW (\verb|-axCORE-AVX2|) or KNL (\verb|-axMIC-AVX512|) architecture. 
+    
+\begin{lstlisting}
+cmake -DCMAKE_INSTALL_PREFIX=/home/neveu/software/opal-1.9/bdw -DCMAKE_CXX_FLAGS="-lsz -axCORE-AVX2" ..
+\end{lstlisting}
+
+    \item Call make, then make install
+I usually call make with a large number of cores to speed up the compilation.    
+\begin{lstlisting}
+	make -j 30 
+	make install
+\end{lstlisting}
+
+\end{enumerate}
+
+
 
 %\moretox
 

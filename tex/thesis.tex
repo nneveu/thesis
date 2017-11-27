@@ -195,11 +195,23 @@ Optimization of the bunch train timing took place, \nrnote{not? - the two
 Experimental results and comparison to simulations, along 
 with the following beam dynamics analysis is shown here.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Argonne Wakefield Accelerator Facility} \label{sec:facility}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iffalse
+\nrnote{this paragraph is from NAPAC paper}
+The AWA facility houses a 70 MeV RF photoinjector \cite{upgrades} with a large 
+dynamic range: 20 pC to 100 nC. In many cases, the beam is SC dominated. 
+In the AWA’s Emittance Exchange (EEX) beam line \cite{eex}, CSR has a large  
+effect on the beam as it passes through the dipoles, and wakefields
+are present in the two beam acceleration (TBA) beam line \cite{staging1}. ASTRA, 
+GPT, and OPAL-T are capable of simulating 3D SC, and wakefield effects.
+The latter two codes also include a CSR model, making them a good fit for the AWA.  
+\fi
+
 The AWA facility houses two rf photoinjector electron guns operating
 at \SI{1.3}{GHz}, and three subsequent beam lines. 
 Two of the beam lines are currently used for staged TBA, and the
@@ -233,7 +245,7 @@ called a pulse, or the repetition rate of the machine. A picture of
 the AWA multisplitter table is shown in Fig. \ref{fig:optics}. Optimization 
 of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
 
-\iffalse
+\iftrue
 \begin{figure}
 	\begin{center}
 		%\includegraphics[width=\linewidth]{images/quads1}
@@ -790,11 +802,11 @@ calculate the offset, $\Delta x \approx \SI{34}{[mm]}$, which is confirmed by OP
 \nrnote{not sure if I want to include energy since it depends on measured counts....}
 Given a count of  energy of $\SI{64.8}{[MeV]}$ given measured counts of 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Transverse Beam Size Measurements} \label{sec:beamsize}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Beam size measurements are taken by using YAG screens at multiple z locations along the beam line.
 The code used to produce all the following images can be found at this git repository:
 
@@ -823,17 +835,17 @@ The following steps detail the post processing from raw image to transverse beam
 
 
 %\Subsection{Kicker }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\SubSection{Septum } 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Beam Dynamics}  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Code and Resources Used}\label{sec:code}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \lsnote{You need to start the chapter with summary paragraphs.  (1) Why are simulations needed?  (2) What simulation work was done?  (3) What method was chosen and why?  (4) What were the results?  You can't put  all of that in now, since some of it is unknown, but you should do (1), (3) and part of (2).  Also, before launching into the OPAL stuff, you need to say a few words about the beam characteristics during TBA studies.  A table of beam characteristics would be good here, one for the drive beam, and one for the witness.  After presenting the beam characteristics, you can mention that space charge is a problem for the drive beam - since now they know the intensity.}
 
@@ -872,56 +884,53 @@ space charge must be calculated in the simulations to give realistic results.
 The second item dramatically reduced the amount of simulation time needed. 
 Typical running conditions were on 16 cores, and for random samples up to 128 cores.  \lsnote{Specifics are always good; do you have any numbers for the time for a parallel run versus single processor?  If not, it is not super important, but if those numbers are handy put them in.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Benchmarking}
-\nrnote{Copied and pasted benchmark here, need to clean up}
-%At 40nC the usable gun phase range (for the 3D field map) is 
-%$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
-%as the region where all particles are emitted from the gun. 
-%i.e. at $40^\circ$, particles were lost.  
-\nrnote{Intro}
+\nrnote{Copied and pasted NAPAC benchmark here, need to finish cleaning up
+and add plots}
+ 
 The AWA group has used several beam codes in the past including:
-T-STEP/PARMELA \cite{parmela}, ASTRA \cite{astra}, and GPT \cite{gpt}.  
+T-STEP/PARMELA~\cite{parmela}, ASTRA~\cite{astra}, and GPT~\cite{gpt}.  
 In order to take advantage of computing resources offered by 
 Argonne National Laboratory (ANL), an effort was made to investigate
-OPAL \cite{opal}, an open source and parallel code that comes in two flavors;  
+OPAL~\cite{opal}, an open source and parallel code that comes in two flavors;  
 OPAL-CYL and OPAL-T. The latter was installed on the Blues and Bebop clusters
-at the Laboratory Computing Resource Center (LCRC) provided by ANL \cite{lcrc}. 
-Since no members of AWA had experience with OPAL-T, this benchmark 
-was done to compare results to GPT and ASTRA in two of the three 
-main collective effects of interest to the AWA: SC and CSR, 
-with wakefields being the other effect of interest. 
+at the Laboratory Computing Resource Center (LCRC) provided by ANL~\cite{lcrc}.
+(See Appendix~\ref{build} for instruction on how to build OPAL-T at ANL.)
 
-\nrnote{this paragraph might need to move or be taken out}
-The AWA facility houses a 70 MeV RF photoinjector \cite{upgrades} with a large 
-dynamic range: 20 pC to 100 nC. In many cases, the beam is SC dominated. 
-In the AWA’s Emittance Exchange (EEX) beam line \cite{eex}, CSR has a large  
-effect on the beam as it passes through the dipoles, and wakefields
-are present in the two beam acceleration (TBA) beam line \cite{staging1}. ASTRA, 
-GPT, and OPAL-T are capable of simulating 3D SC, and wakefield effects.
-The latter two codes also include a CSR model, making them a good fit for the AWA.  
+Since no members of AWA had prior experience with OPAL-T, a benchmark 
+was done to compare \mbox{OPAL-T} results to the results of codes 
+well known to the group (GPT and ASTRA). 
+This ensured correct use of the code, and reliability of \mbox{OPAL-T}.
+Two collective effects of interest to the AWA were used: 
+space charge (SC) and coherent synchrotron radiation (CSR).
+SC was tested using the drive gun at 1nC, and CSR was tested
+using a hard edge dipole.
+
 
 \Subsection{Gun Simulations}
 The SC algorithms were probed using the AWA photoinjector, 
 a 1.5 cell copper standing-wave cavity at 1.3 GHz, 
 with bucking, focusing, and matching solenoids. 
-The rf gun and solenoid fields seen by the beam are shown in Fig. 1. 
-Note, in the remainder of this paper, the word gun is used 
+The rf and solenoid fields seen by the beam in the gun are shown in Fig.~\ref{fig:gunfields}. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{images/gun_EM_fields}\caption{Electric and magnetic fields seen by the beam on axis in the gun.}
+	\end{center}
+	\label{fig:gunfields}
+\end{figure}
+Note, in the remainder of this thesis, the word gun is used 
 in place of photoinjector. The simulation parameters were chosen to 
 approximately generate the canonical “\SI{1}{\micro\metre} at 1 nC” case.
 The initial beam parameters were based on gun operations at PITZ \cite{pitz},
 due to the similarities between the PITZ and AWA rf guns.
 The PITZ parameters came close to achieving the \SI{1}{\micro\metre}
-target without any optimization. A coarse 1D minimization of the 
+target without any optimization. A coarse 1D minimization
+\nrnote{add method used here} of the 
 emittance was done to determine the value of the laser radius 
 used in this benchmark. The resulting minimum emittance was   
-\SI{1.16}{\micro\metre}. A genetic and multi-objective optimizer
-was not used in any of the codes. A multiobjective genetic optimizer  
-may have been able to achieve a lower minimum emittance by varying
-the laser radius and matching solenoid simultaneously. \nrnote{this was done later w/ Jeff}
-The resulting minimum emittance was \SI{1.16}{\micro\metre}. 
-Figure 1: Magnet and electric fields in the gun. 
+\SI{1.16}{\micro\metre}. 
 
 The initial bunch distribution parameters as well as the 
 on-axis gun gradient () and magnetic field () used in 
@@ -1001,14 +1010,18 @@ respect  to  resources  at  the  AWA,  GPT  and  ASTRA  are
 better  suited  for  use  on  windows,  and  OPAL-T  is  better  
 suited to Linux and parallel system
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%At 40nC the usable gun phase range (for the 3D field map) is 
+%$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
+%as the region where all particles are emitted from the gun. 
+%i.e. at $40^\circ$, particles were lost. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Optimization Techniques} \label{sec:opt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Simulation Results} \label{sec:simulations}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Simulations were done for both the drive and witness beam line. 
 This included both photoinjectors, linacs, and wakefield effects. 
 
@@ -1017,15 +1030,15 @@ This included both photoinjectors, linacs, and wakefield effects.
 In order to optimize the beam entering the TBA experimental area, 
 simulations were done to minimize the emittance after the 6 cavity linac
 on the drive side. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\Section{Kicker}
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Subsection{Kicker Design}
 
 \lsnote{You need to start with a re-statement of the purpose of the kicker. }
@@ -1112,7 +1125,7 @@ This was just to create a sample section...
 %
 \appendix
 
-\Appendix{How to build OPAL on Bebop}
+\Appendix{How to build OPAL on Bebop at ANL} \label{build}
 This set of instructions is tailored to the bebop cluster at ANL. 
 Intel compilers and intel-MPI were used to build OPAL and all 
 the libraries it is dependent on.

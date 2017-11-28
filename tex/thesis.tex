@@ -991,7 +991,7 @@ Several square mesh sizes were run in OPAL-T. The results plotted in
 Fig.~\ref{fig:benchplot_gun} and~\ref{fig:benchplot_5m} correspond to a mesh of $N_x=N_y=N_z=46$, with 1 million particles. 
 The image charge calculation uses a 
 shifted integrated Green function \cite{imagecharge}.  
-\begin{figure}[t]
+\begin{figure}
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{images/benchmark_gun}
 		\caption{Beam envelopes in the gun.}
@@ -1020,7 +1020,8 @@ Simulations  of  a  hard  edge  dipole  were  done  in  GPT
 and   OPAL-T   in   order   to   probe   CSR.   Short   
 mono-energetic  Gaussian  bunches  with  zero  initial  emittance  
 were sent through the dipole. Beam and dipole parameters 
-are shown in Table 3. The CSR routine used in OPAL-T is based on 
+are shown in Table~\ref{tab:benchcsr}. 
+The CSR routine used in OPAL-T is based on 
 the routine  used  in  ELEGANT  \cite{elegant}, which is known to assume  
 the beam is ultra-relativistic. The CSR routine in GPT  
 does  not  use  the  ultra-relativistic  approximation ($\beta=1$) 
@@ -1029,6 +1030,33 @@ Therefore, we expected  the  routines  to  match  well  at  high  energy  and
 diverge  at  lower  energy.  Results  of  the  CSR  simulations  
 are  shown  in  Fig.  4.  As  expected,  the  results  between  
 GPT and OPAL-T disagree at low energies. 
+\begin{table}
+	\begin{center}
+		\begin{tabular}{l l} 
+			\toprule
+			\textbf{Parameter} & \textbf{Value} \\ 
+			\midrule
+			$\sigma_x =\sigma_y$ & \SI{1}{mm} \\
+			\addlinespace[-1em] 
+			Gradient & \SI{60}{MV/m} \\
+			\addlinespace[-1em] 
+			Phase & Max energy (on crest) \\
+			\addlinespace[-1em] 
+			Laser radius & \SI{0.75}{mm} \\
+			\addlinespace[-1em] 
+			Rise and fall time & \SI{6}{ps} \\
+			\addlinespace[-1em] 
+			Initial kinetic energy & \SI{0.55}{eV} \\
+			\addlinespace[-1em] 
+			Matching solenoid strength & \SI{-0.389}{T} \\
+			\addlinespace[-1em] 
+			Buck and focusing solenoid strength & \SI{-0.12}{T} \\
+			\bottomrule			
+		\end{tabular}
+	\end{center}
+	\caption{Input simulation parameters for gun benchmark.}
+\end{table}\label{tab:benchcsr}
+
 
 \Subsection{Convergence Study}
 Convergence runs were done for three parameters: 

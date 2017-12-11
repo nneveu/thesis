@@ -854,26 +854,20 @@ The following steps detail the post processing from raw image to transverse beam
 
 \lsnote{You need to start the chapter with summary paragraphs.  (1) Why are simulations needed?  (2) What simulation work was done?  (3) What method was chosen and why?  (4) What were the results?  You can't put  all of that in now, since some of it is unknown, but you should do (1), (3) and part of (2).  Also, before launching into the OPAL stuff, you need to say a few words about the beam characteristics during TBA studies.  A table of beam characteristics would be good here, one for the drive beam, and one for the witness.  After presenting the beam characteristics, you can mention that space charge is a problem for the drive beam - since now they know the intensity.}
 
-
-\nrnote{abstract from NAPAC}
 With  the  rapid  improvement  in  computing  resources  and  codes  in  recent  years,  
 accelerator  facilities  can  now achieve and rely on accurate beam dynamics simulations. 
-These  simulations  include  single  particle  effects  (e.g. particle tracking in a magnetic field) as well as collective effects  such  as  space  charge  (SC),  and  coherent  synchrotron  radiation  (CSR).
-Using portions of the Argonne Wakefield  Accelerator (AWA) as the benchmark model,  
-we simulated beam dynamics with three particle tracking codes.
-The AWA rf photoinjector was benchmarked, primarily to study SC, 
-in ASTRA, GPT, and OPAL-T using a \SI{1}{nC} beam. 
-A $20^{\circ}$ dipole magnet was used to benchmark 
-CSR effects in GPT and OPAL-T by bending a 1nC beam 
-at  energies  between  2  MeV  and  100  MeV.  In  this  paper  
-we  present  the  results,  and  discuss  the  similarities  and  
-differences between the codes.
+These  simulations  include  single  particle  effects  (e.g. particle tracking in a magnetic field) as well as collective effects  such  as  space  charge  (SC),  
+and  coherent  synchrotron  radiation  (CSR).
 
-
-To simulate beam dynamics, the particle-in-cell (PIC) code OPAL was used \cite{opal}. PIC codes simulate 
-the electromagnetic forces that particles see in an accelerator. This is done by mapping the input 
-particles onto a grid. Then in each time (or z) step, the forces due to space charge, accelerating gradients, 
-and magnets are calculated and applied to the grid. 
+The beam dynamics reported in this thesis, were simulated with 
+the open source, particle-in-cell (PIC) code OPAL was used \cite{opal}. 
+PIC codes simulate the electromagnetic forces that particles see in an accelerator. 
+This is done by mapping the input particles onto a grid. 
+Then in each time (or z) step, the forces due to space charge, accelerating gradients, 
+and magnets are calculated and applied to the grid.
+OPAL comes in two flavors, OPAL-CYC and OPAL-T. The first is used to model 
+cyclotrons, and the latter, which is used for this work, is suited for photoinjectors. 
+OPAL-T was chosen in part because it models the 3D space charge necessary to accurately simulate the high charge bunches at the AWA. 
 \lsnote{You need a few sentences describing OPAL.  Also describe (briefly) what a PIC code is.  (Are there any other choices besides a PIC code?)}
 It was chosen for several reasons:
 \begin{itemize}
@@ -885,15 +879,29 @@ It was chosen for several reasons:
 The first item is crucial to standard operations at the AWA. Especially in the 
 case of TBA, high charge is needed on drive beam line, therefore transverse 
 space charge must be calculated in the simulations to give realistic results.
-
 The second item dramatically reduced the amount of simulation time needed. 
-Typical running conditions were on 16 cores, and for random samples up to 128 cores.  \lsnote{Specifics are always good; do you have any numbers for the time for a parallel run versus single processor?  If not, it is not super important, but if those numbers are handy put them in.}
+For example, simulating the gun and linac, about \SI{15}{m} of elements,
+with 100,000 particles on one core would take about 30 minutes. 
+When the number of cores is increased to 16, the same run takes less than 
+5 minutes. This reduction in time by ~80\%, combined with the capability to run 
+many cases at once on the cluster allows for more efficient use of time.
+Typical running conditions were on 16 cores, for random samples up to 128 cores, 
+and up to 5,200 cores for large optimization runs.  
+\lsnote{Specifics are always good; do you have any numbers for the time for a parallel run versus single processor?  If not, it is not super important, but if those numbers are handy put them in.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Benchmarking}
-\nrnote{Copied and pasted NAPAC benchmark here, need to finish cleaning up
-and add plots}
+\nrnote{Copied and pasted NAPAC benchmark here, need to finish cleaning up.}
+Using portions of AWA as the benchmark model,  
+beam dynamics were simulated with three particle tracking codes.
+The AWA rf photoinjector was benchmarked, primarily to study SC, 
+in ASTRA, GPT, and OPAL-T using a \SI{1}{nC} beam. 
+A $20^{\circ}$ dipole magnet was used to benchmark 
+CSR effects in GPT and OPAL-T by bending a 1nC beam 
+at  energies  between  2  MeV  and  100  MeV.  In  this  paper  
+we  present  the  results,  and  discuss  the  similarities  and  
+differences between the codes.
  
 The AWA group has used several beam codes in the past including:
 T-STEP/PARMELA~\cite{parmela}, ASTRA~\cite{astra}, and GPT~\cite{gpt}.  
@@ -1095,27 +1103,38 @@ suited to Linux and parallel system
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Optimization} \label{sec:opt}
-In order to optimize the beam entering the TBA experimental area, 
-simulations were done to minimize the emittance after the six cavity linac
-on the drive side. 
+Throughout the design process, optimization was used to 
+shape the beam entering the TBA experimental area, 
+minimize the emittance after the six cavity linac, on the drive side, 
+and choose the optimal optics configuration for maximum beam transport.
+The optimization techniques used in include model based, genetic algorithms, 
+and structure exploiting algorithms. 
+ 
 Model-based, derivative-free, trust-region algorithms 
 are increasingly popular for optimizing computationally 
 expensive numerical simulations. A strength of such
 methods is their efficient use of function evaluations. 
-One such algorithm was used to optimize 
-the beam dynamics in two cases of interest at the 
-Argonne Wakefield Accelerator (AWA) facility. 
-First, we minimize the emittance of a \SI{1}{nC} electron 
+This was the first type of algorithm used to optimize 
+the beam dynamics in two cases of interest at AWA. 
+First, the emittance of a \SI{1}{nC} electron 
 bunch produced by the AWA rf photocathode gun 
-by adjusting three parameters: rf gun phase, 
+was minimized by adjusting three parameters: rf gun phase, 
 solenoid strength, and laser radius. The algorithm 
 converges to a set of parameters that yield an
 emittance of \SI{1.08}{\um}. Second, we expand 
 the number of optimization parameters to model the complete AWA rf 
 photoinjector (the gun and six accelerating cavities) at \SI{40}{nC}. 
-The optimization algorithm is used in a Pareto study that compares the 
+The optimization algorithm was used in a Pareto study that compares the 
 trade-off between emittance and bunch 
-length for the AWA \SI{70}{MeV} photoinjector
+length for the AWA \SI{70}{MeV} photoinjector. \nrnote{finished?}
+
+After a model based method was implemented, a common technique was 
+used as confirmation and for exploratory work. Preliminary designs 
+for the TBA optics configuration were probed using a Genetic Algorithm
+that was built in to OPAL.  \nrnote{running simulations now}
+
+Finally, to reduce the amount of time needed to optimize the complete beam line, 
+a structure exploiting algorithm was implemented. \nrnote{working on this}
 
 
 \Subsection{Bounded Optimization by Quadratic Approximation (BOBYQA)}
@@ -1130,14 +1149,15 @@ function and minimize these models to identify candidate parameters to
 evaluate. BOBYQA~\cite{bobyqa} is one such method that is available via the
 NLopt~\cite{nlopt} package and was used in this study. 
 Given a candidate set of optimal parameters $v^k$, BOBYQA
-constructs a quadratic model using function values of points near $v^k$. This
-model is minimized in a neighborhood of $v^k$ in order to produce a point $\hat{v}$. If $\hat{v}$ 
-has a smaller objective function value than $v^k$, the estimate of the optimum is
-updated to $\hat{v}$, and a new model is constructed. If $\hat{v}$ is not a
-sufficient improvement over $v^k$, the model around $v^k$ is improved. For more
+constructs a quadratic model using function values of points near $v^k$. 
+This model is minimized in a neighborhood of $v^k$ in order to produce a point $\hat{v}$. If $\hat{v}$ has a smaller objective function value than $v^k$, 
+the estimate of the optimum is updated to $\hat{v}$, and a new model is constructed. 
+If $\hat{v}$ is not a sufficient improvement over $v^k$, 
+the model around $v^k$ is improved. For more
 information about derivative-free optimization, see~\cite{Conn2009a}.
 
-The parameters $v^k$ are generated and supplied to the open source particle-in-cell code OPAL\=/t~\cite{opal}. 
+The parameters $v^k$ are generated and supplied to the open source 
+particle-in-cell code OPAL\=/T~\cite{opal}. 
 This code was chosen in part because it models the 3D space charge necessary to accurately simulate the linac.
 The optimization package NLopt and OPAL\=/t were used
 in combination with Python code written at Argonne National Laboratory to perform simulation evaluations and optimization.
@@ -1159,32 +1179,31 @@ and accelerating cavity phases ($\phi_L$). The optimization parameters and
 bounds are given in table~\ref{tab:parameters}; we denote the set of
 ten optimization parameters as $v=[S_3, \phi_g, R, T, \phi_L]$, where 
 $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavity $L_1$-$L_6$. 
-\vspace*{-\baselineskip}
-\begin{table}[h] %or [hbt] ?
+
+\begin{table}
 	\caption{\label{tab:parameters} Parameter bounds for gun and linac optimization.}
 	\begin{center}
-		\begin{tabular}{ l *{3}{c}}
-			%\br
+		\begin{tabular}{ l *{3}{c}} 
+			\bottomrule
 			\textbf{Variable} & \textbf{Range} & \textbf{Unit} \\
-			%\mr
+			\midrule
 			Solenoid Strength & $ 0 \le S_3 \le 440$  & amps \\
 			Phase of Gun & $-60 \le \phi_g \le 60$  & degrees \\
 			Laser Radius  & $0.1 \le R \le 30$  & mm \\
 			Laser FWHM \footnotemark \label{note1}& $2 \le T \le $10  & ps \\
 			Cavity Phase \textsuperscript{\ref{note1},}\footnotemark & $-20 \le \phi_L \le 20$  & degrees \\
-			%\br	
+			\bottomrule	
 		\end{tabular}
 	\end{center}
 \end{table}
 \addtocounter{footnote}{-1}\footnotetext{not varied during gun optimization}
 \addtocounter{footnote}{+1}\footnotetext{$\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$}
 
-
 \Subsection{Gun Simulations Using BOBYQA} \label{sec:gunbobyqa}
 %\section{Gun Optimization}
 % ----------------------------------------------------
 Much work has been done to optimize 1.5 cell rf guns
-at \SI{1}{nC}~\cite{Stephan:2010zza}. This known solution was used as 
+at \SI{1}{nC}~\cite{pitz}. This known solution was used as 
 a baseline test of BOBYQA when applied to an accelerator application.
 An optimization of the single objective emittance ($\epsilon_x$) was 
 performed over a length of \SI{5}{m}. All linacs were turned off and only gun parameters were varied. 

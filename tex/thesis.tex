@@ -975,8 +975,7 @@ and the AWA. The rf and solenoid fields seen by the beam in the gun are shown in
 	\begin{center}
 		\includegraphics[width=0.95\textwidth]{images/gun_EM_fields}\caption{Electric and magnetic fields seen by the beam on axis in the gun.}
 	\end{center}
-	\label{fig:gunfields}
-\end{figure}
+\end{figure}\label{fig:gunfields}
 
 Note that the codes use various methods to model 
 the rf and magnetic fields, SC, and image charge. 
@@ -1013,8 +1012,8 @@ shifted integrated Green function \cite{imagecharge}.
         
 		\includegraphics[width=0.8\textwidth]{images/benchmark_5m}
 		\caption{Beam envelopes in drift.}
+	    \label{fig:benchplot_5m}
 	\end{center}
-	\label{fig:benchplot_5m}
 \end{figure}
 
 In general, the simulation results are in reasonable agreement 
@@ -1081,7 +1080,7 @@ The number of particles was varied from 20k to 3.2  million.
 The  longitudinal  parameters  (energy,  bunch length)  
 showed  no  variation,  but  there  were  slight  deviations 
 in the transverse emittance and beam size. The same results 
-were observed when the time step was varied from 0.1  to  10  ps.  
+were observed when the time step was varied from 0.1 ps  to  10  ps.  
 The  grid  size  was  changed  from  32,  44,  46, and 64 cubed; 
 again the results lacked any major discrepancies.  
 In all cases, no appreciable differences were observed in the energy,
@@ -1092,9 +1091,9 @@ OPAL-T would not complete the run (crash or hang up).
 \nrnote{conclusion}
 Based on the experience gained during this benchmark, 
 all  three  codes  are  capable  of  accurate  simulations.  With  
-respect  to  resources  at  the  AWA,  GPT  and  ASTRA  are  
+respect  to  resources  at  the  AWA:  GPT  and  ASTRA  are  
 better  suited  for  use  on  windows,  and  OPAL-T  is  better  
-suited to Linux and parallel system
+suited to Linux and parallel systems.
 
 %At 40nC the usable gun phase range (for the 3D field map) is 
 %$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
@@ -1103,11 +1102,12 @@ suited to Linux and parallel system
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Optimization} \label{sec:opt}
-Throughout the design process, optimization was used to 
-shape the beam entering the TBA experimental area, 
-minimize the emittance after the six cavity linac, on the drive side, 
-and choose the optimal optics configuration for maximum beam transport.
-The optimization techniques used in include model based, genetic algorithms, 
+Throughout the design process, optimization algorithms 
+were used to shape the beam entering the TBA experimental area.
+Minimizing the emittance and bunch length after the six cavity linac,
+and choosing the optimal optics configuration for maximum beam transport 
+were the main objectives of all optimization work.
+The techniques used include model based, genetic,
 and structure exploiting algorithms. 
  
 Model-based, derivative-free, trust-region algorithms 
@@ -1115,7 +1115,7 @@ are increasingly popular for optimizing computationally
 expensive numerical simulations. A strength of such
 methods is their efficient use of function evaluations. 
 This was the first type of algorithm used to optimize 
-the beam dynamics in two cases of interest at AWA. 
+the beam dynamics in two cases of interest at the AWA. 
 First, the emittance of a \SI{1}{nC} electron 
 bunch produced by the AWA rf photocathode gun 
 was minimized by adjusting three parameters: rf gun phase, 
@@ -1156,12 +1156,11 @@ If $\hat{v}$ is not a sufficient improvement over $v^k$,
 the model around $v^k$ is improved. For more
 information about derivative-free optimization, see~\cite{Conn2009a}.
 
-The parameters $v^k$ are generated and supplied to the open source 
-particle-in-cell code OPAL\=/T~\cite{opal}. 
-This code was chosen in part because it models the 3D space charge necessary to accurately simulate the linac.
+The parameters $v^k$ are generated and supplied to OPAL\=/T~\cite{opal}. 
 The optimization package NLopt and OPAL\=/t were used
-in combination with Python code written at Argonne National Laboratory to perform simulation evaluations and optimization.
-All the files needed to replicate the results in this paper are available at
+in combination with Python code written at ANL with the help 
+of Jeff Larson, to perform simulation evaluations and optimization.
+All the files needed to replicate the results in this section are available at
 \begin{center}
 	www.mcs.anl.gov/$\sim$jlarson/AWA
 \end{center}
@@ -1170,8 +1169,10 @@ and suggest improvements.
 
 \Subsection{Optimization Parameters}
 % ----------------------------------------------------
-When optimizing the gun, three parameters were varied: solenoid strength ($S_3$), gun phase
-($\phi_g$), and laser radius ($R$) of a uniform pulse. The minimized objective was emittance ($\epsilon_x$).
+When optimizing the gun, three parameters were varied: 
+solenoid strength ($S_3$), gun phase ($\phi_g$), 
+and laser radius ($R$) of a uniform pulse. 
+The minimized objective was emittance ($\epsilon_x$).
 (The phase is defined as $0^{\circ}$ at maximum energy gain.) 
 When optimizing the entire linac, seven additional parameters were 
 varied: the longitudinal laser full width at half maximum ($T$)
@@ -1179,12 +1180,12 @@ and accelerating cavity phases ($\phi_L$). The optimization parameters and
 bounds are given in table~\ref{tab:parameters}; we denote the set of
 ten optimization parameters as $v=[S_3, \phi_g, R, T, \phi_L]$, where 
 $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavity $L_1$-$L_6$. 
-
+\nrnote{need to fix footnotes and superscripts for table 3.3}
 \begin{table}
 	\caption{\label{tab:parameters} Parameter bounds for gun and linac optimization.}
 	\begin{center}
 		\begin{tabular}{ l *{3}{c}} 
-			\bottomrule
+			\toprule
 			\textbf{Variable} & \textbf{Range} & \textbf{Unit} \\
 			\midrule
 			Solenoid Strength & $ 0 \le S_3 \le 440$  & amps \\
@@ -1194,10 +1195,11 @@ $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavit
 			Cavity Phase \textsuperscript{\ref{note1},}\footnotemark & $-20 \le \phi_L \le 20$  & degrees \\
 			\bottomrule	
 		\end{tabular}
+	\addtocounter{footnote}{-1}\footnotetext{not varied during gun optimization}
+	\addtocounter{footnote}{+1}\footnotetext{$\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$}
 	\end{center}
 \end{table}
-\addtocounter{footnote}{-1}\footnotetext{not varied during gun optimization}
-\addtocounter{footnote}{+1}\footnotetext{$\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$}
+
 
 \Subsection{Gun Simulations Using BOBYQA} \label{sec:gunbobyqa}
 %\section{Gun Optimization}
@@ -1206,37 +1208,38 @@ Much work has been done to optimize 1.5 cell rf guns
 at \SI{1}{nC}~\cite{pitz}. This known solution was used as 
 a baseline test of BOBYQA when applied to an accelerator application.
 An optimization of the single objective emittance ($\epsilon_x$) was 
-performed over a length of \SI{5}{m}. All linacs were turned off and only gun parameters were varied. 
+performed over a length of \SI{5}{m}. 
+All linacs were turned off and only gun parameters were varied. 
 Non-varying parameters are listed in table~\ref{tab:gun}; 
 their values are based on work done at PITZ and AWA~\cite{pitz, benchmark}.
-Local optimization runs were started from five points with various distances from the optimum value. 
-The optimization runs converged (in less than 100 function evaluations) to a parameter set ($S_3=\SI{269}{A}$, $\phi_g=\SI{-3.0}{^{\circ}}$, and $R=\SI{0.6}{mm}$) with an emittance of $\SI{1.08}{\um}$.
+
+Local optimization runs were started from five points with various distances from the optimum value. The optimization runs converged 
+(in less than 100 function evaluations) to a parameter set ($S_3=\SI{269}{A}$, $\phi_g=\SI{-3.0}{^{\circ}}$, and $R=\SI{0.6}{mm}$) 
+with an emittance of $\SI{1.08}{\um}$.
 An exhaustive search of the parameter space was not done, and there may be other local minima that were not found.
 However, the results match expectations based on the literature. 
 \begin{table}[h] 
 	\caption{\label{tab:gun} Non-varying parameters for gun optimization.}
 	\begin{center}
 		\begin{tabular}{lll}
-			%\br
+			\toprule
 			\textbf{Parameter} & \textbf{Value} \\
-			%\mr
+			\midrule
 			Charge  & \SI{1}{nC} \\
 			Gradient & \SI{60}{MV/m} \\
 			Laser FWHM & \SI{20}{ps} \\
 			Laser Rise and Fall Time & \SI{6}{ps} \\
 			Kinetic Energy at Cathode  & \SI{0.55}{eV} \\
 			$S_1$ and $S_2$ & \SI{550}{A} \\
-			%\br
+			\bottomrule
 		\end{tabular}
 	\end{center}
 \end{table}
 
 
-
-
-\Subsection{Linac Simulations Using BOBYQA} \label{sec:pareto}
-The \SI{70}{MeV} rf photoinjector at the Argonne Wakefield 
-Accelerator (AWA) facility~\cite{manoel} 
+\Subsection{Linac Description} \label{sec:pareto}
+\nrnote{maybe this beam line description should be in chp 2:
+The \SI{70}{MeV} rf photoinjector at the AWA
 consists of an rf gun followed by six rf accelerating cavities, 
 hereafter referred to as the linac. 
 See Figure~\ref{fig:beamline} for the beam line layout. 
@@ -1246,7 +1249,7 @@ Solenoid 1 ($S_1$) is used to buck the field at the cathode,
 while the other two solenoids ($S_2$ and $S_3$) are used for emittance compensation.  
 The accelerating cavities, also operated at \SI{1.3}{GHz}, are 7 cell standing-wave 
 cavities \cite{Power:2010zza} each with independently controllable phase. 
-The cavities are labeled $L_1$-$L_6$ in Figure~\ref{fig:beamline}. 
+The cavities are labeled $L_1$-$L_6$ in Figure~\ref{fig:beamline}. }
 \def \gunleft {-1.0}
 \def \gunright {0.3}
 \def \loneright {1.0}
@@ -1320,7 +1323,7 @@ The cavities are labeled $L_1$-$L_6$ in Figure~\ref{fig:beamline}.
 % ----------------------------------------------------
 Next we performed a multiobjective optimization of the linac (Figure~\ref{fig:beamline}), 
 by adjusting the ten parameters in table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
-and was chosen for upcoming two-beam acceleration experiments \cite{Jing:2015bxl}. 
+and was chosen for upcoming two-beam acceleration experiments~\cite{tba2017}. 
 Two objectives were considered: emittance, and bunch length, $\sigma_z$. 
 The location of interest is $z_1=\SI{12.51}{m}$, as this is the entrance of the first 
 quadrupole magnet after the linac. We optimize $\epsilon_x$ instead of $\epsilon_{xy}$ because 
@@ -1333,7 +1336,7 @@ These are typical operating conditions at AWA.
 	\caption{\label{tab:linac} Non-varying parameters for linac optimization.}
 	\begin{center}
 		\begin{tabular}{lll}
-			%\br
+			\toprule
 			\textbf{Parameter} & \textbf{Value} \\
 			\midrule
 			Charge  & \SI{40}{nC} \\
@@ -1364,7 +1367,7 @@ This scaling is done in order to remove the difference in the units between
 emittance and bunch length when optimizing.
 
 With the scaled values of $\bar{\epsilon}_x$ and $\bar{\sigma}_z$, a sequence
-of eleven optimization problems were solved by minimizing 
+of eleven optimization problems were solved by minimizing,
 \begin{equation}
 f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
 \label{eq:newobj}
@@ -1402,10 +1405,7 @@ The number of simulation evaluations needed to obtain convergence
 in the BOBYQA runs varied from a minimum of 107 evaluations to a maximum of 208 
 evaluations. In order to generate the Pareto front in
 Figure~\ref{fig:pareto}, a total of 2,492 simulation evaluations were completed.
-Most simulation evaluations took approximately 7 minutes, using 16 cores and 100,000 particles. 
-Runs with phases near the domain boundary
-(table~\ref{tab:parameters}) took approximately 10 minutes. These numbers are 
-driven by the amount of time OPAL-t needs to simulate the beam line. 
+Most simulation evaluations took approximately 7 minutes, using 16 cores and 100,000 particles. These numbers are driven by the amount of time OPAL-T needs to simulate the beam line. 
 
 The best-found objective value through each BOBYQA run is shown in Figure~\ref{fig:iterations}. 
 Weight 0.0 and 1.0 are negative due to the scaling in Equation~(\ref{eq:scale}). While the weights, $w$, are always nonnegative, 
@@ -1429,7 +1429,7 @@ narrow range (\SIrange{10}{16}{mm}).
 	\captionsetup{width=0.98\linewidth}
 	\begin{center}
 		\includegraphics[width=0.98\textwidth]{images/THPAB155f3}
-		\caption{\label{fig:trade}Bunch length and emittance vs.~gun phase at each optimized point in the Pareto front for the linac at \SI{40}{nC}. The phase of the maximum energy gain is 0$^{\circ}$.}
+		\caption{\label{fig:trade}Bunch length and emittance vs.~gun phase at each optimized point in the Pareto front for the linac at \SI{40}{nC}. The phase of the max energy gain is 0$^{\circ}$.}
 	\end{center}
 \end{figure}
 
@@ -1442,28 +1442,30 @@ all six phases, $\phi_L$, varied by less than $10^{\circ}$ for $w \in \left\{ 0,
 less than $5^{\circ}$ for $w \in \left\{ 0.4, 0.5, 0.6\right\}$, 
 and less than $10^{\circ}$ for $w \in \left\{ 0.7, 0.8, 0.9\right\}$.
 This indicates optimized linac phases may benefit a range of gun settings during operation. 
-AWA will conduct experimental measurements in order to verify these results.
+
 
 \Subsection{Lessons Learned from BOBYQA Work}
-%\section{Conclusion}
+\nrnote{conclusion from paper... add some?}
 % ----------------------------------------------------
 Using an AWA beam line as the simulation model, we used the BOBYQA algorithm 
 to optimize the emittance produced by the gun at \SI{1}{nC}.
 Using the same algorithm, we performed a multiobjective analysis for the linac at \SI{40}{nC}. 
 A Pareto front comparing the trade-off between bunch length and emittance was generated for the linac. 
-This analysis will be used to decide future operating parameters at the AWA during high-charge experiments.
 In total, only 2,492 simulation evaluations were needed to produce the approximate Pareto front.
-Future work will include a refinement of results using 3D field maps for all 
-cavities, experimental measurements to verify the 
-Pareto front, and a comparison with evolutionary algorithms.
+From this work a few key take aways are clear. First, larger laser radius
+is uniformly better for high charge. i.e large radius helps lower emittance.
+The second clear results is alternating the phases in the linac can control 
+the energy spread created by the gun, i.e. running off crest in the linac 
+can reduce the energy spread significantly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{OPAL and the Genetic Algorithm: NSGA-II} \label{sec:ga}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Simulations were done for both the drive and witness beam line. 
-This included both photoinjectors, linacs, and wakefield effects. 
+Next, work began on designing the TBA experimental area. 
+Initial probes into this problem were done using the genetic algorithm
+implemented in OPAL-T~\cite{optpilot}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1475,7 +1477,7 @@ This included both photoinjectors, linacs, and wakefield effects.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Subsection{Kicker Design}
+\Section{Kicker Design}
 
 \lsnote{You need to start with a re-statement of the purpose of the kicker. }
 A design implemented by Indiana University (IU) \cite{iukicker}

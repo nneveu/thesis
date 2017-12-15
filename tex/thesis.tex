@@ -593,12 +593,12 @@ signal generator to the control room cables, as shown in Fig.~\ref{fig:tikzcalib
 This cable not normally connected to the control room as shown in Fig.~\ref{fig:tikzdrivegun}. \lsnote{You should finish the thought - how much attenuation from the Heliax, and what is the adjusted correction?}
 
 
-\Subsection{Drive Gun Measurements}
+\Subsection{Drive Gun Measurements}\label{gunenergy}
 After the cable calibration, the set up was returned to typical rf conditions as 
 shown in Fig.~\ref{fig:tikzdrivegun}. This includes $\SI{53.2}{dB}$ from the pick 
 up probe itself, a $\SI{36}{dB}$ additional attenuation connected to the 
 drive gun pick up probe, followed by a long heliax to the 
-control room. The signal split in the control room with a mini-circuit ZX10-2-12+. 
+control room. The signal split in the control room with a mini-circuit ZFRSC-123-S+. 
 One port is used for Low Level RF (LLRF) control, and the other port was connected to a short 
 heliax, $C_3$, then to a $\SI{10}{dB}$ attenuator and finally to the 
 power meter. Normally a load is placed at port two when no power meter is connected. 
@@ -653,7 +653,7 @@ max power to the gun, typical of TBA running conditions.
 	\caption{Experimental set up when measuring power from gun to control room. 
 		Where $\SI{53.2}{dB}$ of attenuation is due to the gun probe itself, 
 		$\SI{36}{dB}$ of additional attenuation is attached to gun pick up probe cable in the tunnel, 
-		$C_2$ is a long heliax to the control room. The $\SI{10}{dB}$  splitter sends half the signal to the   
+		$C_2$ is a long heliax to the control room. The $\SI{9.5}{dB}$  splitter sends half the signal to the   
 		low level RF (LLRF) control system, and half to the power meter. 
 		$C_3$ is a short yellow heliax that connects the meter to the splitter and on to the 6 GHz scope or power meter.}
 	\label{fig:tikzdrivegun}
@@ -664,7 +664,10 @@ Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g
 in the control room. Now we must account for attenuation to know the true power
 signal out of the gun. 
 \begin{equation}
-P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{10}{dB}+ \SI{10}{dB} - \SI{14.18}{dBm} = \SI{95.58}{dBm}
+P_1 = P_r + A_1 + C_2 + S + C_3 + A_2 + P_g
+\end{equation}
+\begin{equation}
+P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{9.5}{dB}+ \SI{0.56}{dB} + \SI{10}{dB} + \SI{14.18}{dBm} = \SI{124}{dBm} or 95.6?
 \end{equation}
 
 Then converting to a more convenient unit: 
@@ -682,11 +685,42 @@ P_2 = 10^{\SI{9.56}{dBm}} \cdot  \SI{1}{[mW]} = 3.6 \, \SI{}{[MW]}
 There are six linear accelerating (linac) cavities after the gun. 
 Each are connected to the control room in the same way as the gun. 
 The only differences are in the attenuation at the pick up probe and 
-the splitter attenuation. The power readings for each tank are: 
-$L_i=[-18.9,-12.2,-18.9,-17.8,-14.3]\pm \SI{0.05}{dBm}$. 
+the splitter attenuation. Using the methods in section \ref{gunenergy}, 
+and the attenuation values, we can calculate the power in each linac cavity:
+
+\begin{table} %or [hbt] ?
+	\caption{\label{tab:powerlinac} Power and attenuation values for the 
+		linac cavities. Note that all cavities have an additional 
+		\SI{33}{dB} attenuation added after the probe.}
+	\begin{center}
+		\begin{tabular}{cccc}
+			\toprule
+			\textbf{Cavity} & \textbf{Probe Att.} & \textbf{Splitter Att.} & \textbf{Power Meter} \\
+			\midrule
+			Gun & \SI{-53.2}{dB}& $9.5 \pm \SI{0.3}{dBm}$ & \SI{-14.18}{dBm}\\
+			2 & \SI{}{dB}       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.88}{dBm}\\
+			3 & \SI{}{dB}       & $4.0 \pm \SI{1.0}{dBm}$ & \SI{-12.24}{dBm}\\
+			4 & \SI{-61.95}{dB} & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.89}{dBm} \\
+			5 & \SI{}{dB}       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-17.76}{dBm}\\
+			6 & \SI{-61}{dB}    & \SI{}{dB} & \SI{-14.32}{dBm}\\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\nrnote{Move this to appendix later:
+$G$ readings:$[-14.18]$	
+$L_2$ readings:$[-18.88]$
+$L_3$ readings:$[-12.21,-12.38, -12.24, -12.24, -12.24, -12.39, -12.24, -12.24]$
+$L_4$ readings:$[-18.84]$
+$L_5$ readings:$[-17.76]$
+$L_6$ readings:$[-14.36,-14.28,-14.25,-14.30,-14.35,-14.33]$
+Site for new splitters: %\url{https://www.minicircuits.com/pdfs/ZFRSC-123+.pdf}
+Site for old splitters: %\url{URL}
+}
 
 \begin{equation}
-P_1 = \SI{0}{dB} + \SI{0}{dB} + \SI{0.56}{dB} + 
+P_1 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dBm}
 \end{equation}
 
 

@@ -1,0 +1,219 @@
+\Chapter{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Motivation} \label{sec:motivation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A new generation of accelerators dedicated to High Energy Physics
+(HEP), would likely be of the TeV scale. Reduction in the size and cost
+of such machines is key to their feasibility, and can be accomplished
+through accelerator technology R\&D. Investigation into a 
+high gradient candidate for future HEP machines is an active research area
+at the Argonne Wakefield Accelerator (AWA) facility. A
+short pulse, two-beam acceleration (TBA) scheme using 
+wakefield power extractors, and accelerating structures made 
+of metallic materials was demonstrated~\cite{recent-tba}. 
+A goal of the AWA group is to demonstrate fully staged TBA, 
+achieving a gradient of 250 MV/m. If successful, this would
+be the only facility in the world capable of such gradients used for
+acceleration of a beam.
+
+TBA requires a drive beam to pass through a decelerating structure and
+loss of energy through wakefield generation. The electromagnetic wake
+is coupled from the decelerator into an accelerating structure, where
+the electric field is used to accelerate a second beam. In order to have equivalent power 
+generation for each stage, two complete and separate beamlines 
+operating synchronously with each other are required.  
+The wakefield structures can be metallic or dielectric. Dielectric
+structures, having no irises, are simple to manufacture and have demonstrated
+high gradient capability at \SI{100}{MV/m} \cite{WeiPaper}. 
+
+The Compact Linear Collider (CLIC) collaboration, proposes a similar TBA scheme with
+a \SI{240}{ns} pulse design. This limits the acceleration gradient
+to roughly \SI{150}{MV/m} at room temperature due to rf breakdown \cite{CLICdesignReport}.
+Higher gradients could be reached when driven by a very short drive
+beam pulse, such as the 20ns pulse length proposed by AWA \cite{WeiPaper}. 
+\nrnote{Understand and explain why short pulse can give higher gradients. 
+Because higher peak power is tolerable, but average power stays the same?}
+While the two groups vary on approach, they agree that TBA would 
+require less infrastructure when constructing a linear TeV scale machine, 
+versus the cost of more conventional technology. 
+For example, a case study was done comparing the infrastructure 
+needed when using traditional \SI{50}{MW} klystron sources.
+It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
+\SI{9.2}{TW} power as in the CLIC design specification in CLIC reports \cite{CLICdesignReport}. 
+In comparison to CLIC's 48 km projected machine length needed to reach \SI{3}{TeV}, the Next Linear
+Collider (NLC) collaboration projected a machine length of \SI{26}{km} using X-band klystrons,
+only to reach an energy of \SI{1}{TeV}. %\cite{NLC}. 
+\lsnote{The text below is not well developed.  I guess since it is in this paragraph, you are trying to explain the statement that less infrastructure is required.  First, you don't say anything specifically about using an accelerator beam rather than a klystron - how does that save on equipment and space?  It is also confusing that you start by saying the power to the witness beam is conventional, abut then say there is a difference in infrastructure with nothing between  about why.}
+The power supplied to the witness beam in TBA is similar to
+power provided by traditional accelerator technology. 
+The key difference is the amount of infrastructure and cost 
+needed to transport the power. Theoretically, TBA can deliver
+the same amount of power as conventional methods with less 
+infrastructure, and therefore lower cost, in the case of a high energy machine. 
+
+\lsnote{This next section of text should be a summary of what was done for your thesis, what the results were, and why they were important. Perhaps mapping them to the corresponding sections of your thesis.  The AWA facility and following sections should probably be in the next chapter.  You probably can't write these paragraphs until finishing your work.}
+
+Before a detailed understanding of the power and infrastructure trade offs 
+can be obtained, the feasibility of staged TBA must be be demonstrated as viable, 
+as no high energy machine can be built without staging.
+Staging is the ability to use two successive accelerating modules to synchronously accelerate 
+the same particle bunch. While simple in principle, the difficulties 
+in achieving staging should not be underestimated. 
+Demonstration of staging proves that a TBA scheme can be scaled to high energies, and whether it is 
+feasible to use such methods. Single stage TBA, and staging 
+in a simplified scheme have been demonstrated at the AWA in 2016.
+\nrnote{Not any more? - Demonstration of the full-scale dielectric staging scheme is the 
+	subject of this thesis.} 
+Desing and partial testing of a full-scale staging scheme is the 
+subject of this thesis. The branched drive beam line was designed and 
+simulated. 
+Optimization of the bunch train timing took place, \nrnote{not? - the two 
+	beam lines were synchronized and experimental measurements 
+	of staged TBA were taken. }
+Experimental results and comparison to simulations, along 
+with the following beam dynamics analysis is shown here.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Argonne Wakefield Accelerator Facility} \label{sec:facility}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iffalse
+\nrnote{this paragraph is from NAPAC paper}
+The AWA facility houses a 70 MeV RF photoinjector \cite{upgrades} with a large 
+dynamic range: 20 pC to 100 nC. In many cases, the beam is SC dominated. 
+In the AWA’s Emittance Exchange (EEX) beam line \cite{eex}, CSR has a large  
+effect on the beam as it passes through the dipoles, and wakefields
+are present in the two beam acceleration (TBA) beam line \cite{staging1}. ASTRA, 
+GPT, and OPAL-T are capable of simulating 3D SC, and wakefield effects.
+The latter two codes also include a CSR model, making them a good fit for the AWA.  
+\fi
+
+The AWA facility houses two rf photoinjector electron guns operating
+at \SI{1.3}{GHz}, and three subsequent beam lines. 
+Two of the beam lines are currently used for staged TBA, and the
+third is used for Emittance Exchange experiments (EEX). A layout of
+the facility is shown in Fig. \ref{fig:bunker}. 
+\lsnote{Some more detail will be needed here, maybe just switch the order of the some of the text in the two paragraphs below.  Something like; start with saying what the beamlines are and what is in them referring to the figure, then describe their sources in more detail (RF guns and photocathodes), then talk about the laser and how it is split.}
+
+Electron bunches in a photoinjector are created through the photoelectric effect. 
+At the AWA, a pulsed UV laser is propagated through two relay lines of UV optics to either
+the drive or witness gun. An in-vacuum mirror then directs the pulse to the photocathode.
+Both beam lines must be operated simultaneously when the TBA experiments are run. This is accomplished by
+splitting the original laser pulse into two pulses using a UV splitter on the 
+ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
+bunch operation. The second pulse is sent to a UV multispitter table, shown in 
+Fig.~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
+used for TBA drive trains, 
+
+The beam line located on the right side of Fig. \ref{fig:bunker} is called the
+drive line. The rf photoinjector on the drive line uses a semiconducting
+CsTe cathode, and is followed by a linear accelerator (linac). The
+drive linac uses six copper cavities and four klystrons to accelerate the drive beam
+to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
+laser pulse can vary from 1, 2, 4, 6, and 8 bunches. When multiple bunches
+are generated, the grouping is called a bunch train. Generation of
+these variable bunch trains is accomplished by splitting the pulsed
+UV laser beam before it enters the gun and hits the cathode. The splitting
+takes place in a complex network of UV optics located near the drive
+gun. The optics set up is called a beam splitter, or mulitsplitter,
+and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
+called a pulse, or the repetition rate of the machine. A picture of
+the AWA multisplitter table is shown in Fig. \ref{fig:optics}. Optimization 
+of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
+
+\iftrue
+\begin{figure}
+	\begin{center}
+		%\includegraphics[width=\linewidth]{images/quads1}
+		\label{fig:bunker}
+	\end{center}
+\end{figure}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{images/multisplitter}\caption{UV multisplitter optics table.}
+	\end{center}
+	\label{fig:optics}
+\end{figure}
+\fi
+
+The witness line rf photoinjector, located on the left side of Figure
+1, uses a Mg cathode and the following linac consists of one copper
+accelerating cavity. Prior to the multisplitter table, shown in
+Fig. \ref{fig:optics}, the laser pulse is split between the drive and witness side.
+This set up allows only one bunch per pulse on the witness line. Also
+note that the beam from the drive line travels in the opposite direction
+than the beam in the witness line. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Dielectric Structures}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Subsection{Power Generation}
+
+\lsnote{Somewhere you need a comprehensive description of simplified staging vesus full staging.  I am not sure it is here, but it should be before you mention simplified staging.}
+
+Currently, all \lsnote{define PETS acronym} PETS and accelerating structures installed in the AWA's
+simplified staging scheme are metallic. It has been shown that a few
+key equations can demonstrate the relationship between beam parameters
+and the resulting \lsnote{\sout{rf} power} generated in the decelerating cavity. This section
+borrows heavily from previous work at CLIC and the AWA \cite{key-3,key-8}. 
+Starting with the timing, each bunch in the drive train will generate
+an rf pulse of finite length in the structure. Each bunch is separated
+in time by $T_{b}$, and the \lsnote{average?} beam current can be written as $I=\frac{Q}{T_{b}}$.
+\lsnote{define Q, is it the charge per bunch?} The bunches are Gaussian in the longitudinal direction, and the form
+factor, $\Phi$, is used to describe\lsnote{\sout{s}} the Gaussian shape by taking
+the Fourier transform of the charge distribution: 
+\begin{equation}
+\Phi=exp\left[\frac{-(k_{z}\sigma_{z})^{2}}{2}\right]
+\end{equation}
+Where $k_{z}=\frac{2\pi}{\lambda_{z}}$ is the longitudinal wave number
+and $\sigma_{z}$ is the rms bunch length. \lsnote{That was confusing.  You said phi was the FT of the charge distribution, but in the equation after that it looks like the charge distribution not the FT}  Note the subscript z \lsnote{indicates \sout{refers to the characteristics of the cavity and bunch in}} the longitudinal
+direction. Then using the partial differential equation that relates
+the power generated by the wakefield to the change in power over time, \lsnote{I would include the equation}
+the power generated by a bunch train can be written as:
+\begin{equation} \label{eq:rfpower}
+P_{t}(t)=\frac{\omega_{z}\,L^{2}I^{2}}{4\,v_{g}}\frac{R}{Q_{d}}\left(\frac{1-e^{-\alpha L}}{\alpha L}\right)\Phi^{2}
+\end{equation}
+With $I$ being the beam current as defined above, $\alpha=\frac{\omega}{2Q_{d}v_{g}}$
+being the attenuation constant \cite{key-9}, R is the shunt impedance
+per unit length, and $Q_{d}$ is the quality factor for the decelerating
+structure. \lsnote{You didn't define L or vg} Note, the derivation of equation 4 can be found in reference
+\cite{key-8}, and due to the complex geometry of metallic structures,
+the value of R/Q is often calculated in electromagnetic codes such
+as CST Microwave Studio. 
+
+\lsnote{You probably were intending to do this, but this section should close out with a predicted power generation 
+in the decelerating structures.  The discussion of how that depends on number of bunches in the bunch train should be here as well.}
+
+\Subsection{Accelerating Structures}
+
+\Section{Two Beam Acceleration}
+
+\Section{AWA Design Requirements} \label{sec:requirements}
+
+\lsnote{This is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?}
+
+In order to design and test the desired beam line, three technologies 
+new to the AWA were investigated. These include a kicker, septum magnets, 
+and non-GA optimization algorithms.
+
+% An example for enumerate
+\begin{enumerate}
+	\item Kicker Design
+	\item Septum Design
+	\item Optimization 
+\end{enumerate}
+
+% A quotation example
+% Every quota must be accompanied by a reference to the source
+% in a footnote or in the Bibliography
+\begin{quotation}
+	test
+\end{quotation}
+

@@ -1,11 +1,77 @@
 \Chapter{Beam Line Design}%________________________________
-Using the foundations set in Chapters 2 and 3, a beam line design for staged 
+Using the foundations set in Chapters 2 and 3, 
+\nrnote{Change foundations to more elaborate description...
+beam line requirements, diagnostics at AWA, etc...???}
+a beam line design for staged 
 two beam acceleration was laid out and simulated. 
-.....more intro here....
+\nrnote{.....more intro here...do I need to spell out building block matrices?}
+A drift: 
+\begin{equation}
+R_d = 
+\begin{bmatrix}
+1 & L \\
+0 & 1
+\end{bmatrix}
+\end{equation}
 
-\Section{Matrix Formalism}
- To reduce the number of free parameters quickly, without using expensive PIC simulations, 
+A quad: 
+\begin{equation}
+R_q = 
+\begin{bmatrix}
+1 & 0 \\
+\pm \frac{1}{f} & 1
+\end{bmatrix}
+\end{equation}
+
+A dipole:
+\begin{equation}
+R_s = 
+\begin{bmatrix}
+0 & 0 \\
+0 & 0
+\end{bmatrix}
+\end{equation}
+
+\Section{Matrix Formalism For TBA Beam Line}
+ To reduce the number of free parameters quickly, and without using expensive PIC simulations, 
  the transfer matrix of the beam line was considered. Starting at the end of the linac, 
- we consider the first four quadrupoles before the kicker. All the quadruple strengths and
- distances between the quadrupoles are parameters under consideration. To reduce the number
- of variables from 8 to 4, we use the telescope module as described by K. Brown in \cite{brown}.   
+ we consider the first four quadrupoles before the kicker. All the quadruple strengths (4) and
+ distances between the quadrupoles (6) are parameters under consideration. To reduce the number
+ of variables from 10 to 4, we use the telescope module as described by K. Brown in \cite{brown}.   
+ The transfer matrix R, is reduced to: 
+\begin{equation}
+	R_q = 
+	\begin{bmatrix}
+	\frac{f_2 f_4}{f_1 f_3} & 0 \\
+	0 & \frac{f_1 f_3}{f_2 f_4}	
+	\end{bmatrix}
+\end{equation}
+
+\nrnote{add detail about this matrix comes from and expand matrix to x and y}
+Where $f_1 \ldots f_4$ stand for the focal lengths of each quad before the kicker. 
+Due to other experiments in the AWA tunnel, 
+the first quadrupole was required to be at least $\SI{3}{m}$ away from the exit of the 
+last accelerating cavity in the linac. This gives the initial drift length and value
+for $f_1$. 
+ 
+ 
+ 
+ 
+ 
+\iffalse 
+ \[
+ \begin{bmatrix}
+ x_{11}       & x_{12} & x_{13} & \dots & x_{1n} \\
+ x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
+ \hdotsfor{5} \\
+ x_{d1}       & x_{d2} & x_{d3} & \dots & x_{dn}
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+ x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
+ x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+ x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
+ \end{bmatrix}
+ \]
+ \fi

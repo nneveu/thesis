@@ -5,6 +5,7 @@ beam line requirements, diagnostics at AWA, etc...???}
 a beam line design for staged 
 two beam acceleration was laid out and simulated. 
 \nrnote{.....more intro here...do I need to spell out building block matrices?}
+
 A drift: 
 \begin{equation}
 R_d = 
@@ -32,20 +33,30 @@ R_s =
 \end{bmatrix}
 \end{equation}
 
+To convert from focal length to quadrupole strength we must take into account the 
+beam energy as well as the dimensions of the quadrupole. 
+\begin{equation}
+	\frac{1}{f} = kl \\
+\end{equation}
+Where $l$ is the quadrupole's effective length, and k is the gradient w.r.t 
+the beam energy and magnet strength \cite{Wiedemann}:
+\begin{equation}
+	k = \SI{0.2998}{} \frac{g[\SI{}{T/m}]}{p [\SI{}{GeV/c}]}\label{k}
+\end{equation}
+
 \Section{Matrix Formalism For TBA Beam Line}
- To reduce the number of free parameters quickly, and without using expensive PIC simulations, 
+ To reduce the number of free parameters quickly without using expensive PIC simulations, 
  the transfer matrix of the beam line was considered. Starting at the end of the linac, 
  we consider the first four quadrupoles before the kicker. All the quadruple strengths (4) and
  distances between the quadrupoles (6) are parameters under consideration. To reduce the number
- of variables from 10 to 4, we use the telescope module as described by K. Brown in \cite{brown}.   
- The transfer matrix R, is reduced to: 
-\begin{equation}
-	R_q = 
-	\begin{bmatrix}
-	\frac{f_2 f_4}{f_1 f_3} & 0 \\
-	0 & \frac{f_1 f_3}{f_2 f_4}	
-	\end{bmatrix}
-\end{equation}
+ of variables from 10 to 4, we use the quadruplet telescope module as described by K. Brown in \cite{brown}.  The transfer matrix R, is reduced to:  
+ \begin{equation}
+ R_q = R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1} = 
+ \begin{bmatrix}
+ \frac{f_2 f_4}{f_1 f_3} & 0 \\
+ 0 & \frac{f_1 f_3}{f_2 f_4}	
+ \end{bmatrix}\label{kb1}
+ \end{equation}
 
 \nrnote{add detail about this matrix comes from and expand matrix to x and y}
 Where $f_1 \ldots f_4$ stand for the focal lengths of each quad before the kicker. 
@@ -53,11 +64,58 @@ Due to other experiments in the AWA tunnel,
 the first quadrupole was required to be at least $\SI{3}{m}$ away from the exit of the 
 last accelerating cavity in the linac. This gives the initial drift length and value
 for $f_1$. 
- 
- 
- 
- 
- 
+
+\Subsection{Point to Point Configuration}
+To achieve point to point transport of the beam, we can 
+equate $f_1 = f_4$ and $f_2 = f_3$. This reduces Eq. \ref{kb1} to:
+ \begin{equation}
+R_q =
+\begin{bmatrix}
+1 & 0 \\
+0 & 1	
+\end{bmatrix}
+\end{equation}
+We can further simplify the experimental set up by 
+assuming $f_1=f_2$. Given the total distance, D, available for the
+quads in the beam line, \SI{3.8}{m}, we can then solve
+for the focal length $f_1$: 
+\begin{align}
+	D = 4f_1 + 4 f_2 = 8f_1 = \SI{3.8}{m} \\
+	f_1 = \SI{0.475}{m}
+\end{align}
+Given an energy of \SI{65}{MeV}, a quadrupole length of \SI{11}{cm}, 
+and Eq. \ref{k} we can calculate this configuration would require a 
+magnet strength of \SI{4.14}{[T/m]}. This is feasible considering the 
+max strength is \SI{9}{[T/m]}.
+
+To determine the effect of this configuration on the beam size and divergence
+we compare the sigma matrix before and after the qudrupoles:
+\begin{align}
+	\sigma_1 = R\cdot \sigma_0 \cdot R^T \\
+	= 
+	\begin{bmatrix}
+	1 & 0 \\
+	0 & 1	
+	\end{bmatrix}
+	\begin{bmatrix}
+	1 & 0 \\
+	0 & 1	
+	\end{bmatrix}
+    \begin{bmatrix}
+	1 & 0 \\
+	0 & 1	
+	\end{bmatrix} \\
+	=
+	\begin{bmatrix}
+	1 & 0 \\
+	0 & 1	
+	\end{bmatrix}
+\end{align}
+
+\Subsection{Point to Parallel Configuration}
+Having less divergence entering the kicker may be more beneficial than 
+maintaining the initial beam distribution. 
+
 \iffalse 
  \[
  \begin{bmatrix}

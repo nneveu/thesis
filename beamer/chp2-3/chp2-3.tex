@@ -1,0 +1,511 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Select one of the options, and comment the rest of them
+
+%%%%%%%%%% Option 1:  to compile with pdflatex : parameter "t" - to align to the top
+\documentclass[professionalfonts,t]{beamer}
+%sans font?
+
+%%%%%%%%%% Option 3: to create handout for print
+%\documentclass[t,handout]{beamer}
+%\usepackage{pgfpages}              % to put several slides on one page
+%\pgfpagesuselayout{2 on 1}[a4paper, border shrink=5mm]             % 2 slides on 1 page
+%\pgfpagesuselayout{4 on 1}[a4paper,landscape, border shrink=5mm]   % 4 slides on 1 page, and landscaped
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Select the Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetheme{Dresden}     % OK
+%\usetheme{Berlin}
+%\usetheme{Bergen}      % NO
+%\usetheme{Boadilla}    % NO
+%\usetheme{Copenhagen}  % NO
+%\usetheme{Hannover}    % NO
+%\usetheme{Luebeck}     % NO
+%\usetheme{Marburg}     % NO
+%\usetheme{Pittsburgh}  % NO
+%\usetheme{default}
+%\usetheme{Singapore}   % OK
+%\usetheme{boxes}
+%\usecolortheme{structure}
+%\usecolortheme{rose}
+%\usecolortheme{beaver}
+
+
+\definecolor{mymaroon}{cmyk}{0.0, 1.0, 1.0, 0.498}
+\definecolor{myblue}{cmyk}{1.0, 1, 0, 0.5}
+\definecolor{mygreen}{cmyk}{100, 0, 100, 50}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=myblue}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=mymaroon}
+
+%\usepackage{beamerthemesplit}              %
+\beamertemplateballitem % fancy bullets and numbering
+
+\setbeamertemplate{navigation symbols}{}   % suppress navigation symbols
+\addtobeamertemplate{frametitle}{}{%
+	\logo{../../images/IIT_logo}
+	\iffalse
+	
+	\begin{tikzpicture}[remember picture,overlay]
+	\node[anchor=center, yshift=-13pt, xshift=-5pt] at (current page.north) 
+	{\includegraphics[height=1.1cm]{../images/Argonne_cmyk_black-eps-converted-to}\hspace{10cm}};
+	
+	\node[anchor=north east, yshift=3pt, xshift=0pt] at (current page.north east) 
+	{\includegraphics[height=0.7cm]{../images/IIT_Logo_blk}};
+	\end{tikzpicture}
+    
+     \fi
+}
+% other possibilities to include LOGO. it puts it in RLC
+
+%
+%\pgfdeclareimage[width=1cm]{logo}{../images/IIT_Logo}
+%\logo{\pgfuseimage{logo}}
+
+
+% load additional packages
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{color}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{epstopdf}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes,arrows,decorations.markings,shadows,positioning}
+
+% Your Abbreviations
+\newcommand\bE{{\mathbb{E}}}
+\newcommand\bR{{\mathbb{R}}}
+\newcommand\bH{{\mathbf{H}}}
+% End abbreviations
+
+\newcommand\Wider[2][3em]{%
+	\makebox[\linewidth][c]{%
+		\begin{minipage}{\dimexpr\textwidth+#1\relax}
+			\raggedright#2
+		\end{minipage}%
+	}%\textbf{}
+}
+
+%%%%%%%%%%%%%%%%%%%%% to edit the main text below
+%NOTES ON SOME TECHNICS
+%%%% Box %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%{\fbox{ \parbox[t]{10cm}{ SOME TEXT }}}
+
+%%% include a picture. The file should be with extention EPS, e.g. FILENAME.EPS
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=.7\linewidth]{FILENAME}
+%\caption{{\footnotesize PUT_CAPTION }}
+%\end{figure}
+
+%\subtitle{}
+%\institute[ANL/IIT]{Argonne National Laboratory\\Illinois Institute of Technology}
+
+\title[June 2018]{Simulations, Optimization, and Experimental Measurements at the AWA}
+\author[N.Neveu]{{\Large Nicole Neveu}}
+\institute[ANL, IIT] % (optional, but mostly needed)
+{   Illinois Institute of Technology \\
+	Argonne National Laboratory \\
+    \url{nneveu@anl.gov} 
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+\date{ \today \\
+\includegraphics[width=3cm,keepaspectratio]{/home/nicole/Documents/presentations/logos/Argonne_cmyk_black}%
+\hfill \hfill \hfill%
+\includegraphics[width=4cm,keepaspectratio]{/home/nicole/Documents/presentations/logos/IIT_Logo_blk-eps-converted-to}%
+}
+
+%\date[IIT, April 2009]{
+%           Space Charge 2017 \\ Oc 18, 2009  }
+
+
+
+\begin{document}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+\end{frame}
+
+\section{Simulations}
+\subsection{AWA Facility Introduction}
+\begin{frame}[plain]
+\frametitle{Argonne Wakefield Accelerator Facility (AWA)}
+\Wider[4em]{
+	\setlength{\leftmargin}{0.1cm}
+	
+	%\begin{minipage}{0.6\textwidth}
+		\begin{itemize}
+			\item{Two photocathode guns and linacs}
+			\begin{itemize}
+				\item{\underline{\textbf{Drive Line}}: $Cs_2Te$ cathode, 6 linac cavities}
+				\begin{itemize}
+					\item{Charge 0.1-100nC}
+					\item{Energy up to 70 MeV}
+					
+				\end{itemize}
+				\item{\underline{\textbf{Witness Line}}: $Mg$ cathode, 1 linac cavity}
+				\begin{itemize}
+					\item{Charge 0.1-10nC}
+					\item{Energy up to 15 MeV}
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}	
+	%\end{minipage}
+	%\begin{minipage}{0.35\textwidth}
+	\vspace{0.5em}
+		\centering
+		\includegraphics[width=0.55\linewidth]{/home/nicole/Documents/presentations/space_charge_2017/drive_gun}
+	%\end{minipage}
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{AWA Facility}
+Current experiments include:
+\begin{itemize}
+	\item{Two Beam Acceleration (TBA)}
+	\item{Dielectric accelerating and decelerating structure tests}
+	\item{Beam line design for TBA = my thesis}
+\end{itemize}
+\vspace{0.5cm}
+\includegraphics[width=0.49\linewidth]{/home/nicole/Documents/presentations/space_charge_2017/stage}\hfill\includegraphics[width=0.49\linewidth]{/home/nicole/Documents/presentations/space_charge_2017/dielectrics}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{AWA Facility}
+Current experiments include:
+\begin{itemize}
+\item{Emittance Exchange (EEX)}
+\item{Electron Radiography Imaging (ERI)}
+\item{Cathode Studies}
+\item Plasma wakefield (very recent)
+\end{itemize}
+\vspace{0.3cm}
+\centering
+\includegraphics[width=0.65\linewidth]{/home/nicole/Documents/presentations/space_charge_2017/EEX}
+\end{frame}
+
+
+\subsection{Layout}
+\begin{frame}
+	\frametitle{Drive Line Layout}
+	\begin{tikzpicture}[scale=\textwidth/20cm, text=black]
+	%\begin{tikzpicture}[scale=0.5, text=black]
+	\input{/home/nicole/Documents/thesis/beamer/tba_talk/bentbeam.tex}
+	\end{tikzpicture}
+	
+	\vspace{3em}
+	For the remainder of the talk, I will focus on simulation and experimental results for the beam line above.
+\end{frame}
+
+\begin{frame}
+\frametitle{TBA Bent Beam Layout}
+\begin{tikzpicture}[scale=\textwidth/20cm, text=black]
+%\begin{tikzpicture}[scale=0.5, text=black]
+\input{../tba_talk/bentbeam.tex}
+\end{tikzpicture}
+
+\vspace{-1em}
+Mechanical considerations:
+\begin{itemize}
+	\item 1m between kicker and septum
+	\begin{itemize}
+		\item for separation $\ge$ 50mm in septum. 
+	\end{itemize}
+	\item 1.8m between septum and dipole
+	\begin{itemize}
+		\item for separation $\ge$ 0.5m of beam lines.
+	\end{itemize}
+	\item 15cm between quads for easy installation. 
+	\item 0.3m between quads and PETS for yag screen.  
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{OPAL}
+	Mention code I use here?
+	Resources
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Benchmarking}
+	We start with the gun...
+		Add gun benchmark pictures here
+\end{frame}
+
+\begin{frame}
+	\frametitle{Early Linac Simulations}
+	Linac and quads
+\end{frame}
+
+
+\section{Optimization}
+\subsection{Model Based}
+\begin{frame}
+	\frametitle{Linac Optimization}
+	Add BOBYQA work here
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linac Optimization cont..}
+	BOBYQA work here
+\end{frame}
+
+\begin{frame}
+	BOBYQA work here?
+\end{frame}
+
+\subsection{Genetic Algorithms}
+\begin{frame}
+\frametitle{GA Work}
+Premise: 
+\begin{itemize}
+	\item Consider hardware constraints
+	\item Assume no phase control
+	\item Use brute force optimization to investigate parameter space.
+\end{itemize}
+
+\vspace{0.5em}
+Given information above, does a nominal solution exist that will satisfy tba requirements for this non-ideal situation. With the requirements being:
+\begin{itemize}
+	\item 100\% transmission 
+	\begin{itemize}
+		\item good beam size at structure
+		\item good emittance at structure
+	\end{itemize}
+	\item Reasonable bunch length at structure
+	\begin{itemize}
+		\item to maximize power generated
+	\end{itemize}
+\end{itemize}
+	 
+\end{frame}
+
+\begin{frame}
+\frametitle{TBA Optimization}
+\vspace{-0.75em}
+\begin{tikzpicture}[scale=\textwidth/26cm, text=black]
+%\begin{tikzpicture}[scale=0.5, text=black]
+\input{../tba_talk/bentbeam.tex}
+\end{tikzpicture}
+%\caption{TBA beam line layout at the AWA. The arrow at the end of each line indicates what direction the beam is traveling.
+%PETS stands for Power Extraction and Transfer Structure, and ACC
+%stands for Accelerating structure. The subscript index on each structure refers to which stage the structures belong to, first or second stage. }
+
+\vspace{-1em}
+First round, 13 design variables:
+
+Simplest, and worst case scenario (no phase control).
+
+These variables are swept during optimization runs.
+\begin{table}[hbt] 
+	\centering
+	\begin{tabular}{ l *{3}{c}}
+		\toprule
+		\textbf{Variable} & \textbf{Range} & \textbf{Unit} \\
+		\midrule
+		Buck Focusing Sol. &  $ 50 \le S_1 \le 440$ & amps \\
+		Matching Solenoid & $ 350 \le S_2 \le 500$  & amps \\
+		Phase of Gun & $-30 \le \phi_g \le 0.0$  & degrees \\
+		Laser FWHM & $1.5 \le T \le $10  & ps \\
+		Quads$_{1-9}$ & $-8 \le Q_n \le 8$  & T/m \\
+		\bottomrule	
+	\end{tabular}
+	
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Optimization Objectives}
+Objectives are beam parameters the simulation tries to minimize.
+These points are picked to improve beam parameters at key locations, 
+i.e. the PETS structure.
+
+\vspace{1em}
+\begin{minipage}{0.45\textwidth}
+	\begin{table}[hbt] 
+		\centering
+		\begin{tabular}{ l *{3}{c}}
+			\toprule
+			\textbf{Variable} &  \textbf{Unit} \\
+			\midrule
+			$\sigma_z$ 		& mm \\
+			$\sigma_{x}$ 	& mm \\
+			$\sigma_y$ 		& mm \\
+			$\sigma_{px}$ 	& mm-mrad \\
+			$\sigma_{py}$ 	& mm-mrad \\
+			$dE$			& MeV\\
+			\bottomrule	
+		\end{tabular}	
+	\end{table}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+	\begin{itemize}
+		\item 3 optimized locations ($z_k$, $z_s$, $z_d$)
+		\item 18 Objectives
+		\item 10 variables 
+		\item 6 Constraints
+	\end{itemize}
+\end{minipage}
+\centering
+Note, these take an extremely large time to simulate (order days).
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{frame}
+\frametitle{PETS}
+Reminder: form factor and bunch length are related. PETS aperture = 17.6 mm
+
+\begin{minipage}{0.49\textwidth}
+\includegraphics[width=\textwidth]{/home/nicole/Documents/awa-tba/whole_line/rms_z}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+
+\centering
+\includegraphics[width=\textwidth]{/home/nicole/Documents/thesis_code/formfactorsqrd}
+\end{minipage}
+\end{frame}
+
+
+\section{Experimental Measurements}
+
+
+\begin{frame}
+\frametitle{Sensitivity Analysis}
+
+\vspace{-0.5em}
+Justification for matching simulations to experiments...
+Mismatch in energy, matching solenoid, or quads weakens beam results and prediction capabilities.
+
+\centering
+\includegraphics[width=0.8\textwidth]{/home/nicole/Documents/surrogatemodels/ml-ws-poster/awa-medium-o4/sensresults.pdf}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Matching Solenoid Scans}
+\begin{columns}[T]
+	\begin{column}{0.76\textwidth}
+		\begin{minipage}{0.5\textheight}
+			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_low_charge_sol_scan_11-02-2017}	\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_low_charge_sol_scan_11-02-2017}
+		\end{minipage}
+		\begin{minipage}{0.5\textheight}
+			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_high_charge_sol_scan_10-17-2017}
+			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_high_charge_sol_scan_10-17-2017}
+		\end{minipage}
+	\end{column}
+	\begin{column}{0.4\textwidth}
+		%\vspace{-9em}
+		\begin{itemize}
+			\item only charge fluctuations are considered in error bars
+			\item Need to check laser profiles  
+			\item Radius probably needs to be adjusted in simulations of high charge
+		\end{itemize}
+	\end{column}
+\end{columns}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Beam Size and Energy Measurements}
+\begin{frame}
+	\frametitle{Energy Measurments}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Beam Sizes}
+\end{frame}
+
+
+\subsection{Solenoid Scans}
+\begin{frame}
+\frametitle{BF Solenoid Scans}
+\begin{columns}[T]
+\begin{column}{0.76\textwidth}
+	\begin{minipage}{0.5\textheight}
+		\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_0pt7nC_BFsol_scan2}
+		\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_0pt7nC_BFsol_scan2}%
+	\end{minipage}
+	\begin{minipage}{0.5\textheight}
+		\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_1nC_BFsol_scan}
+		\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_1nC_BFsol_scan}
+	\end{minipage}
+\end{column}
+\begin{column}{0.4\textwidth}
+	%\vspace{-9em}
+	\begin{itemize}
+		\item Again, radius may need adjustment
+		\item M=0 images were partly off screen, need to play with fit for these
+	\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Summary}
+	\begin{itemize}
+		\item Future simulation steps:
+		\begin{itemize}
+			\item Parametric study of effect of quad spacing on divergence
+			\item Parametric study for relative quad strengths
+			\item Full optimization with constraint based on above studies
+			\item Re-optimize with phase control
+
+		\end{itemize}
+		\item Reminder: Near term proposed experiments don't require more hardware
+		\item Beam studies needed to ensure success of TBA.
+		
+	\end{itemize}
+
+	\vspace{1em}
+	\centering
+	\color{blue}\huge{Thanks for your attention!}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

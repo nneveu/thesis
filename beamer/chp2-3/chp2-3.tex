@@ -128,6 +128,7 @@
 %           Space Charge 2017 \\ Oc 18, 2009  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Section title frame 
+\iffalse
 \AtBeginSection[]{
 	\begin{frame}
 	\vfill
@@ -150,7 +151,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Section title frame
 
 \newcommand{\secimage}{/home/nicole/Pictures/misc/hough_transform}
-
+\fi
 
 \begin{document}
 
@@ -164,7 +165,7 @@
 	\tableofcontents
 \end{frame}
 
-\section{Facility Intro and Simulations}
+\section{Facility Introduction}
 %\subsection{AWA Facility Introduction}
 \begin{frame}
 \frametitle{Argonne Wakefield Accelerator Facility (AWA)}
@@ -224,49 +225,70 @@ Current experiments include:
 \includegraphics[width=0.65\linewidth]{/home/nicole/Documents/presentations/space_charge_2017/EEX}
 \end{frame}
 
-\subsection{Layout}
+
+\subsection{Simulations}
+	
+\begin{frame}
+\frametitle{Code and Resources}
+Main Codes of Choice: 
+\vspace{0.5em}
+
+\begin{minipage}{0.5\textwidth}
+OPAL, Python
+\begin{itemize}
+	\item Free
+	\item Parallel 
+	\item Open Source
+	\item 3D space charge
+	\begin{itemize}
+		\item Thesis focuses on 40 nC
+	\end{itemize}
+\end{itemize}	
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	HPC Resources Used:
+	\begin{itemize}
+		\item Blues, ANl
+		\item Bebop, ANL
+		\item Theta, ANL
+		\item Merlin, PSI (breifly)
+	\end{itemize}
+\end{minipage}
+
+
+\vspace{1em}
+Limited experience with G4beamline, Elegant, and IMPACT.
+\end{frame}
+
+
+\iffalse
 \begin{frame}
 \frametitle{Drive Line Layout}
 \begin{tikzpicture}[scale=\textwidth/20cm, text=black]
 %\begin{tikzpicture}[scale=0.5, text=black]
 \input{/home/nicole/Documents/thesis/beamer/tba_talk/bentbeam.tex}
 \end{tikzpicture}
-
 %\vspace{3em}
 For the remainder of the talk, I will focus on simulation and experimental results for the beam line above.
-
-\vspace{1em}
-
-Main PIC Code of Choice: OPAL
-
-\vspace{1em}
-
-Limited experience with G4beamline, Elegant, and IMPACT.
-
 \end{frame}
-
+\fi
+ 
 \begin{frame}
-\frametitle{Benchmark: ASTRA, GPT, OPAL-t}
+\frametitle{Benchmark: ASTRA, GPT, OPAL-T}
 \begin{itemize}
 	\item{Motivated by code features and my inexperience}
 	\item{Used RF and solenoid maps from AWA photocathode gun}
 	\begin{itemize}
 		\item 2D SUPERFISH/POISSON
-		\item 3D CST MWS and ACE3P (future/current work)
 	\end{itemize}
 	\item{Used PITZ operating conditions as input parameters}
-	\item{Poster presented at NAPAC'16: THPOA46}
 	\item{Spoiler: No major differences found at 1 nC}
 	\begin{itemize}
 		\item However, a lot of work to match input parameters
 	\end{itemize}
 \end{itemize}
-\end{frame}
 
 
-\begin{frame}
-\frametitle{Model and Input Parameters}
-\begin{minipage}{0.3\textwidth}
 	\def \gunleft {-1.0}
 	\def \gunright {0.3}
 	\def \loneright {1.0}
@@ -307,26 +329,7 @@ Limited experience with G4beamline, Elegant, and IMPACT.
 		\draw[black, ultra thick] (-0.1,2.5) -- (0.3,1.5);
 		\end{tikzpicture}
 	\end{center}
-\end{minipage} \hfill
-\begin{minipage}{0.65\textwidth}
-	\begin{table}\centering
-		\begin{tabular}{l c c}
-			\toprule 
-			\textbf{Parameter} & \textbf{Value} \\
-			\midrule
-			Charge  		& 1 nC \\
-			$S_3$ 			&  -0.389 T \\
-			$S_1$ and $S_2$ & -0.12 T \\
-			Laser Radius 	& 0.75 mm \\
-			Laser FWHM 		& 20 ps \\
-			Laser Rise/Fall Time & 6 ps \\
-			Gun Gradient 	& 60 MV/m \\
-			Phase 			& Max Energy \\
-			Kinetic Energy on Cathode & 0.55 eV \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-\end{minipage}
+
 \end{frame}
 
 
@@ -341,18 +344,7 @@ Well below measurement thresholds at AWA.\\
 \end{frame}
 
 \section{Linac Optimization}
-\subsection{Model Based Algorithm}
-\begin{frame}
-\frametitle{Linac Optimization: Code Used}
-\begin{itemize}
-	\setlength\itemsep{2em}
-	\item Used python library NLopt: \url{http://ab-initio.mit.edu/wiki/index.php/Main_Page}
-	
-	\item Code summary can be found at: \url{http://www.mcs.anl.gov/~jlarson/AWA}
-	
-	\item Complete repo at: \url{git@xgitlab.cels.anl.gov:jmlarson/emittance_minimization.git}
-\end{itemize}	
-\end{frame}
+
 
 \begin{frame}
 \frametitle{Optimization using scalarization (Linac only)}
@@ -455,10 +447,9 @@ Well below measurement thresholds at AWA.\\
 w\in\left\{ 0, \,0.1, \,0.2, \ldots, 1 \right\}\\ \\
 f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
 \end{gather*}
-
-
 \end{frame}
 
+\subsection{Model Based and Genetic Algorithms}
 \begin{frame}
 \frametitle{BOBYQA Results}
 Progress during each BOBYQA run:
@@ -470,11 +461,33 @@ Progress during each BOBYQA run:
 \frametitle{Approximate Pareto Front}
 \centering
 Trade off between emittance and bunch length
-\includegraphics[width=0.7\textwidth]{/home/nicole/Documents/thesis/tex/images/THPAB155f1}
+\includegraphics[width=0.65\textwidth]{/home/nicole/Documents/thesis/tex/images/THPAB155f1}
 \begin{itemize}
-\item In total, 2,492 simulations made this plot.
+\item In total, 2,492 simulations.
 \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+	\frametitle{Comparison to GA}
+	Validation of model based results:
+	\centering
+	\includegraphics[width=0.75\linewidth]{/home/nicole/Documents/presentations/ipac2018/opt-ipac18/THPMF049f3}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Linac Optimization: Code Used}
+\begin{itemize}
+	\setlength\itemsep{2em}
+	\item Used python library NLopt: \url{http://ab-initio.mit.edu/wiki/index.php/Main_Page}
+	
+	\item Code summary can be found at: \url{http://www.mcs.anl.gov/~jlarson/AWA}
+	
+	\item Complete repo at: \url{git@xgitlab.cels.anl.gov:jmlarson/emittance_minimization.git}
+\end{itemize}	
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Beam line under design}
@@ -566,48 +579,25 @@ Trade off between emittance and bunch length
 \end{center}
 
 }
+\vspace{-1em}
 
-
-Possible Optimization Parameters:
-\begin{itemize}
-\item Four-six quads 
-\item Distance between quads and septum
-\item Distance between kicker and septum
-\item Distance between septum and dipole
-\item Plus, 10 variables in gun and linac 
-\end{itemize}
-\end{frame}
-
-\subsection{Genetic Algorithms}
-\begin{frame}
-\frametitle{Genetic Algorithm Work}
-
-\begin{itemize}
-	\item Starting with piece wise approach
-	\item Use brute force optimization to investigate parameter space.
-\end{itemize}
+Using built in GA in OPAL.
 
 \vspace{0.5em}
-Given information above, does a nominal solution exist that will satisfy tba requirements for this non-ideal situation. With the requirements being:
+Requirements:
 \begin{itemize}
-	\item 100\% transmission 
-	\begin{itemize}
-		\item good beam size at structure
-		\item good emittance at structure
-	\end{itemize}
+	\item 100\% transmission, i.e. reasonable beam size at structure
 	\item Reasonable bunch length at structure
 	\begin{itemize}
 		\item to maximize power generated
 	\end{itemize}
 \end{itemize}
+
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Optimization Objectives}
-Objectives are beam parameters the simulation tries to minimize.
-These points are picked to improve beam parameters at key locations, 
-i.e. the PETS structure.
-
 \vspace{1em}
 \begin{minipage}{0.45\textwidth}
 	\begin{table}[hbt] 
@@ -628,9 +618,9 @@ i.e. the PETS structure.
 \end{minipage}
 \begin{minipage}{0.45\textwidth}
 	\begin{itemize}
-		\item 3 optimized locations ($z_k$, $z_s$, $z_d$)
+		\item 3 optimized locations 
 		\item 18 Objectives
-		\item 10 variables 
+		\item 14 variables 
 		\item 6 Constraints
 	\end{itemize}
 \end{minipage}
@@ -640,39 +630,37 @@ Note, these take an extremely large time to simulate (order days).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{PETS}
-Reminder: form factor and bunch length are related. PETS aperture = 17.6 mm
-
-\begin{minipage}{0.49\textwidth}
-\includegraphics[width=\textwidth]{/home/nicole/Documents/awa-tba/whole_line/rms_z}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
-
-\centering
-\includegraphics[width=\textwidth]{/home/nicole/Documents/thesis_code/formfactorsqrd}
-\end{minipage}
-\end{frame}
-
 
 \section{Experimental Measurements}
-\subsection{Beam Size and Energy Measurements}
-
-\begin{frame}
-\frametitle{Energy Measurments}
-\end{frame}
 
 \begin{frame}
 \frametitle{Beam Sizes}
-YAG screen images 
+Rewrote AWA Matlab script in python.
+\begin{itemize}
+	\item Fiducial calculation
+	\item Background subtraction 
+	\item Fitting functions; Gaussian and piecewise
+\end{itemize}	
+
+	\vspace{1em}
+	\centering
+	\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/laser}%
+	\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG2}%
+	\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG3}
+
 \end{frame}
 
 \begin{frame}
-	Beam size along beam line
+\frametitle{Bunch Length Measurements}
+Used Michelson interferometer and CTR light.
+\vspace{2em}
+
+\Wider[4em]{
+\includegraphics[width=0.55\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f5}\includegraphics[width=0.45\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f3}
+}
 \end{frame}
 
 
-\subsection{Solenoid Scans and Bunch Length}
 \begin{frame}[t]
 \frametitle{Matching Solenoid Scans}
 \begin{columns}[T]
@@ -696,58 +684,25 @@ YAG screen images
 \end{columns}
 \end{frame}
 
-\begin{frame}
-\frametitle{BF Solenoid Scans}
-\begin{columns}[T]
-	\begin{column}{0.76\textwidth}
-		\begin{minipage}{0.5\textheight}
-			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_0pt7nC_BFsol_scan2}
-			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_0pt7nC_BFsol_scan2}%
-		\end{minipage}
-		\begin{minipage}{0.5\textheight}
-			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_1nC_BFsol_scan}
-			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_1nC_BFsol_scan}
-		\end{minipage}
-	\end{column}
-	\begin{column}{0.4\textwidth}
-		%\vspace{-9em}
-		\begin{itemize}
-			\item Again, radius may need adjustment
-			\item M=0 images were partly off screen, need to play with fit for these
-		\end{itemize}
-	\end{column}
-\end{columns}
-\end{frame}
-
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\begin{frame}
-\frametitle{Sensitivity Analysis}
-
-\vspace{-0.5em}
-Reminder of why matching to simulations is important...
-\centering
-\includegraphics[width=0.8\textwidth]{/home/nicole/Documents/surrogatemodels/ml-ws-poster/awa-medium-o4/sensresults.pdf}
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Summary}
 	\begin{itemize}
-		\item 
+		\item Simulation efforts
 		\begin{itemize}
-			\item 
-			\item 
-			\item 
-			\item 
-
+			\item OPAL, HPC
 		\end{itemize}
-		\item 
-		\item 
+		\item Optimization
+		\begin{itemize}
+			\item Model Based, GA
+		\end{itemize}
+		\item Experimental measurements
+		\begin{itemize}
+			\item Beam sizes, bunch lengths
+		\end{itemize}
 		
 	\end{itemize}
 

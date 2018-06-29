@@ -128,13 +128,13 @@
 %           Space Charge 2017 \\ Oc 18, 2009  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Section title frame 
-\iffalse
+\iftrue
 \AtBeginSection[]{
 	\begin{frame}
 	\vfill
 	\centering
 	
-	\begin{minipage}{0.55\textwidth}
+	\begin{minipage}{0.6\textwidth}
 		%\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
 		\tableofcontents[currentsection]
 		%\usebeamerfont{title}\insertsectionhead\par%
@@ -226,7 +226,64 @@ Current experiments include:
 \end{frame}
 
 
-\subsection{Simulations}
+\section{Experimental Measurements}
+
+\begin{frame}
+\frametitle{Beam Sizes}
+Rewrote AWA Matlab script in python.
+\begin{itemize}
+	\item Fiducial calculation
+	\item Background subtraction 
+	\item Fitting functions; Gaussian and piecewise
+\end{itemize}	
+
+\vspace{1em}
+\centering
+\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/laser}%
+\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG2}%
+\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG3}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Bunch Length Measurements}
+Used Michelson interferometer and CTR light.
+\vspace{2em}
+
+\Wider[4em]{
+\includegraphics[width=0.55\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f5}\includegraphics[width=0.45\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f3}
+}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Matching Solenoid Scans}
+\begin{columns}[T]
+\begin{column}{0.76\textwidth}
+\begin{minipage}{0.5\textheight}
+	\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_low_charge_sol_scan_11-02-2017}	\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_low_charge_sol_scan_11-02-2017}
+\end{minipage}
+\begin{minipage}{0.5\textheight}
+	\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_high_charge_sol_scan_10-17-2017}
+	\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_high_charge_sol_scan_10-17-2017}
+\end{minipage}
+\end{column}
+\begin{column}{0.4\textwidth}
+%\vspace{-9em}
+\begin{itemize}
+	\item only charge fluctuations are considered in error bars
+	\item Need to check laser profiles  
+	\item Radius probably needs to be adjusted in simulations of high charge
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Simulations}
 	
 \begin{frame}
 \frametitle{Code and Resources}
@@ -337,14 +394,22 @@ For the remainder of the talk, I will focus on simulation and experimental resul
 \frametitle{Benchmark Results}
 \Wider[4em]{
 All codes matched within $5\%$. \\
-Well below measurement thresholds at AWA.\\  
+Well below precision of diagnostics at AWA.\\  
 \vskip12pt
-\includegraphics[width=0.49\linewidth]{/home/nicole/Documents/thesis/tex/images/benchmark_5m}\hfill \includegraphics[width=0.49\linewidth]{/home/nicole/Documents/thesis/tex/images/benchmark_gun}
+\includegraphics[width=0.49\linewidth]{/home/nicole/Documents/thesis/tex/images/benchmark_gun}\hfill \includegraphics[width=0.49\linewidth]{/home/nicole/Documents/thesis/tex/images/benchmark_5m}
 }
 \end{frame}
 
-\section{Linac Optimization}
 
+\begin{frame}
+\frametitle{Approximate Pareto Front}
+\centering
+Trade off between emittance and bunch length
+\includegraphics[width=0.65\textwidth]{/home/nicole/Documents/thesis/tex/images/THPAB155f1}
+\begin{itemize}
+	\item In total, 2,492 simulations.
+\end{itemize}
+\end{frame}
 
 \begin{frame}
 \frametitle{Optimization using scalarization (Linac only)}
@@ -353,7 +418,6 @@ Well below measurement thresholds at AWA.\\
 	\begin{itemize}
 		\item{Determine what emittance and bunch length we can expect from the linac}
 		\begin{itemize}
-			\item{Understand beam at entrance of quads}
 			\item After $L_6$: $z_1=12.51$ m
 		\end{itemize}
 		\item{Used algorithm BOBYQA from NLopt}
@@ -428,6 +492,7 @@ Well below measurement thresholds at AWA.\\
 }
 \end{frame}
 
+\subsection{Model Based and Genetic Algorithms}
 \begin{frame}
 \frametitle{Linac Optimization}
 \begin{itemize}
@@ -449,132 +514,38 @@ f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
 \end{gather*}
 \end{frame}
 
-\subsection{Model Based and Genetic Algorithms}
+
 \begin{frame}
 \frametitle{BOBYQA Results}
-Progress during each BOBYQA run:
-\centering
-\includegraphics[width=0.75\textwidth]{/home/nicole/Documents/thesis/tex/images/THPAB155f2}
-\end{frame}
+\Wider[4em]{
 
-\begin{frame}
-\frametitle{Approximate Pareto Front}
-\centering
-Trade off between emittance and bunch length
-\includegraphics[width=0.65\textwidth]{/home/nicole/Documents/thesis/tex/images/THPAB155f1}
-\begin{itemize}
-\item In total, 2,492 simulations.
-\end{itemize}
+
+	\small Convergence of function minimum vs. number of evaluations for different weights.
+	\centering
+	\includegraphics[width=0.7\textwidth]{/home/nicole/Documents/thesis/tex/images/THPAB155f2}
+
+}
 \end{frame}
 
 
+
 \begin{frame}
-	\frametitle{Comparison to GA}
+	\frametitle{Comparison to Genetic Algorithm}
 	Validation of model based results:
 	\centering
 	\includegraphics[width=0.75\linewidth]{/home/nicole/Documents/presentations/ipac2018/opt-ipac18/THPMF049f3}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Linac Optimization: Code Used}
-\begin{itemize}
-	\setlength\itemsep{2em}
-	\item Used python library NLopt: \url{http://ab-initio.mit.edu/wiki/index.php/Main_Page}
-	
-	\item Code summary can be found at: \url{http://www.mcs.anl.gov/~jlarson/AWA}
-	
-	\item Complete repo at: \url{git@xgitlab.cels.anl.gov:jmlarson/emittance_minimization.git}
-\end{itemize}	
-\end{frame}
-
 
 \begin{frame}
 \frametitle{Beam line under design}
 \Wider[4em]{
-\def \gunleft {-1.0}
-\def \gunright {0.3}
-\def \loneright {1.0}
-\def \ltworight {2.0}
-\def \lthreeright {3.0}
-\def \lfourright {4.0}
-\def \lfiveright {5.0}
-\def \lsixright {6.0}
-\def \quadone {7.5}
-\centering
+
 \begin{center}
-\begin{tikzpicture}[scale=0.6]%,use optics
-%Gun drawings
-\draw[fill=orange, very thick, rounded corners =0.1cm] (\gunleft,0.5)rectangle (\gunright,1.5) node[pos=.5, white] {\textbf{Gun}} ;
-
-%S1
-\node[] at (-1.3,2.9) {$S_1$};
-\draw[ultra thick, fill=black!60!green] (-1.4,-0.5)rectangle  (-1.0,0.5) node[pos=.5, white] {} ;
-\draw[black, ultra thick] (-1.4,-0.5) -- (-1.0,0.5);
-\draw[black, ultra thick] (-1.4,0.5) -- (-1.0,-0.5);
-\draw[ultra thick, fill=black!60!green] (-1.4,1.5)rectangle  (-1.0,2.5) node[pos=.5, white] {} ;
-\draw[black, ultra thick] (-1.4,1.5) -- (-1.0,2.5);
-\draw[black, ultra thick] (-1.4,2.5) -- (-1.0,1.5);
-%S2
-\node[] at (-0.8,2.9) {$S_2$};
-\draw[ultra thick, fill=black!60!green] (-1.0,-0.5)rectangle  (-0.6,0.5) node[pos=.5, white] {} ;
-\draw[black, ultra thick] (-1.0,-0.5) -- (-0.6,0.5);
-\draw[black, ultra thick] (-1.0,0.5) -- (-0.6,-0.5);
-\draw[ultra thick, fill=black!60!green] (-1.0,1.5)rectangle  (-0.6,2.5) node[pos=.5, white] {} ;
-\draw[black, ultra thick] (-1.0,1.5) -- (-0.6,2.5);
-\draw[black, ultra thick] (-1.0,2.5) -- (-0.6,1.5);
-
-%S3
-\node[] at (0.2,2.9) {$S_3$};
-\draw[ultra thick, fill=black!60!green] (-0.1,-0.5) rectangle  (0.3,0.5) node[pos=.5, white] {};
-\draw[black, ultra thick] (-0.1,-0.5) -- (0.3,0.5);
-\draw[black, ultra thick] (-0.1,0.5) -- (0.3,-0.5);
-\draw[ultra thick, fill=black!60!green] (-0.1,1.5) rectangle  (0.3,2.5) node[pos=.5, white] {};
-\draw[black, ultra thick] (-0.1,1.5) -- (0.3,2.5);
-\draw[black, ultra thick] (-0.1,2.5) -- (0.3,1.5);
-%Linac drawings 
-\draw[fill=blue, ultra thick, rounded corners =0.1cm] (\loneright,0)rectangle  ({\loneright+0.84},2) node[pos=.5, white] {$L_1$} ;
-\draw[fill=blue, ultra thick, rounded corners =0.1cm] (\ltworight,0)rectangle  ({\ltworight+0.84},2) node[pos=.5, white] {$L_2$};
-\draw[fill=blue, ultra thick, rounded corners =0.1cm] (\lthreeright,0)rectangle ({\lthreeright+0.84},2) node[pos=.5, white] {$L_3$};
-\draw[fill=blue, ultra thick, rounded corners =0.1cm] (\lfourright,0)rectangle ({\lfourright+0.84},2) node[pos=.5, white] {$L_4$};
-\draw[fill=blue, ultra thick, rounded corners =0.1cm] (\lfiveright,0)rectangle ({\lfiveright+0.84},2) node[pos=.5, white] {$L_5$};
-\draw[fill=blue, ultra thick, rounded corners =0.1cm] (\lsixright,0)rectangle ({\lsixright+0.84},2) node[pos=.5, white] {$L_6$};
-
-%current optimization point
-%\node[draw, fill=yellow, star, star points=5, star point ratio=0.6, minimum size=0.1cm]
-%at (12.5,1.0) {$z_1$};
-
-
-%Quad drawings
-\draw[fill=black!60!green] (\quadone, 1.0) ellipse (0.2cm and 0.9cm);
-\draw[fill=black!60!green] (\quadone+0.5, 1.0) ellipse (0.2cm and 0.9cm);
-\draw[fill=black!60!green] (\quadone+1.0, 1.0) ellipse (0.2cm and 0.9cm);
-\draw[fill=black!60!green] (\quadone+1.5, 1.0) ellipse (0.2cm and 0.9cm);
-
-%Line between kicker and septum
-\draw[very thick] (\lsixright+5.3,1.0) -- (12.5,0.7);
-
-%Kicker 
-\draw[fill=orange, ultra thick, rounded corners =0.1cm] (\lsixright+3.5,0.5)rectangle ({\lsixright+0.84+4.6},1.5) node[pos=.5, white] {$Kicker$};
-
-%Septum
-\node[] at (12.7,1.5) {Septum};
-\draw[fill=black!60!green, ultra thick, rounded corners =0.1cm] (12.2,0.9)rectangle ({13.2},-0.1) node[pos=.5, white] {};
-%\draw[latex-latex] (\gunleft,-5.0) -- (14,-5.0) ;
-%\foreach \x in  {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5} %tick marks
-%\draw[shift={(\x,-5.0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-%\foreach \x in {0.3, 1.0, 3.5, 5.0, 7.0, 8.5, 10, 12.5}
-%\draw[shift={(\x,-5.2)},color=black] (0pt,0pt) node[below] {$\x$};
-
-%Line between kicker and septum
-\draw[very thick] (13.25,0.2) -- (14.5,-0.5);
-
-%Dipole
-\node[] at (15,-1.7) {Dipole};
-\draw[fill=black!60!green, ultra thick, rounded corners =0.1cm] (14.5,0.0)rectangle ({15.6},-1.0) node[pos=.5, white] {};
-
-%Line between septum and dipole
-\draw[very thick] (15.6,-0.5) -- (16.5,-0.5);
+\begin{tikzpicture}[scale=\textwidth/26cm, text=black]
+%\begin{tikzpicture}[scale=0.5, text=black]
+\input{/home/nicole/Documents/thesis/beamer/tba_talk/bentbeam.tex}
 \end{tikzpicture}
 \end{center}
 
@@ -625,93 +596,45 @@ Requirements:
 	\end{itemize}
 \end{minipage}
 \centering
-Note, these take an extremely large time to simulate (order days).
+These take an extremely large time to simulate (GA = order days).
+
+Will also continue to use model based methods.
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Experimental Measurements}
-
-\begin{frame}
-\frametitle{Beam Sizes}
-Rewrote AWA Matlab script in python.
-\begin{itemize}
-	\item Fiducial calculation
-	\item Background subtraction 
-	\item Fitting functions; Gaussian and piecewise
-\end{itemize}	
-
-	\vspace{1em}
-	\centering
-	\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/laser}%
-	\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG2}%
-	\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG3}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Bunch Length Measurements}
-Used Michelson interferometer and CTR light.
-\vspace{2em}
-
-\Wider[4em]{
-\includegraphics[width=0.55\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f5}\includegraphics[width=0.45\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f3}
-}
-\end{frame}
-
-
-\begin{frame}[t]
-\frametitle{Matching Solenoid Scans}
-\begin{columns}[T]
-	\begin{column}{0.76\textwidth}
-		\begin{minipage}{0.5\textheight}
-			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_low_charge_sol_scan_11-02-2017}	\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_low_charge_sol_scan_11-02-2017}
-		\end{minipage}
-		\begin{minipage}{0.5\textheight}
-			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/xbeamsizes_high_charge_sol_scan_10-17-2017}
-			\includegraphics[width=1.0\linewidth]{/home/nicole/Documents/presentations/group_meetings/ybeamsizes_high_charge_sol_scan_10-17-2017}
-		\end{minipage}
-	\end{column}
-	\begin{column}{0.4\textwidth}
-		%\vspace{-9em}
-		\begin{itemize}
-			\item only charge fluctuations are considered in error bars
-			\item Need to check laser profiles  
-			\item Radius probably needs to be adjusted in simulations of high charge
-		\end{itemize}
-	\end{column}
-\end{columns}
-\end{frame}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Summary}
+	Overall Goals: 
+	
 	\begin{itemize}
-		\item Simulation efforts
-		\begin{itemize}
-			\item OPAL, HPC
-		\end{itemize}
-		\item Optimization
-		\begin{itemize}
-			\item Model Based, GA
-		\end{itemize}
-		\item Experimental measurements
-		\begin{itemize}
-			\item Beam sizes, bunch lengths
-		\end{itemize}
-		
+		\item Improve operating conditions and design of experiments through simulation and optimization work.
+		\item Have reliable/reasonable predictions that can reduce the amount of time spent on hand tuning.
+		\item Use simulations and optimization for beam line design.
 	\end{itemize}
-
+	
 	\vspace{1em}
 	\centering
 	\color{blue}\huge{Thanks for your attention!}
 
 \end{frame}
 
+
+
+\begin{frame}
+\frametitle{Backup: Code Used}
+\begin{itemize}
+	\setlength\itemsep{2em}
+	\item Used python library NLopt: \url{http://ab-initio.mit.edu/wiki/index.php/Main_Page}
+	
+	\item Code summary can be found at: \url{http://www.mcs.anl.gov/~jlarson/AWA}
+	
+	\item Complete repo at: \url{git@xgitlab.cels.anl.gov:jmlarson/emittance_minimization.git}
+\end{itemize}	
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 

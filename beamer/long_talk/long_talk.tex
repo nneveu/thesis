@@ -371,7 +371,7 @@ For the remainder of the talk, I will focus on simulation and experimental resul
 \frametitle{Benchmark Results}
 \Wider[4em]{
 All codes matched within $5\%$. \\
-Well below precision of diagnostics at AWA.\\  
+Below precision of diagnostics at AWA.\\  
 \vskip12pt
 \includegraphics[width=0.49\linewidth]{/home/nicole/Documents/thesis/tex/images/benchmark_gun}\hfill \includegraphics[width=0.49\linewidth]{/home/nicole/Documents/thesis/tex/images/benchmark_5m}
 }
@@ -535,51 +535,41 @@ Trade off between emittance and bunch length
 \end{frame}
 
 
+\section{TBA Beam Line}
 
 \begin{frame}
-\frametitle{Beam line under design}
-\Wider[4em]{
+\Wider[5em]{
+	\frametitle{Full Staging}
+	\begin{center}
+		\begin{tikzpicture}[scale=\textwidth/38cm, text=black]
+		%\begin{tikzpicture}[scale=0.5, text=black]
+		\input{full_staging.tex}
+		\end{tikzpicture}
+	\end{center}
+}	
 
-\begin{center}
-\begin{tikzpicture}[scale=\textwidth/26cm, text=black]
-%\begin{tikzpicture}[scale=0.5, text=black]
-\input{/home/nicole/Documents/thesis/beamer/tba_talk/bentbeam.tex}
-\end{tikzpicture}
-\end{center}
-
-}
-\vspace{-1em}
-
-Using built in GA in OPAL.
-
-\vspace{0.5em}
-Requirements:
 \begin{itemize}
-	\item 100\% transmission, i.e. reasonable beam size at structure
-	\item Reasonable bunch length at structure
-	\begin{itemize}
-		\item to maximize power generated
-	\end{itemize}
+	\item Maintain modular design 
+	\item Maximize power in each stage
+	\item Plug and play various structures	
 \end{itemize}
-
 \end{frame}
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{TBA Bent Beam Layout}
+\frametitle{Beam line under design}
 \begin{tikzpicture}[scale=\textwidth/22cm, text=black]
 %\begin{tikzpicture}[scale=0.5, text=black]
 \input{/home/nicole/Documents/thesis/beamer/tba_talk/bentbeam.tex}
 \end{tikzpicture}
 
-\vspace{-1em}
-Mechanical considerations:
+\vspace{-1.5em}
+Requirements and Mechanical Constraints:
 \begin{itemize}
+	\item 100\% transmission, i.e. reasonable beam size at structure
+	\item Reasonable bunch length at structure (maximize power)
 	\item 1m between kicker and septum
 	\begin{itemize}
 		\item for separation $\ge$ 50mm in septum. 
@@ -593,42 +583,7 @@ Mechanical considerations:
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\iffalse
-\section{Optimization}
-\begin{frame}
-\frametitle{TBA Optimization}
-\vspace{-0.75em}
-\begin{tikzpicture}[scale=\textwidth/26cm, text=black]
-%\begin{tikzpicture}[scale=0.5, text=black]
-\input{/home/nicole/Documents/thesis/beamer/tba_talk/bentbeam.tex}
-\end{tikzpicture}
-%\caption{TBA beam line layout at the AWA. The arrow at the end of each line indicates what direction the beam is traveling.
-%PETS stands for Power Extraction and Transfer Structure, and ACC
-%stands for Accelerating structure. The subscript index on each structure refers to which stage the structures belong to, first or second stage. }
 
-\vspace{-1em}
-First round, 13 design variables:
-
-Simplest, and worst case scenario (no phase control).
-
-These variables are swept during optimization runs.
-\begin{table}[hbt] 
-\centering
-\begin{tabular}{ l *{3}{c}}
-	\toprule
-	\textbf{Variable} & \textbf{Range} & \textbf{Unit} \\
-	\midrule
-	Buck Focusing Sol. &  $ 50 \le S_1 \le 440$ & amps \\
-	Matching Solenoid & $ 350 \le S_2 \le 500$  & amps \\
-	Phase of Gun & $-30 \le \phi_g \le 0.0$  & degrees \\
-	Laser FWHM & $1.5 \le T \le $10  & ps \\
-	Quads$_{1-9}$ & $-8 \le Q_n \le 8$  & T/m \\
-	\bottomrule	
-\end{tabular}
-
-
-\end{table}
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{TBA Location(s) of Interest}
@@ -670,7 +625,7 @@ These variables are swept during optimization runs.
 \draw[fill=black!60!green,  thick] (\quadfour+1.5, -0.50) ellipse (0.2cm and 0.9cm);
 
 %Kicker 
-\draw[fill=orange,  thick, rounded corners =0.1cm] (\lsixright+3.3,0.5)rectangle ({\lsixright+0.84+4.6},1.5) node[pos=.5, white] {$Kicker$};
+\draw[fill=orange,  thick, rounded corners =0.1cm] (\lsixright+3.3,0.5)rectangle ({\lsixright+0.84+4.6},1.5) node[pos=.5, white] {\tiny $Kicker$};
 
 %Line between kicker and septum
 \draw[very thick] (-0.6,1) -- (0,0.7);
@@ -704,70 +659,56 @@ Tried two scenarios: with and without quads between septum and dipole.
 \end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Optimization Objectives}
-Objectives are beam parameters the simulation tries to minimize.
-These points are picked to improve beam parameters at key locations, 
-i.e. the PETS structure.
+\frametitle{Power Extraction and Tranfer Structure (PETS)}
+\begin{itemize}
+\item Form factor and bunch length are related. 
+\item Charge and bunch length drive power extraction
+\end{itemize}
 
 \vspace{1em}
-\begin{minipage}{0.45\textwidth}
-\begin{table}[hbt] 
+*Add Ez equation here
 \centering
-\begin{tabular}{ l *{3}{c}}
-\toprule
-\textbf{Variable} &  \textbf{Unit} \\
-\midrule
-$\sigma_z$ 		& mm \\
-$\sigma_{x}$ 	& mm \\
-$\sigma_y$ 		& mm \\
-$\sigma_{px}$ 	& mm-mrad \\
-$\sigma_{py}$ 	& mm-mrad \\
-$dE$			& MeV\\
-\bottomrule	
-\end{tabular}	
-\end{table}
-\end{minipage}
-\begin{minipage}{0.45\textwidth}
-\begin{itemize}
-\item 3 optimized locations ($z_k$, $z_s$, $z_d$)
-\item 18 Objectives
-\item 10 variables 
-\item 6 Constraints
-\end{itemize}
-\end{minipage}
-\centering
-Note, these take an extremely large time to simulate (order days).
-\end{frame}
-\fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{PETS}
-**More detail about power generation
-\begin{itemize}
-\item Reminder: form factor and bunch length are related. 
-\item Will continue to try to reduce bunch length
-\end{itemize}
-
-\centering
-\includegraphics[width=\textwidth]{/home/nicole/Documents/thesis_code/formfactorsqrd}
+\includegraphics[height=0.6\textheight]{/home/nicole/Documents/thesis_code/formfactorsqrd}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{TBA Beam Line}
+
 \begin{frame}
 \vspace{-1em }
 
 \frametitle{Scenario 1: Last Triplet off}
-\vspace{-1em}
 
-\hfill	\small{\begin{itemize}
-\item Symmetric beam not necessary, if transmission is good.
-\item PETS aperture = 17.6 mm
-\item Need to adjust matching and quads.
-\end{itemize}}
+\tiny
+\begin{minipage}{0.6\textwidth}
+	\begin{itemize}
+			\item Symmetric beam not necessary, if transmission is good.
+			\item PETS aperture = 17.6 mm
+			\item Need to adjust matching and quads.
+			\item Energy $\approx$ 65 MeV
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{0.35\textwidth}
+	\begin{table}[hbt] 
+		\centering
+		\begin{tabular}{ l *{3}{c}}
+			\toprule
+			\textbf{Quad} &  \textbf{Value} & \textbf{Unit} \\
+			\midrule
+			Q1	  &0.0  & amps \\
+			Q2 	  &-1.7 & amps \\
+			Q3	  &3.3  & amps \\
+			Q4    &-1.7 & amps \\
+			Q5    &-1.25& amps \\
+			Q6	  &-0.25& amps \\
+			\bottomrule	
+		\end{tabular}	
+	\end{table}	
+\end{minipage}
 
-\vspace{2em}
+\vspace{1em}
 
 \begin{minipage}{0.45\textwidth}
 
@@ -785,37 +726,12 @@ Note, these take an extremely large time to simulate (order days).
 \end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Scenario 1: Last Triplet off}
-\vspace{-1em}
 
-\hfill	\small{\begin{itemize}
-\item 3D Maps and CSR included
-\item Difference in energy due to CSR = 0.2 MeV
-\end{itemize}}
-
-\vspace{2em}
-
-\begin{minipage}{0.45\textwidth}
-
-\centering	
-
-Energy 65 MeV
-\includegraphics[width=\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/energy-csr_fields}.pdf}	
-\end{minipage}
-\begin{minipage}{0.45\textwidth}
-
-\centering
-Max beam size and pipe
-
-\includegraphics[width=\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/xy-max-min-csr_fields}.pdf}		
-\end{minipage}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Scenario 1: Lower Matching}
 \begin{itemize}
 \item CSR and 3D field maps
+\item Difference in energy due to CSR = 0.2 MeV
 \end{itemize}
 
 \centering
@@ -830,68 +746,6 @@ M = 220 \hspace{5em} M=225 \hspace{5em} M=230
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Scenario 1: cont..}
-\Wider{
-
-\begin{minipage}{0.6\textwidth}
-Gun Settings:
-
-\begin{table}[hbt] 
-\centering
-\begin{tabular}{ l *{3}{c}}
-\toprule
-\textbf{Variable} &  \textbf{Value} & \textbf{Unit} \\
-\midrule
-Gun Phase		  &-20& degrees \\
-FWHM		 	  &10& ps \\
-Laser Radius	  &9.0& mm \\
-Matching Solenoid &250& amps \\
-Buck Focusing     &500& amps \\
-\bottomrule	
-\end{tabular}	
-\end{table}	
-\end{minipage}
-\begin{minipage}{0.35\textwidth}
-Quad Settings:
-\begin{table}[hbt] 
-\centering
-\begin{tabular}{ l *{3}{c}}
-\toprule
-\textbf{Variable} &  \textbf{Value} & \textbf{Unit} \\
-\midrule
-Q1	  &0.0  & amps \\
-Q2 	  &-1.7 & amps \\
-Q3	  &3.3  & amps \\
-Q4    &-1.7 & amps \\
-Q5    &-1.25& amps \\
-Q6	  &-0.25& amps \\
-Q7	  & 0 & amps \\
-Q8    & 0 & amps \\
-Q9    & 0 & amps \\
-\bottomrule	
-\end{tabular}	
-\end{table}	
-\end{minipage}
-}
-\end{frame}
-
-
-
-\iffalse
-\begin{frame}
-\frametitle{Sensitivity Analysis}
-\vspace{-0.5em}
-Mismatch in energy, matching solenoid, or \textbf{quads} could cause problems. 
-Beam results are weakened if these do not match.
-\centering
-\includegraphics[width=0.8\textwidth]{/home/nicole/Documents/surrogatemodels/ml-ws-poster/awa-medium-o4/sensresults.pdf}
-\end{frame}
-\fi
-
-
-
-
 
 \section{Experimental Measurements}
 
@@ -910,17 +764,6 @@ Rewrote AWA Matlab script in python.
 \includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG2}%
 \includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG3}
 \end{frame}
-
-\begin{frame}
-\frametitle{Bunch Length Measurements}
-Used Michelson interferometer and CTR light.
-\vspace{2em}
-
-\Wider[4em]{
-\includegraphics[width=0.55\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f5}\includegraphics[width=0.45\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f3}
-}
-\end{frame}
-
 
 \begin{frame}[t]
 \frametitle{Matching Solenoid Scans}
@@ -945,98 +788,47 @@ Used Michelson interferometer and CTR light.
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{Bunch Length Measurements}
+Used Michelson interferometer and CTR light.
+\vspace{2em}
+
+\Wider[4em]{
+	\includegraphics[width=0.55\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f5}\includegraphics[width=0.45\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f3}
+}
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+\begin{frame}
+	\frametitle{Kicker Results}
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Summary}
-**Update**
-**Work that I have left to do, and what AWA has left to do
+Overall Goals: 
 \begin{itemize}
-\item Future steps for AWA:
-\item Match simulations to machine - critical step for TBA
-\item Reminder: Near term proposed beam studies don't require more hardware
-\begin{itemize}
-\item Phase control test
-\item Quad beam size comparison
-\item Kicker voltage scan
-\item More energy measurements
-\item Bunch length and emittance
+	\item Improve operating conditions and design of experiments through simulation and optimization work.
+	\item Have reliable/reasonable predictions that can reduce the amount of time spent on hand tuning.
+	\item Use simulations and optimization for beam line design.
 \end{itemize}
-\item Beam studies needed to ensure success of TBA.
 
-\end{itemize}
+\vspace{1em}
+\centering
+\color{blue}\huge{Thanks for your attention!}
+
 \end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Backup}
-\iftrue
 \begin{frame}
-\frametitle{Backup Slides}
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Energy Spread and Emittance}
-\vspace{1em}
-
-Need to reduce energy spread with phase control
-
-\vspace{1em}
-
-\begin{minipage}{\textwidth}
-
-\centering
-\includegraphics[width=0.45\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/dE-csr_fields}.pdf}\includegraphics[width=0.45\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/emit-csr_fields}.pdf}
-\end{minipage}
-\end{frame}
-
-
-
-
-\fi
-
-\begin{frame}
-\vspace{-1em}
-
-\frametitle{Scenario 2: Last triplet on}
-\vspace{-1em}
-
-\hfill	\small{\begin{itemize}
-\item Symmetric beam not necessary, if transmission is good.
-\item PETS aperture = 17.6 mm
-\end{itemize}}
-\centering
-\includegraphics[width=0.75\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/xyrms-optLinac-40nC_KQ3=3.3_KQ5=-1.25_KQ6=-0.25_KQ7=0.5_KQ8=0}.pdf}
+	\frametitle{PETS and ACC Paramters}
+	Add table here
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Summary}
-	Overall Goals: 
-	
-	\begin{itemize}
-		\item Improve operating conditions and design of experiments through simulation and optimization work.
-		\item Have reliable/reasonable predictions that can reduce the amount of time spent on hand tuning.
-		\item Use simulations and optimization for beam line design.
-	\end{itemize}
-	
-	\vspace{1em}
-	\centering
-	\color{blue}\huge{Thanks for your attention!}
-
-\end{frame}
-
-
 
 \begin{frame}
 \frametitle{Backup: Code Used}

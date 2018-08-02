@@ -53,34 +53,45 @@ a photoinjector and propagated down stream using conventional technology
 (accelerating structures, quads, dipoles, etc). After it has reached the design energy
 is focused into specially designed wakefield structures (decelerating structure).
 The RF is then generated in the decelerating structure and supplied to the witness 
-beam line through a waveguide. This has two benefits over traditional klystron technology.
-One, you can have structures at higher frequencies (any multiple of the machine frequency) 
-which helps push the gradient. Readily available / production klystrons are limited in this aspect.
+beam line through a waveguide connection. This has two benefits over traditional klystron technology.
+One, you can have structures at higher frequencies (any multiple of the machine frequency), 
+which helps push the gradient. Readily available and production klystrons are limited in this aspect.
 Second, all the waveguide infrastructure needed to connect a klystron to the accelerating 
 structures is eliminated. There is the initial cost near the photoinjector, 
 but downstream, much of the infrastructure costs are eliminated.
 Theoretically, TBA can deliver the same amount of power as conventional methods with less 
 infrastructure, and therefore lower cost, in the case of a large machine. 
 
-\lsnote{This next section of text should be a summary of what was done for your thesis, what the results were, and why they were important. Perhaps mapping them to the corresponding sections of your thesis.  The AWA facility and following sections should probably be in the next chapter.  You probably can't write these paragraphs until finishing your work.}
-
 Before a detailed understanding of the power and infrastructure trade offs 
-can be obtained, the feasibility of staged TBA must be be demonstrated as viable, 
+can be obtained, the feasibility of staged TBA must be be demonstrated.
+Demonstration of staging is especially important, 
 as no high energy machine can be built without staging.
 Staging is the ability to use two successive accelerating modules to synchronously accelerate 
 the same particle bunch. While simple in principle, the difficulties 
 in achieving staging should not be underestimated. 
 Demonstration of staging proves that a TBA scheme can be scaled to high energies, and whether it is 
 feasible to use such methods. Single stage TBA, and staging 
-in a simplified scheme have been demonstrated at the AWA in 2016.
-\nrnote{Not any more? - Demonstration of the full-scale dielectric staging scheme is the 
-	subject of this thesis.} 
-Desing and partial testing of a full-scale staging scheme is the 
-subject of this thesis. The branched drive beam line was designed and 
-simulated. 
-Optimization of the bunch train timing took place, \nrnote{not? - the two 
-	beam lines were synchronized and experimental measurements 
-	of staged TBA were taken. }
+in a simplified scheme have been demonstrated at the AWA in 2016 \cite{tba2017}.
+In the simplified scheme, both bunch trains travel through two decelerating stages.
+This causes energy loss in stage 1 as the the second bunch train travels to stage 2.
+\nrnote{add figure here to show difference between simplified and full staging}
+
+Fully staged TBA introduces a fast rise time kicker
+and subsequent dogleg-like beam line. In this scenario, bunch trains can be 
+be directed to two independent decelerating structures. 
+Therefore you can extract the maximum amount of power in each stage.
+Experimental preparations, design, optimization, 
+and initial testing of the fully staged beam line
+is the subject of this thesis. 
+
+Experimental work included UV laser pulse train improvement, 
+which improves the RF power generation in the wakefield structures.
+\nrnote{I will add more details to this summary paragraph}
+An image processing script was written in Python to analyze YAG screen data. 
+Vast
+All simulations were performed in OPAL-t \cite{opal}.
+The photoinjector was optimized for \SI{40}{nC}, 
+which improved the beam parameters entering the TBA experimental area.
 Experimental results and comparison to simulations, along 
 with the following beam dynamics analysis is shown here.
 
@@ -137,9 +148,12 @@ of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.
 \iftrue
 \begin{figure}
 	\begin{center}
-		%\includegraphics[width=\linewidth]{images/quads1}
+		\includegraphics[width=\linewidth]{./images/bunker}
 		\label{fig:bunker}
 	\end{center}
+\caption{AWA Facility bunker and layout. 
+	The drive beam line (right) supplies high charge bunch trains at \SI{70}{MeV}.
+	The witness beam line (left) supplies low charge one bunch at \SI{15}{MeV} }
 \end{figure}
 \begin{figure}[h]
 	\begin{center}

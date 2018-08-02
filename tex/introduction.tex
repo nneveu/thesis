@@ -21,11 +21,11 @@ acceleration of a beam.
 TBA requires a drive beam to pass through a decelerating structure and
 loss of energy through wakefield generation. The electromagnetic wake
 is coupled from the decelerator into an accelerating structure, where
-the electric field is used to accelerate a second beam. In order to have equivalent power 
-generation for each stage, two complete and separate beamlines 
-operating synchronously with each other are required.  
-The wakefield structures can be metallic or dielectric. Dielectric
-structures, having no irises, are simple to manufacture and have demonstrated
+the electric field is used to accelerate a second beam. 
+This requires two complete and separate beamlines 
+operating synchronously with each other.  
+The wakefield structures can be metallic or dielectric on either beam line. 
+Dielectric structures, having no irises, are simple to manufacture and have demonstrated
 high gradient capability at \SI{100}{MV/m} \cite{WeiPaper}. 
 
 The Compact Linear Collider (CLIC) collaboration, proposes a similar TBA scheme with
@@ -33,25 +33,34 @@ a \SI{240}{ns} pulse design. This limits the acceleration gradient
 to roughly \SI{150}{MV/m} at room temperature due to rf breakdown \cite{CLICdesignReport}.
 Higher gradients could be reached when driven by a very short drive
 beam pulse, such as the 20ns pulse length proposed by AWA \cite{WeiPaper}. 
-\nrnote{Understand and explain why short pulse can give higher gradients. 
-Because higher peak power is tolerable, but average power stays the same?}
+While the peak power and gradients are considerably larger in the short pulse scheme, 
+the average power is still feasible and within current technology capabilities.
 While the two groups vary on approach, they agree that TBA would 
 require less infrastructure when constructing a linear TeV scale machine, 
 versus the cost of more conventional technology. 
+
 For example, a case study was done comparing the infrastructure 
 needed when using traditional \SI{50}{MW} klystron sources.
 It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
-\SI{9.2}{TW} power as in the CLIC design specification in CLIC reports \cite{CLICdesignReport}. 
-In comparison to CLIC's 48 km projected machine length needed to reach \SI{3}{TeV}, the Next Linear
-Collider (NLC) collaboration projected a machine length of \SI{26}{km} using X-band klystrons,
-only to reach an energy of \SI{1}{TeV}. %\cite{NLC}. 
-\lsnote{The text below is not well developed.  I guess since it is in this paragraph, you are trying to explain the statement that less infrastructure is required.  First, you don't say anything specifically about using an accelerator beam rather than a klystron - how does that save on equipment and space?  It is also confusing that you start by saying the power to the witness beam is conventional, abut then say there is a difference in infrastructure with nothing between  about why.}
-The power supplied to the witness beam in TBA is similar to
-power provided by traditional accelerator technology. 
-The key difference is the amount of infrastructure and cost 
-needed to transport the power. Theoretically, TBA can deliver
-the same amount of power as conventional methods with less 
-infrastructure, and therefore lower cost, in the case of a high energy machine. 
+\SI{9.2}{TW} power required in the CLIC design specification reports \cite{CLICdesignReport}. 
+With TBA, CLIC projected a \SI{3}{TeV} energy at a length of \SI{48}{km}.
+%In contrast to CLIC's 48 km projected machine length needed to reach \SI{3}{TeV}, 
+In contrast, the Next Linear Collider (NLC) collaboration projected a \SI{1}{TeV} machine 
+with length \SI{26}{km}, using X-band klystrons \cite{NLC}. 
+This drastic difference occurs in the infrastructure needed to generate and transfer
+RF power in the two cases. In TBA, a high charge bunch train is generated in 
+a photoinjector and propagated down stream using conventional technology 
+(accelerating structures, quads, dipoles, etc). After it has reached the design energy
+is focused into specially designed wakefield structures (decelerating structure).
+The RF is then generated in the decelerating structure and supplied to the witness 
+beam line through a waveguide. This has two benefits over traditional klystron technology.
+One, you can have structures at higher frequencies (any multiple of the machine frequency) 
+which helps push the gradient. Readily available / production klystrons are limited in this aspect.
+Second, all the waveguide infrastructure needed to connect a klystron to the accelerating 
+structures is eliminated. There is the initial cost near the photoinjector, 
+but downstream, much of the infrastructure costs are eliminated.
+Theoretically, TBA can deliver the same amount of power as conventional methods with less 
+infrastructure, and therefore lower cost, in the case of a large machine. 
 
 \lsnote{This next section of text should be a summary of what was done for your thesis, what the results were, and why they were important. Perhaps mapping them to the corresponding sections of your thesis.  The AWA facility and following sections should probably be in the next chapter.  You probably can't write these paragraphs until finishing your work.}
 

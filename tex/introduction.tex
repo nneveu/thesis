@@ -4,22 +4,26 @@
 \Section{Motivation} \label{sec:motivation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lsnote{The introduction needs more perspective on what consitutes `high gradient'.  It would be good if you mentioned the typical gradients/limitations of conventional accelerating structures, and mention that they are powered by Klystrons etc.  In other words, you need the broader context in the introduction.}
+
 A new generation of accelerators dedicated to High Energy Physics
 (HEP), would likely be of the TeV scale. Reduction in the size and cost
-of such machines is key to their feasibility, and can be accomplished
+of such machines is key to their feasibility. \lsnote{One scheme that may potentially achieve this is \sout{and can be accomplished
 through accelerator technology R\&D. Investigation into a 
 high gradient candidate for future HEP machines is an active research area
-at the Argonne Wakefield Accelerator (AWA) facility. A
+ A } a}
 short pulse, two-beam acceleration (TBA) scheme using 
-wakefield power extractors, and accelerating structures made 
-of metallic materials was demonstrated~\cite{recent-tba}. 
+wakefield power extractors\lsnote{such as that being developed } at the Argonne Wakefield Accelerator (AWA) facility. \lsnote{\sout{Investigation into a 
+high gradient candidate for future HEP machines is an active research area
+at the Argonne Wakefield Accelerator (AWA) facility. and accelerating structures made 
+of metallic materials was demonstrated~\cite{recent-tba}.}}
 A goal of the AWA group is to demonstrate fully staged TBA, 
 achieving a gradient of 250 MV/m. If successful, this would
 be the only facility in the world capable of such gradients used for
 acceleration of a beam.
 
 TBA requires a drive beam to pass through a decelerating structure and
-loss of energy through wakefield generation. The electromagnetic wake
+\lsnote{lose \sout{loss of}} energy through wakefield generation. The electromagnetic wake
 is coupled from the decelerator into an accelerating structure, where
 the electric field is used to accelerate a second beam. 
 This requires two complete and separate beamlines 
@@ -84,6 +88,12 @@ Experimental preparations, design, optimization,
 and initial testing of the fully staged beam line
 is the subject of this thesis. 
 
+\lsnote{First, summarize here what main work you did for the thesis.  Then, you can describe what is to come in the thesis to follow: e.g. `Chapter 2 presents'.  This would be the end of the introductory chapter.\\
+Non-independent staging power measurments\\
+Kicker specification and testing\\
+Kicker beamline simulation and optimization : \\
+optimization studies, optics settings, phase settings, experimental measurements}
+
 Experimental work included UV laser pulse train improvement, 
 which improves the RF power generation in the wakefield structures.
 \nrnote{I will add more details to this summary paragraph}
@@ -145,7 +155,7 @@ called a pulse, or the repetition rate of the machine. A picture of
 the AWA multisplitter table is shown in Fig. \ref{fig:optics}. Optimization 
 of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
 
-\iftrue
+\iffalse
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{./images/bunker}

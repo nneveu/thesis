@@ -109,85 +109,39 @@ with the following beam dynamics analysis is shown here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Argonne Wakefield Accelerator Facility} \label{sec:facility}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\iffalse
-\nrnote{this paragraph is from NAPAC paper}
-The AWA facility houses a 70 MeV RF photoinjector \cite{upgrades} with a large 
-dynamic range: 20 pC to 100 nC. In many cases, the beam is SC dominated. 
-In the AWA’s Emittance Exchange (EEX) beam line \cite{eex}, CSR has a large  
-effect on the beam as it passes through the dipoles, and wakefields
-are present in the two beam acceleration (TBA) beam line \cite{staging1}. ASTRA, 
-GPT, and OPAL-T are capable of simulating 3D SC, and wakefield effects.
-The latter two codes also include a CSR model, making them a good fit for the AWA.  
-\fi
-
-The AWA facility houses two rf photoinjector electron guns operating
-at \SI{1.3}{GHz}, and three subsequent beam lines. 
-Two of the beam lines are currently used for staged TBA, and the
-third is used for Emittance Exchange experiments (EEX). A layout of
-the facility is shown in Fig. \ref{fig:bunker}. 
-\lsnote{Some more detail will be needed here, maybe just switch the order of the some of the text in the two paragraphs below.  Something like; start with saying what the beamlines are and what is in them referring to the figure, then describe their sources in more detail (RF guns and photocathodes), then talk about the laser and how it is split.}
-
-Electron bunches in a photoinjector are created through the photoelectric effect. 
-At the AWA, a pulsed UV laser is propagated through two relay lines of UV optics to either
-the drive or witness gun. An in-vacuum mirror then directs the pulse to the photocathode.
-Both beam lines must be operated simultaneously when the TBA experiments are run. This is accomplished by
-splitting the original laser pulse into two pulses using a UV splitter on the 
-ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
-bunch operation. The second pulse is sent to a UV multispitter table, shown in 
-Fig.~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
-used for TBA drive trains, 
-
-The beam line located on the right side of Fig. \ref{fig:bunker} is called the
-drive line. The rf photoinjector on the drive line uses a semiconducting
-CsTe cathode, and is followed by a linear accelerator (linac). The
-drive linac uses six copper cavities and four klystrons to accelerate the drive beam
-to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
-laser pulse can vary from 1, 2, 4, 6, and 8 bunches. When multiple bunches
-are generated, the grouping is called a bunch train. Generation of
-these variable bunch trains is accomplished by splitting the pulsed
-UV laser beam before it enters the gun and hits the cathode. The splitting
-takes place in a complex network of UV optics located near the drive
-gun. The optics set up is called a beam splitter, or mulitsplitter,
-and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
-called a pulse, or the repetition rate of the machine. A picture of
-the AWA multisplitter table is shown in Fig. \ref{fig:optics}. Optimization 
-of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
-
-\iffalse
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{./images/bunker}
-		\label{fig:bunker}
-	\end{center}
-\caption{AWA Facility bunker and layout. 
-	The drive beam line (right) supplies high charge bunch trains at \SI{70}{MeV}.
-	The witness beam line (left) supplies low charge one bunch at \SI{15}{MeV} }
-\end{figure}
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=0.5\textwidth]{images/multisplitter}\caption{UV multisplitter optics table.}
-	\end{center}
-	\label{fig:optics}
-\end{figure}
-\fi
-
-The witness line rf photoinjector, located on the left side of Figure
-1, uses a Mg cathode and the following linac consists of one copper
-accelerating cavity. Prior to the multisplitter table, shown in
-Fig. \ref{fig:optics}, the laser pulse is split between the drive and witness side.
-This set up allows only one bunch per pulse on the witness line. Also
-note that the beam from the drive line travels in the opposite direction
-than the beam in the witness line. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Dielectric Structures}
+\Section{Two Beam Acceleration}
+
+\lsnote{This is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?}
+
+In order to design and test the desired beam line, three technologies 
+new to the AWA were investigated. These include a kicker, septum magnets, 
+and non-GA optimization algorithms.
+
+% An example for enumerate
+\begin{enumerate}
+	\item Kicker Design
+	\item Septum Design
+	\item Optimization 
+\end{enumerate}
+
+% A quotation example
+% Every quota must be accompanied by a reference to the source
+% in a footnote or in the Bibliography
+\begin{quotation}
+	test
+\end{quotation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Accelerating Structures}
+
+hold
+
+\Subsection{Dielectric Structures}
+hold
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Subsection{Power Generation}
 
@@ -224,33 +178,6 @@ the value of R/Q is often calculated in electromagnetic codes such
 as CST Microwave Studio. 
 
 \lsnote{You probably were intending to do this, but this section should close out with a predicted power generation 
-in the decelerating structures.  The discussion of how that depends on number of bunches in the bunch train should be here as well.}
-
-\Subsection{Accelerating Structures}
-
-\Section{Two Beam Acceleration}
-
-\Section{AWA Design Requirements} \label{sec:requirements}
-
-\lsnote{This is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?}
-
-In order to design and test the desired beam line, three technologies 
-new to the AWA were investigated. These include a kicker, septum magnets, 
-and non-GA optimization algorithms.
-
-% An example for enumerate
-\begin{enumerate}
-	\item Kicker Design
-	\item Septum Design
-	\item Optimization 
-\end{enumerate}
-
-% A quotation example
-% Every quota must be accompanied by a reference to the source
-% in a footnote or in the Bibliography
-\begin{quotation}
-	test
-\end{quotation}
-
+	in the decelerating structures.  The discussion of how that depends on number of bunches in the bunch train should be here as well.}
 
 \Section{Thesis Outline}

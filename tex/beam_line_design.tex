@@ -1,4 +1,66 @@
 \Chapter{Beam Line Design}%________________________________
+\Section{Kicker Design}
+
+\lsnote{You need to start with a re-statement of the purpose of the kicker. }
+A design implemented by Indiana University (IU) \cite{iukicker}
+will be adapted to fit TBA requirements at the AWA. Redesign will require optimization
+of the length and gap between the kicker plates. \lsnote{Summarize what criteria are used to determine these.} Figure \ref{fig:IUkicker} shows the existing IU kicker.
+\begin{figure}[h]
+	\begin{center}
+		%\includegraphics[scale=0.5]{C:/Users/nneveu/Pictures/kicker.jpg}\caption{IU Kicker \cite{IUkicker}}
+		\label{fig:IUkicker}
+	\end{center}
+\end{figure}
+The kicker is essentially a parallel plate waveguide. 
+A $\pm$35 kV power supply will be used to induce a 70 kV potential difference 
+across the plates. Each plate will be terminated in a 50 $\Omega$ load to induce a steady 
+state current on the plates. The combination of the two will result in a static TEM mode 
+between the plates. Calculation of the electric, $E_v$, and magnetic field, $B_v$,
+can be derived from the voltage or current. The electric field, $E_v$, due to a potential, V, is: 
+\begin{equation}
+E_v=\frac{V}{h}
+\end{equation}
+
+Where h is the gap height. From Maxwell's equations, we know that the electric and magnetic 
+field are related by the speed of light, c, in the case of plane and TEM waves \cite{pozar}. 
+From this we can find the magnetic field induced between the plates: 
+\begin{equation}
+B_v=\frac{E_v}{c}
+\end{equation}
+The electrons are going at the speed of light, $c$, and are moving through the kicker on a 
+trajectory perpendicular to the fields.  So, it can be seen from the Lorentz force equation, that the force 
+exerted on a charge q from the electric and magnetic fields of the TEM mode are equal. 
+\begin{equation}
+F=q(E_v+v\times B_v)
+\end{equation}
+
+Since the force due to the electric field is equal and in the same direction as that from the magnetic field, 
+the total kick is just twice that from either field alone.  The angle induced by each field is \cite{iukicker, Wiedemann}:  
+\begin{equation}
+\theta_E= \frac{V\,L}{h\,T}
+\end{equation}
+\begin{equation}
+\theta_B= \frac{B\,L}{B\rho}
+\end{equation}
+
+Where L is the plate length, and T is the kinetic energy of the beam. $B\rho=3.33564\,*T\,$ [GeV-Tesla] is a 
+common accelerator physics term that can be found in text such as Wiedemann \cite{Wiedemann}. 
+The total angle provided by the kicker is then: 
+\begin{equation}
+\theta_{total}= \theta_E+\theta_B=2\theta_E=2\theta_B
+\end{equation}
+From these equations, variable parameters include the gap height, length of the plates, and 
+the kinetic energy of the beam. The largest drive beam energy achievable at the AWA is 75 MeV. 
+Thesis work will include the optimi
+zation of these parameters to obtain the largest angle possible.
+Simulations have begun to set boundary conditions on the variable parameters. 
+
+
+
+
+
+
+
 Using the foundations set in Chapters 2 and 3, 
 \nrnote{Change foundations to more elaborate description...
 beam line requirements, diagnostics at AWA, etc...???}
@@ -45,6 +107,7 @@ the beam energy and magnet strength \cite{Wiedemann}:
 \end{equation}
 
 \Section{Matrix Formalism For TBA Beam Line}
+
  To reduce the number of free parameters quickly without using expensive PIC simulations, 
  the transfer matrix of the beam line was considered. Starting at the end of the linac, 
  we consider the first four quadrupoles before the kicker. All the quadruple strengths (4) and

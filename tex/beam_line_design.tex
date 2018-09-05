@@ -77,11 +77,11 @@ using geometry and the expected angle of deflection.
 From these equations, we relate the design parameters gap height, length of the plates, and 
 the kinetic energy of the beam. Next, further beam line considerations were included 
 to narrow down what angle the kicker needed to supply. 
-The largest drive beam energy achievable at the AWA is 75 MeV. 
-Therefore the kinetic energy of the beam, T was set as a constant.
+The largest drive beam energy achievable at the AWA is 65 MeV. 
+Therefore the kinetic energy of the beam, T, was set as a constant.
 Next mechanical constraints were considered. The two drive beam lines need to be separated
 by at least \SI{0.5}{m} so that magnets (quadrupoles and dipoles) can fit on each 
-beam line without competing for transverse space. Using geometry as shown in Figure \ref{fig:triangle}.
+beam line without competing for transverse space. 
 \begin{figure*}
 		\begin{center}		
 		\begin{tikzpicture}[scale=0.7]
@@ -93,21 +93,26 @@ beam line without competing for transverse space. Using geometry as shown in Fig
 		\node[fill=white, inner sep=2pt] (txt2) at (5.2,0) {0.5 m};
 		\end{tikzpicture}
 		\end{center} 
-	\caption{The angle provided by the kicker, $\theta_k$, plus the angle provided by the septum, $\theta_s$,
+	\caption{Simplified drawing of the TBA layout. 
+			The angle provided by the kicker, $\theta_k$, plus the angle provided by the septum, $\theta_s$,
 		    must be less than or equal to $20^\circ$.
 			The two beam lines must also be at least \SI{0.5}{m} apart.}
 \end{figure*}\label{fig:triangle}
-An upper limit on the angle in Figure \ref{fig:triangle}, is based on the existing dipoles at the AWA.
+Using geometry as shown in Figure \ref{fig:triangle}, an upper limit on the angle is based on the existing dipoles at the AWA.
 The maximum bend angle is $20^\circ$, meaning the combined kicker and septum angle, must be below this.
-That way the bent beam line can be straightened out using a standard AWA dipole, which is already housed in the 
-AWA bunker. 
+That way the bent beam line can be straightened out using a standard dipole, which is available and housed in the AWA bunker. 
+It is also considered better to design away from the limit of the equipment. Therefore a bend angle less than $20^\circ$
+is preferred and allows room for tolerance errors. 
 
-With these limitations we can consider the septum that will follow the kicker.
+With these limitations, the septum that will follow the kicker.
 \nrnote{This section is not finished yet need to write bridge between above and following content}
 
 Simulations as shown in Chapter 2, gave an estimation of the beam size at the entrance and exit of the kicker.
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
-for the transverse offset of the beam as it exits the kicker.
+for the transverse offset of the beam as it exits the kicker. With the pulsar being variable between 18 and 28 kV,
+Figure \ref{fig:kickerangles} and \ref{fig:kickeroffset}
+both show there are several beam energies for which the above angles and beam line is feasible.
+ 
 
 
 
@@ -190,7 +195,7 @@ Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in 
 
 
 \Subsection{TDR Test}
-
+\nrnote{todo}
 
 \Section{Measurment of Beam Deflection}
 
@@ -198,9 +203,7 @@ Next the kicker was installed in the AWA drive beam line.
 It's approximate location is 16.5 meters downstream of the cathode.
 The HV pulsar was located on the roof of the bunker.
 
-\begin{figure}
-	
-\end{figure}
+\nrnote{todo}
 
 
 

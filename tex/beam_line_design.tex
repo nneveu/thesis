@@ -68,6 +68,10 @@ Using the definitions above, the total angle provided by the kicker is then:
 \begin{equation}
 \theta_{total}= \theta_E+\theta_B=2\theta_E=2\theta_B
 \end{equation}
+We can also calculate the expected deflection, or x offset after the kicker 
+using geometry. 
+
+
 From these equations, design parameters include the gap height, length of the plates, and 
 the kinetic energy of the beam. The largest drive beam energy achievable at the AWA is 75 MeV. 
 With this in mind, T was set as a constant, and the gap and length of the plates were adjusted.
@@ -77,21 +81,39 @@ Simulations as shown in Chapter 2, gave an estimation of the beam size at the en
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
 for the transverse offset of the beam as it exits the kicker.
 
+
+
+
 For a length of \SI{1}{m}, and gap of \SI{40}{mm}, 
 several beam energy and angle scenarios were considered.
+As a contingency plan, it was important to consider if the 
+beam energy could be lowered to still achieve the desired 
+angle and x offset required in the beam line. 
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{./images/AngleVsEnergy}\caption{ }
+		\includegraphics[width=0.65\textwidth]{./images/AngleVsEnergy}
+		\caption{Angle of deflection for \SI{1}{m} long 
+		kicker with a gap of \SI{40}{mm} for several beam energies. The target angle is $2^\circ$.}
 		\label{fig:kickerangles}
 	\end{center}
 \end{figure}
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{./images/XoffsetVsEnergy}\caption{ }
+		\includegraphics[width=0.65\textwidth]{./images/XoffsetVsEnergy}
+		\caption{X offset of the beam after traveling
+		through the \SI{1}{m} long kicker with a gap of \SI{40}{mm}.
+		The target x offset is about \SI{20}{mm}.}
 		\label{fig:kickeroffset}
 	\end{center}
 \end{figure}
-
+\begin{figure}
+	\centering
+	\includegraphics[width=0.65\textwidth]{./images/tba_trajectory}
+	\caption{Simulation of the transverse offset of a \SI{65}{MeV} beam as 
+		it travels through the proposed TBA beam line. Notice the x offset at the exit of the kicker (\SI{17.5}{m}), 
+		is nearly \SI{20}{mm} as predicted in Figure \ref{fig:kickeroffset}.}
+	\label{fig:beamtraj}
+\end{figure}
 \Subsection{CST Results??}
 \nrnote{Jiaqi from Euclid did a quick check of the design in CST. I have some plots from him, but none of the original data.
 I wouldn't be able to re plot this work...not sure if I should include this.}

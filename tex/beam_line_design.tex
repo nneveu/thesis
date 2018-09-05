@@ -1,16 +1,18 @@
 \Chapter{Beam Line Design}%________________________________
 \Section{Kicker Design}
 
+Using the foundations set in Chapters 2 and 3, 
+\nrnote{Change foundations to more elaborate description...
+	beam line requirements, diagnostics at AWA, etc...???}
+a beam line design for staged 
+two beam acceleration was laid out and simulated. 
+\nrnote{.....more intro here...do I need to spell out building block matrices?}
+
 \lsnote{You need to start with a re-statement of the purpose of the kicker. }
 A design implemented by Indiana University (IU) \cite{iukicker}
-will be adapted to fit TBA requirements at the AWA. Redesign will require optimization
+was adapted to fit TBA requirements at the AWA. Redesign required consideration
 of the length and gap between the kicker plates. \lsnote{Summarize what criteria are used to determine these.} Figure \ref{fig:IUkicker} shows the existing IU kicker.
-\begin{figure}[h]
-	\begin{center}
-		%\includegraphics[scale=0.5]{C:/Users/nneveu/Pictures/kicker.jpg}\caption{IU Kicker \cite{IUkicker}}
-		\label{fig:IUkicker}
-	\end{center}
-\end{figure}
+
 The kicker is essentially a parallel plate waveguide. 
 A $\pm$35 kV power supply will be used to induce a 70 kV potential difference 
 across the plates. Each plate will be terminated in a 50 $\Omega$ load to induce a steady 
@@ -54,17 +56,51 @@ the kinetic energy of the beam. The largest drive beam energy achievable at the 
 Thesis work will include the optimi
 zation of these parameters to obtain the largest angle possible.
 Simulations have begun to set boundary conditions on the variable parameters. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{./images/kicker}\caption{CAD drawing of AWA kicker design \cite{AWAkicker}}
+		\label{fig:AWAkicker}
+	\end{center}
+\end{figure}
+
+
+\Section{Outside Vacuum Kicker Tests}
+
+After the design of the kicker was finalized, fabrication began at ANL.
+The copper plates and ceramic brackets were fabricated on site at the ANL shops.
+High voltage feedthroughs and cables were purchased from FID GmbH. 
+In order to test that the fabrication of the kicker was sound, members of the 
+Advanced Photon Source (APS) electronics groups graciously helped perform an 
+out of vacuum AC high voltage test. Afterwards they also helped perform and 
+analyze a TDR measurement of the kicker plates.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough1}\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough2}
+		\caption{High voltage feedthrough purchased from FID GmbH. Left, is the side that connects to the HV cables.
+		Right, is the in vacuum pin that connects to the copper kicker plates.}
+		\label{fig:feedthroughs}
+	\end{center}
+\end{figure}
+
+
+\Subsection{High Voltage Test}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{./images/kicker1}\caption{High voltage set up at the APS. The kicker was grounded on one side and exposed to HV AC power on the other. The Faraday cage was closed during testing. }
+		\label{fig:AWAHVkicker}
+	\end{center}
+\end{figure}
+
+
+\Subsection{TDR Test}
+
+
+\Section{Measurment of Beam Deflection}
 
 
 
 
-
-Using the foundations set in Chapters 2 and 3, 
-\nrnote{Change foundations to more elaborate description...
-beam line requirements, diagnostics at AWA, etc...???}
-a beam line design for staged 
-two beam acceleration was laid out and simulated. 
-\nrnote{.....more intro here...do I need to spell out building block matrices?}
 
 A drift: 
 \begin{equation}

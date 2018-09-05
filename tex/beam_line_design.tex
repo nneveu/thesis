@@ -54,13 +54,16 @@ and is rewritten in the following terms:
 \begin{equation}
 \theta_B= \frac{B\,L}{B\rho}
 \end{equation}
-
 Where L is the plate length, and T is the kinetic energy of the beam. 
 Rigidity, or $B\rho$, is a common accelerator physics term that can be found in text such as Wiedemann \cite{Wiedemann}. 
 It is a convenient way to relate the magnetic field and trajectory of an energetic beam traveling through that field.
 \begin{equation}
-	B\rho=3.33564\,*T\, \text{[GeV-Tesla]}
+	B\rho=3.33564\,\,T\, \text{[GeV-Tesla]}
 \end{equation} 
+For a constant magnetic field, as the beam energy increases, the angle decreases. 
+The beam is considered "rigid" at higher energies, 
+and requires stronger magnetic fields to acheive the same angle, or bending radius ($\rho$).
+
 Using the definitions above, the total angle provided by the kicker is then: 
 \begin{equation}
 \theta_{total}= \theta_E+\theta_B=2\theta_E=2\theta_B
@@ -68,17 +71,26 @@ Using the definitions above, the total angle provided by the kicker is then:
 From these equations, design parameters include the gap height, length of the plates, and 
 the kinetic energy of the beam. The largest drive beam energy achievable at the AWA is 75 MeV. 
 With this in mind, T was set as a constant, and the gap and length of the plates were adjusted.
-Simulations in 
-\begin{figure}[h]
+
+
+Simulations as shown in Chapter 2, gave an estimation of the beam size at the entrance and exit of the kicker.
+The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
+for the transverse offset of the beam as it exits the kicker.
+
+For a length of \SI{1}{m}, and gap of \SI{40}{mm}, 
+several beam energy and angle scenarios were considered.
+\begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{./images/kicker}\caption{CAD drawing of AWA kicker design }
-		\label{fig:AWAkicker}
+		\includegraphics[width=0.75\textwidth]{./images/AngleVsEnergy}\caption{ }
+		\label{fig:kickerangles}
 	\end{center}
 \end{figure}
-
-However there are other limitations to consider. The gap needs to be large enough 
-to allow the full width of the beam to pass through while it is being deflected.
-
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{./images/XoffsetVsEnergy}\caption{ }
+		\label{fig:kickeroffset}
+	\end{center}
+\end{figure}
 
 \Subsection{CST Results??}
 \nrnote{Jiaqi from Euclid did a quick check of the design in CST. I have some plots from him, but none of the original data.
@@ -86,6 +98,12 @@ I wouldn't be able to re plot this work...not sure if I should include this.}
 
 \Section{Outside Vacuum Kicker Tests}
 
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{./images/kicker}\caption{CAD drawing of AWA kicker design }
+		\label{fig:AWAkicker}
+	\end{center}
+\end{figure}
 After the design of the kicker was finalized, fabrication began at ANL.
 The copper plates and ceramic brackets were fabricated on site at the ANL shops.
 High voltage (HV) feedthroughs and cables were purchased from FID GmbH. 
@@ -93,7 +111,7 @@ In order to test that the fabrication of the kicker was sound, members of the
 Advanced Photon Source (APS) electronics groups graciously helped perform an 
 out of vacuum AC high voltage test. Afterwards they also helped perform and 
 analyze a TDR measurement of the kicker plates.
-\begin{figure}[h]
+\begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough1}\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough2}
 		\caption{High voltage feedthrough purchased from FID GmbH. Left, connection to the HV cables.
@@ -111,8 +129,7 @@ Ports 1 and 2 were shorted to ground. There was no leakage current up to \SI{8}{
 The second test reversed the set up with 3 and 4 grounded and ports 1 and 2 exposed. 
 There was no leakage current up to \SI{9}{kV} RMS, which was the maximum voltage of the test equipment.
 Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in the APS Faraday cage.
-
-\begin{figure}[h]
+\begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{./images/kicker1}\caption{High voltage set up at the APS. The kicker was grounded on one side and exposed to HV AC power on the other. The Faraday cage was closed during testing. }
 		\label{fig:AWAHVkicker}

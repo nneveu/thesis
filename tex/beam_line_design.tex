@@ -69,13 +69,41 @@ Using the definitions above, the total angle provided by the kicker is then:
 \theta_{total}= \theta_E+\theta_B=2\theta_E=2\theta_B
 \end{equation}
 We can also calculate the expected deflection, or x offset after the kicker 
-using geometry. 
+using geometry and the expected angle of deflection. 
+\begin{equation}
+	\triangle x = \left(1-\cos\left(\theta_{total}\right)\right)\rho
+\end{equation}
 
+From these equations, we relate the design parameters gap height, length of the plates, and 
+the kinetic energy of the beam. Next, further beam line considerations were included 
+to narrow down what angle the kicker needed to supply. 
+The largest drive beam energy achievable at the AWA is 75 MeV. 
+Therefore the kinetic energy of the beam, T was set as a constant.
+Next mechanical constraints were considered. The two drive beam lines need to be separated
+by at least \SI{0.5}{m} so that magnets (quadrupoles and dipoles) can fit on each 
+beam line without competing for transverse space. Using geometry as shown in Figure \ref{fig:triangle}.
+\begin{figure*}
+		\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=1\textwidth]{./images/tba_geometry}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-5,1.3) {$\theta_k$};
+		\node[fill=white, inner sep=2pt] (txt2) at (0.2,0.3) {$\theta_s$};
+		\node[fill=white, inner sep=2pt] (txt2) at (5,2.5) {Beam Direction};
+		\node[fill=white, inner sep=2pt] (txt2) at (5.2,0) {0.5 m};
+		\end{tikzpicture}
+		\end{center} 
+	\caption{The angle provided by the kicker, $\theta_k$, plus the angle provided by the septum, $\theta_s$,
+		    must be less than or equal to $20^\circ$.
+			The two beam lines must also be at least \SI{0.5}{m} apart.}
+\end{figure*}\label{fig:triangle}
+An upper limit on the angle in Figure \ref{fig:triangle}, is based on the existing dipoles at the AWA.
+The maximum bend angle is $20^\circ$, meaning the combined kicker and septum angle, must be below this.
+That way the bent beam line can be straightened out using a standard AWA dipole, which is already housed in the 
+AWA bunker. 
 
-From these equations, design parameters include the gap height, length of the plates, and 
-the kinetic energy of the beam. The largest drive beam energy achievable at the AWA is 75 MeV. 
-With this in mind, T was set as a constant, and the gap and length of the plates were adjusted.
-
+With these limitations we can consider the septum that will follow the kicker.
+\nrnote{This section is not finished yet need to write bridge between above and following content}
 
 Simulations as shown in Chapter 2, gave an estimation of the beam size at the entrance and exit of the kicker.
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
@@ -114,15 +142,17 @@ angle and x offset required in the beam line.
 		is nearly \SI{20}{mm} as predicted in Figure \ref{fig:kickeroffset}.}
 	\label{fig:beamtraj}
 \end{figure}
+
+
 \Subsection{CST Results??}
 \nrnote{Jiaqi from Euclid did a quick check of the design in CST. I have some plots from him, but none of the original data.
 I wouldn't be able to re plot this work...not sure if I should include this.}
 
-\Section{Outside Vacuum Kicker Tests}
+\Section{Preliminary Kicker Tests}
 
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{./images/kicker}\caption{CAD drawing of AWA kicker design }
+		\includegraphics[width=0.65\textwidth]{./images/kicker}\caption{CAD drawing of AWA kicker design }
 		\label{fig:AWAkicker}
 	\end{center}
 \end{figure}
@@ -137,7 +167,7 @@ analyze a TDR measurement of the kicker plates.
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough1}\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough2}
 		\caption{High voltage feedthrough purchased from FID GmbH. Left, connection to the HV cables.
-		Right, is the in vacuum pin that connects to the copper kicker plates.}
+		Right, the in vacuum pin that connects to the copper kicker plates.}
 		\label{fig:feedthroughs}
 	\end{center}
 \end{figure}
@@ -153,7 +183,7 @@ There was no leakage current up to \SI{9}{kV} RMS, which was the maximum voltage
 Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in the APS Faraday cage.
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.7\textwidth]{./images/kicker1}\caption{High voltage set up at the APS. The kicker was grounded on one side and exposed to HV AC power on the other. The Faraday cage was closed during testing. }
+		\includegraphics[width=0.65\textwidth]{./images/kicker1}\caption{High voltage test cage at the APS. The kicker was grounded on one side and exposed to HV AC power on the other. The Faraday cage was closed during testing. }
 		\label{fig:AWAHVkicker}
 	\end{center}
 \end{figure}
@@ -168,9 +198,13 @@ Next the kicker was installed in the AWA drive beam line.
 It's approximate location is 16.5 meters downstream of the cathode.
 The HV pulsar was located on the roof of the bunker.
 
+\begin{figure}
+	
+\end{figure}
 
 
-\Section{Matrix Formalism For TBA Beam Line}
+
+\Section{TBA Beam Line}
 
 A drift: 
 \begin{equation}
@@ -300,3 +334,5 @@ maintaining the initial beam distribution.
  \end{bmatrix}
  \]
  \fi
+ 
+ \Section{TBA Beam Line Optimization Results}

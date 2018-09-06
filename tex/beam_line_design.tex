@@ -1,27 +1,43 @@
 \Chapter{Beam Line Design}%________________________________
+
+
+\Section{Introduction}
+\lsnote{You need to summarize what is in this chapter.  Suggested rough list of items.}
+
+Independent staging requires two beamlines, with routing via kicker and septum\\
+Kicker was obtained, but gap and plate length had to be determined based on required angle\\
+Kicker installed and tested, we found linear and angle compared like..\\
+The Septum was obtained..\\
+The beamline optics also had to be determined and optimized.\\
+What optics \\
+Sim results\\
+Optimization\\
+State of project\\
+
+
 \Section{Kicker Design}
 
-As described in Chapters 2, a fast rise time kicker is needed to separate the 
-bunch trains supplied by the drive line. The spacing between bunch trains is on the 
-order of nanoseconds, and depends on the layout of the beam lines and laser timing.
-Magnetic options, such as a dipole, were disqualified due to their slow rise times 
-(on the order of seconds). \nrnote{is that right? Might be miliseconds? neet to find source for this}
-Therefore an electrostatic approach was chosen, due to achieve faster rise times.
+\lsnote{\sout{As described in Chapters 2, a} A} fast rise time kicker is needed to separate the 
+bunch trains supplied by the drive \lsnote{\sout{line} gun.  When the kicker is on, bunches passing though it are deflected into an alternate beamline by the kicker field.} The spacing between bunch trains is on the 
+order of nanoseconds\lsnote{; it must be long enough to allow the kicker to reach full field before the arrival of the second bunch train, and also} depends on the layout of the beam lines and laser timing.  \lsnote{The drive beam and the accelerated `witness' beam must be synchronized so that the acceleration field is maximum when the witness beam arrives at the accelerating structure.}
+Magnetic options \lsnote{for transverse bunch train separation}, such as a dipole, were disqualified due to their slow rise times 
+\lsnote{\sout{(on the order of seconds)} \it{Just leave this out instead of worrying about it}}. \nrnote{is that right? Might be miliseconds? neet to find source for this}
+\lsnote{\sout{Therefore an electrostatic approach was chosen, due to achieve faster rise times.}}
 
 Borrowing from a successful neighbor, a design implemented by Indiana University (IU) \cite{iukicker}
 was adapted to fit the TBA requirements at the AWA. Redesign required consideration
 of the length and gap between the kicker plates. Both are key parameters that determine 
-what angle the beam will be deflected. Longer plates results in the beam traveling 
-in the electromagnetic field for a longer amount of time (i.e. larger angle). 
-A smaller gap increase the field intensity for a give voltage, consider a parallel plate 
-capacitor and Guass' law. This can also increase the angle.
+what angle the beam will be deflected. Longer plates result\lsnote{\sout{s}} in the beam traveling 
+in the electromagnetic field for a longer \lsnote{\sout{amount of}} time (\lsnote{\sout{i.e.} yielding a} larger \lsnote{beam deflection} angle). 
+A smaller gap \lsnote{increases} the field intensity for a \lsnote{given} voltage \lsnote{\sout{consider} (similar} to a parallel plate 
+capacitor), \lsnote{increasing the beam defliection angle. \sout{ and Guass' law. This can also increase the angle. } }
 
 
 The kicker is essentially a parallel plate waveguide. 
-A $\pm$\SI{30}{kV} power supply will be used to induce a maximum of \SI{60}{kV} potential difference 
+A $\pm$\SI{30}{kV} power supply \lsnote{can \sout{will}} be used to induce a maximum of \SI{60}{kV} potential difference 
 across the plates. Each plate will be terminated in a 50 $\Omega$ load to induce a steady 
-state current on the plates. The combination of the two plates will result in a static TEM mode 
-between the plates. Calculation of the electric, $E_v$, and magnetic field, $B_v$,
+state current on the plates. \lsnote{\it{Are you sure about that?  I would have thought it was to avoid reflections, which in a sense keeps the current steady, but steady state usually means as opposed to AC current.  Also, what are the subscripts $v$ on the fields for?  Did you mean $E_{x}$ and $B_{y}$}?} The combination of the two plates will result in a static TEM mode 
+between the plates. \lsnote{\sout{Calculation of the} The} electric \lsnote{field}, $E_v$, and magnetic field, $B_v$,
 can be derived from the voltage or current. The electric field, $E_v$, due to a potential, V, is: 
 \begin{equation}
 E_v=\frac{V}{h}
@@ -74,6 +90,7 @@ using geometry and the expected angle of deflection.
 	\triangle x = \left(1-\cos\left(\theta_{total}\right)\right)\rho
 \end{equation}
 
+\lsnote{more info needed on above equation.  What is $\rho$?  Why $1-\cos{\theta}$?}
 From these equations, we relate the design parameters gap height, length of the plates, and 
 the kinetic energy of the beam. Next, further beam line considerations were included 
 to narrow down what angle the kicker needed to supply. 
@@ -98,21 +115,23 @@ beam line without competing for transverse space.
 		    must be less than or equal to $20^\circ$.
 			The two beam lines must also be at least \SI{0.5}{m} apart.}
 \end{figure*}\label{fig:triangle}
+\lsnote{For some reason the figure reference below is not correct in the .pdf file.  Maybe because the figure lable is after the end of the figure.  Also, you should either label the dipole, or better, the dipole bending angle in the figure.}
 Using geometry as shown in Figure \ref{fig:triangle}, an upper limit on the angle is based on the existing dipoles at the AWA.
-The maximum bend angle is $20^\circ$, meaning the combined kicker and septum angle, must be below this.
+The maximum bend angle is $20^\circ$, meaning the combined kicker and septum angle, must be below this. \lsnote{twenty degrees seems far off the 2 degree target for the kicker angle.  Is that because the septum angle is huge, or did you mean 20 mm?}
 That way the bent beam line can be straightened out using a standard dipole, which is available and housed in the AWA bunker. 
 It is also considered better to design away from the limit of the equipment. Therefore a bend angle less than $20^\circ$
 is preferred and allows room for tolerance errors. 
 
 With these limitations, the septum that will follow the kicker.
 \nrnote{This section is not finished yet need to write bridge between above and following content}
+\lsnote{You need to discuss the bending angle of the septum here.  Also, why is the target angle for the kicker 2 degrees?  I am not clear on that.}
 
 Simulations as shown in Chapter 2, gave an estimation of the beam size at the entrance and exit of the kicker.
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
-for the transverse offset of the beam as it exits the kicker. With the pulsar being variable between 18 and 28 kV,
+for the transverse offset of the beam as it exits the kicker. \lsnote{You need your simulations here, with your estimate of the beam size, and give the actual dimensions of the kicker gap to compare.} With the pulsar being variable between 18 and 28 kV,
 Figure \ref{fig:kickerangles} and \ref{fig:kickeroffset}
 both show there are several beam energies for which the above angles and beam line is feasible.
- 
+\lsnote{Those figure captions need more info, specifically, they are simulation results and some info about simulation}
 
 
 
@@ -150,6 +169,7 @@ angle and x offset required in the beam line.
 
 
 \Subsection{CST Results??}
+\lsnote{I would not try to replicate the plot or the graphics.  If there are some angular deflections that you can pick off and compare to your calculation, that would be good.  But it doesn't need to be its own section.}
 \nrnote{Jiaqi from Euclid did a quick check of the design in CST. I have some plots from him, but none of the original data.
 I wouldn't be able to re plot this work...not sure if I should include this.}
 
@@ -167,7 +187,7 @@ High voltage (HV) feedthroughs and cables were purchased from FID GmbH.
 In order to test that the fabrication of the kicker was sound, members of the 
 Advanced Photon Source (APS) electronics groups graciously helped perform an 
 out of vacuum AC high voltage test. Afterwards they also helped perform and 
-analyze a TDR measurement of the kicker plates.
+analyze a TDR measurement of the kicker plates. \lsnote{Tell them what `TDR' stands for and what this will tell about kicker}
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough1}\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough2}
@@ -180,8 +200,8 @@ analyze a TDR measurement of the kicker plates.
 
 \Subsection{High Voltage Test}
 
-Two HV tests were performed at the APS. 
-The first test consisted of HV applied in increments to ports 3 and 4 on the kicker.
+Two HV tests were performed at the APS. \lsnote{For what purpose?}
+The first test consisted of HV applied in increments to ports 3 and 4 on the kicker.  \lsnote{Label the ports in the figure.}
 Ports 1 and 2 were shorted to ground. There was no leakage current up to \SI{8}{kV} RMS.
 The second test reversed the set up with 3 and 4 grounded and ports 1 and 2 exposed. 
 There was no leakage current up to \SI{9}{kV} RMS, which was the maximum voltage of the test equipment.
@@ -208,7 +228,7 @@ The HV pulsar was located on the roof of the bunker.
 
 
 \Section{TBA Beam Line}
-
+\lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
 A drift: 
 \begin{equation}
 R_d = 

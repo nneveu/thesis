@@ -1,7 +1,7 @@
 \Chapter{Simulations}  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Code and Resources Used}\label{sec:code}
+\Section{\lsnote{Introduction \sout{Code and Resources Used}}}\label{sec:code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -13,7 +13,7 @@ These  simulations  include  single  particle  effects  (e.g. particle tracking 
 and  coherent  synchrotron  radiation  (CSR).
 
 The beam dynamics reported in this thesis, were simulated with 
-the open source, particle-in-cell (PIC) code OPAL was used \cite{opal}. 
+the open source, particle-in-cell (PIC) code OPAL \lsnote{\sout{was used}} \cite{opal}. 
 PIC codes simulate the electromagnetic forces that particles see in an accelerator. 
 This is done by mapping the input particles onto a grid. 
 Then in each time (or z) step, the forces due to space charge, accelerating gradients, 
@@ -21,12 +21,11 @@ and magnets are calculated and applied to the grid.
 OPAL comes in two flavors, OPAL-CYC and OPAL-T. The first is used to model 
 cyclotrons, and the latter, which is used for this work, is suited for photoinjectors. 
 OPAL-T was chosen in part because it models the 3D space charge necessary to accurately simulate the high charge bunches at the AWA. 
-\lsnote{You need a few sentences describing OPAL.  Also describe (briefly) what a PIC code is.  (Are there any other choices besides a PIC code?)}
 It was chosen for several reasons:
 \begin{itemize}
 	\item Able to calculate transverse space charge and wakefield forces 
 	\item Option to run the code in parallel
-	\item Data recorded in global and reference frames
+	\item Data recorded in global and reference frames \lsnote{did you mean `and local reference frames'?}
 \end{itemize} 
 
 The first item is crucial to standard operations at the AWA. Especially in the 
@@ -40,40 +39,40 @@ When the number of cores is increased to 16, the same run takes less than
 many cases at once on the cluster allows for more efficient use of time.
 Typical running conditions were on 16 cores, for random samples up to 128 cores, 
 and up to 5,200 cores for large optimization runs.  
-\lsnote{Specifics are always good; do you have any numbers for the time for a parallel run versus single processor?  If not, it is not super important, but if those numbers are handy put them in.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Benchmarking}
 
 \nrnote{Copied and pasted NAPAC benchmark here, need to finish cleaning up.}
-Using portions of AWA as the benchmark model,  
+\lsnote{ {\it Suggestion if accurate:} Initially OPAL-T was benchmarked against the more established particle tracking codes, ASTRA and GPT.  This ensured correct use of the code, and reliability of \mbox{OPAL-T}.  Two collective effects of particular interest to the AWA were included in the investigation: 
+space charge (SC) and coherent synchrotron radiation (CSR).
+\sout{Using portions of AWA as the benchmark model,  
 beam dynamics were simulated with three particle tracking codes.
 The AWA rf photoinjector was benchmarked, primarily to study SC, 
-in ASTRA, GPT, and OPAL-T using a \SI{1}{nC} beam. 
-A $20^{\circ}$ dipole magnet was used to benchmark 
-CSR effects in GPT and OPAL-T by bending a 1nC beam 
-at  energies  between  2  MeV  and  100  MeV.  In  this  paper  
-we  present  the  results,  and  discuss  the  similarities  and  
+in ASTRA, GPT, and OPAL-T using}  The beam dynamics of a \SI{1}{nC} drive beam in the photoinjector were used as the model for comparison in the space charge study.} A $20^{\circ}$ hard edge dipole magnet was used to benchmark CSR effects in GPT and OPAL-T by bending a 1nC beam 
+at  energies  between  2  MeV  and  100  MeV.  \lsnote{The results of these benchmark studies are presented below, including a discussion of  \sout{In  this  paper  
+we  present  the  results,  and  discuss}}  the  similarities  and  
 differences between the codes.
  
 The AWA group has used several beam codes in the past including:
 T-STEP/PARMELA~\cite{parmela}, ASTRA~\cite{astra}, and GPT~\cite{gpt}.  
 In order to take advantage of computing resources offered by 
-Argonne National Laboratory (ANL), an effort was made to investigate
-OPAL~\cite{opal}, an open source and parallel code that comes in two flavors;  
-OPAL-CYL and OPAL-T. The latter was installed on the Blues and Bebop clusters
+Argonne National Laboratory (ANL), \lsnote{an investigation of \sout{effort was made to investigate}}
+OPAL~\cite{opal} \lsnote{was done; this is} an open source and parallel code that comes in two flavors;  
+OPAL-CYL and OPAL-T. The latter was installed on the Blues and Bebop \lsnote{high performance computing} clusters
 at the Laboratory Computing Resource Center (LCRC) provided by ANL~\cite{lcrc}.
 (See Appendix~\ref{build} for instruction on how to build OPAL-T at ANL.)
 
-Since no members of AWA had prior experience with OPAL-T, a benchmark 
+\lsnote{{\it I combined this in the modified first paragraph:}\sout{Since no members of AWA had prior experience with OPAL-T, a benchmark 
 was done to compare \mbox{OPAL-T} results to the results of codes 
 well known to the group (GPT and ASTRA). 
 This ensured correct use of the code, and reliability of \mbox{OPAL-T}.
 Two collective effects of interest to the AWA were used: 
 space charge (SC) and coherent synchrotron radiation (CSR).
 SC was tested using the drive gun at 1nC, and CSR was tested
-using a hard edge dipole.
+using a hard edge dipole.}}
 
 
 \Subsection{Gun Simulations}
@@ -82,7 +81,7 @@ a 1.5 cell copper standing-wave cavity at 1.3 GHz,
 with bucking, focusing, and matching solenoids. 
 In the remainder of this thesis, the word gun is used 
 in place of photoinjector. The simulation parameters were chosen to 
-approximately generate the canonical “\SI{1}{\micro\metre} at 1 nC” case.
+approximately generate the canonical “\SI{1}{\micro\metre} at 1 nC” case.  \lsnote{These values refer to the 2D transverse emittance and the bunch charge.  {\it correct?}}
 The initial beam parameters were based on gun operations at PITZ \cite{pitz},
 due to the similarities between the PITZ and AWA rf guns.
 The PITZ parameters came close to achieving the \SI{1}{\micro\metre}
@@ -93,7 +92,7 @@ used in this benchmark. The resulting minimum emittance was
 \SI{1.16}{\micro\metre}. 
 
 The initial bunch distribution parameters as well as the 
-on-axis gun gradient, and magnetic field used in 
+on-axis gun gradient, and magnetic field \lsnote{of the solenoids} used in 
 the benchmark are listed in Table~\ref{tab:bench}. 
 The rf gun and solenoid field maps were generated 
 with the SUPERFISH/POISSON  codes~\cite{superfish}.
@@ -127,17 +126,18 @@ and the AWA. The rf and solenoid fields seen by the beam in the gun are shown in
 \end{table}\label{tab:bench}
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.95\textwidth]{images/gun_EM_fields}\caption{Electric and magnetic fields seen by the beam on axis in the gun.}
+		\includegraphics[width=0.95\textwidth]{images/gun_EM_fields}\caption{Electric and magnetic fields seen by the beam on axis in the gun.  \lsnote{Specify the Z distance to end of gun in figure caption}}
 	\end{center}
 \end{figure}\label{fig:gunfields}
 
+\lsnote{the figure number for the gun fields doesn't match the reference}\\
 Note that the codes use various methods to model 
 the rf and magnetic fields, SC, and image charge. 
 The ASTRA simulations used the axial E field of the  
-gun and solenoids, and then expanded the fields to find the
+gun and solenoids, and then \lsnote{extended \sout{expanded}} the fields to find the
 transverse components using the paraxial approximation 
 (e.g. $E_r=-\frac{r}{2}\frac{dE_z}{dz}$). 
-The simulations used a 2D cylindrical-symmetric SC algorithm with a uniform  
+The \lsnote{simulation  \sout{s}} used a 2D cylindrical-symmetric SC algorithm with a uniform  
 particle-deposition mesh; see ASTRA user manual~\cite{astra}.
 The radial and longitudinal number of cells composing the mesh 
 were $N_r=32$ and $N_z=64$, with 100k particles.  
@@ -173,19 +173,19 @@ shifted integrated Green function \cite{imagecharge}.
 In general, the simulation results are in reasonable agreement 
 and within expectations based on previous benchmarks \cite{codecompare}. 
 See Figs.~\ref{fig:benchplot_gun} and~\ref{fig:benchplot_5m} 
-for beam envelopes in the gun and drift. 
+for \lsnote{a comparison of the} beam envelopes \lsnote{generated by the three simulations} in the gun and drift. 
 The apparent disagreement of emittance between ASTRA and the other
 two codes in the gun is because the former removes the angular momentum   
-induced by the solenoid, while the later two codes do not. 
+induced by the solenoid, while the \lsnote{other \sout{later}} two codes do not. 
 After the beam exits the solenoid, the emittance results  
 are in good agreement, as shown in Fig.~\ref{fig:benchplot_5m}.
 
-\Subsection{Dipole Simultaions}
+\Subsection{Dipole \lsnote{Simulations}}
 Simulations  of  a  hard  edge  dipole  were  done  in  GPT  
-and   OPAL-T   in   order   to   probe   CSR.   Short   
-mono-energetic  Gaussian  bunches  with  zero  initial  emittance  
-were sent through the dipole. Beam and dipole parameters 
-are shown in Table~\ref{tab:benchcsr}. 
+and   OPAL-T   in   order   to   probe   \lsnote{the} CSR \lsnote{results}.   Short   
+mono-energetic  \lsnote{Bunches with a Gaussian  energy distribution \sout{Gaussian bunches}}  with  zero  initial \lsnote{transverse} emittance  
+were sent through the dipole. \lsnote{{\it If Gaussian in transverse parameter cannot be `zero emmittance'}} Beam and dipole parameters 
+are shown in Table~\ref{tab:benchcsr}. \lsnote{weird table number}
 The CSR routine used in OPAL-T is based on 
 the routine  used  in  ELEGANT  \cite{elegant}, which is known to assume  
 the beam is ultra-relativistic. The CSR routine in GPT  
@@ -193,7 +193,7 @@ does  not  use  the  ultra-relativistic  approximation ($\beta=1$)
 and  as  a  result,  works  at  all energies  \cite{gptcsr}.  
 Therefore, we expected  the  routines  to  match  well  at  high  energy  and  
 diverge  at  lower  energy.  Results  of  the  CSR  simulations  
-are  shown  in  Fig.  4.  As  expected,  the  results  between  
+are  shown  in  Fig.  4.  \lsnote{{\it missing figure}} As  expected,  the  results  between  
 GPT and OPAL-T disagree at low energies. 
 \begin{table}
 	\begin{center}
@@ -224,6 +224,7 @@ GPT and OPAL-T disagree at low energies.
 
 
 \Subsection{Convergence Study}
+\lsnote{Did you do these convergence runs for all three codes?  If yes, some comparison to other codes needed.  If not, this does not belong in the benchmark section.  In that case, you need to move your `benchmark conclusion' before this paragraph.  Also, then you need to wrap up this paragraph with a concluding sentence or two.  It can be its own section, even though short.}
 Convergence runs were done for three parameters: 
 time step,  SC  mesh  size,  and  number  of  particles.  
 Each  case was tested in the gun using the same field maps and 
@@ -257,7 +258,7 @@ suited to Linux and parallel systems.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Optimization} \label{sec:opt}
 Throughout the design process, optimization algorithms 
-were used to shape the beam entering the TBA experimental area.
+were used to \lsnote{\sout{shape} study} the beam \lsnote{parameters at the entrance of \sout{entering}} the TBA experimental area.
 Minimizing the emittance and bunch length after the six cavity linac,
 and choosing the optimal optics configuration for maximum beam transport 
 were the main objectives of all optimization work.
@@ -266,22 +267,29 @@ and structure exploiting algorithms.
  
 Model-based, derivative-free, trust-region algorithms 
 are increasingly popular for optimizing computationally 
-expensive numerical simulations. A strength of such
+expensive numerical simulations. \lsnote{Not being an expert, I personally would like to see a quick 
+definition of `model-based', `derivative-free, and `trust-region'.  This helps the general reader to 
+better track what you are doing.}  A strength of such
 methods is their efficient use of function evaluations. 
-This was the first type of algorithm used to optimize 
-the beam dynamics in two cases of interest at the AWA. 
-First, the emittance of a \SI{1}{nC} electron 
+\lsnote{\sout{This was the first type of algorithm used to optimize 
+the beam dynamics in two cases of interest at the AWA.}}  
+
+\lsnote{{\it There is an organizational problem here.}  You need to finish the `introduction' before launching into specifics.  The two paragraphs after the following one seem like part of the intro, you say why you used the genetic algorithm, and then how you reduced the time.  This goes with the overall picture of the intro.  You also need to give a {\it brief} explanation of what genetic algorithms and structure based agorithms are (as well as model-based) in the intro.  Then you can have a new subsection; `model-based algorithm studies' before launching into the following paragraph.}
+
+The model-based algorithm was the first type of algorithm used to optimized the beam dynamics in two cases of interest at the AWA.  \lsnote{The first case was for lower beam charge, and used only the gun parameters for the optimization.  The second case was for higher beam charge, and included parameters of the downstream linac as well as the gun.} 
+\lsnote{In the first case, \sout{First,}} the emittance of a \SI{1}{nC} electron 
 bunch produced by the AWA rf photocathode gun 
 was minimized by adjusting three parameters: rf gun phase, 
 solenoid strength, and laser radius. The algorithm 
-converges to a set of parameters that yield an
-emittance of \SI{1.08}{\um}. Second, we expand 
-the number of optimization parameters to model the complete AWA rf 
+\lsnote{converged} to a set of parameters that \lsnote{yielded} an
+emittance of \SI{1.08}{\um}. \lsnote{In the second case, \sout{Second, we expand}} 
+the number of optimization parameters \lsnote{was expanded} to model the complete AWA rf 
 photoinjector (the gun and six accelerating cavities) at \SI{40}{nC}. 
-The optimization algorithm was used in a Pareto study that compares the 
-trade-off between emittance and bunch 
-length for the AWA \SI{70}{MeV} photoinjector. \nrnote{finished?}
+The optimization algorithm was used in a Pareto \lsnote{study; which is a type of study} that compares the 
+trade-off between \lsnote{competing parameters, such as} emittance and bunch 
+length \lsnote{at the exit of \sout{for}} the AWA \SI{70}{MeV} photoinjector. \nrnote{finished?}
 
+\lsnote{Following two paragraphs should be part of intro.  Then the details in separate sub-sections.}
 After a model based method was implemented, a common technique was 
 used as confirmation and for exploratory work. Preliminary designs 
 for the TBA optics configuration were probed using a Genetic Algorithm
@@ -314,22 +322,24 @@ The parameters $v^k$ are generated and supplied to OPAL\=/T~\cite{opal}.
 The optimization package NLopt and OPAL\=/t were used
 in combination with Python code written at ANL with the help 
 of Jeff Larson, to perform simulation evaluations and optimization.
-All the files needed to replicate the results in this section are available at
+All the files needed to replicate the results in this section are available \lsnote{at: $<$www.mcs.anl.gov/$\sim$jlarson/AWA$>$.  {\it Put previous on same line of text, then delete below until the next subsection.}}
+
 \begin{center}
 	www.mcs.anl.gov/$\sim$jlarson/AWA
 \end{center}
-Interested parties are welcome to adapt the code to their needs
-and suggest improvements.
+
+\lsnote{\sout{Interested parties are welcome to adapt the code to their needs
+and suggest improvements.}}
 
 \Subsection{Optimization Parameters}
 % ----------------------------------------------------
-When optimizing the gun, three parameters were varied: 
+When optimizing the gun, three parameters \lsnote{$v^k$ {\it (add to better tie to previous paragraph)}} were varied: 
 solenoid strength ($S_3$), gun phase ($\phi_g$), 
-and laser radius ($R$) of a uniform pulse. 
+and laser radius ($R$) of a uniform \lsnote{ photon distribution \sout{pulse}}. 
 The minimized objective was emittance ($\epsilon_x$).
-(The phase is defined as $0^{\circ}$ at maximum energy gain.) 
-When optimizing the entire linac, seven additional parameters were 
-varied: the longitudinal laser full width at half maximum ($T$)
+(The \lsnote{reference} phase \lsnote{of the gun} is defined as $0^{\circ}$ at maximum \lsnote{accelerating voltage \sout{energy gain}}.) 
+When optimizing the \lsnote{gun and the} entire linac, seven additional parameters were 
+varied: the longitudinal \lsnote{duration of the} laser \lsnote{pulse, defined at} full width at half maximum ($T$)
 and accelerating cavity phases ($\phi_L$). The optimization parameters and
 bounds are given in table~\ref{tab:parameters}; we denote the set of
 ten optimization parameters as $v=[S_3, \phi_g, R, T, \phi_L]$, where 
@@ -358,16 +368,16 @@ $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavit
 \Subsection{Gun Simulations Using BOBYQA} \label{sec:gunbobyqa}
 %\section{Gun Optimization}
 % ----------------------------------------------------
-Much work has been done to optimize 1.5 cell rf guns
-at \SI{1}{nC}~\cite{pitz}. This known solution was used as 
-a baseline test of BOBYQA when applied to an accelerator application.
+\lsnote{There has been \sout{Much}} work \lsnote{\sout{has been}} done \lsnote{by other groups} to optimize 1.5 cell rf guns
+at \SI{1}{nC}~\cite{pitz}. \lsnote{The \sout{This}} known solution \lsnote{from that work} was used as 
+a baseline test of BOBYQA when applied to \lsnote{this \sout{an}} accelerator application.
 An optimization of the single objective emittance ($\epsilon_x$) was 
 performed over a length of \SI{5}{m}. 
 All linacs were turned off and only gun parameters were varied. 
 Non-varying parameters are listed in table~\ref{tab:gun}; 
-their values are based on work done at PITZ and AWA~\cite{pitz, benchmark}.
+their values are based on \lsnote{realistic parameters \sout{work done}} at PITZ and AWA~\cite{pitz, benchmark}.
 
-Local optimization runs were started from five points with various distances from the optimum value. The optimization runs converged 
+Local optimization runs were started \lsnote{using \sout{from}} five points \lsnote{per parameter?  {\it If yes, add that here.}} with various \lsnote{differences \sout{distances}} from the optimum value. The optimization runs converged 
 (in less than 100 function evaluations) to a parameter set ($S_3=\SI{269}{A}$, $\phi_g=\SI{-3.0}{^{\circ}}$, and $R=\SI{0.6}{mm}$) 
 with an emittance of $\SI{1.08}{\um}$.
 An exhaustive search of the parameter space was not done, and there may be other local minima that were not found.
@@ -391,19 +401,21 @@ However, the results match expectations based on the literature.
 \end{table}
 
 
+\lsnote{I would not make below a subsection, I would keep the figure and put the information from the description below into the figure caption instead.  I tried to shorten it up a bit.}\\
 \Subsection{Linac Description} \label{sec:pareto}
-\nrnote{maybe this beam line description should be in chp 2:
-The \SI{70}{MeV} rf photoinjector at the AWA
-consists of an rf gun followed by six rf accelerating cavities, 
-hereafter referred to as the linac. 
-See Figure~\ref{fig:beamline} for the beam line layout. 
+\nrnote{maybe this beam line description should be in chp 2:}\\
+The \SI{70}{MeV} \lsnote{AWA} rf photoinjector \lsnote{\sout{at the AWA}}
+\lsnote{is \sout{consists of}} an rf gun followed by \lsnote{a linac with} six rf accelerating cavities, 
+\lsnote{ labeled $L_1$-$L_6$ \cite{Power:2010zza}.  The cavity phases are constrolled independently. \sout{hereafter referred to as the linac. 
+See Figure~\ref{fig:beamline} for the beam line layout.} } 
 The 1.5 cell rf gun operates at \SI{1.3}{GHz} with three solenoids 
 and a Cs$_{2}$Te photocathode excited by a \SI{248}{nm} UV laser.  
 Solenoid 1 ($S_1$) is used to buck the field at the cathode,
 while the other two solenoids ($S_2$ and $S_3$) are used for emittance compensation.  
-The accelerating cavities, also operated at \SI{1.3}{GHz}, are 7 cell standing-wave 
-cavities \cite{Power:2010zza} each with independently controllable phase. 
-The cavities are labeled $L_1$-$L_6$ in Figure~\ref{fig:beamline}. }
+\lsnote{\sout{The accelerating cavities, also operated at  1.3 GHz are 7 cell standing-wave 
+cavities \cite{Power:2010zza} each with independently controllable phase. The cavities are labeled
+$L_1$-$L_6$ in Figure(fig:beamline). } }
+
 \def \gunleft {-1.0}
 \def \gunright {0.3}
 \def \loneright {1.0}
@@ -464,7 +476,7 @@ The cavities are labeled $L_1$-$L_6$ in Figure~\ref{fig:beamline}. }
 		at (12.5,1.0) {$z_1$};
 		\end{tikzpicture}
 	\end{center}
-	\caption{Layout of the AWA linac.
+	\caption{Layout of the AWA linac. \lsnote{You could insert your paragraph here, then delete what follows up until the sentence beginning with `Tick marks..'}
 		The gun is enlarged to show solenoid detail. The physical length is
 		\SI{0.3}{m}. The cathode is located at $z=\SI{0}{m}$. Linac cavities are
 		\SI{0.85}{m} long. Tick marks are located at the exit of the gun, entrance of
@@ -477,15 +489,15 @@ The cavities are labeled $L_1$-$L_6$ in Figure~\ref{fig:beamline}. }
 % ----------------------------------------------------
 Next we performed a multiobjective optimization of the linac (Figure~\ref{fig:beamline}), 
 by adjusting the ten parameters in table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
-and was chosen for upcoming two-beam acceleration experiments~\cite{tba2017}. 
+and was chosen \lsnote{to match \sout{for}} upcoming two-beam acceleration experiments~\cite{tba2017}. 
 Two objectives were considered: emittance, and bunch length, $\sigma_z$. 
 The location of interest is $z_1=\SI{12.51}{m}$, as this is the entrance of the first 
 quadrupole magnet after the linac. We optimize $\epsilon_x$ instead of $\epsilon_{xy}$ because 
-no asymmetric focusing elements were used in the linac. 
+no asymmetric focusing elements were used in the linac. \lsnote{did you mean $e_{y}$ instead of $e_{xy}$?}
 The non-varying parameters for all linac simulation runs are shown in table~\ref{tab:linac}.
 The model used simulated emission
 from a Cs$_2$Te cathode using a laser with initial kinetic energy of \SI{4}{eV}. 
-These are typical operating conditions at AWA. 
+These are typical operating conditions at AWA. \lsnote{How did you simulate the cathode emission?  Did you generate a particle distribution with specific parameters, or use a code that models the cathode?}
 \begin{table}[h] %or [hbt] ?
 	\caption{\label{tab:linac} Non-varying parameters for linac optimization.}
 	\begin{center}
@@ -507,7 +519,7 @@ These are typical operating conditions at AWA.
 A 1,000 point sample of linac parameters were drawn from the domain
 in table~\ref{tab:parameters} and simulated. Of these, 132 simulations completed
 without error, and the emittance and bunch length at $z_1=\SI{12.51}{m}$ was
-recorded for each of these points. From the sample, the minimum and maximum values of emittance and bunch length
+recorded for each of these points. From the sample \lsnote{of the 132 successful simulations {\it correct?}} the minimum and maximum values of emittance and bunch length
 were found (i.e: $\epsilon_{\min}$ and $\epsilon_{\max}$). 
 The raw $\epsilon_x(v,z_1)$ and $\sigma_z(v,z_1)$ sample values were then
 shifted and scaled to produce $\bar{\epsilon}_x(v,z_1)$, and $\bar{\sigma}_z(v,z_1)$,
@@ -620,3 +632,6 @@ can reduce the energy spread significantly.
 Next, work began on designing the TBA experimental area. 
 Initial probes into this problem were done using the genetic algorithm
 implemented in OPAL-T~\cite{optpilot}.
+
+\lsnote{\Section{Summary}}\\
+\lsnote{Reiterate the flow of the chapter and the main results of your work.}

@@ -37,7 +37,7 @@ Next beam test will observe the bunch train through the kicker,
 and then through the whole beam line. 
 
 
-\Section{Kicker Design Theory} 
+\Section{Kicker Design Theory} \label{theory}
 
 A fast rise time kicker is needed to separate the 
 bunch trains supplied by the drive gun.  When the kicker is on, 
@@ -117,7 +117,7 @@ using geometry and the expected angle of deflection.
 	\triangle x = \left(1-\cos\left(\theta_{total}\right)\right)\rho
 \end{equation}
 Again, $\rho$, is the bending radius. 
-
+\nrnote{I will add figure here showing $\rho$ and $\theta$ relationship}
 \lsnote{more info needed on above equation.  What is $\rho$?  Why $1-\cos{\theta}$?}
 \nrnote{$\rho$ is defined after eq 1.7, but I can repeat that.}
 From these equations, we relate the design parameters gap height, length of the plates, and 
@@ -145,26 +145,80 @@ beam line without competing for transverse space.
 		    must be less than or equal to $20^\circ$.
 			The two beam lines must also be at least \SI{0.5}{m} apart.}\label{fig:triangle}
 \end{figure*}
-\lsnote{For some reason the figure reference below is not correct in the .pdf file.  Maybe because the figure lable is after the end of the figure.  Also, you should either label the dipole, or better, the dipole bending angle in the figure.}
-Using geometry as shown in Figure \ref{fig:triangle}, an upper limit on the angle is based on the existing dipoles at the AWA.
+
+Using geometry as shown in Figure \ref{fig:triangle}, an upper limit on the 
+combined kicker and septum angle ($\theta_k+\theta_s$) is based on the existing dipoles at the AWA.
 The maximum dipole bend angle, $\theta_d$, is $20^\circ$. 
-Therefore the combined kicker and septum angle ($\theta_k+\theta_s$) must be less than $20^\circ$. 
-That way the bent beam line can be straightened out using a standard dipole, which is available and housed in the AWA bunker. 
-It is also considered better to design away from the limit of the equipment. Therefore a bend angle less than $20^\circ$
-is preferred and allows room for tolerance errors. 
+Therefore, $\theta_{total}$  must be less than $20^\circ$. 
+That way the bent beam line can be straightened out using a standard dipole, 
+which is readily available at the AWA. 
+It is also safer to design away from the limit of the equipment. 
+Therefore a bend angle less than $20^\circ$ is preferred and allows room for tolerance errors. 
+This has the added benefit of reducing energy spread. 
+If the beam is bent at a smaller angle, less coherent synchrotron radiation (CSR) and energy spread will be induced.
 
-With these limitations, the septum that will follow the kicker.
-\nrnote{This section is not finished yet need to write bridge between above and following content}
-\lsnote{You need to discuss the bending angle of the septum here.  Also, why is the target angle for the kicker 2 degrees?  I am not clear on that.}
+Using the equations from Section \ref{theory}, 
+a tables of possible gap, angle, and x offset values were made for comparison. 
+The max beam energy was used, \SI{75}{MeV}, the expected pulsar voltage was used, \SI{35}{kV}.
+A kicker lengths of \SI{0.42}{m}, \SI{0.5}{m}, and \SI{0.6}{m} were investigated.
+From these calculations, the range of possible kicker angles fell between \SI{1}{^\circ} and \SI{3}{^\circ}.
+The longest kicker plate option was investigated further with the understanding that 
+a larger kicker angle would shorten the drift distance between the kicker and septum, 
+and the results for this configuration are shown in Table \ref{kickparam}.
+A shorter drift would mean less divergence in the beam before it reaches the next focusing optic (quadrupole).
+\nrnote{I will reformat table later}
+\begin{table}%[hbt]
+	%   \vspace*{-.5\baselineskip}
+	\centering
+	\caption{Possible kicker parameters for a \SI{75}{MeV} beam,  
+		a pulsar voltage of $\pm$ \SI{35}{kV}, 
+		and kicker plate length of \SI{0.6}{m}.}
+	\begin{tabular}{ccc}
+		%\toprule
+		\textbf{Plate Gap [mm]} & \textbf{Angle [deg]}  & \textbf{X Offset [mm]} \\
+		%\midrule
+		20 & 3.2   & 16.7    \\ %[3pt]
+		25 & 2.57  & 13.4  \\ %[3pt]
+		30 & 2.14  & 11.1 \\		 
+		35 & 1.83  & 9.6	  \\
+		40 & 1.6   & 8.4		 \\
+		45 & 1.43  & 7.4      \\
+		50 & 1.28  & 6.7   \\ %[3pt]
+		%\bottomrule
+	\end{tabular}
+	\label{kickparam}
+	%   \vspace*{-\baselineskip}
+\end{table}
 
-Simulations as shown in Chapter 2, gave an estimation of the beam size at the entrance and exit of the kicker.
+Next simulations were done to give an estimation of the beam size at the entrance and exit of the kicker.
+Typical operating conditions at the AWA were used: accelerating cavities on crest, buck focusing at \SI{500}{A}, 
+matching solenoid at \SI{255}{A}, and quadrupoles nearly in a 1:2:1 configuration with \SI{1.7}{A} and \SI{-3.3}{A}.
+These are not optimized running conditions, which gives a good upper bound for how the beam will behave before tuning.
+An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table \ref{kickparam}. 
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{./images/scatter_kicker_entrance}%
+	\includegraphics[width=0.5\textwidth]{./images/scatter_kicker_exit}
+	\caption{Beam size of a \SI{40}{nC} beam at the entrance and exit of proposed kicker.}
+\end{figure}  \label{fig:beamsizekicker}
+The resulting beam sizes were about \SI{15}{mm} to \SI{19}{mm} as shown in Figure \ref{fig:beamsizekicker}. 
+This requires that the kicker gap is larger than \SI{20}{mm}, 
+plus room for the beam centroid deflection that the kicker will cause.
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
-for the transverse offset of the beam as it exits the kicker. \lsnote{You need your simulations here, with your estimate of the beam size, and give the actual dimensions of the kicker gap to compare.} With the pulsar being variable between 18 and 28 kV,
+for the transverse offset of the beam as it exits the kicker. 
+
+At this point, it was clear the gap needed to be larger than \SI{30}{mm}. 
+Around this time, it was also learned that the max pulsar was $\pm$ \SI{30}{kV}, not $\pm$ \SI{35}{kV} as previously thought.
+These two factors would drive the possible kick angle below \SI{2}{^\circ}, if the kicker plates remained the same length.
+The next question was whether we should push for a larger angle, or if the current values at \SI{40}{mm} and above were sufficient.
+
+With the pulsar being variable between 18 and 28 kV,
 Figure \ref{fig:kickerangles} and \ref{fig:kickeroffset}
 both show there are several beam energies for which the above angles and beam line is feasible.
 \lsnote{Those figure captions need more info, specifically, they are simulation results and some info about simulation}
 
-
+the septum that will follow the kicker.
+\nrnote{This section is not finished yet need to write bridge between above and following content}
+\lsnote{You need to discuss the bending angle of the septum here.  Also, why is the target angle for the kicker 2 degrees?  I am not clear on that.}
 
 
 For a length of \SI{1}{m}, and gap of \SI{40}{mm}, 
@@ -175,7 +229,7 @@ angle and x offset required in the beam line.
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.65\textwidth]{./images/AngleVsEnergy}
-		\caption{Angle of deflection for \SI{1}{m} long 
+		\caption{Calculated angle of deflection for \SI{1}{m} long 
 		kicker with a gap of \SI{40}{mm} for several beam energies. The target angle is $2^\circ$.}
 		\label{fig:kickerangles}
 	\end{center}
@@ -183,7 +237,7 @@ angle and x offset required in the beam line.
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.65\textwidth]{./images/XoffsetVsEnergy}
-		\caption{X offset of the beam after traveling
+		\caption{Calculated x offset of the beam after traveling
 		through the \SI{1}{m} long kicker with a gap of \SI{40}{mm}.
 		The target x offset is about \SI{20}{mm}.}
 		\label{fig:kickeroffset}
@@ -198,10 +252,8 @@ angle and x offset required in the beam line.
 	\label{fig:beamtraj}
 \end{figure}
 
-
 \lsnote{I would not try to replicate the plot or the graphics.  If there are some angular deflections that you can pick off and compare to your calculation, that would be good.  But it doesn't need to be its own section.}
-\nrnote{Jiaqi from Euclid did a quick check of the design in CST. I have some plots from him, but none of the original data.
-I wouldn't be able to re plot this work...not sure if I should include this.}
+\nrnote{Cutting this all together because they are only impedance calculations}
 
 \Section{Preliminary Kicker Tests}
 

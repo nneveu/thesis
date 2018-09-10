@@ -221,18 +221,9 @@ In the regard, a larger angle would help.
 
 Next, it was decided to drop the beam pipe to \SI{25}{mm} (\SI{1}{inch}) in and near the septum, 
 so that the two diverging beam lines could be closer together. 
-This reduces the angle and drift needed to separate the two beam lines.
-
-At the maximum \SI{20}{^\circ} bend angle, this would put 
-
-With the pulsar being variable between 18 and 30 kV,
-Figure \ref{fig:kickerangles} and \ref{fig:kickeroffset}
-both show there are several beam energies for which the above angles and beam line is feasible.
-\lsnote{Those figure captions need more info, specifically, they are simulation results and some info about simulation}
-
-the septum that will follow the kicker.
-\nrnote{This section is not finished yet need to write bridge between above and following content}
-\lsnote{You need to discuss the bending angle of the septum here.  Also, why is the target angle for the kicker 2 degrees?  I am not clear on that.}
+In this scenario, the center to center distance of the two beam pipes would be at \SI{50}{mm}.
+This means the two beam trajectories must follow this specification as well.
+\nrnote{there is still a few more sentences I need to write here...1 meter between kicker and septum, 2 m between septum and dipole to get 0.5 m separation...}
 
 
 For a length of \SI{1}{m}, and gap of \SI{40}{mm}, 
@@ -240,6 +231,9 @@ several beam energy and angle scenarios were considered.
 As a contingency plan, it was important to consider if the 
 beam energy could be lowered to still achieve the desired 
 angle and x offset required in the beam line. 
+With the pulsar being variable between 18 and 30 kV,
+several feasible options were calculated using the equations in Section \ref{theory}, 
+and are shown in Figure \ref{fig:kickerangles} and \ref{fig:kickeroffset}
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.65\textwidth]{./images/AngleVsEnergy}
@@ -257,17 +251,23 @@ angle and x offset required in the beam line.
 		\label{fig:kickeroffset}
 	\end{center}
 \end{figure}
+As a double check on the first order calculations in Figures \ref{fig:kickerangles} and \ref{fig:kickeroffset}, 
+a PIC \nrnote{(assuming PIC is defined in simulations cp?)} simulation was done to estimate the beam 
+trajectory before and after the kicker and septum including space charge effects.
+The two estimates match within reason, see Figure \ref{fig:beamtraj}. 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.65\textwidth]{./images/tba_trajectory}
 	\caption{Simulation of the transverse offset of a \SI{65}{MeV} beam as 
-		it travels through the proposed TBA beam line. Notice the x offset at the exit of the kicker (\SI{17.5}{m}), 
-		is nearly \SI{20}{mm} as predicted in Figure \ref{fig:kickeroffset}.}
+		it travels through the proposed TBA beam line. 
+		Beam is traveling right to left in this simulation. 
+		Notice the x offset at the exit of the kicker (\SI{17.5}{m}), 
+		is nearly \SI{20}{mm} as predicted in Figure \ref{fig:kickeroffset}.
+	The kicker is now at \SI{16.5}{m} due to other experiments at the AWA.
+\nrnote{not sure if I should address this}}
 	\label{fig:beamtraj}
 \end{figure}
-
-\lsnote{I would not try to replicate the plot or the graphics.  If there are some angular deflections that you can pick off and compare to your calculation, that would be good.  But it doesn't need to be its own section.}
-\nrnote{Cutting this all together because they are only impedance calculations}
+\nrnote{Cutting CST all together because they are only impedance calculations}
 
 \Section{Preliminary Kicker Tests}
 
@@ -304,8 +304,9 @@ analyze a TDR measurement of the kicker plates. \lsnote{Tell them what `TDR' sta
 
 
 \Subsection{High Voltage Kicker Test}
-Two HV tests were performed at the APS. \lsnote{For what purpose?}
-The first test consisted of HV applied in increments to ports 3 and 4 on the kicker.  \lsnote{Label the ports in the figure.}
+Two HV tests were performed at the APS. This was done to ensure the electrical connection 
+between the feedthroughs and kicker plates were free of shorts. 
+The first test consisted of HV applied in increments to ports 3 and 4 on the kicker.  
 Ports 1 and 2 were shorted to ground. There was no leakage current up to \SI{8}{kV} RMS.
 The second test reversed the set up with 3 and 4 grounded and ports 1 and 2 exposed. 
 There was no leakage current up to \SI{9}{kV} RMS, which was the maximum voltage of the test equipment.
@@ -322,7 +323,7 @@ Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in 
 
 
 \Subsection{Time Domain Reflectometer Test}
-After the HV test was completed, a Time Domain Reflectometer (TDR) measurement was preformed at the APS [], 
+After the HV test was completed, a Time Domain Reflectometer (TDR) measurement was preformed at the APS [\nrnote{find good ref}], 
 with the help of C. Y. Yao, A. Brill, X. Sun and C. Jing.
 This technique measures reflections along a conductor and gives information about discontinuties in the line being measured. 
 This information was used to determine the impedance along the cables, feedthroughs, and plates of the kicker. 
@@ -362,8 +363,17 @@ The only negative result is the reduced amount of voltage supplied to the plates
 Next the kicker was installed in the AWA drive beam line.
 It's approximate location is 16.5 meters downstream of the cathode.
 The HV pulsar was located on the roof of the bunker.
+The machine was operated in TBA-like conditions based on simulations 
+done to optimize for future TBA runs.
+The charge was \SI{30}{nC}, buck focusing was at \SI{550}{A}, matching solenoid was at \SI{200}{A}, 
+and quadrupoles 5,6,7 were at \SI{-1.53}{A} and \SI{3.08}{A} in a nearly 1:2:1 configuration.
+All accelerating cavities were operated at \SI{-20}{^\circ} off crest to minimize energy spread.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{./images/kicker_linearity}
+	\caption{Measured deflection of beam due to kicker at several voltages.}
+\end{figure}
 
-\nrnote{todo}
 
 
 

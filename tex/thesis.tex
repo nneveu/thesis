@@ -5,7 +5,6 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass{iitthesis}
-
 % Document Options:
 %
 % Note if you want to save paper when printing drafts,
@@ -14,33 +13,52 @@
 %   \documentclass[draft]{iitthesis}
 %
 % See Help file for more about options.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
-\usepackage{graphicx}    % This package is used for Figures
-\usepackage{rotating}           % This package is used for landscape mode.
-\usepackage{epsfig}
-\usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
+\usepackage{cite}
+\usepackage{amsmath} % \boldsymbol
+\usepackage{graphicx} % \includegraphics
+\usepackage[nodayofweek]{datetime} % \today
+
+% If we use hyperref, we can automatically embed this metadata into the PDF
+\usepackage{hyperref}
+%\hypersetup{pdftex,
+%	hidelinks, % I don't like when it makes those colored boxes around hyperlinks, comment out to restore
+%	pdfauthor={Nicole Neveu (nicole.r.neveu@gmail.com)},
+%	pdftitle={Nicole's IIT PhD Thesis},
+%	pdfsubject={PhD Thesis},
+%	pdfkeywords={Accelerator, Physics, IIT, thesis, Latex}}
+
+% Make sure that \includegraphics finds pdf BEFORE png (the default is png first)
+% https://tex.stackexchange.com/questions/45498/choosing-whether-to-include-pdf-or-png-in-pdflatex
+\usepackage{grfext}
+\PrependGraphicsExtensions*{.pdf}
+
+%\usepackage{setspace}    % This package is used for Figures
+%\usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
+%\usepackage{caption}
+%\captionsetup[figure]{font=singlespacing,position=bottom, labelsep=period}
+%\usepackage{rotating}           % This package is used for landscape mode.
+%\usepackage{epsfig}
 \usepackage{siunitx}
-\usepackage[shortcuts]{extdash}
-\renewcommand{\thefootnote}{\arabic{footnote}}
-\usepackage[bf, labelsep=period]{caption}
+\usepackage{subcaption}
+%\usepackage[shortcuts]{extdash}
+%\renewcommand{\thefootnote}{\arabic{footnote}}
 \usepackage{url}
-\usepackage{booktabs}
+%\usepackage{booktabs}
 \usepackage[american]{circuitikz}
-\usepackage[normalem]{ulem}
-\usepackage{amsmath}
+%\usepackage[normalem]{ulem}
 \usepackage{tikz}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{shapes,arrows,decorations.markings,shadows,positioning}
-
 %% Only for editing process...TAKE OUT for FINAL DRAFT
-\usepackage{graphicx,xcolor,enumitem}
+\usepackage{xcolor,enumitem}
 \newcommand{\lsnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
 \newcommand{\nrnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
 \newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
 
-
 %Code formatting???
-\usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{color}
 
@@ -136,20 +154,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %this should be fixed now
-\input{introduction}
-\clearpage
+%\input{introduction}
+%\clearpage
 
-\input{exp_setup}
-\clearpage
+%\input{exp_setup}
+%\clearpage
 
-\input{simulations}
-\clearpage
+%\input{simulations}
+%\clearpage
 
 \input{beam_line_design}
 \clearpage
 
-\input{exp_results}
-\clearpage
+%\input{exp_results}
+%\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

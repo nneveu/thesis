@@ -1,7 +1,7 @@
 \Chapter{Simulations}  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{\lsnote{Introduction \sout{Code and Resources Used}}}\label{sec:code}
+\Section{Introduction}\label{sec:code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -13,7 +13,7 @@ These  simulations  include  single  particle  effects  (e.g. particle tracking 
 and  coherent  synchrotron  radiation  (CSR).
 
 The beam dynamics reported in this thesis, were simulated with 
-the open source, particle-in-cell (PIC) code OPAL \lsnote{\sout{was used}} \cite{opal}. 
+the open source, particle-in-cell (PIC) code OPAL \cite{opal}. 
 PIC codes simulate the electromagnetic forces that particles see in an accelerator. 
 This is done by mapping the input particles onto a grid. 
 Then in each time (or z) step, the forces due to space charge, accelerating gradients, 
@@ -25,7 +25,7 @@ It was chosen for several reasons:
 \begin{itemize}
 	\item Able to calculate transverse space charge and wakefield forces 
 	\item Option to run the code in parallel
-	\item Data recorded in global and reference frames \lsnote{did you mean `and local reference frames'?}
+	\item Data recorded in global and local reference frames 
 \end{itemize} 
 
 The first item is crucial to standard operations at the AWA. Especially in the 
@@ -46,34 +46,23 @@ and up to 5,200 cores for large optimization runs.
 \Section{Benchmarking}
 
 \nrnote{Copied and pasted NAPAC benchmark here, need to finish cleaning up.}
-\lsnote{ {\it Suggestion if accurate:} Initially OPAL-T was benchmarked against the more established particle tracking codes, ASTRA and GPT.  This ensured correct use of the code, and reliability of \mbox{OPAL-T}.  Two collective effects of particular interest to the AWA were included in the investigation: 
+Initially OPAL-T was benchmarked against the more commonly used particle tracking codes, ASTRA and GPT.  This ensured correct use of the code, and reliability of \mbox{OPAL-T}.  Two collective effects of particular interest to the AWA were included in the investigation: 
 space charge (SC) and coherent synchrotron radiation (CSR).
-\sout{Using portions of AWA as the benchmark model,  
-beam dynamics were simulated with three particle tracking codes.
-The AWA rf photoinjector was benchmarked, primarily to study SC, 
-in ASTRA, GPT, and OPAL-T using}  The beam dynamics of a \SI{1}{nC} drive beam in the photoinjector were used as the model for comparison in the space charge study.} A $20^{\circ}$ hard edge dipole magnet was used to benchmark CSR effects in GPT and OPAL-T by bending a 1nC beam 
-at  energies  between  2  MeV  and  100  MeV.  \lsnote{The results of these benchmark studies are presented below, including a discussion of  \sout{In  this  paper  
-we  present  the  results,  and  discuss}}  the  similarities  and  
-differences between the codes.
+The beam dynamics of a \SI{1}{nC} drive beam in the photoinjector were used as 
+the model for comparison in the space charge study. 
+A $20^{\circ}$ hard edge dipole magnet was used to benchmark CSR effects in GPT and OPAL-T by bending a 1nC beam 
+at energies between \SI{2}{Mev} and \SI{100}{MeV}.  
+The results of these benchmark studies are presented below, 
+including a discussion of the similarities and differences between the codes.
  
 The AWA group has used several beam codes in the past including:
 T-STEP/PARMELA~\cite{parmela}, ASTRA~\cite{astra}, and GPT~\cite{gpt}.  
 In order to take advantage of computing resources offered by 
-Argonne National Laboratory (ANL), \lsnote{an investigation of \sout{effort was made to investigate}}
+Argonne National Laboratory (ANL), an investigation of 
 OPAL~\cite{opal} \lsnote{was done; this is} an open source and parallel code that comes in two flavors;  
 OPAL-CYL and OPAL-T. The latter was installed on the Blues and Bebop \lsnote{high performance computing} clusters
 at the Laboratory Computing Resource Center (LCRC) provided by ANL~\cite{lcrc}.
 (See Appendix~\ref{build} for instruction on how to build OPAL-T at ANL.)
-
-\lsnote{{\it I combined this in the modified first paragraph:}\sout{Since no members of AWA had prior experience with OPAL-T, a benchmark 
-was done to compare \mbox{OPAL-T} results to the results of codes 
-well known to the group (GPT and ASTRA). 
-This ensured correct use of the code, and reliability of \mbox{OPAL-T}.
-Two collective effects of interest to the AWA were used: 
-space charge (SC) and coherent synchrotron radiation (CSR).
-SC was tested using the drive gun at 1nC, and CSR was tested
-using a hard edge dipole.}}
-
 
 \Subsection{Gun Simulations}
 The SC algorithms were probed using the AWA photoinjector, 
@@ -134,10 +123,10 @@ and the AWA. The rf and solenoid fields seen by the beam in the gun are shown in
 Note that the codes use various methods to model 
 the rf and magnetic fields, SC, and image charge. 
 The ASTRA simulations used the axial E field of the  
-gun and solenoids, and then \lsnote{extended \sout{expanded}} the fields to find the
+gun and solenoids, and then extended the fields to find the
 transverse components using the paraxial approximation 
 (e.g. $E_r=-\frac{r}{2}\frac{dE_z}{dz}$). 
-The \lsnote{simulation  \sout{s}} used a 2D cylindrical-symmetric SC algorithm with a uniform  
+The simulation used a 2D cylindrical-symmetric SC algorithm with a uniform  
 particle-deposition mesh; see ASTRA user manual~\cite{astra}.
 The radial and longitudinal number of cells composing the mesh 
 were $N_r=32$ and $N_z=64$, with 100k particles.  
@@ -176,14 +165,14 @@ See Figs.~\ref{fig:benchplot_gun} and~\ref{fig:benchplot_5m}
 for \lsnote{a comparison of the} beam envelopes \lsnote{generated by the three simulations} in the gun and drift. 
 The apparent disagreement of emittance between ASTRA and the other
 two codes in the gun is because the former removes the angular momentum   
-induced by the solenoid, while the \lsnote{other \sout{later}} two codes do not. 
+induced by the solenoid, while the other two codes do not. 
 After the beam exits the solenoid, the emittance results  
 are in good agreement, as shown in Fig.~\ref{fig:benchplot_5m}.
 
-\Subsection{Dipole \lsnote{Simulations}}
+\Subsection{Dipole Simulations}
 Simulations  of  a  hard  edge  dipole  were  done  in  GPT  
 and   OPAL-T   in   order   to   probe   \lsnote{the} CSR \lsnote{results}.   Short   
-mono-energetic  \lsnote{Bunches with a Gaussian  energy distribution \sout{Gaussian bunches}}  with  zero  initial \lsnote{transverse} emittance  
+mono-energetic bunches with a Gaussian  energy distribution with  zero  initial \lsnote{transverse} emittance  
 were sent through the dipole. \lsnote{{\it If Gaussian in transverse parameter cannot be `zero emmittance'}} Beam and dipole parameters 
 are shown in Table~\ref{tab:benchcsr}. \lsnote{weird table number}
 The CSR routine used in OPAL-T is based on 
@@ -258,7 +247,7 @@ suited to Linux and parallel systems.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Optimization} \label{sec:opt}
 Throughout the design process, optimization algorithms 
-were used to \lsnote{\sout{shape} study} the beam \lsnote{parameters at the entrance of \sout{entering}} the TBA experimental area.
+were used to study the beam \lsnote{parameters at the entrance of \sout{entering}} the TBA experimental area.
 Minimizing the emittance and bunch length after the six cavity linac,
 and choosing the optimal optics configuration for maximum beam transport 
 were the main objectives of all optimization work.
@@ -412,10 +401,6 @@ The 1.5 cell rf gun operates at \SI{1.3}{GHz} with three solenoids
 and a Cs$_{2}$Te photocathode excited by a \SI{248}{nm} UV laser.  
 Solenoid 1 ($S_1$) is used to buck the field at the cathode,
 while the other two solenoids ($S_2$ and $S_3$) are used for emittance compensation.  
-\lsnote{\sout{The accelerating cavities, also operated at  1.3 GHz are 7 cell standing-wave 
-cavities \cite{Power:2010zza} each with independently controllable phase. The cavities are labeled
-$L_1$-$L_6$ in Figure(fig:beamline). } }
-
 \def \gunleft {-1.0}
 \def \gunright {0.3}
 \def \loneright {1.0}

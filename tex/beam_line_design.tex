@@ -368,17 +368,42 @@ done to optimize for future TBA runs.
 The charge was \SI{30}{nC}, buck focusing was at \SI{550}{A}, matching solenoid was at \SI{200}{A}, 
 and quadrupoles 5,6,7 were at \SI{-1.53}{A} and \SI{3.08}{A} in a nearly 1:2:1 configuration.
 All accelerating cavities were operated at \SI{-20}{^\circ} off crest to minimize energy spread.
+The centroid of the beam was calculated for several voltages, and a linear fit was performed.
+The R value for the fit in Figure \ref{fig:linear} is 0.99704. This suggest the beam offset 
+is fairly linear with respect to kicker voltage. 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/kicker_linearity}
 	\caption{Measured deflection of beam due to kicker at several voltages.}
+\end{figure}\label{fig:linear}
+
+Beam size data was also taken, see Figure \ref{fig:kickerbeamsize}. 
+These measurements were used to calculate the total beam size and 
+centroid location of the beam. A combination fit was used to extract 
+the beam sizes as described in Chapter 2. 
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{./images/yag6_kicker_voltage0}%
+	\includegraphics[width=0.5\textwidth]{./images/yag6_kicker_voltage18}\\
+	\includegraphics[width=0.5\textwidth]{./images/yag6_kicker_voltage20}%
+	\includegraphics[width=0.5\textwidth]{./images/yag6_kicker_voltage22}%
+	\caption{Examples of beam size data taken during kicker test. 
+		Various kicker voltage settings were used and deflection of the beam was observed.}
+\end{figure}\label{fig:kickerbeamsize}
+While the kicker does increase the beam size in the kicked direction, 
+the large discrepancy can not be attributed to the kicker alone.
+This is clear when looking at the beam sizes when the kicker is off. 
+The beam is already asymmetric before the kicker is turned on.
+This is encouraging, as it can be fixed with better control of the quadrupoles.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{./images/xybeamsizes_high_charge_kicker_scan}
 \end{figure}
-
-
+\nrnote{probably need more in this section.}
 
 
 \Section{TBA Beam Line}
 \lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
+\nrnote{only point to point calculation}
 A drift: 
 \begin{equation}
 R_d = 

@@ -15,7 +15,7 @@
 % See Help file for more about options.
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
+\usepackage{setspace}
 \usepackage{cite}
 \usepackage{amsmath} % \boldsymbol
 \usepackage{graphicx} % \includegraphics
@@ -38,6 +38,7 @@
 %\usepackage{rotating}           % This package is used for landscape mode.
 %\usepackage{epsfig}
 \usepackage{siunitx}
+
 %\usepackage[shortcuts]{extdash}
 %\renewcommand{\thefootnote}{\arabic{footnote}}
 \usepackage{url}
@@ -86,6 +87,12 @@
 }
 
 \lstset{style=mystyle}
+
+\usepackage{array}
+\newcolumntype{C}{ >{\centering\arraybackslash} m{2.5cm} }
+\newcolumntype{D}{ >{\centering\arraybackslash} m{3cm} }
+\usepackage{makecell}
+
 
 \begin{document}
 

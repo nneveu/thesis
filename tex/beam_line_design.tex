@@ -3,9 +3,17 @@
 
 \Section{Introduction}
 
-\lsnote{{\it This is still not very general - I will note what I think would fix it}}
-
-Independent staging requires two beam lines, with routing of bunch trains via a kicker and septum, \lsnote{see Fig. bla.  (This would be a block diagram such as you have on one of your slides, an appropriate one would be like the beamline.pdf file I have - I'll send it).  Then continue with some more general stuff, e.g. -> The kicker and septum must bend the beam to center it in the aperture of the dipole, which then must straighten the beam to traverse the remainder of the transport line.  Several quadrupoles are required to keep the beam size small enough to make it through the small aperture of the PETS decelerating structure.  Spectrometer magnets are used to measure the energy of the beam  This second independent beamline had to be designed.  So far, installation of the kicker has been done.  The remaining components have been specified, and many are now ready for installation.}
+Independent staging requires two beam lines, with routing of bunch trains via a kicker and septum, 
+see Figure \ref{fig:full-staging}. The kicker and septum must direct the beam to a dipole, 
+that will straighten the beam trajectory to travel parallel to the original beam path. 
+In this configuration the two drive beam lines will be parallel to each other after the dipole.
+Several quadrupoles are required to control the beam size, and deliver the desired beam parameters
+at the small aperture of the PETS decelerating structure. 
+This includes a small transverse size of the beam to allow 100\% transmission, 
+and a small bunch length to maximize power extraction from the PETS.
+Spectrometer magnets are used to measure the energy of the beam at the end of the beam lines.
+This second independent beam line was designed. So far, installation and testing of the kicker has been done.  
+The remaining components have been specified, and several are now ready for installation (i.e. septum, quadrupoles, dipoles).
 \begin{figure}
 		\begin{center}
 		\begin{tikzpicture}[scale=\textwidth/35cm, text=black]
@@ -22,7 +30,6 @@ Independent staging requires two beam lines, with routing of bunch trains via a 
 	The witness line has one accelerating cavity with a max beam energy of \SI{15}{MeV}.}
 \label{fig:full-staging}
 \end{figure}
-
 
 A kicker design from Indiana University (IU) was used as a base line to design a kicker specific to the
 requirements at the AWA. The gap and plate length had to be determined based the beam energy, 
@@ -137,8 +144,7 @@ using geometry and the expected angle of deflection.
 \end{equation}
 Again, $\rho$, is the bending radius. 
 \nrnote{I will add figure here showing $\rho$ and $\theta$ relationship}
-\lsnote{more info needed on above equation.  What is $\rho$?  Why $1-\cos{\theta}$?}
-\nrnote{$\rho$ is defined after eq 1.7, but I can repeat that.}
+\lsnote{more info needed on above equation.  What is $\rho$?  Why $1-\cos{\theta}$?}%
 From these equations, we relate the design parameters gap height, length of the plates, and 
 the kinetic energy of the beam. Next, further beam line considerations were included 
 to narrow down what angle the kicker needed to supply. 
@@ -213,7 +219,7 @@ Next simulations were done to give an estimation of the beam size at the entranc
 Typical operating conditions at the AWA were used: accelerating cavities on crest, buck focusing at \SI{500}{A}, 
 matching solenoid at \SI{255}{A}, and quadrupoles nearly in a 1:2:1 configuration with \SI{1.7}{A} and \SI{-3.3}{A}.
 These are not optimized running conditions, which gives a good upper bound for how the beam will behave before tuning.
-An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table \ref{kickparam}. 
+An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table \ref{tab:kickparam}. 
 \begin{figure}
 	\begin{center}		
 		\begin{tikzpicture}[scale=0.7]
@@ -264,7 +270,7 @@ beam energy could be lowered to still achieve the desired
 angle and x offset required in the beam line. 
 With the pulsar being variable between 18 and 30 kV,
 several feasible options were calculated using the equations in Section \ref{theory}, 
-and are shown in Figure \ref{fig:kickerangles} and \ref{fig:kickeroffset}
+and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.65\textwidth]{./images/AngleVsEnergy}
@@ -327,7 +333,8 @@ to determine the impedance along the kicker plates, feedthroughs, and cables.
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough1}\includegraphics[width=0.5\textwidth]{./images/FID_feedthrough2}
 		\caption{High voltage feedthrough purchased from FID GmbH. Left, connection to the HV cables.
-		Right, the in vacuum pin that connects to the copper kicker plates.}
+		Right, the in vacuum pin that connects to the copper kicker plates.
+	Photos supplied by FID GmBH.}
 		\label{fig:feedthroughs}
 	\end{center}
 \end{figure}
@@ -361,8 +368,8 @@ Ideally, the response would be \SI{50}{\ohm} to reduce reflections and resulting
 The measurements, plotted by C.Y. Yao in Figure \ref{fig:TDR}, show a larger impedance at the feedthrough locations.
 Due to resource and time constraints, it was a goal to use off the shelf parts where possible in fabrication of the kicker.
 Therefore, the feedthrough mismatch is expected because they were not specifically designed to couple to the plate geometry.
-A substantial amount of time and resources were spent to minimize reflections for the APS kickers plotted in Figure \ref{fig:APS-kicker}.
-However, that kicker still \lsnote{deviates \sout{devates}} from \SI{50}{\ohm} near the feedthroughs.
+A substantial amount of time and resources were spent to minimize reflections for the APS kickers plotted in Figure \ref{fig:TDR}.
+However, that kicker still deviates from \SI{50}{\ohm} near the feedthroughs.
 Given this comparison to the kickers fabricated at the APS, C. Y. Yao advised the mismatch we observed was not dangerous to 
 the pulsar or cables that would drive the kicker.  
 The only negative result is the reduced amount of voltage supplied to the plates, and therefore, a reduction in the kick given to the beam.
@@ -371,24 +378,25 @@ The only negative result is the reduced amount of voltage supplied to the plates
 			\includegraphics[width=0.75\textwidth]{./images/TDR_AWA_kicker}
 			
 			(a) TDR single mode measurements of AWA kicker.
-			\label{fig:AWA-kicker}
 		\end{center}
 		\begin{center}
 		\includegraphics[width=0.75\textwidth]{./images/TDR_APS_kicker}
-
-		
-		(b) TDR single mode measurements of APS kicker. 
+	
+		(b) TDR single mode measurements of APS kicker.
 		\caption{TDR measurements of the impedance of AWA and APS kickers, plotted by C. Y. Yao.
 		Single mode refers to the orientation of the measurement. 
-		Only one port of the kicker is driven and measured at a time. }
-		\label{fig:APS-kicker}			
+		Only one port of the kicker is driven and measured at a time. }\label{fig:TDR}		
 		\end{center}
+	
 	\end{figure}
 
 
 \Section{Measurment of Beam Deflection}
 
-\lsnote{{\it You need a little intro here..} Once the kicker was installed in the beamline, measurements could be done to verify it worked as designed.  The voltage was scanned to check for linearity of the beam offset with voltage.  The beam size and angle of deflection were measured and compared to predictions.  Details of the set up, and results of the studies follow.}
+Once the kicker was installed, measurements were done to verify it worked as designed with beam.  
+The voltage was scanned to check for linearity of the beam offset with voltage.  
+The beam size and angle of deflection were measured and compared to simulation results.  
+Details of the set up, and results of the studies follow.
 
 The kicker was installed in the AWA drive beam line approximately \SI{16.5}{m} downstream of the cathode.
 The HV pulsar was located on the roof of the bunker.
@@ -429,7 +437,9 @@ This is encouraging, as it can be fixed with better control of the quadrupoles.
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/xybeamsizes_high_charge_kicker_scan}
 \end{figure}
-\nrnote{probably need more in this section.} \lsnote{Yes - a comparison of the beam sizes to simulation, and a calculation of the deflection verus predicted deflection.  Also, there is a discrepancy, in figure 4.2 the beam size at kicker exit is smaller, not larger.}
+\lsnote{Yes - a comparison of the beam sizes to simulation, and a calculation of the deflection verus predicted deflection.  Also, there is a discrepancy, in figure 4.2 the beam size at kicker exit is smaller, not larger.}
+\nrnote{that is expected based on the optics. The beam waist is after the kicker, so while the kicker does increase the transverse 
+	divergence of the beam, it's still not enough to overcome the focusing of the quadrupoles upstream.}
 
 
 \Section{TBA Beam Line}
@@ -551,6 +561,164 @@ we compare the sigma matrix before and after the qudrupoles:
 With the kicker and septum design set, 
 and the basic geometry of the beam line laid out, 
 an optimization of the beam line optics was performed.
+This was done for two reasons. First, to confirm that solutions 
+exist at \SI{40}{nC} where the beam is transmitted 100\% through the PETS structure in the deflected beam line.
+Second, from the set of feasible solutions, the optics designs with the smallest bunch lengths should be identified.
+These two conditions combined will provide an optics solutions that provides the most power output from the test. 
+
+The built in GA in OPAL was again used for these simulations. 
+Several rounds of optimizations were tried and many failed for various reasons, 
+which include:
+\begin{itemize}
+	\item using too many objectives (6+)
+	\item including too many design variables (15+)
+	\item over constraint of the objective values output from the simulation (upper bound too small at \SI{0.1}{mm} for beam sizes)
+	\item using bad hyper parameters
+\end{itemize}
+and so on. 
+All iterations can be found in the following repository:
+\begin{center}
+	\url{https://github.com/nneveu/awa-tba}
+\end{center}
+which also houses all plotting and simulation scripts used in this chapter.
+
+
+One draw back of using a GA, is that many simulation parameters 
+must be decided empirically after trial and error.
+There is no clear guidance on what type of problem set up will be 
+best for unique optimization problems such as the beam dynamics in this case.
+Along these lines, hyper parameters were chosen based on four experiments ....
+\nrnote{should I just reference paper here... or go into details in paper}
+
+
+\iffalse
+the hyper parameters were chosen by doing four small 
+GA runs with various settings, see Table \ref{tab:ex}. 
+It is clear that the hyper parameters in ex-2 and ex-3 are evolving slower in 
+comparison to ex-1 and ex-4. 
+Much help was received from A. Adelmann in preparing and discussing these tests.
+\begin{table}%[h!]
+	\begin{center}
+		\caption{Input Parameters for initial twenty four hour TBA optimization experiments. 
+			The gene mutation probability was equal to the mutation probability (not shown) in all four experiments. 
+			The max number of individuals per generation was~80.}
+		\label{tab:ex}
+		\rowcolors{2}{blue!15}{white}   
+		\begin{tabular}{|lccc|}
+	%\toprule
+		\rowcolor{blue!30} 
+				& \thead{Gene Mutation\\Probability} & \thead{Recombination\\Probability} & \thead{Number of completed\\generations} \\ \hline
+			ex-1 &  0.1  & 0.9  &  96 \\
+			ex-2 &  0.3  & 0.7  &  81 \\
+			ex-3 &  0.8  & 0.2  &  53 \\
+			ex-4 &  0.01 & 0.09 &  95 \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+\fi
+
+
+The most successful optimization problem to date entailed optimizing the 
+beam size and energy spread at the fifth quarupole on the drive line.
+In other words, the first quadrupole between the septum and kicker.
+\nrnote{this helps reduce dispersion...include better explanation of this}
+\begin{table}%[h!]
+	\begin{center}
+		\caption{Input Parameters for large scale TBA optimization runs.}
+		\label{tab:opt-tba}
+		\rowcolors{2}{blue!10}{white}   
+		\begin{tabular}{|lc|}
+			%\toprule
+			\rowcolor{blue!30} 
+			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ \hline
+			{Number of Objectives}			&  5 \\
+			Number of Design Variables		&  8 \\
+			Number of Constraints			&  2 \\
+			{Gene Mutation Probability} 	&  0.01\\ \hline
+			{Recombination Probability} 	&  0.09 \\
+			{Maximum  Generations}			&  200 \\
+			{Initial  Population Size}		&  656\\ 
+			Cores per Simulation 			&  8 \\
+			Total number of cores			& 2,624  \\\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+In code form, these parameters translate to an OPAL input file that 
+looks like the following:
+
+\makeatletter
+\let\@currsize\normalsize
+\makeatother 
+\singlespacing
+		\begin{verbatim}
+OPTION, ECHO=FALSE;
+OPTION, INFO=FALSE;
+
+TITLE, STRING="First full ANL AWA optimisation ";
+
+dv0: DVAR, VARIABLE="IBF",    LOWERBOUND=300.0, UPPERBOUND=500.0;
+dv1: DVAR, VARIABLE="IM",     LOWERBOUND=180.0, UPPERBOUND=280.0;
+//dv2: DVAR, VARIABLE="GPHASE", LOWERBOUND=-20.0, UPPERBOUND=10.0;
+//dv3: DVAR, VARIABLE="FWHM",   LOWERBOUND=1.5,   UPPERBOUND=10.0;
+
+// Quad values
+dv4: DVAR, VARIABLE="KQ1", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+dv5: DVAR, VARIABLE="KQ2", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+dv6: DVAR, VARIABLE="KQ3", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+dv7: DVAR, VARIABLE="KQ4", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+
+//Phases
+//dv8:  DVAR, VARIABLE="P1", LOWERBOUND=-20.0, UPPERBOUND=20.0;
+//dv9:  DVAR, VARIABLE="P2", LOWERBOUND=-20.0, UPPERBOUND=20.0;
+//dv10: DVAR, VARIABLE="P3", LOWERBOUND=-20.0, UPPERBOUND=20.0;
+//dv11: DVAR, VARIABLE="P4", LOWERBOUND=-20.0, UPPERBOUND=20.0;
+//dv12: DVAR, VARIABLE="P5", LOWERBOUND=-20.0, UPPERBOUND=20.0;
+//dv13: DVAR, VARIABLE="P6", LOWERBOUND=-20.0, UPPERBOUND=20.0;
+
+//dv8:  DVAR, VARIABLE="KQ5", LOWERBOUND=-6.0, UPPERBOUND=6.0;
+//dv9:  DVAR, VARIABLE="KQ6", LOWERBOUND=-6.0, UPPERBOUND=6.0;
+//dv10: DVAR, VARIABLE="KQ7", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+//dv11: DVAR, VARIABLE="KQ8", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+//dv12: DVAR, VARIABLE="KQ9", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+
+//Q5 Entrance
+de3: OBJECTIVE,EXPR="fabs(statVariableAt('dE',19.4))";
+rmss3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_s',19.4))";
+rmsx3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_x',19.4))";
+rmsy3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_y',19.4))";
+rmspx3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_px',19.4))";
+rmspy3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_py',19.4))";
+
+//Kicker apeture
+c1: CONSTRAINT, EXPR="fabs(statVariableAt('rms_x',16.5))<0.1";
+c2: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5))<0.1";
+c3: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5)
+				-statVariableAt('rms_x',16.5))<0.005";
+
+OPTIMIZE, INPUT="tmpl/optLinac-40nC.tmpl",
+OUTPUT="optLinac-40nC",
+OUTDIR="results",
+OBJECTIVES = {rmsx3, rmsy3, rmss3, rmspx3, rmspy3, de3},
+DVARS = {dv0, dv1, dv4, dv5, dv6, dv7},
+CONSTRAINTS = {c1, c2, c3},  //, c7, c8, c9, c10},
+INITIALPOPULATION=656,
+MAXGENERATIONS=200,
+NUM_MASTERS=1,
+NUM_COWORKERS=8,
+SIMTMPDIR="tmp",
+TEMPLATEDIR="tmpl",
+FIELDMAPDIR="fieldmaps",
+NUM_IND_GEN=328,
+GENE_MUTATION_PROBABILITY=0.01,
+MUTATION_PROBABILITY=0.01,
+RECOMBINATION_PROBABILITY=0.09;
+QUIT;
+
+	\end{verbatim}
+The OPAL input file and other files needed to run simulations on the ANL cluster 
+can be found in the repository listed above.
+Details of the magnet settings, phases, and element locations are on the repository as well.
+
 
 
 

@@ -443,7 +443,8 @@ This is encouraging, as it can be fixed with better control of the quadrupoles.
 
 
 \Section{TBA Beam Line}
-
+\nrnote{short discussion of the issues, what are you trying to achieve, where are apetures tight.
+	comments on what trying to do with optimization and issues}
 \lsnote{So here the optics stuff starts - again you will need a little introduction.  What are the goals, and what are you going to present?}
 \lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
 \nrnote{only point to point calculation, but I'm having second thoughts. 
@@ -627,19 +628,22 @@ In other words, the first quadrupole between the septum and kicker.
 		\caption{Input Parameters for large scale TBA optimization runs.}
 		\label{tab:opt-tba}
 		\rowcolors{2}{blue!10}{white}   
-		\begin{tabular}{|lc|}
-			%\toprule
-			\rowcolor{blue!30} 
-			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ \hline
+		\begin{tabular}{lc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ 
+			\midrule
 			{Number of Objectives}			&  5 \\
 			Number of Design Variables		&  8 \\
 			Number of Constraints			&  2 \\
-			{Gene Mutation Probability} 	&  0.01\\ \hline
+			{Gene Mutation Probability} 	&  0.01\\ 
 			{Recombination Probability} 	&  0.09 \\
 			{Maximum  Generations}			&  200 \\
 			{Initial  Population Size}		&  656\\ 
 			Cores per Simulation 			&  8 \\
-			Total number of cores			& 2,624  \\\hline
+			Total number of cores			& 2,624  \\
+			\bottomrule
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -732,7 +736,7 @@ A Pareto front comparing the trade off between bunch length and energy spread wa
 \label{fig:tba-pareto}
 \end{figure}
 From Figure \ref{fig:tba-pareto}, there are not many bunch lengths options.
-Only one point is exculed from the plot at about \SI{5}{mm}, a region 
+Only one point is excluded from the plot at about \SI{5}{mm}, a region 
 not desirable for TBA. 
 
 
@@ -740,10 +744,17 @@ not desirable for TBA.
 
 
 
+\nrnote{conclude, opt results shows beamline is viable based on intro criteria}
 
 
+\Section{Conclusion}
 
-
+Kicker designed and installed.
+Out of vacuum tests.
+Matrix calc.
+Beam line optimization setup
+Optimization results
+ 
 
 
 

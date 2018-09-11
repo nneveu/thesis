@@ -9,7 +9,7 @@ The AWA facility houses two rf photoinjector electron guns operating
 at \SI{1.3}{GHz}, and three subsequent beam lines. 
 Two of the beam lines are currently used for staged TBA, and the
 third is used for Emittance Exchange experiments (EEX). A layout of
-the facility is shown in Fig. \ref{fig:bunker}. 
+the facility is shown in Figure~\ref{fig:bunker}. 
 \lsnote{Some more detail will be needed here, maybe just switch the order of the some of the text in the two paragraphs below.  Something like; start with saying what the beamlines are and what is in them referring to the figure, then describe their sources in more detail (RF guns and photocathodes), then talk about the laser and how it is split.}
 
 Electron bunches in a photoinjector are created through the photoelectric effect. 
@@ -19,10 +19,10 @@ Both beam lines must be operated simultaneously when the TBA experiments are run
 splitting the original laser pulse into two pulses using a UV splitter on the 
 ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
 bunch operation. The second pulse is sent to a UV multispitter table, shown in 
-Fig.~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
+Figure~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
 used for TBA drive trains, 
 
-The beam line located on the right side of Fig. \ref{fig:bunker} is called the
+The beam line located on the right side of Figure~\ref{fig:bunker} is called the
 drive line. The rf photoinjector on the drive line uses a semiconducting
 CsTe cathode, and is followed by a linear accelerator (linac). The
 drive linac uses six copper cavities and four klystrons to accelerate the drive beam
@@ -35,7 +35,7 @@ takes place in a complex network of UV optics located near the drive
 gun. The optics set up is called a beam splitter, or mulitsplitter,
 and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
 called a pulse, or the repetition rate of the machine. A picture of
-the AWA multisplitter table is shown in Fig. \ref{fig:optics}. Optimization 
+the AWA multisplitter table is shown in Figure~\ref{fig:optics}. Optimization 
 of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
 
 
@@ -58,7 +58,7 @@ of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.
 The witness line rf photoinjector, located on the left side of Figure
 1, uses a Mg cathode and the following linac consists of one copper
 accelerating cavity. Prior to the multisplitter table, shown in
-Fig. \ref{fig:optics}, the laser pulse is split between the drive and witness side.
+Figure~\ref{fig:optics}, the laser pulse is split between the drive and witness side.
 This set up allows only one bunch per pulse on the witness line. Also
 note that the beam from the drive line travels in the opposite direction
 than the beam in the witness line. 
@@ -145,7 +145,7 @@ $T/R\approx55/45$ to $53/47$.
 This caused an uneven laser intensity distribution, as the bunch intensity depends on the path 
 it takes through the multisplitter optics. Pulses that were reflected more than one
 time could have significantly lower intensities than other bunches. 
-Consider the path of laser pulse four as shown in Fig.~\ref{fig:tikz}. 
+Consider the path of laser pulse four as shown in Figure~\ref{fig:tikz}. 
 The pulse is transmitted through splitters 1, 2, and 4, but is reflected by splitter 3.
 \def \delayvertical {1.5}
 \def \delayoneleft {7.5}
@@ -250,16 +250,17 @@ I_1 = R \cdot T \cdot T \cdot T \cdot I_0
 \end{equation}
 
 Given about $\pm10\%$ mirror loss in the delay legs, we expect laser pulse one and four 
-to be roughly the same intensity. This is shown in Fig.~\ref{fig:origtrain}. With the same 
+to be roughly the same intensity. This is shown in Figure~\ref{fig:origtrain}. With the same 
 logic, we expect pulse six to have the largest deviation from pulse one, as it is reflected 
 three times and transmitted once in the four splitter set up. This expectation is also 
-confirmed by the results in Fig.~\ref{fig:origtrain}.  \lsnote{You achieved a significant improvement in the uniformity of the laser pulse train, as can be seen in the figure.  Even though it can be seen in the figure, you should wrap up the section with a quantitative statement about the improvement you achieved, along with a summary sentence on how you achieved it.  Something like, `Through the use of optics with tighter specifications, and sorting of the optical elements, an improvement in laser pulse uniformity of bla percent was achieved.'}  
+confirmed by the results in Figure~\ref{fig:origtrain}.  \lsnote{You achieved a significant improvement in the uniformity of the laser pulse train, as can be seen in the figure.  Even though it can be seen in the figure, you should wrap up the section with a quantitative statement about the improvement you achieved, along with a summary sentence on how you achieved it.  Something like, `Through the use of optics with tighter specifications, and sorting of the optical elements, an improvement in laser pulse uniformity of bla percent was achieved.'}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{RF Measurements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 In order to accurately simulate the RF fields in the cavities on the drive and witness line, 
 a set of detailed measurements were done to determine the power in each RF cavity.
 This includes power and energy measurements of the drive gun, and linac tanks 
@@ -336,13 +337,13 @@ The power reading in the control room was $P_c = \SI{-9.48}{dBm}$, and the power
 the tunnel from the signal generator was $P_s = \SI{-8.92}{dBm}$, so the
 attenuation is $\SI{0.56}{dB}$. However, one more cable needs to be accounted for and 
 subtracted from the overall attenuation. A short blue heliax was used to connect the 
-signal generator to the control room cables, as shown in Fig.~\ref{fig:tikzcalibration}.
-This cable not normally connected to the control room as shown in Fig.~\ref{fig:tikzdrivegun}. \lsnote{You should finish the thought - how much attenuation from the Heliax, and what is the adjusted correction?}
+signal generator to the control room cables, as shown in Figure~\ref{fig:tikzcalibration}.
+This cable not normally connected to the control room as shown in Figure~\ref{fig:tikzdrivegun}. \lsnote{You should finish the thought - how much attenuation from the Heliax, and what is the adjusted correction?}
 
 
 \Subsection{Drive Gun Measurements}\label{gunenergy}
 After the cable calibration, the set up was returned to typical rf conditions as 
-shown in Fig.~\ref{fig:tikzdrivegun}. This includes $\SI{53.2}{dB}$ from the pick 
+shown in Figure~\ref{fig:tikzdrivegun}. This includes $\SI{53.2}{dB}$ from the pick 
 up probe itself, a $\SI{36}{dB}$ additional attenuation connected to the 
 drive gun pick up probe, followed by a long heliax to the 
 control room. The signal split in the control room with a mini-circuit ZFRSC-123-S+. 
@@ -407,15 +408,20 @@ max power to the gun, typical of TBA running conditions.
 \end{figure*}
 \fi
 
-Using the set up in Fig.~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-14.18}{dBm}$
+Using the set up in Figure~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-14.18}{dBm}$
 in the control room. Now we must account for attenuation to know the true power
 signal out of the gun. 
 \begin{equation}
 P_1 = P_r + A_1 + C_2 + S + C_3 + A_2 + P_g
 \end{equation}
-\begin{equation}
-P_g \, \SI{}{[dBm]} = \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} + \SI{9.5}{dB}+ \SI{0.56}{dB} + \SI{10}{dB} + \SI{14.18}{dBm} = \SI{124}{dBm} or 95.6?
-\end{equation}
+\begin{equation*}
+\begin{aligned}
+P_g \, \SI{}{[dBm]} = \\
+\SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} \\
+ + \SI{9.5}{dB}+ \SI{0.56}{dB} + \SI{10}{dB} + \SI{14.18}{dBm} \\
+ = \SI{124}{dBm} or 95.6?
+\end{aligned}
+\end{equation*}
 
 Then converting to a more convenient unit: 
 \begin{equation}
@@ -441,6 +447,7 @@ and the attenuation values, we can calculate the power in each linac cavity:
 		\SI{33}{dB} attenuation added after the probe.}
 	\begin{center}
 		\begin{tabular}{ccccc}
+			\toprule
 			\toprule
 			\textbf{Cavity} & \textbf{Probe Att.} & \textbf{Splitter Att.} & \textbf{Power Meter 1}  & \textbf{Power Meter 2} \\
 			\midrule
@@ -498,7 +505,8 @@ P_1 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Energy Measurements} \label{sec:dipolecal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Energy measurements at the AWA are done with a traditional 
 spectrometer. This includes a dipole magnet and two Yittrium 
 Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
@@ -553,22 +561,23 @@ keyed into the control system. A counts to current line
 is calculated given the measurements shown in Table \ref{tab:counts}
 \begin{table}
 \begin{center}
-	\begin{tabular}{||c c||} 
-		\hline
+	\caption{Counts to current data for the first dipole in the drive beam line.}
+	\begin{tabular}{c c} 
+		\toprule
+		\toprule
 		Counts & Current [A] \\ [0.5ex] 
-		\hline\hline
+		\midrule
 		1000 & 3.7 \\ 
-		\hline
+		
 		5000 & 18.8 \\
-		\hline
+		
 		10000 & 37.5 \\
-		\hline
+		
 		15000 & 56.3 \\
-		\hline
+		\bottomrule
 		
 	\end{tabular}
 \end{center}
-\caption{Counts to current data for the first dipole in the drive beam line.}
 \end{table}\label{tab:counts}
 Then the B-field is calculated given the current: 
 \begin{equation}
@@ -629,6 +638,7 @@ Given a count of  energy of $\SI{64.8}{[MeV]}$ given measured counts of
 \Section{Transverse Beam Size Measurements} \label{sec:beamsize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Beam size measurements are taken by using YAG screens at multiple z locations along the beam line.
 The code used to produce all the following images can be found at this git repository:
 
@@ -656,6 +666,8 @@ The following steps detail the post processing from raw image to transverse beam
 
 \Section{Bunch Length Measurements}
 
+Must have line break here.
+
 \Subsection{Measurement Technique}
 In order to measure the bunch length, we performed an autocorrelation scan
 of the CTR produced by the electron distribution \cite{Happek, WBarry}.
@@ -663,10 +675,10 @@ In brief, the CTR is transported into a Michelson interferometer (MI)
 where it's split and directed into two MI arms with a half-transparent pellicle \cite{PhysRevSTAB.9.082801}. 
 The CTR beams are then combined together at the exit of the MI with the variable path difference.
 The resulting CTR intensity is registered with a liquid helium cooled IR Labs
-bolometer \cite{IRlabs} as a function of path difference.
+bolometer \cite{bolo} as a function of path difference.
 The path difference is then converted into time as $\Delta \tau = 2 \Delta x$.
 The resulting FWHM bunch duration is determined from the Gaussian fit of 
-the interferogram; see Fig. \ref{interferogram}.
+the interferogram; see Figure~\ref{interferogram}.
 \begin{figure}
 	\includegraphics[width=1.0\linewidth]{images/THPMF048f1}
 	\caption{An example interferogram for Q=30 nC and laser pulse FWHM of 1.5 ps.}
@@ -675,7 +687,7 @@ the interferogram; see Fig. \ref{interferogram}.
 To alleviate the effect of charge fluctuations, we recorded 15 bolometer values for each data point.
 The values were then averaged and the errorbars were deduced from the data. The data points
 outside of the 3$\sigma$ bracket were considered as outliers and discarded. The resulting
-interference pattern as a function of time delay in the MI is similar to that presented in Fig.~\ref{interferogram}.
+interference pattern as a function of time delay in the MI is similar to that presented in Figure~\ref{interferogram}.
 
 \begin{figure*}[hbt]
 	\centering
@@ -686,15 +698,15 @@ interference pattern as a function of time delay in the MI is similar to that pr
 	\label{beamline}
 \end{figure*}
 \Subsection{Experimental Setup}
-The beam line layout is shown in Fig.~\ref{beamline}. 
+The beam line layout is shown in Figure~\ref{beamline}. 
 Bunches were allowed to propagate freely to the 
 CTR screen. The only focusing elements used were solenoids $S_1$ and
 $S_2$. As the bunches passed the CTR screen, light was
 emitted through a window located next to the screen, 
-as shown in Fig.~\ref{bolo}. A slit was used to prevent
+as shown in Figure~\ref{bolo}. A slit was used to prevent
 background x-rays from reaching the bolometer.
 After passing the slit, the CTR propagated to the 
-interferometer also shown in Fig.~\ref{bolo}. 
+interferometer also shown in Figure~\ref{bolo}. 
 A remotely movable stage inside the interferometer was swept, 
 and the resulting combined signal fed to the bolometer. 
 %The bolometer was cooled with liquid helium. 
@@ -706,6 +718,7 @@ To produce high-charge 30 nC beams, we implemented an additional laser beamline 
 MLA and relay optics.
 
 \begin{figure}
+	\centering
 	\begin{tikzpicture}[every node/.style={anchor=south west,inner sep=0pt},x=1mm, y=1mm,]   
 	\node (fig1) at (0,0)
 	{\includegraphics[width=0.5\textwidth]{images/THPMF048f3}};
@@ -728,7 +741,7 @@ MLA and relay optics.
 
 
 \Subsection{Simulations}
-Simulations of the AWA beam line shown in Fig.~\ref{beamline}
+Simulations of the AWA beam line shown in Figure~\ref{beamline}
 were performed with the code and OPAL~\cite{opal}.
 The gun, accelerating cavities, and solenoids were modeled with 2D
 Poisson/Superfish~\cite{fish} files. All field maps were in the T7 format.
@@ -741,6 +754,7 @@ w.r.t the peak rf voltage.
 	\centering
 	\caption{Simulation Parameters}
 	\begin{tabular}{lcc}
+		\toprule
 		\toprule
 		\textbf{Parameter} & \textbf{Low Charge}  & \textbf{High Charge} \\
 		\midrule
@@ -772,7 +786,7 @@ and laser parameters to have the most impact on the simulation values.
 
 
 \Subsection{Results}
-Comparison of simulation and experimental results are shown in Fig.~\ref{sims}.
+Comparison of simulation and experimental results are shown in Figure~\ref{sims}.
 \begin{figure*}[!tbh]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/THPMF048f5}
@@ -789,13 +803,14 @@ In the case of high charge simulations, where the agreement is the worst,
 more consideration is needed for large charge fluctuations in the data.
 
 Experimentally measured values of the bunch duration are shown in Table~\ref{exp}.
-Note the units in the table are picoseconds and the units in Fig.~\ref{sims} are millimeters.
+Note the units in the table are picoseconds and the units in Figure~\ref{sims} are millimeters.
 The table gives bunch duration, and the plot gives bunch length for the same data.
 We hope these can serve as future reference for others doing experiments at the AWA.
 \begin{table}[h]
 	\centering
 	\caption{Experimental Measurements}
 	\begin{tabular}{rcc}
+		\toprule
 		\toprule
 		\textbf{Charge} & \textbf{Bunch Dur. (RMS)} & \textbf{Laser spot size}  \\
 		\midrule

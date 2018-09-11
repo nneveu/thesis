@@ -4,7 +4,7 @@
 % Nicole's Thesis, IIT 2018
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass{iitthesis}
+\documentclass[table]{iitthesis}
 % Document Options:
 %
 % Note if you want to save paper when printing drafts,
@@ -48,7 +48,8 @@
 \usetikzlibrary{shapes,arrows,decorations.markings,shadows,positioning}
 
 %% Only for editing process...TAKE OUT for FINAL DRAFT
-\usepackage{xcolor,enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
 \newcommand{\lsnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
 \newcommand{\nrnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
 \newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
@@ -59,6 +60,7 @@
 \usepackage{listings}
 \usepackage{color}
 
+\definecolor{Gray}{gray}{0.9}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}

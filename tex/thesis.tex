@@ -35,14 +35,9 @@
 \usepackage{grfext}
 \PrependGraphicsExtensions*{.pdf}
 
-%\usepackage{setspace}    % This package is used for Figures
-%\usepackage{subfigure}          % These two packages, epsfig and subfigure, are used for creating subplots.
-%\usepackage{caption}
-%\captionsetup[figure]{font=singlespacing,position=bottom, labelsep=period}
 %\usepackage{rotating}           % This package is used for landscape mode.
 %\usepackage{epsfig}
 \usepackage{siunitx}
-\usepackage{subcaption}
 %\usepackage[shortcuts]{extdash}
 %\renewcommand{\thefootnote}{\arabic{footnote}}
 \usepackage{url}
@@ -57,9 +52,10 @@
 \newcommand{\lsnote}[1]{\textsf{{\color{violet}{ LS note:}   #1 }}}
 \newcommand{\nrnote}[1]{\textsf{{\color{blue}{ NN note:}   #1 }}}
 \newcommand{\jpnote}[1]{\textsf{{\color{green}{ JP note:}   #1 }}}
+%Strikeout command
 \usepackage[normalem]{ulem}
 
-%Code formatting???
+%Code formatting
 \usepackage{listings}
 \usepackage{color}
 
@@ -72,9 +68,9 @@
 	backgroundcolor=\color{backcolour},   
 	commentstyle=\color{codegreen},
 	keywordstyle=\color{magenta},
-	numberstyle=\tiny\color{codegray},
+	numberstyle=\small\color{codegray},
 	stringstyle=\color{codepurple},
-	basicstyle=\footnotesize,
+	basicstyle=\small,
 	breakatwhitespace=false,         
 	breaklines=true,                 
 	captionpos=b,                    
@@ -154,21 +150,20 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%this should be fixed now
-\input{introduction}
-\clearpage
+%\input{introduction}
+%\clearpage
 
-\input{exp_setup}
-\clearpage
+%\input{exp_setup}
+%\clearpage
 
-\input{simulations}
-\clearpage
+%\input{simulations}
+%\clearpage
 
 \input{beam_line_design}
 \clearpage
 
-\input{exp_results}
-\clearpage
+%\input{exp_results}
+%\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -217,7 +212,7 @@ CC=mpiicc;CXX=mpiicpc;F90=ifort;F77=ifort
 export CC CXX F90 F77
 \end{lstlisting}
 
-    \item Set enviornment variables for self built libraries.
+    \item Set environment variables for self built libraries.
     
 I built these libraries separately because they were not available as 
 modules on the cluster. 

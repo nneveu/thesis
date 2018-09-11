@@ -617,7 +617,7 @@ Much help was received from A. Adelmann in preparing and discussing these tests.
 \end{table}
 \fi
 
-
+\Subsection{Optimization Setup}\label{setup}
 The most successful optimization problem to date entailed optimizing the 
 beam size and energy spread at the fifth quarupole on the drive line.
 In other words, the first quadrupole between the septum and kicker.
@@ -649,8 +649,8 @@ looks like the following:
 \makeatletter
 \let\@currsize\normalsize
 \makeatother 
-\singlespacing
-		\begin{verbatim}
+\begin{singlespacing}
+\begin{verbatim}
 OPTION, ECHO=FALSE;
 OPTION, INFO=FALSE;
 
@@ -693,7 +693,7 @@ rmspy3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_py',19.4))";
 c1: CONSTRAINT, EXPR="fabs(statVariableAt('rms_x',16.5))<0.1";
 c2: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5))<0.1";
 c3: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5)
-				-statVariableAt('rms_x',16.5))<0.005";
+-statVariableAt('rms_x',16.5))<0.005";
 
 OPTIMIZE, INPUT="tmpl/optLinac-40nC.tmpl",
 OUTPUT="optLinac-40nC",
@@ -713,15 +713,27 @@ GENE_MUTATION_PROBABILITY=0.01,
 MUTATION_PROBABILITY=0.01,
 RECOMBINATION_PROBABILITY=0.09;
 QUIT;
-
-	\end{verbatim}
+\end{verbatim}	
+\end{singlespacing}
 The OPAL input file and other files needed to run simulations on the ANL cluster 
 can be found in the repository listed above.
 Details of the magnet settings, phases, and element locations are on the repository as well.
 
 
-
-
+\Subsection{Optimization Results}
+After fourty-eight hours, the optimization run described in Section \ref{setup}
+completed and the results were analyzed. 
+A Pareto front comparing the trade off between bunch length and energy spread was plotted.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{./images/dE_vs_zrms_pareto_front_quads_before_Q5}
+	\caption{Pareto front of energy spread vs. bunch length.
+	This data was a result of the simulation setup in Section \ref{setup}.}
+\label{fig:tba-pareto}
+\end{figure}
+From Figure \ref{fig:tba-pareto}, there are not many bunch lengths options.
+Only one point is exculed from the plot at about \SI{5}{mm}, a region 
+not desirable for TBA. 
 
 
 

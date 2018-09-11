@@ -169,8 +169,8 @@ A shorter drift would mean less divergence in the beam before it reaches the nex
 \nrnote{I will reformat table later}
 \begin{table}%[hbt]
 	%   \vspace*{-.5\baselineskip}
-	\centering
-	\caption{Possible kicker parameters for a \SI{75}{MeV} beam,  
+	\begin{center}
+		\caption{Possible kicker parameters for a \SI{75}{MeV} beam,  
 		a pulsar voltage of $\pm$ \SI{35}{kV}, 
 		and kicker plate length of \SI{0.6}{m}.}
 	\begin{tabular}{ccc}
@@ -186,8 +186,8 @@ A shorter drift would mean less divergence in the beam before it reaches the nex
 		50 & 1.28  & 6.7   \\ %[3pt]
 		%\bottomrule
 	\end{tabular}
-	\label{kickparam}
-	%   \vspace*{-\baselineskip}
+	\label{kickparam}	
+	\end{center}
 \end{table}
 
 Next simulations were done to give an estimation of the beam size at the entrance and exit of the kicker.
@@ -256,16 +256,17 @@ a PIC \nrnote{(assuming PIC is defined in simulations cp?)} simulation was done 
 trajectory before and after the kicker and septum including space charge effects.
 The two estimates match within reason, see Figure \ref{fig:beamtraj}. 
 \begin{figure}
-	\centering
-	\includegraphics[width=0.65\textwidth]{./images/tba_trajectory}
-	\caption{Simulation of the transverse offset of a \SI{65}{MeV} beam as 
-		it travels through the proposed TBA beam line. 
-		Beam is traveling right to left in this simulation. 
-		Notice the x offset at the exit of the kicker (\SI{17.5}{m}), 
-		is nearly \SI{20}{mm} as predicted in Figure \ref{fig:kickeroffset}.
-	The kicker is now at \SI{16.5}{m} due to other experiments at the AWA.
-\nrnote{not sure if I should address this}}
-	\label{fig:beamtraj}
+	\begin{center}
+		\includegraphics[width=0.65\textwidth]{./images/tba_trajectory}
+		\caption{Simulation of the transverse offset of a \SI{65}{MeV} beam as 
+			it travels through the proposed TBA beam line. 
+			Beam is traveling right to left in this simulation. 
+			Notice the x offset at the exit of the kicker (\SI{17.5}{m}), 
+			is nearly \SI{20}{mm} as predicted in Figure \ref{fig:kickeroffset}.
+			The kicker is now at \SI{16.5}{m} due to other experiments at the AWA.
+			\nrnote{not sure if I should address this}}
+		\label{fig:beamtraj}
+	\end{center}
 \end{figure}
 \nrnote{Cutting CST all together because they are only impedance calculations}
 
@@ -336,27 +337,25 @@ However, that kicker still devates from \SI{50}{\ohm} near the feedthroughs.
 Given this comparison to the kickers fabricated at the APS, C. Y. Yao advised the mismatch we observed was not dangerous to 
 the pulsar or cables that would drive the kicker.  
 The only negative result is the reduced amount of voltage supplied to the plates, and therefore, a reduction in the kick given to the beam.
-\begin{figure*}
-	\centering
-	\begin{subfigure}{0.75\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{./images/TDR_AWA_kicker}
-		\caption{TDR single mode measurements of AWA kicker.}
-		\label{fig:AWA-kicker}
-	\end{subfigure}
-	~%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-	%(or a blank line to force the subfigure onto a new line)
-	\begin{subfigure}{\textwidth}
-		\centering
+%\begin{figure*}
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.75\textwidth]{./images/TDR_AWA_kicker}
+			
+			(a) TDR single mode measurements of AWA kicker.
+			\label{fig:AWA-kicker}
+		\end{center}
+		\begin{center}
 		\includegraphics[width=0.75\textwidth]{./images/TDR_APS_kicker}
-		\caption{TDR single mode measurements of APS kicker.}
-		\label{fig:APS-kicker}
-	\end{subfigure}
-	\caption{TDR measurements of AWA and APS kickers, plotted by C. Y. Yao. 
-	Single mode refers to the orientation of the measurement. 
-	Only one port of the kicker is driven and measured at a time. 
-	\nrnote{caption ok??}}\label{fig:TDR}
-\end{figure*}
+		
+		(b) TDR single mode measurements of APS kicker. 
+		\caption{TDR measurments plotted by C. Y. Yao.
+		Single mode refers to the orientation of the measurement. 
+		Only one port of the kicker is driven and measured at a time. }
+		\label{fig:APS-kicker}			
+		\end{center}
+	\end{figure}
+%\end{figure*}
 
 \Section{Measurment of Beam Deflection}
 
@@ -375,7 +374,8 @@ is fairly linear with respect to kicker voltage.
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/kicker_linearity}
 	\caption{Measured deflection of beam due to kicker at several voltages.}
-\end{figure}\label{fig:linear}
+	\label{fig:linear}
+\end{figure}
 
 Beam size data was also taken, see Figure \ref{fig:kickerbeamsize}. 
 These measurements were used to calculate the total beam size and 
@@ -388,7 +388,8 @@ the beam sizes as described in Chapter 2.
 	\includegraphics[width=0.5\textwidth]{./images/yag6_kicker_voltage22}%
 	\caption{Examples of beam size data taken during kicker test. 
 		Various kicker voltage settings were used and deflection of the beam was observed.}
-\end{figure}\label{fig:kickerbeamsize}
+	\label{fig:kickerbeamsize}
+\end{figure}
 While the kicker does increase the beam size in the kicked direction, 
 the large discrepancy can not be attributed to the kicker alone.
 This is clear when looking at the beam sizes when the kicker is off. 
@@ -403,7 +404,8 @@ This is encouraging, as it can be fixed with better control of the quadrupoles.
 
 \Section{TBA Beam Line}
 \lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
-\nrnote{only point to point calculation}
+\nrnote{only point to point calculation, but I'm having second thoughts. 
+I didn't spend much time on it, maybe I should cut it.}
 A drift: 
 \begin{equation}
 R_d = 
@@ -434,7 +436,7 @@ c & d
 To convert from focal length to quadrupole strength we must take into account the 
 beam energy as well as the dimensions of the quadrupole. 
 \begin{equation}
-	\frac{1}{f} = kl \\
+	\frac{1}{f} = kl 
 \end{equation}
 Where $l$ is the quadrupole's effective length, and k is the gradient w.r.t 
 the beam energy and magnet strength \cite{Wiedemann}:
@@ -533,4 +535,33 @@ maintaining the initial beam distribution.
  \]
  \fi
  
- \Section{TBA Beam Line Optimization Results}
+\Section{TBA Beam Line Optimization Results}
+ 
+With the kicker and septum design set, 
+and the basic geometry of the beam line laid out, 
+an optimization of the beam line optics was performed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

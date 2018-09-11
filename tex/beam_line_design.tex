@@ -6,6 +6,23 @@
 \lsnote{{\it This is still not very general - I will note what I think would fix it}}
 
 Independent staging requires two beam lines, with routing of bunch trains via a kicker and septum, \lsnote{see Fig. bla.  (This would be a block diagram such as you have on one of your slides, an appropriate one would be like the beamline.pdf file I have - I'll send it).  Then continue with some more general stuff, e.g. -> The kicker and septum must bend the beam to center it in the aperture of the dipole, which then must straighten the beam to traverse the remainder of the transport line.  Several quadrupoles are required to keep the beam size small enough to make it through the small aperture of the PETS decelerating structure.  Spectrometer magnets are used to measure the energy of the beam  This second independent beamline had to be designed.  So far, installation of the kicker has been done.  The remaining components have been specified, and many are now ready for installation.}
+\begin{figure}
+		\begin{center}
+		\begin{tikzpicture}[scale=\textwidth/35cm, text=black]
+		%\begin{tikzpicture}[scale=0.5, text=black]
+		\input{./images/full_staging.tex}
+		\end{tikzpicture}
+	\end{center}
+\caption{The arrows indicate what direction the beams travels.
+	The guns are located at opposite ends of the bunker and 
+	the propagation direction of the beam lines are opposing.
+	PETS stands for Power Extraction and Transfer Structure, and ACC stands for Accelerating structure. 
+	The subscript on each structure refers to which stage the structures belong to (first or second). 
+	The drive line has six accelerating cavities with a maximum beam energy of \SI{70}{MeV}. 
+	The witness line has one accelerating cavity with a max beam energy of \SI{15}{MeV}.}
+\label{fig:full-staging}
+\end{figure}
+
 
 A kicker design from Indiana University (IU) was used as a base line to design a kicker specific to the
 requirements at the AWA. The gap and plate length had to be determined based the beam energy, 
@@ -416,6 +433,7 @@ This is encouraging, as it can be fixed with better control of the quadrupoles.
 
 
 \Section{TBA Beam Line}
+
 \lsnote{So here the optics stuff starts - again you will need a little introduction.  What are the goals, and what are you going to present?}
 \lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
 \nrnote{only point to point calculation, but I'm having second thoughts. 
@@ -527,28 +545,7 @@ we compare the sigma matrix before and after the qudrupoles:
 	\end{bmatrix}
 \end{align}
 
-\Subsection{Point to Parallel Configuration}
-Having less divergence entering the kicker may be more beneficial than 
-maintaining the initial beam distribution. 
 
-\iffalse 
- \[
- \begin{bmatrix}
- x_{11}       & x_{12} & x_{13} & \dots & x_{1n} \\
- x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
- \hdotsfor{5} \\
- x_{d1}       & x_{d2} & x_{d3} & \dots & x_{dn}
- \end{bmatrix}
- =
- \begin{bmatrix}
- x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
- x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
- \vdots & \vdots & \vdots & \ddots & \vdots \\
- x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
- \end{bmatrix}
- \]
- \fi
- 
 \Section{TBA Beam Line Optimization Results}
  
 With the kicker and septum design set, 

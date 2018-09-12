@@ -165,11 +165,11 @@
 %\input{exp_setup}
 %\clearpage
 
-%\input{simulations}
-%\clearpage
-
-\input{beam_line_design}
+\input{simulations}
 \clearpage
+
+%\input{beam_line_design}
+%\clearpage
 
 %\input{exp_results}
 %\clearpage
@@ -284,28 +284,12 @@ The following code was used for production optimization runs on Bebop at the LCR
 	
 	dv0: DVAR, VARIABLE="IBF",    LOWERBOUND=300.0, UPPERBOUND=500.0;
 	dv1: DVAR, VARIABLE="IM",     LOWERBOUND=180.0, UPPERBOUND=280.0;
-	//dv2: DVAR, VARIABLE="GPHASE", LOWERBOUND=-20.0, UPPERBOUND=10.0;
-	//dv3: DVAR, VARIABLE="FWHM",   LOWERBOUND=1.5,   UPPERBOUND=10.0;
 	
 	// Quad values
 	dv4: DVAR, VARIABLE="KQ1", LOWERBOUND=-8.0, UPPERBOUND=8.0;
 	dv5: DVAR, VARIABLE="KQ2", LOWERBOUND=-8.0, UPPERBOUND=8.0;
 	dv6: DVAR, VARIABLE="KQ3", LOWERBOUND=-8.0, UPPERBOUND=8.0;
 	dv7: DVAR, VARIABLE="KQ4", LOWERBOUND=-8.0, UPPERBOUND=8.0;
-	
-	//Phases
-	//dv8:  DVAR, VARIABLE="P1", LOWERBOUND=-20.0, UPPERBOUND=20.0;
-	//dv9:  DVAR, VARIABLE="P2", LOWERBOUND=-20.0, UPPERBOUND=20.0;
-	//dv10: DVAR, VARIABLE="P3", LOWERBOUND=-20.0, UPPERBOUND=20.0;
-	//dv11: DVAR, VARIABLE="P4", LOWERBOUND=-20.0, UPPERBOUND=20.0;
-	//dv12: DVAR, VARIABLE="P5", LOWERBOUND=-20.0, UPPERBOUND=20.0;
-	//dv13: DVAR, VARIABLE="P6", LOWERBOUND=-20.0, UPPERBOUND=20.0;
-	
-	//dv8:  DVAR, VARIABLE="KQ5", LOWERBOUND=-6.0, UPPERBOUND=6.0;
-	//dv9:  DVAR, VARIABLE="KQ6", LOWERBOUND=-6.0, UPPERBOUND=6.0;
-	//dv10: DVAR, VARIABLE="KQ7", LOWERBOUND=-8.0, UPPERBOUND=8.0;
-	//dv11: DVAR, VARIABLE="KQ8", LOWERBOUND=-8.0, UPPERBOUND=8.0;
-	//dv12: DVAR, VARIABLE="KQ9", LOWERBOUND=-8.0, UPPERBOUND=8.0;
 	
 	//Q5 Entrance
 	de3: OBJECTIVE,EXPR="fabs(statVariableAt('dE',19.4))";

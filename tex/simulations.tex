@@ -45,24 +45,25 @@ and up to 5,200 cores for large optimization runs.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Benchmarking}
 
-\nrnote{Copied and pasted NAPAC benchmark here, need to finish cleaning up.}
-Initially OPAL-T was benchmarked against the more commonly used particle tracking codes, ASTRA and GPT.  This ensured correct use of the code, and reliability of \mbox{OPAL-T}.  Two collective effects of particular interest to the AWA were included in the investigation: 
+Initially OPAL-t was benchmarked against commonly used particle tracking codes ASTRA and GPT.  
+This ensured correct use of the code, and reliability of \mbox{OPAL-t}.  
+Two collective effects of particular interest to the AWA were included in the investigation: 
 space charge (SC) and coherent synchrotron radiation (CSR).
 The beam dynamics of a \SI{1}{nC} drive beam in the photoinjector were used as 
 the model for comparison in the space charge study. 
-A $20^{\circ}$ hard edge dipole magnet was used to benchmark CSR effects in GPT and OPAL-T by bending a 1nC beam 
+A $20^{\circ}$ hard edge dipole magnet was used to benchmark CSR effects in GPT and OPAL-t by bending a 1nC beam 
 at energies between \SI{2}{Mev} and \SI{100}{MeV}.  
 The results of these benchmark studies are presented below, 
 including a discussion of the similarities and differences between the codes.
  
-The AWA group has used several beam codes in the past including:
-T-STEP/PARMELA~\cite{parmela}, ASTRA~\cite{astra}, and GPT~\cite{gpt}.  
+The AWA group has used several beam codes in the past including:\\
+\mbox{T-STEP/PARMELA}~\cite{parmela}, ASTRA~\cite{astra}, and GPT~\cite{gpt}.  
 In order to take advantage of computing resources offered by 
 Argonne National Laboratory (ANL), an investigation of 
-OPAL~\cite{opal} \lsnote{was done; this is} an open source and parallel code that comes in two flavors;  
-OPAL-CYL and OPAL-T. The latter was installed on the Blues and Bebop \lsnote{high performance computing} clusters
+OPAL~\cite{opal} was done; this is an open source and parallel code that comes in two flavors;  
+OPAL-CYL and OPAL-t. The latter was installed on the Blues and Bebop high performance computing clusters
 at the Laboratory Computing Resource Center (LCRC) provided by ANL~\cite{lcrc}.
-(See Appendix~\ref{build} for instruction on how to build OPAL-T at ANL.)
+(See Appendix~\ref{build} for instruction on how to build OPAL-t at ANL.)
 
 \Subsection{Gun Simulations}
 The SC algorithms were probed using the AWA photoinjector, 
@@ -70,7 +71,7 @@ a 1.5 cell copper standing-wave cavity at 1.3 GHz,
 with bucking, focusing, and matching solenoids. 
 In the remainder of this thesis, the word gun is used 
 in place of photoinjector. The simulation parameters were chosen to 
-approximately generate the canonical “\SI{1}{\micro\metre} at 1 nC” case.  \lsnote{These values refer to the 2D transverse emittance and the bunch charge.  {\it correct?}}
+approximately generate the canonical “\SI{1}{\micro\metre} at 1 nC” case.  \lsnote{These values refer to the 2D transverse emittance and the bunch charge.  {\it correct?}} \nrnote{yes, this is 2D transverse}
 The initial beam parameters were based on gun operations at PITZ \cite{pitz},
 due to the similarities between the PITZ and AWA rf guns.
 The PITZ parameters came close to achieving the \SI{1}{\micro\metre}
@@ -81,7 +82,7 @@ used in this benchmark. The resulting minimum emittance was
 \SI{1.16}{\micro\metre}. 
 
 The initial bunch distribution parameters as well as the 
-on-axis gun gradient, and magnetic field \lsnote{of the solenoids} used in 
+on-axis gun gradient, and magnetic field of the solenoids used in 
 the benchmark are listed in Table~\ref{tab:bench}. 
 The rf gun and solenoid field maps were generated 
 with the SUPERFISH/POISSON  codes~\cite{superfish}.
@@ -89,38 +90,37 @@ The gradient was chosen to match typical operations at PITZ~\cite{pitz}
 and the AWA. The rf and solenoid fields seen by the beam in the gun are shown in Figure~\ref{fig:gunfields}.
 \begin{table}
 	\begin{center}
+		\caption{Input simulation parameters for gun benchmark.}\label{tab:bench}
 		\begin{tabular}{l l} 
 			\toprule
 			\toprule
 			\textbf{Parameter} & \textbf{Value} \\ 
 			\midrule
+			Dipole Length & \SI{0.2}{m} \\
+
+			Magnetic Field Strength & \SI{0.15}{T} \\
+
+			Beam Energy & \SI{65}{MeV} \\
+
 			Charge & \SI{1}{nC} \\
 
-			Gradient & \SI{60}{MV/m} \\
+			Longitudinal Profile & \SI{6}{ps} \\
 
-			Phase & Max energy (on crest) \\
+			Transverse Profile & Uniform \\
 
-			Laser radius & \SI{0.75}{mm} \\
-
-			Rise and fall time & \SI{6}{ps} \\
-
-			Initial kinetic energy & \SI{0.55}{eV} \\
-
-			Matching solenoid strength & \SI{-0.389}{T} \\
-
-			Buck and focusing solenoid strength & \SI{-0.12}{T} \\
 			\bottomrule			
 		\end{tabular}
 	\end{center}
-	\caption{Input simulation parameters for gun benchmark.}\label{tab:bench}
 \end{table}
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.95\textwidth]{images/gun_EM_fields}\caption{Electric and magnetic fields seen by the beam on axis in the gun.  \lsnote{Specify the Z distance to end of gun in figure caption}}\label{fig:gunfields}
+		\includegraphics[width=0.95\textwidth]{images/gun_EM_fields}
+		\caption{Electric and magnetic fields seen by the beam on axis in the gun. 
+			The gun ends at \SI{0.3}{m}. }
+		\label{fig:gunfields}
 	\end{center}
 \end{figure}
 
-\lsnote{the figure number for the gun fields doesn't match the reference}\\
 Note that the codes use various methods to model 
 the rf and magnetic fields, SC, and image charge. 
 The ASTRA simulations used the axial E field of the  
@@ -149,13 +149,13 @@ shifted integrated Green function \cite{imagecharge}.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{images/benchmark_gun}
-		\caption{Beam envelopes in the gun.}
+		\caption{Beam envelopes in the gun for benchmark between OPAL, ASTRA, and GPT.}
 	    \label{fig:benchplot_gun}
 
         \vspace*{\floatsep}
         
 		\includegraphics[width=0.8\textwidth]{images/benchmark_5m}
-		\caption{Beam envelopes in drift.}
+		\caption{Beam envelopes in drift for benchmark between OPAL, ASTRA, and GPT.}
 	    \label{fig:benchplot_5m}
 	\end{center}
 \end{figure}
@@ -163,7 +163,7 @@ shifted integrated Green function \cite{imagecharge}.
 In general, the simulation results are in reasonable agreement 
 and within expectations based on previous benchmarks \cite{codecompare}. 
 See Figure~\ref{fig:benchplot_gun} and~\ref{fig:benchplot_5m} 
-for \lsnote{a comparison of the} beam envelopes \lsnote{generated by the three simulations} in the gun and drift. 
+for a comparison of the beam envelopes generated by the three simulations in the gun and drift. 
 The apparent disagreement of emittance between ASTRA and the other
 two codes in the gun is because the former removes the angular momentum   
 induced by the solenoid, while the other two codes do not. 
@@ -171,23 +171,22 @@ After the beam exits the solenoid, the emittance results
 are in good agreement, as shown in Figure~\ref{fig:benchplot_5m}.
 
 \Subsection{Dipole Simulations}
-Simulations  of  a  hard  edge  dipole  were  done  in  GPT  
-and   OPAL-T   in   order   to   probe   \lsnote{the} CSR \lsnote{results}.   Short   
-mono-energetic bunches with a Gaussian  energy distribution with  zero  initial \lsnote{transverse} emittance  
-were sent through the dipole. \lsnote{{\it If Gaussian in transverse parameter cannot be `zero emmittance'}} Beam and dipole parameters 
-are shown in Table~\ref{tab:benchcsr}. \lsnote{weird table number}
-The CSR routine used in OPAL-T is based on 
-the routine  used  in  ELEGANT  \cite{elegant}, which is known to assume  
-the beam is ultra-relativistic. The CSR routine in GPT  
-does  not  use  the  ultra-relativistic  approximation ($\beta=1$) 
-and  as  a  result,  works  at  all energies  \cite{gptcsr}.  
-Therefore, we expected  the  routines  to  match  well  at  high  energy  and  
-diverge  at  lower  energy.  Results  of  the  CSR  simulations  
-are  shown  in  Figure  4.  \lsnote{{\it missing figure}} As  expected,  the  results  between  
-GPT and OPAL-T disagree at low energies. 
+Simulations of a hard edge dipole were done in GPT  
+and OPAL-t in order to probe the CSR results.
+Short mono-energetic bunches with a Gaussian energy distribution with zero initial transverse emittance  
+were sent through the dipole. \lsnote{{\it If Gaussian in transverse parameter cannot be `zero emmittance'}} 
+\nrnote{I think the Gaussian profile is in the longitudinal direction, I will double check}
+Beam and dipole parameters are shown in Table~\ref{tab:benchcsr}. 
+The CSR routine used in OPAL-t is based on the routine used in ELEGANT \cite{elegant}, 
+which is known to assume the beam is ultra-relativistic. The CSR routine in GPT  
+does not use the ultra-relativistic approximation ($\beta=1$) 
+and as a result, works at all energies \cite{gptcsr}.  
+Therefore, we expected the routines to match well at high energy and  
+diverge at lower energy. Results of the CSR simulations are shown in Figure~\ref{fig:csr}  
+As expected, the results between GPT and OPAL-t disagree at low energies. 
 \begin{table}
 	\begin{center}
-		\caption{Input simulation parameters for gun benchmark.}
+		\caption{Input simulation parameters for CSR benchmark.}
 		\label{tab:benchcsr}
 		\begin{tabular}{l l} 
 			\toprule
@@ -214,13 +213,17 @@ GPT and OPAL-T disagree at low energies.
 \end{table}
 
 
-\Subsection{Convergence Study}
-\lsnote{Did you do these convergence runs for all three codes?  If yes, some comparison to other codes needed.  If not, this does not belong in the benchmark section.  In that case, you need to move your `benchmark conclusion' before this paragraph.  Also, then you need to wrap up this paragraph with a concluding sentence or two.  It can be its own section, even though short.}
+
+\Section{Convergence Study}
+
+
+\lsnote{Did you do these convergence runs for all three codes?  
+	In that case, you need to move your `benchmark conclusion' before this paragraph.  Also, then you need to wrap up this paragraph with a concluding sentence or two.  It can be its own section, even though short.}
 Convergence runs were done for three parameters: 
 time step,  SC  mesh  size,  and  number  of  particles.  
 Each  case was tested in the gun using the same field maps and 
-baseline  settings  that  were  used  to  compare  SC  in  OPAL-T,  
-ASTRA, and GPT. All OPAL-T simulations were run on 
+baseline  settings  that  were  used  to  compare  SC  in  OPAL-t,  
+ASTRA, and GPT. All OPAL-t simulations were run on 
 16 cores, taking advantage of parallel calculations. 
 The number of particles was varied from 20k to 3.2  million.  
 The  longitudinal  parameters  (energy,  bunch length)  
@@ -232,14 +235,9 @@ again the results lacked any major discrepancies.
 In all cases, no appreciable differences were observed in the energy,
 emittance, beam size, or bunch length. In  most  cases,  
 if unreasonable  parameters  were chosen, 
-OPAL-T would not complete the run (crash or hang up).  
+OPAL-t would not complete the run (crash or hang up).  
 
-\nrnote{conclusion}
-Based on the experience gained during this benchmark, 
-all  three  codes  are  capable  of  accurate  simulations.  With  
-respect  to  resources  at  the  AWA:  GPT  and  ASTRA  are  
-better  suited  for  use  on  windows,  and  OPAL-T  is  better  
-suited to Linux and parallel systems.
+
 
 %At 40nC the usable gun phase range (for the 3D field map) is 
 %$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
@@ -553,12 +551,11 @@ evaluated random sample. The sample points for which no other point has better
 emittance and bunch length are connected with a blue line. BOBYQA was started
 from these points, as described above, producing the green approximate Pareto front. 
 
-
 The number of simulation evaluations needed to obtain convergence
 in the BOBYQA runs varied from a minimum of 107 evaluations to a maximum of 208 
 evaluations. In order to generate the Pareto front in
 Figure~\ref{fig:pareto}, a total of 2,492 simulation evaluations were completed.
-Most simulation evaluations took approximately 7 minutes, using 16 cores and 100,000 particles. These numbers are driven by the amount of time OPAL-T needs to simulate the beam line. 
+Most simulation evaluations took approximately 7 minutes, using 16 cores and 100,000 particles. These numbers are driven by the amount of time OPAL-t needs to simulate the beam line. 
 
 The best-found objective value through each BOBYQA run is shown in Figure~\ref{fig:iterations}. 
 Weight 0.0 and 1.0 are negative due to the scaling in Equation~(\ref{eq:scale}). While the weights, $w$, are always nonnegative, 
@@ -617,7 +614,8 @@ can reduce the energy spread significantly.
 
 Next, work began on designing the TBA experimental area. 
 Initial probes into this problem were done using the genetic algorithm
-implemented in OPAL-T~\cite{optpilot}.
+implemented in OPAL-t~\cite{optpilot}.
 
-\lsnote{\Section{Summary}}\\
+\Section{Chapter Summary}
+
 \lsnote{Reiterate the flow of the chapter and the main results of your work.}

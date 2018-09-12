@@ -577,7 +577,7 @@ we compare the sigma matrix before and after the qudrupoles:
 \end{align}
 
 
-\Section{TBA Beam Line Optimization Results}
+\Section{TBA Beam Line Optics Optimization}
  
 With the kicker and septum design set, 
 and the basic geometry of the beam line laid out, 
@@ -602,7 +602,6 @@ All iterations can be found in the following repository:
 	\url{https://github.com/nneveu/awa-tba}
 \end{center}
 which also houses all plotting and simulation scripts used in this chapter.
-
 
 One draw back of using a GA, is that many simulation parameters 
 must be decided empirically after trial and error.
@@ -645,7 +644,7 @@ In other words, the first quadrupole between the septum and kicker.
 \nrnote{this helps reduce dispersion...include better explanation of this}
 \begin{table}%[h!]
 	\begin{center}
-		\caption{Input Parameters for large scale TBA optimization runs.}
+		\caption{Input GA Parameters for large scale TBA optimization runs.}
 		\label{tab:opt-tba}
 		\rowcolors{2}{blue!10}{white}   
 		\begin{tabular}{lc}
@@ -669,11 +668,32 @@ In other words, the first quadrupole between the septum and kicker.
 \end{table}
 In code form, these parameters translate to an OPAL input file that 
 can be found in Appendix~\ref{opt-tba-code}.
-
-
+\begin{table}%[h!]
+	\begin{center}
+		\caption{Non-varing Input Parameters for large scale TBA optimization runs.}
+		\label{tab:variables}
+		\rowcolors{2}{blue!10}{white}   
+		\begin{tabular}{lc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ 
+			\midrule
+			Cavity Phases		&  -20$^\circ$ \\
+			Laser Radius		& 9 mm \\
+			Laser Full Width Half Max	& 10 ps \\
+			Gun Voltage 				& 64 MV\\ 
+			Linac Voltages 				& 24-25 MV \\
+			Kicker Angle				& -2$^\circ$ \\
+			Septum Angle				& -15$^\circ$\\ 
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
 The OPAL input file and other files needed to run simulations on the ANL cluster 
 can be found in the repository listed above.
-Details of the magnet settings, phases, and element locations are on the repository as well.
+Details of how the magnet settings, phases, and element locations defined 
+in Table~\ref{tab:variables} are also on the repository.
 
 
 \Subsection{Optimization Results}
@@ -749,24 +769,39 @@ design variables for the four smallest beam sizes.
 		\end{tabular}
 	\end{center}
 \end{table}
-
+The beam size along the beam line was plotted for these optimized points.
+\nrnote{figures along beam line here}
  
 
 
+\Section{Chapter Summary}
+
+Several design exercises took place to determine the TBA layout at the AWA. 
+A stripline kicker was designed using first principles and simulations. 
+It was fabricated and assembled at ANL with some parts purchased from third party vendors.
+The kickers ability to maintain high voltage was tested with the help of staff members at the APS.
+They also added in performing a Time Domain Reflectometer (TDR) measurement to characterize 
+the impeadance of the kicker, feedthrough, and cable connections. 
+A mismatch at the connection point between the kicker plates and feedthroughs was discovered.
+While the mismatch reduces the available voltage between the plates, it is not a danger to 
+the equipment or beam. After the two out side vacuum tests, the kicker was installed on 
+the AWA drive line. It was tested with \SI{30}{nC} beams. 
+The beam deflection and angle due to the kicker were measured and 
+compared to first order . 
+A septum, which will follow the kicker was fabricated by IMP.
+
+Further design work included determination of the beam line geometry
+using mechanical and hardware constraints at the AWA. 
+A point to point matrix calculation was done to determine if the 
+beam size entering the first quadrupoles could be maintained near the kicker.
+Next, a beam line optimization was done using the built in genetic algorithm in OPAL.  
+Six design variables and five objectives were used. 
+The results are plotted, and confirm the beam line geometer can deliver 
+a \SI{40}{nC} beam to the PETS location with 100\% transmission.
+Future work includes further optimization of the beam line, 
+installation of the septum, quadrupoles, and PETS.
 
 
-
-
-\nrnote{conclude, opt results shows beamline is viable based on intro criteria}
-
-
-\Section{Conclusion}
-
-Kicker designed and installed.
-Out of vacuum tests.
-Matrix calc.
-Beam line optimization setup
-Optimization results
  
 
 

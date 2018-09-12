@@ -413,18 +413,23 @@ However, the results match expectations based on the literature.
 	\end{center}
 \end{table}
 
+\Subsection{Linac Optimization}
+Next we performed a multiobjective optimization of the linac (Figure~\ref{fig:beamline}), 
+by adjusting the ten parameters in table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
+and was chosen to match upcoming two-beam acceleration experiments~\cite{tba2017}. 
+Two objectives were considered: emittance and bunch length ($\sigma_z$). 
+The location of interest is $z_1=\SI{12.51}{m}$, as this is the entrance of the first 
+quadrupole magnet after the linac. We optimize $\epsilon_x$ instead of $\epsilon_{xy}$ because 
+no asymmetric focusing elements were used in the linac. \lsnote{did you mean $e_{y}$ instead of $e_{xy}$?}
+\nrnote{No, I mean we only optimized the emittance in the x direction instead of both x and y. 
+All elements were symmetric in these simulations so ex=ey}
+The non-varying parameters for all linac simulation runs are shown in table~\ref{tab:linac}.
+The model used simulated emission
+from a Cs$_2$Te cathode using a laser with initial kinetic energy of \SI{4}{eV}. 
+These are typical operating conditions at AWA. 
+\lsnote{How did you simulate the cathode emission?  Did you generate a particle distribution with specific parameters, or use a code that models the cathode?}
+\nrnote{OPAL has a model that takes in cathode material, laser energy, work function, etc to model the distribution}
 
-\lsnote{I would not make below a subsection, I would keep the figure and put the information from the description below into the figure caption instead.  I tried to shorten it up a bit.}\\
-\Subsection{Linac Description} \label{sec:pareto}
-\nrnote{maybe this beam line description should be in chp 2:}\\
-The \SI{70}{MeV} \lsnote{AWA} rf photoinjector \lsnote{\sout{at the AWA}}
-\lsnote{is \sout{consists of}} an rf gun followed by \lsnote{a linac with} six rf accelerating cavities, 
-\lsnote{ labeled $L_1$-$L_6$ \cite{Power:2010zza}.  The cavity phases are constrolled independently. \sout{hereafter referred to as the linac. 
-See Figure~\ref{fig:beamline} for the beam line layout.} } 
-The 1.5 cell rf gun operates at \SI{1.3}{GHz} with three solenoids 
-and a Cs$_{2}$Te photocathode excited by a \SI{248}{nm} UV laser.  
-Solenoid 1 ($S_1$) is used to buck the field at the cathode,
-while the other two solenoids ($S_2$ and $S_3$) are used for emittance compensation.  
 \def \gunleft {-1.0}
 \def \gunright {0.3}
 \def \loneright {1.0}
@@ -484,28 +489,17 @@ while the other two solenoids ($S_2$ and $S_3$) are used for emittance compensat
 		at (12.5,1.0) {$z_1$};
 		\end{tikzpicture}
 	\end{center}
-	\caption{Layout of the AWA linac. \lsnote{You could insert your paragraph here, then delete what follows up until the sentence beginning with `Tick marks..'}
-		The gun is enlarged to show solenoid detail. The physical length is
-		\SI{0.3}{m}. The cathode is located at $z=\SI{0}{m}$. Linac cavities are
-		\SI{0.85}{m} long. Tick marks are located at the exit of the gun, entrance of
+	\caption{Layout of the AWA linac. The \SI{70}{MeV} AWA rf photoinjector 
+		is an rf gun followed by a linac with six rf accelerating cavities, 
+		labeled $L_1$-$L_6$ \cite{Power:2010zza}.  The cavity phases are controlled independently. 
+		The 1.5 cell rf gun operates at \SI{1.3}{GHz} with three solenoids 
+		and a Cs$_{2}$Te photocathode excited by a \SI{248}{nm} UV laser.  
+		Solenoid 1 ($S_1$) is used to buck the field at the cathode,
+		while the other two solenoids ($S_2$ and $S_3$) are used for emittance compensation.  
+		Tick marks are located at the exit of the gun, entrance of
 		each accelerating cavity, and location of optimization.}
 	\label{fig:beamline} 
 \end{figure*} 
-
-\Subsection{Linac Optimization}
-%\section{Linac Optimization} 
-% ----------------------------------------------------
-Next we performed a multiobjective optimization of the linac (Figure~\ref{fig:beamline}), 
-by adjusting the ten parameters in table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
-and was chosen \lsnote{to match \sout{for}} upcoming two-beam acceleration experiments~\cite{tba2017}. 
-Two objectives were considered: emittance, and bunch length, $\sigma_z$. 
-The location of interest is $z_1=\SI{12.51}{m}$, as this is the entrance of the first 
-quadrupole magnet after the linac. We optimize $\epsilon_x$ instead of $\epsilon_{xy}$ because 
-no asymmetric focusing elements were used in the linac. \lsnote{did you mean $e_{y}$ instead of $e_{xy}$?}
-The non-varying parameters for all linac simulation runs are shown in table~\ref{tab:linac}.
-The model used simulated emission
-from a Cs$_2$Te cathode using a laser with initial kinetic energy of \SI{4}{eV}. 
-These are typical operating conditions at AWA. \lsnote{How did you simulate the cathode emission?  Did you generate a particle distribution with specific parameters, or use a code that models the cathode?}
 \begin{table}[h] %or [hbt] ?
 	\caption{\label{tab:linac} Non-varying parameters for linac optimization.}
 	\begin{center}
@@ -528,7 +522,8 @@ These are typical operating conditions at AWA. \lsnote{How did you simulate the 
 A 1,000 point sample of linac parameters were drawn from the domain
 in table~\ref{tab:parameters} and simulated. Of these, 132 simulations completed
 without error, and the emittance and bunch length at $z_1=\SI{12.51}{m}$ was
-recorded for each of these points. From the sample \lsnote{of the 132 successful simulations {\it correct?}} the minimum and maximum values of emittance and bunch length
+recorded for each of these points. From the sample of the 132 successful simulations \nrnote{yes, your edit was correct 132 samples}
+the minimum and maximum values of emittance and bunch length
 were found (i.e: $\epsilon_{\min}$ and $\epsilon_{\max}$). 
 The raw $\epsilon_x(v,z_1)$ and $\sigma_z(v,z_1)$ sample values were then
 shifted and scaled to produce $\bar{\epsilon}_x(v,z_1)$, and $\bar{\sigma}_z(v,z_1)$,
@@ -562,7 +557,7 @@ Since multiple objectives are under consideration in this case, a
 trade-off analysis is necessary. 
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.98\textwidth]{images/THPAB155f1}
+		\includegraphics[width=0.75\textwidth]{images/THPAB155f1}
 		\caption{Random sample results, starting sample points, and resulting approximate Pareto front for the linac at \SI{40}{nC}. The Pareto front is the result of all BOBYQA evaluations.}
 		\label{fig:pareto}
 	\end{center}
@@ -586,7 +581,7 @@ $\bar{\epsilon}_x (v,z_1)$ or $\bar{\sigma}_z(v,z_1)$ will be negative if BOBYQA
 $\epsilon_x(v,z_1)$ or $\sigma_z(v,z_1)$ that is less than $\epsilon_{\min}$ or $\sigma_{\min}$ from the initial sample. 
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.98\textwidth]{images/THPAB155f2}
+		\includegraphics[width=0.75\textwidth]{images/THPAB155f2}
 		\caption{\label{fig:iterations}Minimum observed objective function values during eleven BOBYQA runs at \SI{40}{nC}.}
 	\end{center}
 \end{figure}
@@ -599,7 +594,7 @@ shows strong correlation with the gun phase. Other optimized parameters such as 
 narrow range (\SIrange{10}{16}{mm}).  
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.98\textwidth]{images/THPAB155f3}
+		\includegraphics[width=0.75\textwidth]{images/THPAB155f3}
 		\caption{\label{fig:trade}Bunch length and emittance vs.~gun phase at each optimized point in the Pareto front for the linac at \SI{40}{nC}. The phase of the max energy gain is 0$^{\circ}$.}
 	\end{center}
 \end{figure}

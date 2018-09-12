@@ -1,4 +1,4 @@
-\Chapter{Beam Line Design}%________________________________
+\Chapter{Beam Line Design}\label{chp:4}%________________________________
 
 
 \Section{Introduction}
@@ -240,28 +240,47 @@ and have room for the beam centroid deflection that the kicker will cause.
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
 for the transverse offset of the beam as it exits the kicker. 
 
-At this point, it was clear the gap needed to be larger than \SI{30}{mm}. 
+At this point, it was clear the gap needed to be larger than \SI{30}{mm}, due to the beam size at \SI{40}{nC}. 
 Around this time, it was also learned that the max pulsar was $\pm$ \SI{30}{kV}, not $\pm$ \SI{35}{kV} as expected. 
 These two factors would drive the possible kick angle below \SI{2}{^\circ}, if the kicker plates remained the same length.
 The next question was whether to push for a larger angle by elongating the kicker plates, 
 or whether plate gap values at \SI{40}{mm} and above were sufficient, see Table \ref{tab:kickparam}.
-\lsnote{Did you mean 40 cm?} \nrnote{I meant using a kicker gap of 40 mm or more, is re-write more clear?}
-A few mechanical constraints were now considered. 
-Since the deflected and undeflected beams must travel in the same pipe until reaching the septum, 
-this requires \SI{100}{mm} (\SI{4}{inch}) beam pipe after the kicker and before the septum.
-This would be a unique and custom piece designed at AWA and ordered from MDC Vacuum Products, by Scott Doran. 
+A few mechanical constraints were now considered. One beam pipe will connect the kicker and septum.
+In this area, the deflected and undeflected beams must travel in the same pipe until reaching the septum.
+After the septum, the two beams are separated into their own beam pipes.
+The connection piece before the split, is a unique and custom piece designed at 
+AWA and ordered from MDC Vacuum Products, by Scott Doran. 
 This large chamber requires more vacuum pumping than other areas, 
 which could complicate installation if the chamber was too long. 
-In the regard, a larger angle would help.
+In this regard, a larger angle would help by shortening the pipe length between the kicker and septum.
+\begin{table}%[h!]
+	\begin{center}
+		\caption{Mechanical constraints for TBA beam line.}
+		\label{tab:mechanical}
+		\rowcolors{2}{blue!10}{white}   
+		\begin{tabular}{lc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ 
+			\midrule
+			Distance between kicker and septum	&  \SI{1}{m} \\
+			Distance between deflected/undeflected beam pipe in septum	& \SI{100}{mm} \\
+			Distance between parallel drive lines	& \SI{0.5}{m} \\
+			Kicker plate 				& 64 MV\\ 
+			Linac Voltages 				& 24-25 MV \\
+			Kicker Angle				& -2$^\circ$ \\
+			Septum Angle				& -15$^\circ$\\ 
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
 
-\lsnote{{\it I am confused by this discussion.  Are there one or two beam pipes after the kicker?  And how does a larger angle help?  Does it allow going from 1 to 2 beampipes?  Also, I think a table of the lengths (below) rather than a description would be more efficient.  Just say the distances are in the table.}}
-
-Next, it was decided to drop the beam pipe to \SI{25}{mm} (\SI{1}{inch}) in and near the septum, 
-so that the two diverging beam lines could be closer together. 
-In this scenario, the center to center distance of the two beam pipes would be at \SI{50}{mm}.
-This means the two beam trajectories must follow this specification as well.
-\nrnote{there is still a few more sentences I need to write here...1 meter between kicker and septum, 2 m between septum and dipole to get 0.5 m separation...}
-
+After a discussion on fabrication techniques and the mechanical constraints in Table~\ref{tab:mechanical}, 
+it was noted that the maximum kicker plate length could be \SI{1}{m}. 
+A new table of voltages and angles was calculated. At this plate length, 
+a gap width of \SI{40}{mm} provided roughly \SI{2}{^\circ} of kick again. 
+This angle would satisfy the one inch pipe spacing in the septum as well. 
 
 For a length of \SI{1}{m}, and gap of \SI{40}{mm}, 
 several beam energy and angle scenarios were considered.
@@ -417,12 +436,14 @@ is fairly linear with respect to kicker voltage.
 
 Using the x offest numbers found in Figure~\ref{fig:linear}, 
 we can compare the measured angle vs. first order approximations from Section~\ref{theory}.
-\nrnote{Need to know exact location of YAG screen to finish this analysis.}
+\nrnote{Need to know exact location of YAG screen to finish this analysis.
+	Drift between kicker plate and YAG screen is probably adding xoffset to beam.
+I will go to AWA to measure this, and plot centroid calc on Fig 2.11 afterwards. }
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/kicker_angle_comparison}
 	\caption{Measured angle provided by the kicker at several voltages.
-	These are compared to 1st order calculations of what the angles should be for 
+	These are compared to 1st order calculations for 
 	\SI{75}{MeV} and \SI{65}{MeV} beams.}
 	\label{fig:angles}
 \end{figure}
@@ -447,6 +468,8 @@ the large discrepancy can not be attributed to the kicker alone.
 This is clear when looking at the beam sizes when the kicker is off. 
 The beam is already asymmetric before the kicker is turned on.
 This is encouraging, as it can be fixed with better control of the quadrupoles.
+\nrnote{Argonne cluster was down the last two days. Should be up tomorrow. 
+I will add simulation results to this plot after.}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/xybeamsizes_high_charge_kicker_scan}
@@ -463,12 +486,11 @@ This is encouraging, as it can be fixed with better control of the quadrupoles.
 
 
 \Section{TBA Beam Line}
-\nrnote{short discussion of the issues, what are you trying to achieve, where are apetures tight.
+\nrnote{skip this section, not edited yet}
+\nrnote{Notes from call: short discussion of the issues, what are you trying to achieve, where are apetures tight.
 	comments on what trying to do with optimization and issues}
 \lsnote{So here the optics stuff starts - again you will need a little introduction.  What are the goals, and what are you going to present?}
 \lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
-\nrnote{only point to point calculation, but I'm having second thoughts. 
-I didn't spend much time on it, maybe I should cut it.}
 A drift: 
 \begin{equation}
 R_d = 
@@ -770,7 +792,7 @@ design variables for the four smallest beam sizes.
 	\end{center}
 \end{table}
 The beam size along the beam line was plotted for these optimized points.
-\nrnote{figures along beam line here}
+\nrnote{a lot more figures to add here, beam sizes along beam line here}
  
 
 
@@ -787,7 +809,7 @@ While the mismatch reduces the available voltage between the plates, it is not a
 the equipment or beam. After the two out side vacuum tests, the kicker was installed on 
 the AWA drive line. It was tested with \SI{30}{nC} beams. 
 The beam deflection and angle due to the kicker were measured and 
-compared to first order . 
+compared to first order. 
 A septum, which will follow the kicker was fabricated by IMP.
 
 Further design work included determination of the beam line geometry

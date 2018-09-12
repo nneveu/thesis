@@ -395,7 +395,7 @@ differences from the optimum value. The optimization runs converged
 $\phi_g=\SI{-3.0}{^{\circ}}$, and $R=\SI{0.6}{mm}$) with an emittance of $\SI{1.08}{\um}$.
 An exhaustive search of the parameter space was not done, and there may be other local minima that were not found.
 However, the results match expectations based on the literature. 
-\begin{table}[h] 
+\begin{table}%[h] 
 	\caption{\label{tab:gun} Non-varying parameters for gun optimization.}
 	\begin{center}
 		\begin{tabular}{lll}
@@ -413,7 +413,7 @@ However, the results match expectations based on the literature.
 	\end{center}
 \end{table}
 
-\Subsection{Linac Optimization}
+\Subsection{Linac Optimization}\label{sec:linacopt}
 Next we performed a multiobjective optimization of the linac (Figure~\ref{fig:beamline}), 
 by adjusting the ten parameters in table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
 and was chosen to match upcoming two-beam acceleration experiments~\cite{tba2017}. 
@@ -500,7 +500,7 @@ These are typical operating conditions at AWA.
 		each accelerating cavity, and location of optimization.}
 	\label{fig:beamline} 
 \end{figure*} 
-\begin{table}[h] %or [hbt] ?
+\begin{table}%[h] %or [hbt] ?
 	\caption{\label{tab:linac} Non-varying parameters for linac optimization.}
 	\begin{center}
 		\begin{tabular}{lll}
@@ -611,8 +611,6 @@ This indicates optimized linac phases may benefit a range of gun settings during
 
 
 \Subsection{Lessons Learned from BOBYQA Work}
-\nrnote{conclusion from paper... add some?}
-% ----------------------------------------------------
 Using an AWA beam line as the simulation model, we used the BOBYQA algorithm 
 to optimize the emittance produced by the gun at \SI{1}{nC}.
 Using the same algorithm, we performed a multiobjective analysis for the linac at \SI{40}{nC}. 
@@ -626,14 +624,81 @@ can reduce the energy spread significantly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{OPAL and the Genetic Algorithm: NSGA-II} \label{sec:ga}
+\Subsection{Genetic Algorithm: NSGA-II} \label{sec:ga}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+While the model based results are promising, 
+GA's are the most commonly used type of optimization algorithm in the accelerator community.
+In particular the Non-dominated Sorting Genetic Algorithm II (NSGA-II)~\cite{NSGA}, 
+is the implementation that is most commonly used.
+\nrnote{add another sentence about NSGAII details.}
+To validate that the model based method was giving comparable results to what a GA would give, 
+a low fidelity version of the linac simulation in Section~\ref{sec:linacopt} was formulated.
+This fidelity change included reducing the number of particles and grid points. 
+The boundaries on the design variables were also reduced to ensure only 
+feasible simulation points were evaluated.
+
+Figure~\ref{fig:GAvsModel} clearly shows the optimized simulations results from 
+the GA and model based method are similar. Both methods gave desirable 
+results for the linac optimization problem. 
+The main difference between the two methods is the amount of computational 
+resources needed, see the comparison in Table~\ref{tab:optcompare}.
+Note, that as a general r.o.t. most people simulate at least 100 generations, 
+before stopping a GA.
+These results suggest the model based method and GA will arrive at 
+the same conclusion, per say, but at different times.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{./images/model_vs_ga}
+	\caption{Comparison of model based and GA simulations results.}
+	\label{fig:GAvsModel}
+\end{figure}
+\begin{table}[h] %or [hbt] ?
+	\caption{Number of simulation evaluations for model based and GA optimizations.
+	These numbers correspond to the lines in Figure~\ref{fig:GAvsModel}.}
+	\label{tab:optcompare}
+	\begin{center}
+		\begin{tabular}{lcc}
+			\toprule
+			\toprule
+			\textbf{Optimization} & \textbf{Number of Simulations} & \textbf{Compute Hours} \\
+			\midrule
+			Model Based  		& 2393  & 79.8 \\
+			GA 19 Generations 	& 2432  & 81.1 \\
+			GA 200 Generations 	& 25600 & 853.3\\
+			GA 400 Generations 	& 51200 & 1706.7\\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
 
 Next, work began on designing the TBA experimental area. 
 Initial probes into this problem were done using the genetic algorithm
-implemented in OPAL-t~\cite{optpilot}.
+implemented in OPAL-t~\cite{optpilot}. Details of this work can be found in Chapter~\ref{chp:4}.
 
 \Section{Chapter Summary}
 
-\lsnote{Reiterate the flow of the chapter and the main results of your work.}
+PIC simulations of the AWA drive line are essential to the TBA project.
+A new code OPAL-t was investigate as an alternative to ASTRA and GPT. 
+The benefits of OPAL include it is free and parallel.
+A benchmark was done to ensure that OPAL was being used correctly 
+in comparison to other codes used by members of the AWA.
+No major discrepancies were found in the space charge and CSR algorithms.
+Although, the OPAL CSR routine can not be used for low energy beams.
+Convergence studies were also done to determine base line computational 
+parameters for future simulations.
+Moving forward all PIC simulations of the TBA beam line were performed using OPAL-t on clusters provided by ANL.
+
+Next, optimization work began to prepare a set of operating parameters for
+\SI{40}{nC} TBA experiments. This work included using the model based method 
+BOBYQA to optimize the gun and linac.
+Validation of the model based methods was done with the commonly used 
+GA method. The results agreed well, and suggested the model based 
+methods require fewer computational resources than a GA. 
+
+
+
+
+
+

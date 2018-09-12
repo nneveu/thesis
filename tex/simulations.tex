@@ -7,10 +7,11 @@
 
 \lsnote{You need to start the chapter with summary paragraphs.  (1) Why are simulations needed?  (2) What simulation work was done?  (3) What method was chosen and why?  (4) What were the results?  You can't put  all of that in now, since some of it is unknown, but you should do (1), (3) and part of (2).  Also, before launching into the OPAL stuff, you need to say a few words about the beam characteristics during TBA studies.  A table of beam characteristics would be good here, one for the drive beam, and one for the witness.  After presenting the beam characteristics, you can mention that space charge is a problem for the drive beam - since now they know the intensity.}
 
-With  the  rapid  improvement  in  computing  resources  and  codes  in  recent  years,  
-accelerator  facilities  can  now achieve and rely on accurate beam dynamics simulations. 
-These  simulations  include  single  particle  effects  (e.g. particle tracking in a magnetic field) as well as collective effects  such  as  space  charge  (SC),  
-and  coherent  synchrotron  radiation  (CSR).
+With the rapid improvement in computing resources and codes in recent years,  
+accelerator facilities can now strive to rely on accurate beam dynamics simulations. 
+These simulations include single particle effects 
+(e.g. particle tracking in a magnetic field) as well as collective effects such as space charge (SC),  
+and coherent synchrotron radiation (CSR).
 
 The beam dynamics reported in this thesis, were simulated with 
 the open source, particle-in-cell (PIC) code OPAL \cite{opal}. 
@@ -26,6 +27,7 @@ It was chosen for several reasons:
 	\item Able to calculate transverse space charge and wakefield forces 
 	\item Option to run the code in parallel
 	\item Data recorded in global and local reference frames 
+	\item Free and open source (freely available to the public)
 \end{itemize} 
 
 The first item is crucial to standard operations at the AWA. Especially in the 
@@ -43,7 +45,7 @@ and up to 5,200 cores for large optimization runs.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Benchmarking}
+\Section{Benchmarking}\label{sec:bench}
 
 Initially OPAL-t was benchmarked against commonly used particle tracking codes ASTRA and GPT.  
 This ensured correct use of the code, and reliability of \mbox{OPAL-t}.  
@@ -92,29 +94,31 @@ and the AWA. The rf and solenoid fields seen by the beam in the gun are shown in
 	\begin{center}
 		\caption{Input simulation parameters for gun benchmark.}\label{tab:bench}
 		\begin{tabular}{l l} 
-			\toprule
-			\toprule
-			\textbf{Parameter} & \textbf{Value} \\ 
-			\midrule
-			Dipole Length & \SI{0.2}{m} \\
-
-			Magnetic Field Strength & \SI{0.15}{T} \\
-
-			Beam Energy & \SI{65}{MeV} \\
-
-			Charge & \SI{1}{nC} \\
-
-			Longitudinal Profile & \SI{6}{ps} \\
-
-			Transverse Profile & Uniform \\
-
-			\bottomrule			
-		\end{tabular}
+	\toprule
+	\toprule
+	\textbf{Parameter} & \textbf{Value} \\ 
+	\midrule
+	$\sigma_x =\sigma_y$ & \SI{1}{mm} \\
+	Gradient & \SI{60}{MV/m} \\
+	
+	Phase & Max energy (on crest) \\
+	
+	Laser radius & \SI{0.75}{mm} \\
+	
+	Rise and fall time & \SI{6}{ps} \\
+	
+	Initial kinetic energy & \SI{0.55}{eV} \\
+	
+	Matching solenoid strength & \SI{-0.389}{T} \\
+	
+	Buck and focusing solenoid strength & \SI{-0.12}{T} \\
+	\bottomrule			
+\end{tabular}
 	\end{center}
 \end{table}
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.95\textwidth]{images/gun_EM_fields}
+		\includegraphics[width=0.75\textwidth]{images/gun_EM_fields}
 		\caption{Electric and magnetic fields seen by the beam on axis in the gun. 
 			The gun ends at \SI{0.3}{m}. }
 		\label{fig:gunfields}
@@ -175,7 +179,7 @@ Simulations of a hard edge dipole were done in GPT
 and OPAL-t in order to probe the CSR results.
 Short mono-energetic bunches with a Gaussian energy distribution with zero initial transverse emittance  
 were sent through the dipole. \lsnote{{\it If Gaussian in transverse parameter cannot be `zero emmittance'}} 
-\nrnote{I think the Gaussian profile is in the longitudinal direction, I will double check}
+\nrnote{the Gaussian profile is in the longitudinal direction, I will double check}
 Beam and dipole parameters are shown in Table~\ref{tab:benchcsr}. 
 The CSR routine used in OPAL-t is based on the routine used in ELEGANT \cite{elegant}, 
 which is known to assume the beam is ultra-relativistic. The CSR routine in GPT  
@@ -193,62 +197,67 @@ As expected, the results between GPT and OPAL-t disagree at low energies.
 			\toprule
 			\textbf{Parameter} & \textbf{Value} \\ 
 			\midrule
+			Dipole Length & \SI{0.3}{m} \\
 			$\sigma_x =\sigma_y$ & \SI{1}{mm} \\
-			Gradient & \SI{60}{MV/m} \\
-
-			Phase & Max energy (on crest) \\
-
-			Laser radius & \SI{0.75}{mm} \\
-
-			Rise and fall time & \SI{6}{ps} \\
-
-			Initial kinetic energy & \SI{0.55}{eV} \\
-
-			Matching solenoid strength & \SI{-0.389}{T} \\
-
-			Buck and focusing solenoid strength & \SI{-0.12}{T} \\
+			$\sigma_z$ 			 & \SI{0.3}{mm} \\
+			Bend Angle 			 & \SI{20}{^\circ} \\
+			Energy (Mono-energetic)	 & \SI{2}{MeV} to \SI{100}{MeV} \\
 			\bottomrule			
 		\end{tabular}
 	\end{center}
 \end{table}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{./images/CSR}
+	\caption{Results of CSR benchmark between OPAL and GPT.
+	The codes agree well at high energies and diverge, as expected, at low energies.}
+	\label{fig:csr}
+\end{figure}
 
+\Subsection{Benchmark Conclusion}
+In summary, all three codes (OPAL, ASTRA, GPT), agreed well when modeling a photoinjector
+with space charge effects, solenoid and RF fields.
+OPAL and GPT also agree on energy loss and energy spread calculations at high energy.
+At low energy they diverge, and GPT is more accurate because it calculates 
+$\beta$ at all time vs. assuming the beam is relativistic.
+Preference on which code to use depends more on ease of use 
+and availability. 
 
+\Section{Convergence Studies}
 
-\Section{Convergence Study}
-
-
-\lsnote{Did you do these convergence runs for all three codes?  
-	In that case, you need to move your `benchmark conclusion' before this paragraph.  Also, then you need to wrap up this paragraph with a concluding sentence or two.  It can be its own section, even though short.}
+\nrnote{This was only done in OPAL}
 Convergence runs were done for three parameters: 
-time step,  SC  mesh  size,  and  number  of  particles.  
-Each  case was tested in the gun using the same field maps and 
-baseline  settings  that  were  used  to  compare  SC  in  OPAL-t,  
-ASTRA, and GPT. All OPAL-t simulations were run on 
-16 cores, taking advantage of parallel calculations. 
-The number of particles was varied from 20k to 3.2  million.  
-The  longitudinal  parameters  (energy,  bunch length)  
-showed  no  variation,  but  there  were  slight  deviations 
+time step, SC mesh size, and number of particles.  
+Each case was tested in the gun using the same field maps and 
+baseline settings that were used to compare SC in OPAL-t,  
+ASTRA, and GPT in Section~\ref{sec:bench}. 
+All OPAL-t simulations were run on 
+sixteen cores, taking advantage of parallel calculations. 
+The number of particles was varied from 20k to 3.2 million.  
+The longitudinal parameters (energy,  bunch length)  
+showed no variation, but there were slight deviations 
 in the transverse emittance and beam size. The same results 
 were observed when the time step was varied from 0.1 ps  to  10  ps.  
-The  grid  size  was  changed  from  32,  44,  46, and 64 cubed; 
+The grid size was changed from 32, 44, 46, and 64 cubed; 
 again the results lacked any major discrepancies.  
 In all cases, no appreciable differences were observed in the energy,
 emittance, beam size, or bunch length. In  most  cases,  
 if unreasonable  parameters  were chosen, 
 OPAL-t would not complete the run (crash or hang up).  
 
+From these runs, it was concluded that an appropriate starting point 
+for mid fidelity simulations is 32 cubed grid with a time step
+of 0.1 ps. The number of particles for such a run should be on the
+order of 10's of thousands. On eight or sixteen compute cores
+these simulations take on the order of minutes.
 
-
-%At 40nC the usable gun phase range (for the 3D field map) is 
-%$-30^\circ \le \phi_g \ge 30^\circ$. The usable region was defined 
-%as the region where all particles are emitted from the gun. 
-%i.e. at $40^\circ$, particles were lost. 
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Optimization} \label{sec:opt}
 
 Throughout the design process, optimization algorithms 
-were used to study the beam \lsnote{parameters at the entrance of \sout{entering}} the TBA experimental area.
+were used to study the beam parameters at the entrance of the TBA experimental area.
 Minimizing the emittance and bunch length after the six cavity linac,
 and choosing the optimal optics configuration for maximum beam transport 
 were the main objectives of all optimization work.
@@ -257,81 +266,94 @@ and structure exploiting algorithms.
  
 Model-based, derivative-free, trust-region algorithms 
 are increasingly popular for optimizing computationally 
-expensive numerical simulations. \lsnote{Not being an expert, I personally would like to see a quick 
-definition of `model-based', `derivative-free, and `trust-region'.  This helps the general reader to 
-better track what you are doing.}  A strength of such
-methods is their efficient use of function evaluations. 
-\lsnote{\sout{This was the first type of algorithm used to optimize 
-the beam dynamics in two cases of interest at the AWA.}}  
+expensive numerical simulations. Where model-based refers
+to the the simulation output being used to construct a 
+model. This can be a quadratic function as described later, 
+or something more complex.
+Derivative-free optimization indicates there is no one 
+governing equation that defines all simulation output
+for a given set of inputs. For example, there is no 
+function for beam size that we can take the derivative of.
+Calculating derivatives are in many common optimization technique, 
+but not applicable in situations of complex dynamics.
+Finally, trust-region refers to the bounds on our input variables.
+There are physical constraints on the magnet and RF values we 
+can achieve in the real world. This information is used 
+to bound the optimization work in a "trust-region", so that
+effort is not wasted in an infeasible search space.
+A strength of model based methods is their efficient use of function evaluations. 
 
-\lsnote{{\it There is an organizational problem here.}  You need to finish the `introduction' before launching into specifics.  The two paragraphs after the following one seem like part of the intro, you say why you used the genetic algorithm, and then how you reduced the time.  This goes with the overall picture of the intro.  You also need to give a {\it brief} explanation of what genetic algorithms and structure based agorithms are (as well as model-based) in the intro.  Then you can have a new subsection; `model-based algorithm studies' before launching into the following paragraph.}
+After a model based method was implemented, a common technique was 
+used as confirmation and for exploratory work. The algorithm used for confirmation 
+is called a genetic algorithm (GA). An implementation of this algorithm is
+build into OPAL. GA's follow natures lead as the name suggests.
+A random sample is done, and the best points (give some criteria)
+are selected. Those point are then mixed to form a new "generation"
+and a new round of simulations is started. This method continues
+until some convergence criteria is met. While this method does 
+produce results, and is widely used, it requires large amounts 
+of computational resources to to reach convergence.
+This is the most commonly used optimization in accelerator physics
+at the moment. Preliminary designs 
+for the TBA optics configuration were probed using the GA in to OPAL. 
 
-The model-based algorithm was the first type of algorithm used to optimized the beam dynamics in two cases of interest at the AWA.  \lsnote{The first case was for lower beam charge, and used only the gun parameters for the optimization.  The second case was for higher beam charge, and included parameters of the downstream linac as well as the gun.} 
-\lsnote{In the first case, \sout{First,}} the emittance of a \SI{1}{nC} electron 
+
+
+\Subsection{Model Based Methods}
+%\section{Optimization Algorithm}
+% ----------------------------------------------------
+The model-based algorithm was the first type of algorithm used to optimized the beam dynamics 
+in two cases of interest at the AWA.
+The first case was for lower beam charge, and used only the gun parameters for the optimization.  
+The second case was for higher beam charge, and included parameters of the downstream linac as well as the gun.
+In the first case,  the emittance of a \SI{1}{nC} electron 
 bunch produced by the AWA rf photocathode gun 
 was minimized by adjusting three parameters: rf gun phase, 
 solenoid strength, and laser radius. The algorithm 
-\lsnote{converged} to a set of parameters that \lsnote{yielded} an
-emittance of \SI{1.08}{\um}. \lsnote{In the second case, \sout{Second, we expand}} 
-the number of optimization parameters \lsnote{was expanded} to model the complete AWA rf 
+converged to a set of parameters that yielded an
+emittance of \SI{1.08}{\um}. In the second case, 
+the number of optimization parameters was expanded to model the complete AWA rf 
 photoinjector (the gun and six accelerating cavities) at \SI{40}{nC}. 
-The optimization algorithm was used in a Pareto \lsnote{study; which is a type of study} that compares the 
-trade-off between \lsnote{competing parameters, such as} emittance and bunch 
-length \lsnote{at the exit of \sout{for}} the AWA \SI{70}{MeV} photoinjector. \nrnote{finished?}
+The optimization algorithm was used in a Pareto study; which is a type of study that compares the 
+trade-off between competing parameters, such as emittance and bunch 
+length at the exit of the AWA \SI{70}{MeV} photoinjector. 
 
-\lsnote{Following two paragraphs should be part of intro.  Then the details in separate sub-sections.}
-After a model based method was implemented, a common technique was 
-used as confirmation and for exploratory work. Preliminary designs 
-for the TBA optics configuration were probed using a Genetic Algorithm
-that was built in to OPAL.  \nrnote{running simulations now}
-
-Finally, to reduce the amount of time needed to optimize the complete beam line, 
-a structure exploiting algorithm was implemented. \nrnote{working on this}
-
-
-\Subsection{Bounded Optimization by Quadratic Approximation (BOBYQA)}
-%\section{Optimization Algorithm}
-% ----------------------------------------------------
 Model-based, derivative-free algorithms are frequently used to optimize
 computationally expensive simulations due to their judicious use of function
 evaluations. In cases specific to accelerator physics, 
 beam properties at different operational parameters are observed;
 these methods then build models of the unknown
 function and minimize these models to identify candidate parameters to 
-evaluate. BOBYQA~\cite{bobyqa} is one such method that is available via the
+evaluate. Bounded Optimization BY Quadratic Approximation (BOBYQA)~\cite{bobyqa},
+ is one such method that is available via the
 NLopt~\cite{nlopt} package and was used in this study. 
 Given a candidate set of optimal parameters $v^k$, BOBYQA
 constructs a quadratic model using function values of points near $v^k$. 
-This model is minimized in a neighborhood of $v^k$ in order to produce a point $\hat{v}$. If $\hat{v}$ has a smaller objective function value than $v^k$, 
+This model is minimized in a neighborhood of $v^k$ in order to produce a point $\hat{v}$. 
+If $\hat{v}$ has a smaller objective function value than $v^k$, 
 the estimate of the optimum is updated to $\hat{v}$, and a new model is constructed. 
 If $\hat{v}$ is not a sufficient improvement over $v^k$, 
 the model around $v^k$ is improved. For more
 information about derivative-free optimization, see~\cite{Conn2009a}.
 
-The parameters $v^k$ are generated and supplied to OPAL\=/T~\cite{opal}. 
-The optimization package NLopt and OPAL\=/t were used
+The parameters $v^k$ are generated and supplied to OPAL-t~\cite{opal}. 
+The optimization package NLopt and OPAL-t were used
 in combination with Python code written at ANL with the help 
 of Jeff Larson, to perform simulation evaluations and optimization.
-All the files needed to replicate the results in this section are available \lsnote{at: $<$www.mcs.anl.gov/$\sim$jlarson/AWA$>$.  {\it Put previous on same line of text, then delete below until the next subsection.}}
-
-\begin{center}
-	www.mcs.anl.gov/$\sim$jlarson/AWA
-\end{center}
-
-\lsnote{\sout{Interested parties are welcome to adapt the code to their needs
-and suggest improvements.}}
+All the files needed to replicate the results in this section are available at: 
+$<$www.mcs.anl.gov/$\sim$jlarson/AWA$>$.  
 
 \Subsection{Optimization Parameters}
 % ----------------------------------------------------
-When optimizing the gun, three parameters \lsnote{$v^k$ {\it (add to better tie to previous paragraph)}} were varied: 
+When optimizing the gun, three parameters $v^k$ were varied: 
 solenoid strength ($S_3$), gun phase ($\phi_g$), 
-and laser radius ($R$) of a uniform \lsnote{ photon distribution \sout{pulse}}. 
+and laser radius ($R$) of a uniform photon distribution. 
 The minimized objective was emittance ($\epsilon_x$).
-(The \lsnote{reference} phase \lsnote{of the gun} is defined as $0^{\circ}$ at maximum \lsnote{accelerating voltage \sout{energy gain}}.) 
-When optimizing the \lsnote{gun and the} entire linac, seven additional parameters were 
-varied: the longitudinal \lsnote{duration of the} laser \lsnote{pulse, defined at} full width at half maximum ($T$)
+(The reference phase of the gun is defined as $0^{\circ}$ at maximum accelerating voltage.) 
+When optimizing the gun and the entire linac, seven additional parameters were 
+varied: the longitudinal duration of the laser pulse, defined at full width at half maximum ($T$)
 and accelerating cavity phases ($\phi_L$). The optimization parameters and
-bounds are given in table~\ref{tab:parameters}; we denote the set of
+bounds are given in Table~\ref{tab:parameters}; we denote the set of
 ten optimization parameters as $v=[S_3, \phi_g, R, T, \phi_L]$, where 
 $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavity $L_1$-$L_6$. 
 \nrnote{need to fix footnotes and superscripts for table 3.3}
@@ -345,12 +367,10 @@ $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavit
 			Solenoid Strength & $ 0 \le S_3 \le 440$  & amps \\
 			Phase of Gun & $-60 \le \phi_g \le 60$  & degrees \\
 			Laser Radius  & $0.1 \le R \le 30$  & mm \\
-			Laser FWHM \footnotemark \label{note1}& $2 \le T \le $10  & ps \\
-			Cavity Phase \textsuperscript{\ref{note1},}\footnotemark & $-20 \le \phi_L \le 20$  & degrees \\
+			Laser FWHM & $2 \le T \le $10  & ps \\
+			Cavity Phase  & $-20 \le \phi_L \le 20$  & degrees \\
 			\bottomrule	
 		\end{tabular}
-	\addtocounter{footnote}{-1}\footnotetext{not varied during gun optimization}
-	\addtocounter{footnote}{+1}\footnotetext{$\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$}
 	\end{center}
 \end{table}
 
@@ -358,18 +378,21 @@ $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavit
 \Subsection{Gun Simulations Using BOBYQA} \label{sec:gunbobyqa}
 %\section{Gun Optimization}
 % ----------------------------------------------------
-\lsnote{There has been \sout{Much}} work \lsnote{\sout{has been}} done \lsnote{by other groups} to optimize 1.5 cell rf guns
-at \SI{1}{nC}~\cite{pitz}. \lsnote{The \sout{This}} known solution \lsnote{from that work} was used as 
-a baseline test of BOBYQA when applied to \lsnote{this \sout{an}} accelerator application.
+There has been work done by other groups to optimize 1.5 cell rf guns
+at \SI{1}{nC}~\cite{pitz}. The known solution from that work was used as 
+a baseline test of BOBYQA when applied to this accelerator application.
 An optimization of the single objective emittance ($\epsilon_x$) was 
 performed over a length of \SI{5}{m}. 
 All linacs were turned off and only gun parameters were varied. 
 Non-varying parameters are listed in table~\ref{tab:gun}; 
-their values are based on \lsnote{realistic parameters \sout{work done}} at PITZ and AWA~\cite{pitz, benchmark}.
+their values are based on realistic parameters at PITZ and AWA~\cite{pitz, benchmark}.
 
-Local optimization runs were started \lsnote{using \sout{from}} five points \lsnote{per parameter?  {\it If yes, add that here.}} with various \lsnote{differences \sout{distances}} from the optimum value. The optimization runs converged 
-(in less than 100 function evaluations) to a parameter set ($S_3=\SI{269}{A}$, $\phi_g=\SI{-3.0}{^{\circ}}$, and $R=\SI{0.6}{mm}$) 
-with an emittance of $\SI{1.08}{\um}$.
+Local optimization runs were started using five points 
+\lsnote{per parameter?  {\it If yes, add that here.}} 
+\nrnote{No, it was a total of five points with various simulation inputs.}with various 
+differences from the optimum value. The optimization runs converged 
+(in less than 100 function evaluations) to a parameter set ($S_3=\SI{269}{A}$,
+$\phi_g=\SI{-3.0}{^{\circ}}$, and $R=\SI{0.6}{mm}$) with an emittance of $\SI{1.08}{\um}$.
 An exhaustive search of the parameter space was not done, and there may be other local minima that were not found.
 However, the results match expectations based on the literature. 
 \begin{table}[h] 

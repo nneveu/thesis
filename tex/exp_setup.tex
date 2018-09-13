@@ -1,4 +1,8 @@
 \Chapter{Experimental Set Up}
+
+\lsnote{{\it You need an introduction section, some blah about that - e.g. Before discussing project some backgroud info on the facility will be presented, including the changes required  to achieve fully independent staging. A descritpion of work that was done on laser to improve bunch uniformity included -  as well as description of how needed field and beam measurements are made. Measurments of energy gain for acceleration not independently staged presented and discussed. Wrap up statement about what your thesis work was, the modeling, beamline design and measurements.  You don't have to have any details on simulations in this chapter since you have a chapter dedicated to that.}}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Argonne Wakefield Accelerator Facility} \label{sec:facility}
@@ -9,8 +13,7 @@ The AWA facility houses two rf photoinjector electron guns operating
 at \SI{1.3}{GHz}, and three subsequent beam lines. 
 Two of the beam lines are currently used for staged TBA, and the
 third is used for Emittance Exchange experiments (EEX). A layout of
-the facility is shown in Figure~\ref{fig:bunker}. 
-\lsnote{Some more detail will be needed here, maybe just switch the order of the some of the text in the two paragraphs below.  Something like; start with saying what the beamlines are and what is in them referring to the figure, then describe their sources in more detail (RF guns and photocathodes), then talk about the laser and how it is split.}
+the facility is shown in Figure~\ref{fig:bunker}.  \lsnote{Some more detail will be needed here, giving it a shot ->The beam to be accelerated starts at the witness gun (bottom left in Fig. blah) and traverses through two accelerating waveguides powered by drive beams counter-propagating through an independent accelerator.  A drive beam from which the energy is extracted starts at the drive gun (far right in Fig. blah).  The layout of the drive accelerator must be changed from that shown in the figure in order to have independent staging.  It can be seen that the same drive beam bunch train passes through both decelerators, whereas for independent staging the decelerating structures would be powered by separate bunch trains.  {\it Another figure with a close up of the decelerators/extractors/accelerators woudl also clarity.}}
 
 Electron bunches in a photoinjector are created through the photoelectric effect. 
 At the AWA, a pulsed UV laser is propagated through two relay lines of UV optics to either
@@ -20,10 +23,10 @@ splitting the original laser pulse into two pulses using a UV splitter on the
 ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
 bunch operation. The second pulse is sent to a UV multispitter table, shown in 
 Figure~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
-used for TBA drive trains, 
+used for TBA drive trains,
 
-The beam line located on the right side of Figure~\ref{fig:bunker} is called the
-drive line. The rf photoinjector on the drive line uses a semiconducting
+\lsnote{This idea moved to first paragraph -> \sout{The beam line located on the right side of Figure~\ref{fig:bunker} is called the
+drive line.}} The rf photoinjector on the drive line uses a semiconducting
 CsTe cathode, and is followed by a linear accelerator (linac). The
 drive linac uses six copper cavities and four klystrons to accelerate the drive beam
 to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
@@ -33,7 +36,7 @@ these variable bunch trains is accomplished by splitting the pulsed
 UV laser beam before it enters the gun and hits the cathode. The splitting
 takes place in a complex network of UV optics located near the drive
 gun. The optics set up is called a beam splitter, or mulitsplitter,
-and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. This timing is
+and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. \lsnote{{\it A cartoon `timing diagram' as a figure to refer to would help the reader: consider adding one.}} This timing is
 called a pulse, or the repetition rate of the machine. A picture of
 the AWA multisplitter table is shown in Figure~\ref{fig:optics}. Optimization 
 of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
@@ -45,7 +48,7 @@ of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.
 	\end{center}
 	\caption{AWA Facility bunker and simplified TBA staging layout. 
 		The drive beam line (right) supplies high charge bunch trains at \SI{70}{MeV}.
-		The witness beam line (left) supplies low charge one bunch at \SI{15}{MeV} }
+		The witness beam line (left) supplies low charge one bunch at \SI{15}{MeV}. \lsnote{credit Scott} }
 	\label{fig:bunker}
 \end{figure}
 \begin{figure}[h]
@@ -54,25 +57,24 @@ of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.
 	\end{center}
 \end{figure}
 
-
 The witness line rf photoinjector, located on the left side of Figure
 1, uses a Mg cathode and the following linac consists of one copper
 accelerating cavity. Prior to the multisplitter table, shown in
 Figure~\ref{fig:optics}, the laser pulse is split between the drive and witness side.
-This set up allows only one bunch per pulse on the witness line. Also
+This set up allows only one bunch per pulse on the witness line. \lsnote{Now covered above -> \sout{Also
 note that the beam from the drive line travels in the opposite direction
-than the beam in the witness line. 
+than the beam in the witness line. }}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \Section{AWA Design Requirements} \label{sec:requirements}
 
-\lsnote{This is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?}
+\lsnote{{\it Not sure if this section should be here, or later, more toward end of chapter.  This section is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?  Probably need another (or repeated) figure here.}}
 
-In order to design and test the desired beam line, three technologies 
+\lsnote{This should be covered in general terms as described above -> \sout{In order to design and test the desired beam line, three technologies 
 new to the AWA were investigated. These include a kicker, septum magnets, 
-and non-GA optimization algorithms.
+and non-GA optimization algorithms.}}
 
 % An example for enumerate
 \begin{enumerate}
@@ -91,9 +93,7 @@ and non-GA optimization algorithms.
 
 
 
-
-
-Before final measurements or meaningful simulations can be done, 
+\lsnote{This looks more like part of a section introduction->} Before final measurements or meaningful simulations can be done, 
 a fair amount of set up and preliminary measurements 
 must be made and understood. 
 
@@ -103,7 +103,7 @@ must be made and understood.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Ideally, to extract maximum power from a series of bunches, each electron bunch should have the same amount of charge.  Improving the laser pulse train intensity distribution improves the electron bunch charge distribution; 
+\lsnote{Initially some work had to be done for the production of a good quality  bunch train.} Ideally, to extract maximum power from a series of bunches, each electron bunch should have the same amount of charge.  Improving the laser pulse train intensity distribution improves the electron bunch charge distribution; 
 which  helps produce an RF power pulse that is closer to uniform. 
 The generated power depends on both the charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. 
 Several factors contribute to non-uniformity in the bunches. These include the cathode material
@@ -118,12 +118,13 @@ by five optical splitters into two trains of eight pulses.
 The optics set up is shown in Fig~\ref{fig:optics}. Optical delay lines (two mirrors) near each splitter 
 separate pulses in space and time by extending the distance that each pulse travels. 
 The length of each delay line is a multiple of the RF frequency, 1.3 GHz. 
-In other words, a separation of $1\lambda=\SI{769}{ps}$ between each UV pulse is created. 
-This is done to synchronize the laser pulses with the RF supplied to the gun.
+In other words, a separation of $1\lambda=\SI{769}{ps}$ \lsnote{Previous expression is the period T, not the wavelength...} between each UV pulse is created. 
+This is done to synchronize the laser pulses with the RF \lsnote{voltage waveform} supplied to the gun.
 In order to achieve equally charged bunches, splitters with a perfect transmission 
 to reflection ratio ($T/R = 50/50$) would be required.
 
 \Subsection{UV Splitter Measurements} 
+\lsnote{{\it Need some intro sentences.  I would start with the statement of the problem, the pulses not uniform, and refer to the figure if appropriate.  Also, see comment after eq. 2.3 }}
 The initially installed splitters were rated at a tolerance of $50\%\pm5\%$.
 Measurements of the UV splitters were done to determine the T/R (Transmission to Reflection) ratio for 
 each splitter. The measurements took place in the laser room, close to the source of the laser.
@@ -135,11 +136,11 @@ The ASE value was measured when each T/R measurement was taken, then divided out
 measurements to prevent bias due to background drifts. 
 
 Several configurations were tested this way: S-polarization, P-polarization, 
-and laser incident on back or front of the coating. 
+and laser incident on \lsnote{the} back or front of the coating. 
 Whether the laser pulse hit the front or back of the optic
 had no measurable effect on the T/R ratio. Polarization did have a significant effect on
 the results, which led to more careful observation of this in the future.
-The following plot shows the splitters were performing at about 55/45 ratio, 
+The following plot \lsnote{probably should use a label here} shows the splitters were performing at about 55/45 ratio, 
 The results indicated the ratio of reflection to transmission for each splitter ranged from 
 $T/R\approx55/45$ to $53/47$. 
 This caused an uneven laser intensity distribution, as the bunch intensity depends on the path 
@@ -157,7 +158,6 @@ The pulse is transmitted through splitters 1, 2, and 4, but is reflected by spli
 \def \sthree {\stwo+1.5}
 \def \sfour {\sthree+1.5}
 \def \buffer{-4.5}
-\iffalse
 \begin{figure*}[h]
 	\begin{center}		
 		\begin{tikzpicture}[scale=0.7]
@@ -202,7 +202,7 @@ The pulse is transmitted through splitters 1, 2, and 4, but is reflected by spli
 		one at each corner of the delay line.}
 	\label{fig:tikz}
 \end{figure*}
-\fi
+
 
 Each splitter reduces the intensity of the pulse as a new pulse is generated. Expected intensities
 can be predicted by using the measured T/R values for each splitter. For example, using $T/R=55/45$,
@@ -210,13 +210,13 @@ in Fig~\ref{fig:tikz} the laser pulse is transmitted four times and reflected on
 \begin{equation}\label{eq:i4}
 I_4 =  T \cdot R \cdot T \cdot T \cdot T \cdot I_0 \approx 0.41 I_0
 \end{equation}
-Therefore, this pulse had a fairly high laser intensity, because it was transmitted multiple times. 
-In the worst case, the laser intensity of pulse six: 
+Therefore, this pulse \lsnote{would have \sout{had}} a fairly high laser intensity, because it was transmitted multiple times. 
+\lsnote{{\it awk.  Below - do you mean the worst case that was measured was the sixth pulse?  So far the discussion has been general, and now it appears you are talking about a measurement?  Anyway, confusing.}} In the worst case, the laser intensity of pulse six: 
 \begin{equation}\label{eq:i6}
 I_6 =  T \cdot R \cdot R \cdot R \cdot T \cdot  I_0 \approx 0.28 I_0
 \end{equation}
 These trends were reflected in the electron bunch trains generated in the gun.
-As a result, methods to improve the intensity distribution were investigated.
+As a result, \lsnote{it was necessary to investigate} methods to improve the intensity distribution. \lsnote{\sout{ were investigated.}}
 
 \Subsection{New UV Splitters}
 To improve the intensity distribution, splitters with a tolerance of $50\%\pm3\%$ were purchased, 
@@ -227,19 +227,18 @@ of splitters from the $\pm3\%$ and $\pm5\%$ sets was explored.
 Using a python script to compare all possible combinations, it was determined that using only 
 $\pm3\%$ splitters would result in the lowest variation in intensity. 
 
+\lsnote{The pulse intensity versus pulse number figure is not well explained in the figure caption} \\
 \Subsection{Train Intensity Measurements}
-To verify the predictions above, and show improvement using the $\pm3\%$,
+\lsnote{{\it The next sentence is confusing, what predictions? Above discussion looked like examples, not measurements, and if they were measurements it is not clear how they relate to the set up->}} To verify the predictions above, and show improvement using the $\pm3\%$,
 the intensity of bunches one through eight were measured using four splitters. 
 This simplified the experimental set up, and reduced interruption to beam time 
-runs which were using the four splitter set up.  
-\iffalse
+runs which were using the four splitter set up. 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{images/splitter_improvement}\caption{Laser pulse train intensity measurements}
 	\end{center}
 	\label{fig:origtrain}
 \end{figure}
-\fi
 The predictions in Eqs.~\ref{eq:i4} and~\ref{eq:i6} don't account for mirror losses in the delay legs, 
 so we expect a lower value in experiment. To do a quick check on whether or not these results are 
 expected, consider laser pulse one and only four splitters (as was the experimental set up). 
@@ -249,8 +248,8 @@ Laser pulse one has a similar path to laser pulse four (Eq.~\ref{eq:i4}).
 I_1 = R \cdot T \cdot T \cdot T \cdot I_0 
 \end{equation}
 
-Given about $\pm10\%$ mirror loss in the delay legs, we expect laser pulse one and four 
-to be roughly the same intensity. This is shown in Figure~\ref{fig:origtrain}. With the same 
+\lsnote{{\it You could probably clear this whole laser section up by presenting the idea more carefully at the beginning of the `UV splitter measurements' section}} Given about $\pm10\%$ mirror loss in the delay legs, we expect laser pulse one and four 
+to be roughly the same intensity. This is shown in Figure~\ref{fig:origtrain}. \lsnote{There is a problem with the fgure label} With the same 
 logic, we expect pulse six to have the largest deviation from pulse one, as it is reflected 
 three times and transmitted once in the four splitter set up. This expectation is also 
 confirmed by the results in Figure~\ref{fig:origtrain}.  \lsnote{You achieved a significant improvement in the uniformity of the laser pulse train, as can be seen in the figure.  Even though it can be seen in the figure, you should wrap up the section with a quantitative statement about the improvement you achieved, along with a summary sentence on how you achieved it.  Something like, `Through the use of optics with tighter specifications, and sorting of the optical elements, an improvement in laser pulse uniformity of bla percent was achieved.'}  
@@ -261,13 +260,14 @@ confirmed by the results in Figure~\ref{fig:origtrain}.  \lsnote{You achieved a 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\lsnote{You need some more intro sentences.  Why is it important to have accurate values in sim?  And what are you about to discuss below?}
 In order to accurately simulate the RF fields in the cavities on the drive and witness line, 
 a set of detailed measurements were done to determine the power in each RF cavity.
 This includes power and energy measurements of the drive gun, and linac tanks 
 one through 6 on the drive line.
-\lsnote{You have a gun section below, so you should mention that in this paragraph as well as the cavities.}
 
 \Subsection{Cable Calibration} \label{cablecal}
+\lsnote{{\it Intro sentences... why cable calibration?  and how (in most general terms)}}
 There is a significant length of cable that connects the cavities to the control room.
 To calibrate these cables, a signal generator was placed in the tunnel. 
 Then a signal was propagated to the control room where it was 
@@ -351,7 +351,7 @@ One port is used for Low Level RF (LLRF) control, and the other port was connect
 heliax, $C_3$, then to a $\SI{10}{dB}$ attenuator and finally to the 
 power meter. Normally a load is placed at port two when no power meter is connected. 
 Next, the klystrons and phase shifters were set to supply 
-max power to the gun, typical of TBA running conditions. 
+\lsnote{maximum \sout{max}} power to the gun, typical of TBA running conditions. 
 \def \delayvertical {1.5}
 \iftrue
 \begin{figure*}[h]
@@ -410,7 +410,7 @@ max power to the gun, typical of TBA running conditions.
 
 Using the set up in Figure~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-14.18}{dBm}$
 in the control room. Now we must account for attenuation to know the true power
-signal out of the gun. 
+signal out of the gun. \lsnote{I would have the eq. below solved for Pg, not P1.  You could change P1 to Pmeas for clarity.  {\it Did you ever compare to Eric's measurement?}}
 \begin{equation}
 P_1 = P_r + A_1 + C_2 + S + C_3 + A_2 + P_g
 \end{equation}
@@ -435,12 +435,13 @@ P_2 = 10^{\SI{9.56}{dBm}} \cdot  \SI{1}{[mW]} = 3.6 \, \SI{}{[MW]}
 \end{equation}
 
 \Subsection{Linac Cavity Measurements}
+\lsnote{{\it Need intro sentences.  Why do this?}}
 There are six linear accelerating (linac) cavities after the gun. 
 Each are connected to the control room in the same way as the gun. 
 The only differences are in the attenuation at the pick up probe and 
 the splitter attenuation. Using the methods in section \ref{gunenergy}, 
 and the attenuation values, we can calculate the power in each linac cavity:
-
+\lsnote{There are missing values in table}
 \begin{table} %or [hbt] ?
 	\caption{\label{tab:powerlinac} Power and attenuation values for the 
 		linac cavities. Note that all cavities have an additional 
@@ -499,7 +500,11 @@ Site for old splitters: %\url{https://www.minicircuits.com/pdfs/ZAPD-2-252+.pdf}
 P_1 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dBm}
 \end{equation}
 
+\lsnote{{\it Concluding sentences.  What is significance of your measurement?}}
 
+\lsnote{Section Beam diagnostics}
+
+\lsnote{{\it You need an intro for the diagnostics section.  What beam measurements need to be done for TBA and optimization studies, and what are the corresponding diagnostics?  Describe what will follow.}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -507,8 +512,8 @@ P_1 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Energy measurements at the AWA are done with a traditional 
-spectrometer. This includes a dipole magnet and two Yittrium 
+Energy measurements at the AWA are done with a \lsnote{dipole \sout{traditional}} 
+spectrometer \lsnote{magnet}. \lsnote{The set up \sout{This}} includes \lsnote{\sout{a dipole magnet and}} two Yittrium 
 Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
 
 \begin{figure*}%[h]
@@ -538,27 +543,26 @@ Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
 
 \Subsection{Energy Measurement Procedure}
 Taking an energy measurement requires a beam trajectory
-that is centered through the dipole. Otherwise, the beam 
-may experience excessive non-uniform fields 
-if it enters the dipole off-axis. The centering is done with two 
+that is centered through the \lsnote{preceding quadrupole magnets \sout{dipole}}. Otherwise, the beam 
+may experience \lsnote{unintentional steering from the quadrupole magnets, and possibly} excessive non-uniform fields 
+if it enters the dipole off-axis. The centering is \lsnote{checked by powering \sout{done with} the} two 
 quads before the dipole. The center is found by focusing 
-in the x-direction, and then the y-direction. If the beam 
-moves to the left or the right as it is being focused, 
-the quad is "steering", and the beam is entering the magnets off-axis.
+in the x-direction, and then the y-direction. If the beam \lsnote{centroid} 
+moves \lsnote{horizontally or vertically \sout{to the left or the right}} as it is being focused, 
+the quad is "steering", \lsnote{because \sout{and}} the beam is entering the magnets off-axis.
 Once the beam is centered through the quads on YAG screen 1, 
 the dipole is then turned on to bend the beam.
 The two YAG screens are positioned so that when the dipole is off, 
 a centered beam will hit YAG screen 1. When the dipole is turned
-on, the beam will appear at the center of YAG screen 2 when the 
-beam is bent $20^\circ$. In this way, the dipole strength can 
+on, the beam \lsnote{is made to \sout{will}} appear at the center of YAG screen 2 \lsnote{corresponding to a \sout{when the}} 
+beam \lsnote{\sout{is}} bent $20^\circ$. In this way, the dipole strength \lsnote{needed to center the beam and YAG screen 2} can 
 then be used to determine the beam energy.
 
 \Subsection{Energy Calculation}
-Based on the procedure above, there is one number which we 
-use to back calculate the mean energy. The amount of current
-supplied to the dipole is represented by the number of "counts"
-keyed into the control system. A counts to current line
-is calculated given the measurements shown in Table \ref{tab:counts}
+Based on the procedure above, there is one number which \lsnote{is used \sout{we use}} to back calculate the mean energy. The \lsnote{\sout{amount of}} current
+supplied to the dipole is \lsnote{determined \sout{represented}} by the number of "counts"
+keyed into the control system. A counts to current \lsnote{conversion \sout{line}}
+is calculated \lsnote{based on \sout{given}} the measurements shown in Table \ref{tab:counts}.  \lsnote{{\it This table reference is not right}}
 \begin{table}
 \begin{center}
 	\caption{Counts to current data for the first dipole in the drive beam line.}
@@ -590,6 +594,7 @@ can be calculated using the effective length of the dipole, L, and bending angle
 \begin{equation}
 	\rho = \frac{L}{2\cdot \sin(\frac{\theta}{2})}
 \end{equation}
+\lsnote{{\it Starting here, the derivation below is hard to follow.  I am still not sure how you got eq. 2.11.  Then, eq. 2.12 needs more explanation, at least units in the proper places.  Eq. 2.13 seems to be missing a `c' in the momentum term.}}
 Using $\rho$, and geometry, we can also estimate the x offset of the
 beam after the dipole: 
 \begin{equation}
@@ -620,6 +625,7 @@ We can then calculate the total energy by including the rest mass of the electro
 	\end{center} 
 	\caption{Simplified drawing of the beam trajectory through a dipole with a uniform field. }
 \end{figure*}\label{fig:dipole-geometry}
+\lsnote{{\it I do think a numerical example is appropriate here}}
 \nrnote{this example is more of a double check and reference for me than for the reader...}
 Since this calculation is used several time throughout the 
 beam line for different magnets, lets consider a hard edge 
@@ -639,13 +645,15 @@ Given a count of  energy of $\SI{64.8}{[MeV]}$ given measured counts of
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\lsnote{Intro - why beam size measurements needed?}
 Beam size measurements are taken by using YAG screens at multiple z locations along the beam line.
-The code used to produce all the following images can be found at this git repository:
+The code used to produce all the following images can be found at this git repository: \lsnote{put url on same line of text}
 
 \url{https://github.com/nneveu/imageProcessing}
 
 \Subsection{Capturing Images}
-\nrnote{Add tikz picture here to show how camera is pointed into beam line with mirrors}
+\nrnote{Add tikz picture here to show how camera is pointed into beam line with mirrors}\\
+\lsnote{include some actual YAG images}
 
 \Subsection{Post Processing Images}
 A python script was written to take beam images and convert them to profiles in the x and y direction.
@@ -666,12 +674,13 @@ The following steps detail the post processing from raw image to transverse beam
 
 \Section{Bunch Length Measurements}
 
-Must have line break here.
+Must have line break here.\\
+\lsnote{Intro: why needed?}
 
 \Subsection{Measurement Technique}
 In order to measure the bunch length, we performed an autocorrelation scan
-of the CTR produced by the electron distribution \cite{Happek, WBarry}.
-In brief, the CTR is transported into a Michelson interferometer (MI)
+of the CTR \lsnote{{\it define CTR}} produced by the electron distribution \cite{Happek, WBarry}.
+\lsnote{{\it Also, describe how CTR produced}} In brief, the CTR is transported into a Michelson interferometer (MI)
 where it's split and directed into two MI arms with a half-transparent pellicle \cite{PhysRevSTAB.9.082801}. 
 The CTR beams are then combined together at the exit of the MI with the variable path difference.
 The resulting CTR intensity is registered with a liquid helium cooled IR Labs
@@ -706,12 +715,12 @@ emitted through a window located next to the screen,
 as shown in Figure~\ref{bolo}. A slit was used to prevent
 background x-rays from reaching the bolometer.
 After passing the slit, the CTR propagated to the 
-interferometer also shown in Figure~\ref{bolo}. 
+interferometer also shown in Figure~\ref{bolo}.  \lsnote{{\it This section would benefit from a block diagram of the set up}} 
 A remotely movable stage inside the interferometer was swept, 
 and the resulting combined signal fed to the bolometer. 
 %The bolometer was cooled with liquid helium. 
-Periodic refilling of the helium was required throughout the day in order
-to keep the bolometer at \SI{4}{K}. The bolometer sensitivity knob was at position ``1'' and
+Periodic refilling of the helium \lsnote{is \sout{was}} required \lsnote{when taking data \sout{throughout the day}} in order
+to keep the bolometer at \SI{4}{K}. The bolometer sensitivity knob \lsnote{for studies included in this work} was at position ``1'' and
 the gain set to 200.
 For the case of 1 nC electrons beams, the laser transverse profile was homogenized prior to the vacuum injection \cite{PhysRevAccelBeams.20.103404}.
 To produce high-charge 30 nC beams, we implemented an additional laser beamline that bypasses the homogenizer due to the losses in the 
@@ -741,6 +750,7 @@ MLA and relay optics.
 
 
 \Subsection{Simulations}
+\lsnote{{\it This simulation section should be included in next chapter, not here.  The comparison of sim to data and discussion of discrepancies would be important to include there.  The intro type sim stuff is mostly already in sim chapter, so important thing is to have comparison to data added in next chapter.  Here, instead of sim discussion, have modification for independent staging, and previous energy gain measurement.}}
 Simulations of the AWA beam line shown in Figure~\ref{beamline}
 were performed with the code and OPAL~\cite{opal}.
 The gun, accelerating cavities, and solenoids were modeled with 2D
@@ -795,15 +805,15 @@ Comparison of simulation and experimental results are shown in Figure~\ref{sims}
 \end{figure*}
 While, we do not have an exact match, the results follow the same trends.
 The discrepancies indicate there are still adjustments that can be made
-to the simulation model. We will continue to try to improve agreement
+to the simulation model. \lsnote{{\it It is not clear what the nature of the problem might be: it could be that some realities of beamline hardware are not included in sim, or as you say, incorrectly matched input parameters.  It would be good to have a discussion on how to narrow down the source of the difference.}} We will continue to try to improve agreement
 as more of these measurements are made. 
 This can include better measurements of the beam energy and careful attention to other 
 beam line parameters such as the laser radius and solenoid strengths.
 In the case of high charge simulations, where the agreement is the worst, 
-more consideration is needed for large charge fluctuations in the data.
+more consideration is needed for large charge fluctuations in the data.\lsnote{{\it <- Not sure what you meant in that last sentence}}
 
 Experimentally measured values of the bunch duration are shown in Table~\ref{exp}.
-Note the units in the table are picoseconds and the units in Figure~\ref{sims} are millimeters.
+Note the units in the table are picoseconds and the units in Figure~\ref{sims} are millimeters. \lsnote{{\it So, do the conversion to mm and include in the table.  Then you can have a sentence or two about the comparison.}}
 The table gives bunch duration, and the plot gives bunch length for the same data.
 We hope these can serve as future reference for others doing experiments at the AWA.
 \begin{table}[h]
@@ -824,5 +834,5 @@ We hope these can serve as future reference for others doing experiments at the 
 \end{table}
 
 
-
+\lsnote{You need a summary section for the chapter}
 

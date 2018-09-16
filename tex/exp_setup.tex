@@ -158,7 +158,7 @@ The pulse is transmitted through splitters 1, 2, and 4, but is reflected by spli
 \def \sthree {\stwo+1.5}
 \def \sfour {\sthree+1.5}
 \def \buffer{-4.5}
-\begin{figure*}[h]
+\begin{figure*}%[h]
 	\begin{center}		
 		\begin{tikzpicture}[scale=0.7]
 		%\node[] at (\labels, 5.5) {Behavior through splitter};
@@ -233,9 +233,9 @@ $\pm3\%$ splitters would result in the lowest variation in intensity.
 the intensity of bunches one through eight were measured using four splitters. 
 This simplified the experimental set up, and reduced interruption to beam time 
 runs which were using the four splitter set up. 
-\begin{figure}[h]
+\begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{images/splitter_improvement}\caption{Laser pulse train intensity measurements}
+		\includegraphics[width=0.75\textwidth]{images/splitter_improvement}\caption{Laser pulse train intensity measurements}
 	\end{center}
 	\label{fig:origtrain}
 \end{figure}
@@ -272,7 +272,7 @@ There is a significant length of cable that connects the cavities to the control
 To calibrate these cables, a signal generator was placed in the tunnel. 
 Then a signal was propagated to the control room where it was 
 measured and compared to the original power measurement in the tunnel. 
-\begin{figure*}[h]
+\begin{figure*}%[h]
 	\begin{center}	
 		\begin{circuitikz}[scale=0.7]
             \draw (0,0) to[csV=] (2,0);
@@ -295,7 +295,7 @@ signal generator. The resulting power was $P_s=\SI{-8.92}{dBm}$}
 
 \def \delayvertical {1.5}
 \iftrue
-\begin{figure*}[h]
+\begin{figure*}%[h]
 	\begin{center}	
 		\begin{circuitikz}[scale=0.7]
 			
@@ -354,7 +354,7 @@ Next, the klystrons and phase shifters were set to supply
 \lsnote{maximum \sout{max}} power to the gun, typical of TBA running conditions. 
 \def \delayvertical {1.5}
 \iftrue
-\begin{figure*}[h]
+\begin{figure*}%[h]
 	\begin{center}		
 		\begin{circuitikz}[scale=0.7]
 			\def \leftside {17.0}
@@ -689,7 +689,7 @@ The path difference is then converted into time as $\Delta \tau = 2 \Delta x$.
 The resulting FWHM bunch duration is determined from the Gaussian fit of 
 the interferogram; see Figure~\ref{interferogram}.
 \begin{figure}
-	\includegraphics[width=1.0\linewidth]{images/THPMF048f1}
+	\includegraphics[width=0.75\linewidth]{images/THPMF048f1}
 	\caption{An example interferogram for Q=30 nC and laser pulse FWHM of 1.5 ps.}
 	\label{interferogram}
 \end{figure}
@@ -698,7 +698,7 @@ The values were then averaged and the errorbars were deduced from the data. The 
 outside of the 3$\sigma$ bracket were considered as outliers and discarded. The resulting
 interference pattern as a function of time delay in the MI is similar to that presented in Figure~\ref{interferogram}.
 
-\begin{figure*}[hbt]
+\begin{figure*}%[hbt]
 	\centering
 	\begin{tikzpicture}[scale=0.8, text=black]
 	\input{THPMF048f2.tex}
@@ -797,9 +797,9 @@ and laser parameters to have the most impact on the simulation values.
 
 \Subsection{Results}
 Comparison of simulation and experimental results are shown in Figure~\ref{sims}.
-\begin{figure*}[!tbh]
+\begin{figure*}%[!tbh]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/THPMF048f5}
+	\includegraphics[width=0.75\linewidth]{images/THPMF048f5}
 	\caption{Comparison of simulations and experimental measurements.}
 	\label{sims}
 \end{figure*}

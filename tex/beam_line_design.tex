@@ -47,7 +47,7 @@ The septum design was specified based on simulation work and the kicker angle.
 The magnet design was completed at the Institute of Modern Physics (IMP), 
 where it was also fabricated. 
 
-The beamline optics also had to be determined and optimized.
+The beam line optics also had to be determined and optimized.
 The optics include four quadrupoles after the accelerating cavities, 
 two quadrupoles on the bent beam line, and three focusing quadrupoles
 before the PETS structure.
@@ -134,17 +134,42 @@ and requires stronger magnetic fields to achieve the same angle, or bending radi
 
 Using the definitions above, the total angle provided by the kicker is then: 
 \begin{equation}
-\theta_{total}= \theta_E+\theta_B=2\theta_E=2\theta_B
+\theta_k = \theta_{total}= \theta_E+\theta_B=2\theta_E=2\theta_B
 \end{equation}
 We can also calculate the expected deflection, or x offset after the kicker 
-using geometry and the expected angle of deflection. 
-
+using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of deflection. 
+\begin{figure*}
+	\begin{center}		
+		\centering
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=0.75\textwidth]{./images/xoffset_geometry}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-2.25,7.5) {L};
+		\node[fill=white, inner sep=2pt] (txt2) at (-5,-4.5) {$\theta_k$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-6.5,5.5) {$\Delta x$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-6.5,0) {$x$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-2,3) {Beam Direction};
+		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,-2) {$\rho$};
+		\node[fill=white, inner sep=2pt] (txt2) at (2,2) {$\theta_k$};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Simplified drawing of beam trajectory through the kicker.
+	Where L is the length of the kicker, $\Delta x$ is the beam offset at the exit of the kicker, 
+	$\rho$ is the bending radius, and $\theta_k$ is the kicker angle. }
+	\label{fig:kicker-geometry}
+\end{figure*}
 \begin{equation}
-	\triangle x = \left(1-\cos\left(\theta_{total}\right)\right)\rho
+\rho = \Delta x + x 
 \end{equation}
-Again, $\rho$, is the bending radius. 
-\nrnote{I will add figure here showing $\rho$ and $\theta$ relationship}
-\lsnote{more info needed on above equation.  What is $\rho$?  Why $1-\cos{\theta}$?}%
+\begin{equation}
+	\Delta x = \rho - \rho \cos \theta_k
+\end{equation}
+\begin{equation}
+	\triangle x = \left(1-\cos\left(\theta_{k}\right)\right)\rho
+\end{equation}
+Where $\rho$, is the bending radius, $\Delta x$ is the beam offset at the exit of the kicker, 
+and $\theta_{k}$ was is the total angle provided by the kicker. 
+
 From these equations, we relate the design parameters gap height, length of the plates, and 
 the kinetic energy of the beam. Next, further beam line considerations were included 
 to narrow down what angle the kicker needed to supply. 
@@ -197,10 +222,11 @@ A shorter drift would mean less divergence in the beam before it reaches the nex
 		\caption{Possible kicker parameters for a \SI{75}{MeV} beam,  
 		a pulsar voltage of $\pm$ \SI{35}{kV}, 
 		and kicker plate length of \SI{0.6}{m}.}\label{tab:kickparam}
-	\rowcolors{3}{blue!15}{white}   
-	\begin{tabular}{|ccc|}
-		%\toprule
-		\rowcolor{blue!30} 
+	\rowcolors{1}{blue!15}{white}   
+	\begin{tabular}{ccc}
+		\toprule
+		\toprule
+		%\rowcolor{blue!30} 
 		\textbf{Plate Gap [mm]} & \textbf{Angle [deg]}  & \textbf{X Offset [mm]} \\ \hline
 		%\midrule
 		20 & 3.2   & 16.7    \\ %[3pt]
@@ -245,15 +271,17 @@ Around this time, it was also learned that the max pulsar was $\pm$ \SI{30}{kV},
 These two factors would drive the possible kick angle below \SI{2}{^\circ}, if the kicker plates remained the same length.
 The next question was whether to push for a larger angle by elongating the kicker plates, 
 or whether plate gap values at \SI{40}{mm} and above were sufficient, see Table \ref{tab:kickparam}.
-A few mechanical constraints were now considered. One beam pipe will connect the kicker and septum.
-In this area, the deflected and undeflected beams must travel in the same pipe until reaching the septum.
-After the septum, the two beams are separated into their own beam pipes.
-The connection piece before the split, is a unique and custom piece designed at 
+Additional mechanical constraints between the kicker and septum were considered. 
+One beam pipe will connect the two and the deflected and undeflected 
+beams must travel in the same pipe until reaching the septum.
+After the septum, the two beams will separate into their own beam pipes.
+This connection piece before the split, is a custom vacuum chamber designed at 
 AWA and ordered from MDC Vacuum Products, by Scott Doran. 
-This large chamber requires more vacuum pumping than other areas, 
+The large chamber requires more vacuum pumping than other areas, 
 which could complicate installation if the chamber was too long. 
-In this regard, a larger angle would help by shortening the pipe length between the kicker and septum.
-\begin{table}%[h!]
+In this regard, a larger angle from the kicker would help by shortening the pipe length between the kicker and septum.
+Therefore, it was decided to elongate the kicker plates to accommodate the larger gap width and still achieve \SI{2}{^\circ}.
+ \begin{table}%[h!]
 	\begin{center}
 		\caption{Mechanical constraints for TBA beam line.}
 		\label{tab:mechanical}
@@ -280,7 +308,7 @@ After a discussion on fabrication techniques and the mechanical constraints in T
 it was noted that the maximum kicker plate length could be \SI{1}{m}. 
 A new table of voltages and angles was calculated. At this plate length, 
 a gap width of \SI{40}{mm} provided roughly \SI{2}{^\circ} of kick again. 
-This angle would satisfy the one inch pipe spacing in the septum as well. 
+This angle would satisfy the one inch pipe inner diameter spacing in the septum as well. 
 
 For a length of \SI{1}{m}, and gap of \SI{40}{mm}, 
 several beam energy and angle scenarios were considered.
@@ -309,7 +337,8 @@ and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}
 \end{figure}
 As a double check on the first order calculations in Figures \ref{fig:kickerangles} and \ref{fig:kickeroffset}, 
 a PIC simulation was done to estimate the beam 
-trajectory before and after the kicker and septum including space charge effects.
+trajectory in the kicker and septum. 
+This work includes rf cavities and space charge effects.
 The two estimates match within reason, see Figure \ref{fig:beamtraj}. 
 \begin{figure}
 	\begin{center}
@@ -357,7 +386,12 @@ to determine the impedance along the kicker plates, feedthroughs, and cables.
 		\label{fig:feedthroughs}
 	\end{center}
 \end{figure}
-
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{./images/kicker_plates}
+	\caption{Inside of kicker vacuum chamber after assembly. }
+	\label{fig:kicker-plates}
+\end{figure}
 
 \Subsection{High Voltage Kicker Test}
 Two HV tests were performed at the APS. This was done to ensure the electrical connection 
@@ -371,7 +405,7 @@ Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in 
 	\begin{center}
 		\includegraphics[width=\textwidth]{./images/kicker1}
 		\caption{High voltage test cage at the APS. 
-			The kicker was grounded on one side and exposed to HV AC power on the other. 
+			The kicker was grounded on one side and exposed to high voltage AC power on the other. 
 			The Faraday cage was closed during testing. }
 		\label{fig:AWAHVkicker}
 	\end{center}
@@ -379,7 +413,7 @@ Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in 
 
 
 \Subsection{Time Domain Reflectometer Test}
-After the HV test was completed, a Time Domain Reflectometer (TDR) measurement was preformed at the APS [\nrnote{find good ref}], 
+After the HV test was completed, a Time Domain Reflectometer (TDR) measurement was preformed at the APS~\cite{TDR}, 
 with the help of C. Y. Yao, A. Brill, X. Sun and C. Jing.
 This technique measures reflections along a conductor and gives information about discontinuities in the line being measured. 
 This information was used to determine the impedance along the cables, feedthroughs, and plates of the kicker. 
@@ -410,7 +444,7 @@ The only negative result is the reduced amount of voltage supplied to the plates
 	\end{figure}
 
 
-\Section{Measurment of Beam Deflection}
+\Section{Measurement of Beam Deflection}
 
 Once the kicker was installed, measurements were done to verify it worked as designed with beam.  
 The voltage was scanned to check for linearity of the beam offset with voltage.  
@@ -444,7 +478,9 @@ I will go to AWA to measure this, and plot centroid calc on Fig 2.11 afterwards.
 	\includegraphics[width=0.75\textwidth]{./images/kicker_angle_comparison}
 	\caption{Measured angle provided by the kicker at several voltages.
 	These are compared to 1st order calculations for 
-	\SI{75}{MeV} and \SI{65}{MeV} beams.}
+	\SI{75}{MeV} and \SI{65}{MeV} beams.
+	Smaller angles are expected in the data due to the reflections
+	seen at the feedthroughs in TDR measurements, see Figure~\ref{fig:TDR}.}
 	\label{fig:angles}
 \end{figure}
 
@@ -486,6 +522,7 @@ I will add simulation results to this plot after.}
 
 
 \Section{TBA Beam Line}
+
 \nrnote{skip this section, not edited yet}
 \nrnote{Notes from call: short discussion of the issues, what are you trying to achieve, where are apetures tight.
 	comments on what trying to do with optimization and issues}

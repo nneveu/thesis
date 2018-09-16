@@ -468,11 +468,8 @@ is fairly linear with respect to kicker voltage.
 	\label{fig:linear}
 \end{figure}
 
-Using the x offest numbers found in Figure~\ref{fig:linear}, 
+Using the x offset numbers found in Figure~\ref{fig:linear}, 
 we can compare the measured angle vs. first order approximations from Section~\ref{theory}.
-\nrnote{Need to know exact location of YAG screen to finish this analysis.
-	Drift between kicker plate and YAG screen is probably adding xoffset to beam.
-I will go to AWA to measure this, and plot centroid calc on Fig 2.11 afterwards. }
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/kicker_angle_comparison}
@@ -483,13 +480,11 @@ I will go to AWA to measure this, and plot centroid calc on Fig 2.11 afterwards.
 	seen at the feedthroughs in TDR measurements, see Figure~\ref{fig:TDR}.}
 	\label{fig:angles}
 \end{figure}
-
-
-
 Beam size data was also taken, see Figure \ref{fig:kickerbeamsize}. 
 These measurements were used to calculate the total beam size and 
 centroid location of the beam. A combination fit was used to extract 
-the beam sizes as described in Chapter 2. 
+the beam sizes as described in Section~\ref{sec:beamsize}. 
+A Gaussian fit was used for the beam core, and linear fits were used for the tails.
 \begin{figure}
 	\includegraphics[width=0.5\textwidth]{./images/yag6_kicker_voltage0}%
 	\includegraphics[width=0.5\textwidth]{./images/yag6_kicker_voltage18}\\
@@ -499,9 +494,9 @@ the beam sizes as described in Chapter 2.
 		Various kicker voltage settings were used and deflection of the beam was observed.}
 	\label{fig:kickerbeamsize}
 \end{figure}
-While the kicker does increase the beam size in the kicked direction, 
+While the kicker does slightly increase the beam size in the kicked direction, 
 the large discrepancy can not be attributed to the kicker alone.
-This is clear when looking at the beam sizes when the kicker is off. 
+This is clear when looking at the beam sizes when the kicker is off (voltage = 0). 
 The beam is already asymmetric before the kicker is turned on.
 This is encouraging, as it can be fixed with better control of the quadrupoles.
 \nrnote{Argonne cluster was down the last two days. Should be up tomorrow. 
@@ -509,14 +504,15 @@ I will add simulation results to this plot after.}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/xybeamsizes_high_charge_kicker_scan}
-	\caption{Beam size data during voltage scan. 
-		Higher voltage on the kicker resulted in larger x offset of the beam centroid.}
+	\caption{Beam size data during voltage scan. Asymmetry between the x and y beam sizes
+		 is present even when the kicker is off at V = 0. This suggests the asymmetry is not
+	     caused by the kicker alone. }
 \end{figure}
 
 
 
 
-\lsnote{Yes - a comparison of the beam sizes to simulation, and a calculation of the deflection verus predicted deflection.  Also, there is a discrepancy, in figure 4.2 the beam size at kicker exit is smaller, not larger.}
+\lsnote{Yes - a comparison of the beam sizes to simulation, and a calculation of the deflection versus predicted deflection.  Also, there is a discrepancy, in figure 4.2 the beam size at kicker exit is smaller, not larger.}
 \nrnote{that is expected based on the optics. The beam waist is after the kicker, so while the kicker does increase the transverse 
 	divergence of the beam, it's still not enough to overcome the focusing of the quadrupoles upstream.}
 
@@ -524,7 +520,7 @@ I will add simulation results to this plot after.}
 \Section{TBA Beam Line}
 
 \nrnote{skip this section, not edited yet}
-\nrnote{Notes from call: short discussion of the issues, what are you trying to achieve, where are apetures tight.
+\nrnote{Notes from call: short discussion of the issues, what are you trying to achieve, where are apertures tight.
 	comments on what trying to do with optimization and issues}
 \lsnote{So here the optics stuff starts - again you will need a little introduction.  What are the goals, and what are you going to present?}
 \lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
@@ -840,7 +836,7 @@ A stripline kicker was designed using first principles and simulations.
 It was fabricated and assembled at ANL with some parts purchased from third party vendors.
 The kickers ability to maintain high voltage was tested with the help of staff members at the APS.
 They also added in performing a Time Domain Reflectometer (TDR) measurement to characterize 
-the impeadance of the kicker, feedthrough, and cable connections. 
+the impedance of the kicker, feedthrough, and cable connections. 
 A mismatch at the connection point between the kicker plates and feedthroughs was discovered.
 While the mismatch reduces the available voltage between the plates, it is not a danger to 
 the equipment or beam. After the two out side vacuum tests, the kicker was installed on 

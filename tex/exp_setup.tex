@@ -1,5 +1,7 @@
 \Chapter{Experimental Set Up}
 
+\Section{Introduction}
+
 \lsnote{{\it You need an introduction section, some blah about that - e.g. Before discussing project some backgroud info on the facility will be presented, including the changes required  to achieve fully independent staging. A descritpion of work that was done on laser to improve bunch uniformity included -  as well as description of how needed field and beam measurements are made. Measurments of energy gain for acceleration not independently staged presented and discussed. Wrap up statement about what your thesis work was, the modeling, beamline design and measurements.  You don't have to have any details on simulations in this chapter since you have a chapter dedicated to that.}}
 
 
@@ -25,8 +27,7 @@ bunch operation. The second pulse is sent to a UV multispitter table, shown in
 Figure~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
 used for TBA drive trains,
 
-\lsnote{This idea moved to first paragraph -> \sout{The beam line located on the right side of Figure~\ref{fig:bunker} is called the
-drive line.}} The rf photoinjector on the drive line uses a semiconducting
+The rf photoinjector on the drive line uses a semiconducting
 CsTe cathode, and is followed by a linear accelerator (linac). The
 drive linac uses six copper cavities and four klystrons to accelerate the drive beam
 to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
@@ -61,9 +62,7 @@ The witness line rf photoinjector, located on the left side of Figure
 1, uses a Mg cathode and the following linac consists of one copper
 accelerating cavity. Prior to the multisplitter table, shown in
 Figure~\ref{fig:optics}, the laser pulse is split between the drive and witness side.
-This set up allows only one bunch per pulse on the witness line. \lsnote{Now covered above -> \sout{Also
-note that the beam from the drive line travels in the opposite direction
-than the beam in the witness line. }}
+This set up allows only one bunch per pulse on the witness line. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,7 +102,7 @@ must be made and understood.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\lsnote{Initially some work had to be done for the production of a good quality  bunch train.} Ideally, to extract maximum power from a series of bunches, each electron bunch should have the same amount of charge.  Improving the laser pulse train intensity distribution improves the electron bunch charge distribution; 
+Initially some work had to be done for the production of a good quality  bunch train. Ideally, to extract maximum power from a series of bunches, each electron bunch should have the same amount of charge.  Improving the laser pulse train intensity distribution improves the electron bunch charge distribution; 
 which  helps produce an RF power pulse that is closer to uniform. 
 The generated power depends on both the charge and shape of the bunch, as shown in Eq.~\ref{eq:rfpower}. 
 Several factors contribute to non-uniformity in the bunches. These include the cathode material
@@ -119,7 +118,7 @@ The optics set up is shown in Fig~\ref{fig:optics}. Optical delay lines (two mir
 separate pulses in space and time by extending the distance that each pulse travels. 
 The length of each delay line is a multiple of the RF frequency, 1.3 GHz. 
 In other words, a separation of $1\lambda=\SI{769}{ps}$ \lsnote{Previous expression is the period T, not the wavelength...} between each UV pulse is created. 
-This is done to synchronize the laser pulses with the RF \lsnote{voltage waveform} supplied to the gun.
+This is done to synchronize the laser pulses with the RF voltage waveform supplied to the gun.
 In order to achieve equally charged bunches, splitters with a perfect transmission 
 to reflection ratio ($T/R = 50/50$) would be required.
 
@@ -210,13 +209,13 @@ in Fig~\ref{fig:tikz} the laser pulse is transmitted four times and reflected on
 \begin{equation}\label{eq:i4}
 I_4 =  T \cdot R \cdot T \cdot T \cdot T \cdot I_0 \approx 0.41 I_0
 \end{equation}
-Therefore, this pulse \lsnote{would have \sout{had}} a fairly high laser intensity, because it was transmitted multiple times. 
+Therefore, this pulse would have a fairly high laser intensity, because it was transmitted multiple times. 
 \lsnote{{\it awk.  Below - do you mean the worst case that was measured was the sixth pulse?  So far the discussion has been general, and now it appears you are talking about a measurement?  Anyway, confusing.}} In the worst case, the laser intensity of pulse six: 
 \begin{equation}\label{eq:i6}
 I_6 =  T \cdot R \cdot R \cdot R \cdot T \cdot  I_0 \approx 0.28 I_0
 \end{equation}
 These trends were reflected in the electron bunch trains generated in the gun.
-As a result, \lsnote{it was necessary to investigate} methods to improve the intensity distribution. \lsnote{\sout{ were investigated.}}
+As a result, it was necessary to investigate methods to improve the intensity distribution. 
 
 \Subsection{New UV Splitters}
 To improve the intensity distribution, splitters with a tolerance of $50\%\pm3\%$ were purchased, 
@@ -502,7 +501,7 @@ P_1 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dB
 
 \lsnote{{\it Concluding sentences.  What is significance of your measurement?}}
 
-\lsnote{Section Beam diagnostics}
+\Section{Beam diagnostics}
 
 \lsnote{{\it You need an intro for the diagnostics section.  What beam measurements need to be done for TBA and optimization studies, and what are the corresponding diagnostics?  Describe what will follow.}}
 
@@ -512,8 +511,8 @@ P_1 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Energy measurements at the AWA are done with a \lsnote{dipole \sout{traditional}} 
-spectrometer \lsnote{magnet}. \lsnote{The set up \sout{This}} includes \lsnote{\sout{a dipole magnet and}} two Yittrium 
+Energy measurements at the AWA are done with a dipole 
+spectrometer magnet. The set up includes two Yittrium 
 Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
 
 \begin{figure*}%[h]
@@ -543,29 +542,31 @@ Aluminum Garnet (YAG) screens as shown in Fig~\ref{fig:spectrometer}.
 
 \Subsection{Energy Measurement Procedure}
 Taking an energy measurement requires a beam trajectory
-that is centered through the \lsnote{preceding quadrupole magnets \sout{dipole}}. Otherwise, the beam 
-may experience \lsnote{unintentional steering from the quadrupole magnets, and possibly} excessive non-uniform fields 
-if it enters the dipole off-axis. The centering is \lsnote{checked by powering \sout{done with} the} two 
+that is centered through the preceding quadrupole magnets. Otherwise, the beam 
+may experience unintentional steering from the quadrupole magnets, and possibly excessive non-uniform fields 
+if it enters the dipole off-axis. The centering is checked by powering the two 
 quads before the dipole. The center is found by focusing 
-in the x-direction, and then the y-direction. If the beam \lsnote{centroid} 
-moves \lsnote{horizontally or vertically \sout{to the left or the right}} as it is being focused, 
-the quad is "steering", \lsnote{because \sout{and}} the beam is entering the magnets off-axis.
+in the x-direction, and then the y-direction. If the beam 
+moves horizontally or vertically as it is being focused, 
+the quad is "steering", because the beam is entering the magnets off-axis.
 Once the beam is centered through the quads on YAG screen 1, 
 the dipole is then turned on to bend the beam.
 The two YAG screens are positioned so that when the dipole is off, 
 a centered beam will hit YAG screen 1. When the dipole is turned
-on, the beam \lsnote{is made to \sout{will}} appear at the center of YAG screen 2 \lsnote{corresponding to a \sout{when the}} 
-beam \lsnote{\sout{is}} bent $20^\circ$. In this way, the dipole strength \lsnote{needed to center the beam and YAG screen 2} can 
+on, the beam is made to appear at the center of YAG screen 2 corresponding to a 
+beam bent $20^\circ$. In this way, the dipole strength needed to center the beam and YAG screen 2 can 
 then be used to determine the beam energy.
 
 \Subsection{Energy Calculation}
-Based on the procedure above, there is one number which \lsnote{is used \sout{we use}} to back calculate the mean energy. The \lsnote{\sout{amount of}} current
-supplied to the dipole is \lsnote{determined \sout{represented}} by the number of "counts"
-keyed into the control system. A counts to current \lsnote{conversion \sout{line}}
-is calculated \lsnote{based on \sout{given}} the measurements shown in Table \ref{tab:counts}.  \lsnote{{\it This table reference is not right}}
+Based on the procedure above, there is one number which is used to back calculate the mean energy. The current
+supplied to the dipole is determined by the number of "counts"
+keyed into the control system. A counts to current conversion
+is calculated based on the measurements shown in Table \ref{tab:counts}.  \lsnote{{\it This table reference is not right}}
 \begin{table}
 \begin{center}
 	\caption{Counts to current data for the first dipole in the drive beam line.}
+	\label{tab:counts}
+\end{center}
 	\begin{tabular}{c c} 
 		\toprule
 		\toprule
@@ -581,8 +582,7 @@ is calculated \lsnote{based on \sout{given}} the measurements shown in Table \re
 		\bottomrule
 		
 	\end{tabular}
-\end{center}
-\end{table}\label{tab:counts}
+\end{table}
 Then the B-field is calculated given the current: 
 \begin{equation}
 	\SI{}{B\,[T]} = (180.9708\cdot \SI{}{I\,[A]} - 7.2053)\cdot 10^{-4}
@@ -647,12 +647,15 @@ Given a count of  energy of $\SI{64.8}{[MeV]}$ given measured counts of
 
 \lsnote{Intro - why beam size measurements needed?}
 Beam size measurements are taken by using YAG screens at multiple z locations along the beam line.
-The code used to produce all the following images can be found at this git repository: \lsnote{put url on same line of text}
-
+The code used to produce all the following images can be found at this git repository: 
 \url{https://github.com/nneveu/imageProcessing}
 
 \Subsection{Capturing Images}
 \nrnote{Add tikz picture here to show how camera is pointed into beam line with mirrors}\\
+Raw YAG screen images can vary widely depending on the camera set up, charge, and 
+light in the room. In some cases the edges of the YAG screen are illuminated as shown in Figure~.
+The focal distance is also different for every camera and depends on the camera and mirror
+locations inside and outside of the vacuum chambers.
 \lsnote{include some actual YAG images}
 
 \Subsection{Post Processing Images}
@@ -689,6 +692,7 @@ The path difference is then converted into time as $\Delta \tau = 2 \Delta x$.
 The resulting FWHM bunch duration is determined from the Gaussian fit of 
 the interferogram; see Figure~\ref{interferogram}.
 \begin{figure}
+	\centering
 	\includegraphics[width=0.75\linewidth]{images/THPMF048f1}
 	\caption{An example interferogram for Q=30 nC and laser pulse FWHM of 1.5 ps.}
 	\label{interferogram}
@@ -719,8 +723,8 @@ interferometer also shown in Figure~\ref{bolo}.  \lsnote{{\it This section would
 A remotely movable stage inside the interferometer was swept, 
 and the resulting combined signal fed to the bolometer. 
 %The bolometer was cooled with liquid helium. 
-Periodic refilling of the helium \lsnote{is \sout{was}} required \lsnote{when taking data \sout{throughout the day}} in order
-to keep the bolometer at \SI{4}{K}. The bolometer sensitivity knob \lsnote{for studies included in this work} was at position ``1'' and
+Periodic refilling of the helium is required when taking data in order
+to keep the bolometer at \SI{4}{K}. The bolometer sensitivity knob for studies included in this work was at position ``1'' and
 the gain set to 200.
 For the case of 1 nC electrons beams, the laser transverse profile was homogenized prior to the vacuum injection \cite{PhysRevAccelBeams.20.103404}.
 To produce high-charge 30 nC beams, we implemented an additional laser beamline that bypasses the homogenizer due to the losses in the 
@@ -805,7 +809,7 @@ Comparison of simulation and experimental results are shown in Figure~\ref{sims}
 \end{figure*}
 While, we do not have an exact match, the results follow the same trends.
 The discrepancies indicate there are still adjustments that can be made
-to the simulation model. \lsnote{{\it It is not clear what the nature of the problem might be: it could be that some realities of beamline hardware are not included in sim, or as you say, incorrectly matched input parameters.  It would be good to have a discussion on how to narrow down the source of the difference.}} We will continue to try to improve agreement
+to the simulation model. \lsnote{{\it It is not clear what the nature of the problem might be: it could be that some realities of beam line hardware are not included in sim, or as you say, incorrectly matched input parameters.  It would be good to have a discussion on how to narrow down the source of the difference.}} We will continue to try to improve agreement
 as more of these measurements are made. 
 This can include better measurements of the beam energy and careful attention to other 
 beam line parameters such as the laser radius and solenoid strengths.

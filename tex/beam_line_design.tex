@@ -549,7 +549,13 @@ Solutions were found that meet the requirements listed above.
 From many sources~\cite{brown,Wiedemann} the building blocks of any 
 beam line can be defined. These typically include drift, quadrupoles, and dipoles.
 Using these common building blocks a check of the transport matrix for the 
-first four quadrupoles before the kicker was done,  see Figure~\ref{fig:full-staging}.
+first four quadrupoles before the kicker was done,  see Figure~\ref{fig:quads}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{./images/p2p_optics}
+	\caption{\nrnote{I will add focal length label to this plot.}}
+	\label{fig:p2p}
+\end{figure}
 This established the beam size could be maintained near the kicker during transport.  
 Four quadruple strengths and the six distances between the quadrupoles are parameters under consideration. 
 To reduce the number of variables from ten to four, 
@@ -600,7 +606,8 @@ R_q =
 \end{bmatrix}
 \end{equation}
 We can further simplify this problem set up by 
-assuming $f_1=f_2$. Given the total distance, D, available for the
+assuming $f_1=f_2$. 
+Given the total distance, D, available for the
 quads in the beam line, \SI{3.8}{m}, we can then solve
 for the focal length $f_1$: 
 \begin{align}
@@ -625,7 +632,7 @@ and Equation~\ref{k} we can calculate this configuration would require a
 magnet strength of \SI{4.14}{[T/m]}. This is feasible considering the 
 max strength is \SI{9}{[T/m]}. This also gives some indication that 
 that there should be several possible solutions found during optimization
-since the point to point check is not at either extreme of the quadrupole limits. 
+since the point to point check is not at either extreme of the quadrupole limits.L 
 
 
 \iffalse

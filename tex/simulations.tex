@@ -9,7 +9,7 @@
 
 With the rapid improvement in computing resources and codes in recent years,  
 accelerator facilities can now strive to rely on accurate beam dynamics simulations. 
-These simulations \lsnote{model \sout{include}} single particle effects 
+These simulations model single particle effects 
 (e.g. particle tracking in a magnetic field) as well as collective effects such as space charge (SC),  
 and coherent synchrotron radiation (CSR).
 
@@ -24,16 +24,16 @@ cyclotrons, and the latter, which is used for this work, is suited for photoinje
 OPAL-T was chosen in part because it models the 3D space charge necessary to accurately simulate the high charge bunches at the AWA. 
 It was chosen for several reasons:
 \begin{itemize}
-	\item \lsnote{Ability \sout{Able}} to calculate transverse space charge and wakefield forces 
+	\item Ability to calculate transverse space charge and wakefield forces 
 	\item Option to run the code in parallel
 	\item Data recorded in global and local reference frames 
 	\item Free and open source (freely available to the public)
 \end{itemize} 
 
 The first item is crucial to standard operations at the AWA. Especially in the 
-case of TBA, \lsnote{a} high charge is needed \lsnote{in the \sout{on}} drive beam line, therefore transverse 
+case of TBA, a high charge is needed in the drive beam line, therefore transverse 
 space charge must be calculated in the simulations to give realistic results. \lsnote{{\it you need a sentence here giving the range of charge and typical emittance, or alternatively include in Table 1.1 and have (see Table 1.1 for beam parameters) at end of sentence. }}
-The \lsnote{ability to run the code in parallel \sout{second item}} dramatically reduced the amount of simulation time needed. 
+The ability to run the code in parallel dramatically reduced the amount of simulation time needed. 
 For example, simulating the gun and linac, about \SI{15}{m} of elements,
 with 100,000 particles on one core would take about 30 minutes. 
 When the number of cores is increased to 16, the same run takes less than 
@@ -76,12 +76,12 @@ a 1.5 cell copper standing-wave cavity at 1.3 GHz,
 with bucking, focusing, and matching solenoids. 
 In the remainder of this thesis, the word gun is used 
 in place of photoinjector. The simulation parameters were chosen to 
-approximately generate the canonical “\lsnote{2D transverse emittance of} \SI{1}{\micro\metre} at \lsnote{bunch charge} 1 nC” case.  
+approximately generate the canonical “2D transverse emittance of \SI{1}{\micro\metre} at bunch charge 1 nC” case.  
 The initial beam parameters were based on gun operations at PITZ \cite{pitz},
 due to the similarities between the PITZ and AWA rf guns.
 The PITZ parameters came close to achieving the \SI{1}{\micro\metre}
 target without any optimization. A coarse 1D minimization
-\nrnote{add method used here} of the 
+using the golden section method~\cite{golden} of the 
 emittance was done to determine the value of the laser radius 
 used in this benchmark. The resulting minimum emittance was   
 \SI{1.16}{\micro\metre}. 
@@ -183,7 +183,7 @@ Simulations of a hard edge dipole were done in GPT
 and OPAL-t in order to probe the CSR results.
 Short mono-energetic bunches with a Gaussian energy distribution with zero initial transverse emittance  
 were sent through the dipole. \lsnote{{\it If Gaussian in transverse parameter cannot be `zero emmittance'}} 
-\nrnote{the Gaussian profile is in the longitudinal direction, I will double check}
+\nrnote{the Gaussian profile is in the longitudinal direction}
 Beam and dipole parameters are shown in Table~\ref{tab:benchcsr}. 
 The CSR routine used in OPAL-t is based on the routine used in ELEGANT \cite{elegant}, 
 which is known to assume the beam is ultra-relativistic. The CSR routine in GPT  
@@ -225,11 +225,11 @@ OPAL and GPT also agree on energy loss and energy spread calculations at high en
 At low energy they diverge, and GPT is more accurate because it calculates 
 $\beta$ at all time vs. assuming the beam is relativistic.
 Preference on which code to use depends more on ease of use 
-and availability, \lsnote{especially for the AWA facility where $\beta\approx 1$.} 
+and availability, especially for the AWA facility where $\beta\approx 1$. 
 
 \Section{Convergence Studies}
 
-\lsnote{The OPAL code was chosen for modeling of the AWA after benchmarking was complete.}
+The OPAL code was chosen for modeling of the AWA after benchmarking was complete.
 Convergence runs were done for three parameters: 
 time step, SC mesh size, and number of particles.  
 Each case was tested in the gun using the same field maps and 
@@ -242,7 +242,7 @@ The longitudinal parameters (energy,  bunch length)
 showed no variation, but there were slight deviations 
 in the transverse emittance and beam size. The same results 
 were observed when the time step was varied from 0.1 ps  to  10  ps.  
-\lsnote{When the \sout{The}} grid size was changed from 32, 44, 46, and 64 cubed; 
+When the grid size was changed from 32, 44, 46, and 64 cubed; 
 again the results lacked any major discrepancies.  
 In all cases, no appreciable differences were observed in the energy,
 emittance, beam size, or bunch length. In  most  cases,  
@@ -270,16 +270,16 @@ and structure exploiting algorithms.
  
 Model-based, derivative-free, trust-region algorithms 
 are increasingly popular for optimizing computationally 
-expensive numerical simulations. \lsnote{The term model-based means that \sout{Where model-based refers
-to the}} the simulation output \lsnote{is \sout{being}} used to construct a 
-model. This can be a quadratic function as described later, 
+expensive numerical simulations. The term model-based means 
+that the simulation output is used to construct a model. 
+This can be a quadratic function as described later, 
 or something more complex.
 Derivative-free optimization indicates there is no one 
 governing equation that defines all simulation output
 for a given set of inputs. For example, there is no 
-function for beam size \lsnote{that allows calucation of a derivative. \sout{that we can take the derivative of.}}
-\lsnote{\sout{Calculating derivatives are in many} Many common optimization techniques calculate derivatives,} 
-but \lsnote{this is} not applicable in situations of complex dynamics.
+function for beam size that allows calculation of a derivative. 
+Many common optimization techniques calculate derivatives, 
+but this is not applicable in situations of complex dynamics.
 Finally, trust-region refers to the bounds on our input variables.
 There are physical constraints on the magnet and RF values we 
 can achieve in the real world. This information is used 
@@ -290,9 +290,9 @@ A strength of model based methods is their efficient use of function evaluations
 After a model based method was implemented, a common technique was 
 used as confirmation \lsnote{{\it Confirmation of what?}} and for exploratory work. \lsnote{{\it What type of exploratory work?}} The algorithm used for confirmation 
 is called a genetic algorithm (GA). An implementation of this algorithm is
-build into OPAL. GA's follow \lsnote{nature's \sout{natures}} lead as the name suggests.
+build into OPAL. GA's follow nature's lead as the name suggests.
 A random sample is done, and the best points \lsnote{finish that thought ->} (give some criteria) \lsnote{ -> or delete.}
-are selected. Those \lsnote{points \sout{point}} are then mixed to form a new "generation"
+are selected. Those points are then mixed to form a new "generation"
 and a new round of simulations is started. This method continues
 until some convergence criteria is met. While this method does 
 produce results, and is widely used, it requires large amounts 
@@ -360,7 +360,6 @@ and accelerating cavity phases ($\phi_L$). The optimization parameters and
 bounds are given in Table~\ref{tab:parameters}; we denote the set of
 ten optimization parameters as $v=[S_3, \phi_g, R, T, \phi_L]$, where 
 $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavity $L_1$-$L_6$. 
-\nrnote{need to fix footnotes and superscripts for table 3.3}
 \begin{table}
 	\caption{\label{tab:parameters} Parameter bounds for gun and linac optimization.}
 	\begin{center}
@@ -423,10 +422,8 @@ by adjusting the ten parameters in table~\ref{tab:parameters}. The charge was se
 and was chosen to match upcoming two-beam acceleration experiments~\cite{tba2017}. 
 Two objectives were considered: emittance and bunch length ($\sigma_z$). 
 The location of interest is $z_1=\SI{12.51}{m}$, as this is the entrance of the first 
-quadrupole magnet after the linac. \lsnote{Optimization was required only for the horizontal emittance, $\epsilon_{x}$.  This is because there were no asymmetric focusing elements in the linac, and the beam is round, $\epsilon_{x}=\epsilon_{y}$. 
-\sout{We optimize $\epsilon_{x}$ instead of $\epsilon_{xy}$ because no asymmetric focusing elements were used in the linac.}}  The non-varying parameters for all linac simulation runs are shown in table~\ref{tab:linac}.  \lsnote{The particle distribution initally emitted from the cathode is generated within OPAL using input parameters such as the cathode material, the work function and the laser energy.  In this case, \sout{
-The model used simulated emission
-from} a Cs$_2$Te cathode} \lsnote{was used with \sout{using}} a laser \lsnote{of \sout{with}} initial kinetic energy of \SI{4}{eV}. 
+quadrupole magnet after the linac. Optimization was required only for the horizontal emittance, $\epsilon_{x}$.  This is because there were no asymmetric focusing elements in the linac, and the beam is round, $\epsilon_{x}=\epsilon_{y}$. 
+The non-varying parameters for all linac simulation runs are shown in table~\ref{tab:linac}.  The particle distribution initially emitted from the cathode is generated within OPAL using input parameters such as the cathode material, the work function and the laser energy.  In this case, was used with a laser of initial kinetic energy of \SI{4}{eV}. 
 These are typical operating conditions at AWA. 
 
 
@@ -679,19 +676,18 @@ implemented in OPAL-t~\cite{optpilot}. Details of this work can be found in Chap
 \Section{Chapter Summary}
 
 PIC simulations of the AWA drive line are essential to the TBA project. \lsnote{{\it say why}}
-A new code, OPAL-t, was \lsnote{investigated\sout{investigate}} as an alternative to ASTRA and GPT. 
-The benefits of OPAL include \lsnote{being \sout{it is}} free and \lsnote{being able to run on a} parallel \lsnote{platform}.
-A benchmark was done to ensure that OPAL \lsnote{gave results consistent with \sout{was being used correctly in comparison to}} other codes used by members of the AWA.
+A new code, OPAL-t, was investigated as an alternative to ASTRA and GPT. 
+The benefits of OPAL include being free and being able to run on a parallel platform.
+A benchmark was done to ensure that OPAL gave results consistent with other codes used by members of the AWA.
 No major discrepancies were found in the space charge and CSR algorithms.
-Although, \lsnote{note that} the OPAL CSR routine can not be used for low energy beams.
+Although, note that the OPAL CSR routine can not be used for low energy beams.
 Convergence studies were also done to determine base line computational 
 parameters for future simulations.
-\lsnote{After benchmarking, \sout{Moving forward}} all PIC simulations of the TBA beam line \lsnote{in this work} were performed using OPAL-t on clusters provided by ANL.
+After benchmarking, all PIC simulations of the TBA beam linein this work were performed using OPAL-t on clusters provided by ANL.
 
-Next, optimization \lsnote{to find \sout{work began to prepare}} a set of operating parameters for
-\SI{40}{nC} TBA experiments \lsnote{was done. \sout{This work included using the} A} model based method BOBYQA \lsnote{was used} to optimize the gun and linac. \lsnote{{\it You need a few sentences about the resulting optimized beam parameters and whether they make sense.}}
-Validation of the model based \lsnote{method \sout{methods}} was done \lsnote{by doing a comparison} with the commonly used GA method. The results agreed well, and \lsnote{suggest \sout{suggested} that } the model based 
-methods require fewer computational resources than a GA. 
+Next, optimization to find a set of operating parameters for
+\SI{40}{nC} TBA experiments was done. A model based method BOBYQA was used to optimize the gun and linac. \lsnote{{\it You need a few sentences about the resulting optimized beam parameters and whether they make sense.}}
+Validation of the model based method was done by doing a comparison with the commonly used GA method. The results agreed well, and suggest that the model based methods require fewer computational resources than a GA. 
 
 
 

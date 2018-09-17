@@ -498,138 +498,169 @@ While the kicker does slightly increase the beam size in the kicked direction,
 the large discrepancy can not be attributed to the kicker alone.
 This is clear when looking at the beam sizes when the kicker is off (voltage = 0). 
 The beam is already asymmetric before the kicker is turned on.
-This is encouraging, as it can be fixed with better control of the quadrupoles.
-\nrnote{Argonne cluster was down the last two days. Should be up tomorrow. 
-I will add simulation results to this plot after.}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.75\textwidth]{./images/xybeamsizes_high_charge_kicker_scan}
+	\includegraphics[width=0.8\textwidth]{./images/xybeamsizes_high_charge_kicker_scan_angle}
 	\caption{Beam size data during voltage scan. Asymmetry between the x and y beam sizes
 		 is present even when the kicker is off at V = 0. This suggests the asymmetry is not
 	     caused by the kicker alone. }
+     \label{fig:beamsize}
 \end{figure}
 
-
-
-
-\lsnote{Yes - a comparison of the beam sizes to simulation, and a calculation of the deflection versus predicted deflection.  Also, there is a discrepancy, in figure 4.2 the beam size at kicker exit is smaller, not larger.}
-\nrnote{that is expected based on the optics. The beam waist is after the kicker, so while the kicker does increase the transverse 
-	divergence of the beam, it's still not enough to overcome the focusing of the quadrupoles upstream.}
+There are several possible sources for the asymmetries between the x and y dimensions 
+in Figure~\ref{fig:beamsize}. These include the initial laser profile (which was not exactly symmetric
+when the data was taken), the off axis fields in the accelerating cavities, 
+and uncertainties in the quadrupoles strengths.
+If the asymmetries were due to the kicker, they would not be present when the kicker is off.
+Persistence of the asymmetry when the kicker is off indicates 
+the sources of error can be fixed with better control of the quadrupoles, 
+and is not an intrinsic problem associated with the kicker.
 
 
 \Section{TBA Beam Line}
 
-\nrnote{skip this section, not edited yet}
-\nrnote{Notes from call: short discussion of the issues, what are you trying to achieve, where are apertures tight.
-	comments on what trying to do with optimization and issues}
-\lsnote{So here the optics stuff starts - again you will need a little introduction.  What are the goals, and what are you going to present?}
-\lsnote{Where are you going with this?  Before you spend a lot of time on it, what are your goals here?}
-A drift: 
+With the kicker and septum parameters defined by the constraints dicussed above, 
+the optics and aperture limits further down stream were considered.
+There were three clear goals TBA beam line configuration: 
+\begin{itemize}
+	\item Achieve 100\% transmission in the PETS
+	\item Achieve the smallest bunch length possible
+	\item Arrange the beam line for quick and easy installation
+\end{itemize}
+
+With the third item addressed partially addressed in Section~\ref{theory}, 
+it remained to determine if an optics solution existed to satisfy the 
+first two requirements (transmission and bunch length). 
+In the case of bunch length, there was no set goal, but a clear understanding 
+that a shorter bunch will generate more power in the PETS structures [ref here].
+For transmission, an aperture of \SI{17.6}{mm} exist at the PETS.
+This is roughly three times smaller than the rest of the beam line.
+
+As a first test, a point to point matrix calculation was done 
+to determine if the beam size could be maintained near the kicker.
+Next the information in Chapter~\ref{simulations} was used to form the 
+base line of further optimization efforts. The genetic algorithm in OPAL
+was used to explore and optimize the optics in the TBA beam line.
+Solutions were found that meet the requirements listed above.
+
+
+
+\Subsection{Point to Point Check}
+From many sources~\cite{brown,Wiedemann} the building blocks of any 
+beam line can be defined. These typically include drift, quadrupoles, and dipoles.
+Using these common building blocks a check of the transport matrix for the 
+first four quadrupoles before the kicker was done,  see Figure~\ref{fig:full-staging}.
+This established the beam size could be maintained near the kicker during transport.  
+Four quadruple strengths and the six distances between the quadrupoles are parameters under consideration. 
+To reduce the number of variables from ten to four, 
+the quadruplet telescope module as described by K. Brown in \cite{brown} is used.  
+The transfer matrix R, defined as:  
 \begin{equation}
-R_d = 
+R_q = R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1} 
+\label{kb1}
+\end{equation}
+where a matrix with the subscript d refers to a drift as defined by,
+\begin{equation}
+R_{di} = 
 \begin{bmatrix}
-1 & L \\
+1 & L_i \\
 0 & 1
 \end{bmatrix}
 \end{equation}
+and a matrix with subscript q refers to a quadrupole as defined by,
+\begin{equation}
+R_{qi} = 
+\begin{bmatrix}
+1 & 0 \\
+\pm \frac{1}{f_i} & 1
+\end{bmatrix}
+\end{equation}
 
-A quad: 
+Substitution and matrix multiplication results in a transfer matrix of the 
+the following form for the quadruplet:
 \begin{equation}
 R_q = 
 \begin{bmatrix}
-1 & 0 \\
-\pm \frac{1}{f} & 1
-\end{bmatrix}
+\frac{f_2 f_4}{f_1 f_3} & 0 \\
+0 & \frac{f_1 f_3}{f_2 f_4}	
+\end{bmatrix}\label{kb2}
 \end{equation}
-
-A dipole:
-\begin{equation}
-R_s = 
-\begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}
-\end{equation}
-
-To convert from focal length to quadrupole strength we must take into account the 
-beam energy as well as the dimensions of the quadrupole. 
-\begin{equation}
-	\frac{1}{f} = kl 
-\end{equation}
-Where $l$ is the quadrupole's effective length, and k is the gradient w.r.t 
-the beam energy and magnet strength \cite{Wiedemann}:
-\begin{equation}
-	k = \SI{0.2998}{} \frac{g[\SI{}{T/m}]}{p [\SI{}{GeV/c}]}\label{k}
-\end{equation}
-
-
-
- To reduce the number of free parameters quickly without using expensive PIC simulations, 
- the transfer matrix of the beam line was considered. Starting at the end of the linac, 
- we consider the first four quadrupoles before the kicker. All the quadruple strengths (4) and
- distances between the quadrupoles (6) are parameters under consideration. To reduce the number
- of variables from 10 to 4, we use the quadruplet telescope module as described by K. Brown in \cite{brown}.  The transfer matrix R, is reduced to:  
- \begin{equation}
- R_q = R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1} = 
- \begin{bmatrix}
- \frac{f_2 f_4}{f_1 f_3} & 0 \\
- 0 & \frac{f_1 f_3}{f_2 f_4}	
- \end{bmatrix}\label{kb1}
- \end{equation}
-
-\nrnote{add detail about this matrix comes from and expand matrix to x and y}
 Where $f_1 \ldots f_4$ stand for the focal lengths of each quad before the kicker. 
 Due to other experiments in the AWA tunnel, 
 the first quadrupole was required to be at least $\SI{3}{m}$ away from the exit of the 
 last accelerating cavity in the linac. This gives the initial drift length and value
 for $f_1$. 
-
-\Subsection{Point to Point Check}
-To achieve point to point transport of the beam, we can 
-equate $f_1 = f_4$ and $f_2 = f_3$. This reduces Eq. \ref{kb1} to:
- \begin{equation}
+To achieve point to point transport of the beam as described in~\cite{brown}, 
+we can equate $f_1 = f_4$ and $f_2 = f_3$. This reduces Equation~\ref{kb2} to:
+\begin{equation}
 R_q =
 \begin{bmatrix}
 1 & 0 \\
 0 & 1	
 \end{bmatrix}
 \end{equation}
-We can further simplify the experimental set up by 
+We can further simplify this problem set up by 
 assuming $f_1=f_2$. Given the total distance, D, available for the
 quads in the beam line, \SI{3.8}{m}, we can then solve
 for the focal length $f_1$: 
 \begin{align}
-	D = 4f_1 + 4 f_2 = 8f_1 = \SI{3.8}{m} \\
-	f_1 = \SI{0.475}{m}
+D = 4f_1 + 4 f_2 = 8f_1 = \SI{3.8}{m} \\
+f_1 = \SI{0.475}{m}
 \end{align}
-Given an energy of \SI{65}{MeV}, a quadrupole length of \SI{11}{cm}, 
-and Eq. \ref{k} we can calculate this configuration would require a 
-magnet strength of \SI{4.14}{[T/m]}. This is feasible considering the 
-max strength is \SI{9}{[T/m]}.
 
+For completion, the focal length is converted into a field strength 
+to determine whether or not this configuration is possible given 
+the currently installed hardware at the AWA. 
+\begin{equation}
+\frac{1}{f} = kl 
+\end{equation}
+Where $l$ is the quadrupole's effective length, and k is the gradient w.r.t 
+the beam energy and magnet strength \cite{Wiedemann}:
+\begin{equation}
+k = \SI{0.2998}{} \frac{g[\SI{}{T/m}]}{p [\SI{}{GeV/c}]}\label{k}
+\end{equation}
+The beam energy must also be accounted for with the dimensions of the quadrupole. 
+Given an energy of \SI{65}{MeV}, a quadrupole length of \SI{11}{cm}, 
+and Equation~\ref{k} we can calculate this configuration would require a 
+magnet strength of \SI{4.14}{[T/m]}. This is feasible considering the 
+max strength is \SI{9}{[T/m]}. This also gives some indication that 
+that there should be several possible solutions found during optimization
+since the point to point check is not at either extreme of the quadrupole limits. 
+
+
+\iffalse
 To determine the effect of this configuration on the beam size and divergence
 we compare the sigma matrix before and after the qudrupoles:
 \begin{align}
-	\sigma_1 = R\cdot \sigma_0 \cdot R^T \\
-	= 
-	\begin{bmatrix}
-	1 & 0 \\
-	0 & 1	
-	\end{bmatrix}
-	\begin{bmatrix}
-	1 & 0 \\
-	0 & 1	
-	\end{bmatrix}
-    \begin{bmatrix}
-	1 & 0 \\
-	0 & 1	
-	\end{bmatrix} \\
-	=
-	\begin{bmatrix}
-	1 & 0 \\
-	0 & 1	
-	\end{bmatrix}
+\sigma_1 = R\cdot \sigma_0 \cdot R^T \\
+= 
+\begin{bmatrix}
+1 & 0 \\
+0 & 1	
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 \\
+0 & 1	
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 \\
+0 & 1	
+\end{bmatrix} \\
+=
+\begin{bmatrix}
+1 & 0 \\
+0 & 1	
+\end{bmatrix}
 \end{align}
+
+
+
+
+\fi
+
+
+
+
 
 
 \Section{TBA Beam Line Optics Optimization}

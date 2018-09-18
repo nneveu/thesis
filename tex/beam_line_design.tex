@@ -101,7 +101,8 @@ field are related by the speed of light, c, in the case of plane and TEM waves \
 From this we can find the magnetic field induced between the plates: 
 \begin{equation}
 B_y=\frac{E_x}{c}
-\end{equation}\label{Bv}
+\label{Bv}
+\end{equation}
 The electrons are traveling at nearly the speed of light, $c$, and move through the kicker on a 
 trajectory perpendicular to the fields.  Plugging Equation \ref{Bv} into the Lorentz force equation, 
 it is shown that the force exerted on a charge, q, 
@@ -167,7 +168,8 @@ using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of de
 \end{equation}
 \begin{equation}
 	\triangle x = \left(1-\cos\theta_{k}\right)\rho
-\end{equation}\label{eq:kx}
+	\label{eq:kx}
+\end{equation}
 Where $\rho$, is the bending radius, $\Delta x$ is the beam offset at the exit of the kicker, 
 and $\theta_{k}$ was is the total angle provided by the kicker. 
 
@@ -505,7 +507,7 @@ Note the x offset seen on the YAG screen is not solely due to the trajectory in 
 The set up must be broken into two parts: when the beam is inside the kicker, 
 and when it is drifting towards the YAG screen after it exits the kicker.
 The later part can be approximated as a triangle as shown in Figure~\ref{fig:kicker-geometry}.
-Inside the kicker, the trajectory is approximated using Equation~\ref{eq:}. 
+Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
 Combining these two, the equation for the x offset seen during the experiment
 can be written as:
 \begin{equation}
@@ -513,8 +515,9 @@ can be written as:
 \end{equation}
 \begin{equation}
 	\Delta x = \left(1-\cos\theta_{k}\right)\rho + L_{drift} \tan \theta_{k}
-\end{equation}\label{eq:kdata}
-Where $\rho$ is the bending radius in the kicker, and $L_{drift}$ is \SI{0.3}{m} as shown in Figure~\ref{fig:kyag}.
+	\label{eq:kdata}
+\end{equation}
+Where $\rho$ is the bending radius in the kicker, and $L_{drift}$ is \SI{0.28}{m} as shown in Figure~\ref{fig:kyag}.
 Using the small angle approximation, this equation simplifies:
 \begin{equation}
 	\Delta x = \rho - \rho \left(1-\frac{\theta^2}{2}\right) + L_{drift} \theta_{k}
@@ -522,7 +525,20 @@ Using the small angle approximation, this equation simplifies:
 \begin{equation}
 	\Delta x = \rho \frac{\theta^2}{2} + L_{drift} \theta_{k}
 \end{equation}
-In Equation~\ref{eq:kdata}, $\Delta x$, was measured and is the data shown in Figure~\ref{fig:linear}. Note, the beam centroid location at kicker voltage $=0$, 
+Next, $\rho$ is rewritten assuming the the arc length is approximately equal 
+to the length of the kicker plates:
+\begin{equation}
+	\Delta x = \frac{L_{kicker}}{\theta_{k}}\frac{\theta_{k}^2}{2} + L_{drift}\theta_{k}
+\end{equation}
+\begin{equation}
+	\Delta x = \left(\frac{L_{kicker}}{2}+ L_{drift}\right)\theta_{k}
+\end{equation}
+Where the length of the kicker is \SI{1}{m} and the drift is \SI{0.28}{m}:
+\begin{equation}
+	\Delta x = \SI{0.780}{m}\,\,\theta_{k}
+		\label{eq:kdx}
+\end{equation}
+In Equation~\ref{eq:kdx}, $\Delta x$, was measured and is the data shown in Figure~\ref{fig:linear}. Note, the beam centroid location at kicker voltage $=0$, 
 represents the beam location on the YAG screen when the kicker is turned off.
 This is used as a reference point to calculate $\Delta x$ at each voltage value
 (i.e. $\Delta x_1 = x_{v1} - x_{v0}$)

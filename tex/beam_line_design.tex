@@ -3,7 +3,7 @@
 
 \Section{Introduction}
 
-Independent staging requires two beam lines, with routing of bunch trains via a kicker and septum, 
+Independent staging requires two \lsnote{drive} beam lines, with routing of bunch trains via a kicker and septum, 
 see Figure \ref{fig:full-staging}. The kicker and septum must direct the beam to a dipole, 
 that will straighten the beam trajectory to travel parallel to the original beam path. 
 In this configuration the two drive beam lines will be parallel to each other after the dipole.
@@ -12,7 +12,7 @@ at the small aperture of the PETS decelerating structure.
 This includes a small transverse size of the beam to allow 100\% transmission, 
 and a small bunch length to maximize power extraction from the PETS.
 Spectrometer magnets are used to measure the energy of the beam at the end of the beam lines.
-This second independent beam line was designed. So far, installation and testing of the kicker has been done.  
+This second independent beam line \lsnote{design has been completed \sout{was designed}}. So far, installation and testing of the kicker has been done.  
 The remaining components have been specified, and several are now ready for installation (i.e. septum, quadrupoles, dipoles).
 \begin{figure}
 		\begin{center}
@@ -27,13 +27,13 @@ The remaining components have been specified, and several are now ready for inst
 	PETS stands for Power Extraction and Transfer Structure, and ACC stands for Accelerating structure. 
 	The subscript on each structure refers to which stage the structures belong to (first or second). 
 	The drive line has six accelerating cavities with a maximum beam energy of \SI{70}{MeV}. 
-	The witness line has one accelerating cavity with a max beam energy of \SI{15}{MeV}.}
+	The witness line has one accelerating cavity with a \lsnote{maximum} beam energy of \SI{15}{MeV}.}
 \label{fig:full-staging}
 \end{figure}
 
 A kicker design from Indiana University (IU) was used as a base line to design a kicker specific to the
 requirements at the AWA. The gap and plate length had to be determined based the beam energy, 
-easily or readily available equipment, and mechanical constraints in the AWA tunnel. 
+\lsnote{\sout{easily or}} readily available equipment, and mechanical constraints in the AWA tunnel. 
 After a design was set, the kicker was fabricated.
 Two vacuum tests were performed to verify the fabrication process was successful.
 The electronics group at the Advanced Photon Source (APS) provided equipment and helped perform these tests.
@@ -80,7 +80,7 @@ Borrowing from a successful neighbor, a design implemented by Indiana University
 was adapted to fit the TBA requirements at the AWA. Redesign required consideration
 of the length and gap between the kicker plates. Both are key parameters that determine 
 what angle the beam will be deflected. Longer plates result in the beam traveling 
-in the electromagnetic field for a longer time yielding a larger beam deflection angle). 
+in the electromagnetic field for a longer time yielding a larger beam deflection angle\lsnote{{\it extra parenthesis}\sout{)}}. 
 A smaller gap increases the field intensity for a given voltage (similar to a parallel plate 
 capacitor), increasing the beam deflection angle. 
 
@@ -207,10 +207,11 @@ Therefore a bend angle less than $20^\circ$ is preferred and allows room for tol
 This has the added benefit of reducing energy spread. 
 If the beam is bent at a smaller angle, less coherent synchrotron radiation (CSR) and energy spread will be induced.
 
+\lsnote{{\it Above you said max beam energy is 65 MeV, and below 75 MeV, not consistent, so explain.}}
 Using the equations from Section \ref{theory}, 
 tables were made for different plate lengths giving possible gap, angle, and x offset values for comparison. 
 The maximum beam energy was used, \SI{75}{MeV}, and the expected pulsar voltage was used, \SI{35}{kV}.
-A kicker lengths of \SI{0.42}{m}, \SI{0.5}{m}, and \SI{0.6}{m} were investigated.
+\lsnote{\sout{A}} Kicker lengths of \SI{0.42}{m}, \SI{0.5}{m}, and \SI{0.6}{m} were investigated.
 From these calculations, the range of possible kicker angles fell between \SI{1}{^\circ} and \SI{3}{^\circ}.
 The longest kicker plate option was investigated further with the understanding that 
 a larger kicker angle would shorten the drift distance between the kicker and septum, 
@@ -276,7 +277,7 @@ One beam pipe will connect the two and the deflected and undeflected
 beams must travel in the same pipe until reaching the septum.
 After the septum, the two beams will separate into their own beam pipes.
 This connection piece before the split, is a custom vacuum chamber designed at 
-AWA and ordered from MDC Vacuum Products, by Scott Doran. 
+AWA \lsnote{by Scott Doran}, and ordered from MDC Vacuum Products\lsnote{\sout{, by Scott Doran}}. 
 The large chamber requires more vacuum pumping than other areas, 
 which could complicate installation if the chamber was too long. 
 In this regard, a larger angle from the kicker would help by shortening the pipe length between the kicker and septum.
@@ -304,6 +305,7 @@ Therefore, it was decided to elongate the kicker plates to accommodate the large
 	\end{center}
 \end{table}
 
+\lsnote{{\it There appears to be an error in the table, you have the beam energy? instead of kicker plate voltage}}
 After a discussion on fabrication techniques and the mechanical constraints in Table~\ref{tab:mechanical}, 
 it was noted that the maximum kicker plate length could be \SI{1}{m}. 
 A new table of voltages and angles was calculated. At this plate length, 
@@ -314,7 +316,7 @@ For a length of \SI{1}{m}, and gap of \SI{40}{mm},
 several beam energy and angle scenarios were considered.
 As a contingency plan, it was important to consider if the 
 beam energy could be lowered to still achieve the desired 
-angle and x offset required in the beam line. 
+angle and x offset required in the beam line. \lsnote{unclear, do you mean you were seeing if a low energy beam would make it through as well?}
 With the pulsar being variable between 18 and 30 kV,
 several feasible options were calculated using the equations in Section \ref{theory}, 
 and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}
@@ -375,7 +377,7 @@ to determine the impedance along the kicker plates, feedthroughs, and cables.
 	\end{center} 
 	\caption{CAD drawing of AWA kicker design, courtesy of Scott Doran from AWA.
 	Ports are connected the HV cables purchased from FID GmbH. 
-	Power is suppled by a puslar also fabricated by FID GmbH and borrowed from the APS Electronics group.}
+	Power is suppled by a \lsnote{pulsar \sout{puslar}} also fabricated by FID GmbH and borrowed from the APS Electronics group.}
 \end{figure*}\label{fig:AWAkicker}
 \begin{figure}%[h]
 	\begin{center}
@@ -386,12 +388,14 @@ to determine the impedance along the kicker plates, feedthroughs, and cables.
 		\label{fig:feedthroughs}
 	\end{center}
 \end{figure}
+\iffalse
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/kicker_plates}
 	\caption{Inside of kicker vacuum chamber after assembly. }
 	\label{fig:kicker-plates}
 \end{figure}
+\fi
 
 \Subsection{High Voltage Kicker Test}
 Two HV tests were performed at the APS. This was done to ensure the electrical connection 
@@ -456,9 +460,9 @@ The HV pulsar was located on the roof of the bunker.
 During the beam tests the accelerator was operated in TBA-like conditions based on simulations 
 done to optimize for future TBA runs.
 The charge was \SI{30}{nC}, the buck focusing solenoid was at \SI{550}{A}, the matching solenoid was at \SI{200}{A}, 
-and quadrupoles 5, 6, and 7 were either \SI{-1.53}{A} and \SI{3.08}{A} in a nearly 1:2:1 configuration.
+and quadrupoles 5, 6, and 7 were either \SI{-1.53}{A} \lsnote{or \sout{and}} \SI{3.08}{A} in a nearly 1:2:1 configuration.
 All accelerating cavities were operated at \SI{-20}{^\circ} off crest to minimize energy spread.
-The centroid of the beam was calculated for several kicker voltages, and a linear fit was performed.
+The centroid \lsnote{position} of the beam was \lsnote{measured \sout{calculated}} for several kicker voltages, and a linear fit was performed.
 The R value for the fit in Figure \ref{fig:linear} is 0.99704. This suggests that the beam offset 
 is fairly linear with respect to kicker voltage. 
 \begin{figure}
@@ -469,11 +473,11 @@ is fairly linear with respect to kicker voltage.
 \end{figure}
 
 Using the x offset numbers found in Figure~\ref{fig:linear}, 
-we can compare the measured angle vs. first order approximations from Section~\ref{theory}.
+we can compare the measured angle vs. first order approximations from Section~\ref{theory}.  \lsnote{How did you get the angle from the data?  Meaning, what were the positions of the YAGs that you used?  I assume it was a sort of tan(theta)=yag offset/long distance kind of thing?}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/kicker_angle_comparison}
-	\caption{Measured angle provided by the kicker at several voltages.
+	\caption{Measured angle provided by the kicker at several voltages.  \lsnote{{\it What was the beam energy during the measurements?  Also, the units should have been degrees?}}
 	These are compared to 1st order calculations for 
 	\SI{75}{MeV} and \SI{65}{MeV} beams.
 	Smaller angles are expected in the data due to the reflections
@@ -495,7 +499,7 @@ A Gaussian fit was used for the beam core, and linear fits were used for the tai
 	\label{fig:kickerbeamsize}
 \end{figure}
 While the kicker does slightly increase the beam size in the kicked direction, 
-the large discrepancy can not be attributed to the kicker alone.
+the large discrepancy \lsnote{in the horizontal and vertical beam size} can not be attributed to the kicker alone.
 This is clear when looking at the beam sizes when the kicker is off (voltage = 0). 
 The beam is already asymmetric before the kicker is turned on.
 \begin{figure}
@@ -507,6 +511,7 @@ The beam is already asymmetric before the kicker is turned on.
      \label{fig:beamsize}
 \end{figure}
 
+\lsnote{{\it In the figure, it looks like the simulation also predicts that the beam is not round.  So, the source of the asymmetry must be known?}}
 There are several possible sources for the asymmetries between the x and y dimensions 
 in Figure~\ref{fig:beamsize}. These include the initial laser profile (which was not exactly symmetric
 when the data was taken), the off axis fields in the accelerating cavities, 
@@ -519,8 +524,8 @@ and is not an intrinsic problem associated with the kicker.
 
 \Section{TBA Beam Line}
 
-With the kicker and septum parameters defined by the constraints dicussed above, 
-the optics and aperture limits further down stream were considered.
+\lsnote{While \sout{With}} the kicker and septum parameters \lsnote{were} defined by the constraints dicussed above, 
+the optics \lsnote{must be used to address the \sout{and}} aperture limits further down stream \lsnote{\sout{were considered}}.
 There were three clear goals TBA beam line configuration: 
 \begin{itemize}
 	\item Achieve 100\% transmission in the PETS
@@ -533,7 +538,7 @@ it remained to determine if an optics solution existed to satisfy the
 first two requirements (transmission and bunch length). 
 In the case of bunch length, there was no set goal, but a clear understanding 
 that a shorter bunch will generate more power in the PETS structures [ref here].
-For transmission, an aperture of \SI{17.6}{mm} exist at the PETS.
+For transmission, an aperture of \SI{17.6}{mm} \lsnote{exists} at the PETS.
 This is roughly three times smaller than the rest of the beam line.
 
 As a first test, a point to point matrix calculation was done 
@@ -546,17 +551,20 @@ Solutions were found that meet the requirements listed above.
 
 
 \Subsection{Point to Point Check}
-From many sources~\cite{brown,Wiedemann} the building blocks of any 
-beam line can be defined. These typically include drift, quadrupoles, and dipoles.
-Using these common building blocks a check of the transport matrix for the 
-first four quadrupoles before the kicker was done,  see Figure~\ref{fig:quads}.
+\lsnote{The effect of a beamline component (such as a dipole, quadrupole, or straight beam pipe) on the phase space coordinates of a particle can be modeled as a matrix operator}~\cite{brown,Wiedemann}.  \lsnote{These building blocks may be `stacked' to model the effect of an entire beamline, or section of a beamline, on the coordinates of a  particle.  \sout{From many sources~cite(brown,Wiedemann) the building blocks of any 
+beam line can be defined. These typically include drift, quadrupoles, and dipoles.}}
+\lsnote{These \sout{Using these}} common building blocks \lsnote{were used as} a check \lsnote{that \sout{of}} the 
+\lsnote{beam properties \sout{ transport matrix for} } after the 
+first four quadrupoles \lsnote{would allow transport through the kicker \sout{was done,}} (see Figure~\ref{fig:quads}),
+\iffalse
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/p2p_optics}
 	\caption{\nrnote{I will add focal length label to this plot.}}
 	\label{fig:p2p}
 \end{figure}
-This established the beam size could be maintained near the kicker during transport.  
+\fi
+\lsnote{by \sout{This established} establishing that} the beam size could be maintained near the kicker during transport.  
 Four quadruple strengths and the six distances between the quadrupoles are parameters under consideration. 
 To reduce the number of variables from ten to four, 
 the quadruplet telescope module as described by K. Brown in \cite{brown} is used.  
@@ -595,7 +603,7 @@ Where $f_1 \ldots f_4$ stand for the focal lengths of each quad before the kicke
 Due to other experiments in the AWA tunnel, 
 the first quadrupole was required to be at least $\SI{3}{m}$ away from the exit of the 
 last accelerating cavity in the linac. This gives the initial drift length and value
-for $f_1$. 
+for $f_1$.  \lsnote{{\it How does this give the value of f1?}}
 To achieve point to point transport of the beam as described in~\cite{brown}, 
 we can equate $f_1 = f_4$ and $f_2 = f_3$. This reduces Equation~\ref{kb2} to:
 \begin{equation}
@@ -609,7 +617,7 @@ We can further simplify this problem set up by
 assuming $f_1=f_2$. 
 Given the total distance, D, available for the
 quads in the beam line, \SI{3.8}{m}, we can then solve
-for the focal length $f_1$: 
+for the focal length $f_1$: \lsnote{{\it Are you missing an assumption?  The following eq. says to me that you are assuming that the center of  a quad is at the focal point of a previous quad..}}
 \begin{align}
 D = 4f_1 + 4 f_2 = 8f_1 = \SI{3.8}{m} \\
 f_1 = \SI{0.475}{m}
@@ -659,6 +667,10 @@ we compare the sigma matrix before and after the qudrupoles:
 0 & 1	
 \end{bmatrix}
 \end{align}
+
+
+
+
 \fi
 
 
@@ -674,7 +686,7 @@ an optimization of the beam line optics was performed.
 This was done for two reasons. First, to confirm that solutions 
 exist at \SI{40}{nC} where the beam is transmitted 100\% through the PETS structure in the deflected beam line.
 Second, from the set of feasible solutions, the optics designs with the smallest bunch lengths should be identified.
-These two conditions combined will provide an optics solutions that provides the most power output from the test. 
+These two conditions combined will provide an optics \lsnote{solution \sout{solutions}} that provides the most power output from the \lsnote{PETS structure for acceleration of the witness beam \sout{test}}. 
 
 The built in GA in OPAL was again used for these simulations. 
 Several rounds of optimizations were tried and many failed for various reasons, 
@@ -802,6 +814,7 @@ not desirable for TBA. The results in the transverse dimension were
 more instructive. As expected the beam sizes in the x dimension are larger 
 due to the bending elements. This indicates the x dimension will be the 
 limiting factor in areas with tight aperatures such as the PETS.
+\iffalse
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/xy_vs_pxy_pareto_front_quads_before_Q5}
@@ -809,6 +822,7 @@ limiting factor in areas with tight aperatures such as the PETS.
 		This data was a result of the simulation setup in Section \ref{setup}.}
 	\label{fig:tba-paretoxy}
 \end{figure}
+\fi
 Note the two curves in Figure~\ref{fig:tba-paretoxy}, may not represent the same 
 design variables for a point to point comparison. A Pareto analysis always 
 chooses the best points w.r.t the objectives chosen. This guarantees no 
@@ -824,6 +838,7 @@ x value design variables. Now a true point to point comparison is possible in th
 We chose the x dimension to be the determining plot, 
 due to it's clear limitations in comparison to the y dimensions in Figure~\ref{fig:tba-paretoxy}. 
 \nrnote{the sentences above are awkward, not sure how to word this} 
+\iffalse
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/xonly_pareto_front_quads_before_Q5}
@@ -833,6 +848,7 @@ due to it's clear limitations in comparison to the y dimensions in Figure~\ref{f
 		This data was a result of the simulation setup in Section \ref{setup}.}
 	\label{fig:tba-paretoxonly}
 \end{figure}
+\fi
 The momentum variance in Figure~\ref{fig:tba-paretoxonly} is small in comparison to 
 the beam size variance. Therefore, design variable values resulting in a smaller 
 beam size were give higher priority. Table~\ref{tab:designopt}, shows a summary of 

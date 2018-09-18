@@ -469,9 +469,33 @@ Details of the set up, and results of the studies follow.
 The kicker was installed in the AWA drive beam line approximately \SI{16.5}{m} downstream of the cathode.
 The HV pulsar was located on the roof of the bunker.
 During the beam tests the accelerator was operated in TBA-like conditions based on simulations 
-done to optimize for future TBA runs.
-The charge was \SI{30}{nC}, the buck focusing solenoid was at \SI{550}{A}, the matching solenoid was at \SI{200}{A}, 
-and quadrupoles 5, 6, and 7 were either \SI{-1.53}{A} or \SI{3.08}{A} in a nearly 1:2:1 configuration.
+done to optimize for future TBA runs, see Table~\ref{tab:krunparam}.
+ \begin{table}%[h!]
+	\begin{center}
+		\caption{Beam line configuration when kicker was tested.}
+		\label{tab:krunparam}
+		\rowcolors{2}{blue!10}{white}   
+		\begin{tabular}{lc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Parameter} 		&  \textbf{Value} \\ 
+			\midrule
+			Charge					&  \SI{30}{nC} \\
+			Laser dimension in x    &  \SI{19}{mm} \\
+			Laser dimension in y    &  \SI{16}{mm} \\
+			Buck Focusing Solenoid	& \SI{550}{A} \\
+			Matching Solenoid		& \SI{200}{A} \\
+			Quad 1					& \SI{0}{A}  \\
+			Quad 2					& \SI{-1.53}{A}  \\
+			Quad 3					& \SI{3.08}{A}  \\
+			Quad 4					& \SI{-1.53}{A}  \\
+			Cavity phases   		& -20$^\circ$ \\
+			Beam Energy 				& 65 MV\\ 
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
 All accelerating cavities were operated at \SI{-20}{^\circ} off crest to minimize energy spread.
 A simplified experimental setup is shown in Figure~\ref{fig:kyag}
 \begin{figure*}
@@ -542,10 +566,10 @@ In Equation~\ref{eq:kdx}, $\Delta x$, was measured and is the data shown in Figu
 represents the beam location on the YAG screen when the kicker is turned off.
 This is used as a reference point to calculate $\Delta x$ at each voltage value
 (i.e. $\Delta x_1 = x_{v1} - x_{v0}$)
-
 With these $\Delta x$ values, Equation~\ref{eq:kdata} can be rewritten to 
-solve for the experimentally achieved angle:
-
+solve for the experimentally achieved angle $\theta_{k}$.
+These values are plotted in Figure~\ref{fig:angles} in comparison 
+to the ideal values for a \SI{65}{MeV} beam. 
 
 \begin{figure}
 	\centering

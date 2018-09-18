@@ -210,7 +210,6 @@ Therefore a bend angle less than $20^\circ$ is preferred and allows room for tol
 This has the added benefit of reducing energy spread. 
 If the beam is bent at a smaller angle, less coherent synchrotron radiation (CSR) and energy spread will be induced.
 
-\nrnote{mismatch in energy was a typo}
 Using the equations from Section \ref{theory}, 
 tables were made for different plate lengths giving possible gap, angle, and x offset values for comparison. 
 The maximum beam energy was used, \SI{75}{MeV}, and the expected pulsar voltage was used, \SI{35}{kV}.
@@ -308,7 +307,6 @@ Therefore, it was decided to elongate the kicker plates to accommodate the large
 	\end{center}
 \end{table}
 
-\nrnote{fixed error in table}
 After a discussion on fabrication techniques and the mechanical constraints in Table~\ref{tab:mechanical}, 
 it was noted that the maximum kicker plate length could be \SI{1}{m}. 
 It was also determined from measurements in Chapter~\ref{chp:exp}, 
@@ -568,19 +566,24 @@ This is used as a reference point to calculate $\Delta x$ at each voltage value
 (i.e. $\Delta x_1 = x_{v1} - x_{v0}$)
 With these $\Delta x$ values, Equation~\ref{eq:kdata} can be rewritten to 
 solve for the experimentally achieved angle $\theta_{k}$.
+Next the energy measurment was analyized to determine the beam energy. 
+THe method described in Chapter \ref{chp:exp}. \nrnote{add in energy calc}
 These values are plotted in Figure~\ref{fig:angles} in comparison 
 to the ideal values for a \SI{65}{MeV} beam. 
-
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/kicker_angle_comparison}
-	\caption{Measured angle provided by the kicker at several voltages.  \lsnote{{\it What was the beam energy during the measurements?  Also, the units should have been degrees?}}
-	These are compared to 1st order calculations for 
-	\SI{75}{MeV} and \SI{65}{MeV} beams.
+	\caption{Measured angle provided by the kicker at several voltages.  
+	These are compared to 1st order calculations for a \SI{65}{MeV} beam.
 	Smaller angles are expected in the data due to the reflections
-	seen at the feedthroughs in TDR measurements, see Figure~\ref{fig:TDR}.}
+	seen at the feedthroughs in TDR measurements, see Figure~\ref{fig:TDR}.
+	Note the calculated values are also smaller than the 
+	angles predicted in Figure~\ref{fig:kickerangles}, 
+	because the final kicker gap after assembly was \SI{45}{mm}, a little larger
+	than the design value of \SI{40}{mm}}
 	\label{fig:angles}
 \end{figure}
+
 Beam size data was also taken, see Figure \ref{fig:kickerbeamsize}. 
 These measurements were used to calculate the total beam size and 
 centroid location of the beam. A combination fit was used to extract 
@@ -596,7 +599,8 @@ A Gaussian fit was used for the beam core, and linear fits were used for the tai
 	\label{fig:kickerbeamsize}
 \end{figure}
 While the kicker does slightly increase the beam size in the kicked direction, 
-the large discrepancy \lsnote{in the horizontal and vertical beam size} can not be attributed to the kicker alone.
+the large discrepancy in the horizontal and vertical beam size
+can not be attributed to the kicker alone.
 This is clear when looking at the beam sizes when the kicker is off (voltage = 0). 
 The beam is already asymmetric before the kicker is turned on.
 \begin{figure}
@@ -621,8 +625,8 @@ and is not an intrinsic problem associated with the kicker.
 
 \Section{TBA Beam Line}
 
-\lsnote{While \sout{With}} the kicker and septum parameters \lsnote{were} defined by the constraints dicussed above, 
-the optics \lsnote{must be used to address the \sout{and}} aperture limits further down stream \lsnote{\sout{were considered}}.
+While  the kicker and septum parameters were defined by the constraints dicussed above, 
+the optics must be used to address the aperture limits further down stream.
 There were three clear goals TBA beam line configuration: 
 \begin{itemize}
 	\item Achieve 100\% transmission in the PETS
@@ -635,7 +639,7 @@ it remained to determine if an optics solution existed to satisfy the
 first two requirements (transmission and bunch length). 
 In the case of bunch length, there was no set goal, but a clear understanding 
 that a shorter bunch will generate more power in the PETS structures [ref here].
-For transmission, an aperture of \SI{17.6}{mm} \lsnote{exists} at the PETS.
+For transmission, an aperture of \SI{17.6}{mm} exists at the PETS.
 This is roughly three times smaller than the rest of the beam line.
 
 As a first test, a point to point matrix calculation was done 
@@ -648,12 +652,11 @@ Solutions were found that meet the requirements listed above.
 
 
 \Subsection{Point to Point Check}
-\lsnote{The effect of a beamline component (such as a dipole, quadrupole, or straight beam pipe) on the phase space coordinates of a particle can be modeled as a matrix operator}~\cite{brown,Wiedemann}.  \lsnote{These building blocks may be `stacked' to model the effect of an entire beamline, or section of a beamline, on the coordinates of a  particle.  \sout{From many sources~cite(brown,Wiedemann) the building blocks of any 
-beam line can be defined. These typically include drift, quadrupoles, and dipoles.}}
-\lsnote{These \sout{Using these}} common building blocks \lsnote{were used as} a check \lsnote{that \sout{of}} the 
-\lsnote{beam properties \sout{ transport matrix for} } after the 
-first four quadrupoles \lsnote{would allow transport through the kicker \sout{was done,}} (see Figure~\ref{fig:quads}),
-\iffalse
+The effect of a beam line component (such as a dipole, quadrupole, or straight beam pipe) on the phase space coordinates of a particle can be modeled as a matrix operator~\cite{brown,Wiedemann}.  These building blocks may be `stacked' to model the effect of an entire beam line, or section of a beam line, on the coordinates of a  particle.  
+These common building blocks were used as a check that the 
+beam properties after the first four quadrupoles 
+would allow transport through the kicker (see Figure~\ref{fig:quads}),
+\iftrue
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/p2p_optics}
@@ -661,7 +664,7 @@ first four quadrupoles \lsnote{would allow transport through the kicker \sout{wa
 	\label{fig:p2p}
 \end{figure}
 \fi
-\lsnote{by \sout{This established} establishing that} the beam size could be maintained near the kicker during transport.  
+by establishing that the beam size could be maintained near the kicker during transport.  
 Four quadruple strengths and the six distances between the quadrupoles are parameters under consideration. 
 To reduce the number of variables from ten to four, 
 the quadruplet telescope module as described by K. Brown in \cite{brown} is used.  
@@ -764,16 +767,7 @@ we compare the sigma matrix before and after the qudrupoles:
 0 & 1	
 \end{bmatrix}
 \end{align}
-
-
-
-
 \fi
-
-
-
-
-
 
 \Section{TBA Beam Line Optics Optimization}
  
@@ -783,7 +777,7 @@ an optimization of the beam line optics was performed.
 This was done for two reasons. First, to confirm that solutions 
 exist at \SI{40}{nC} where the beam is transmitted 100\% through the PETS structure in the deflected beam line.
 Second, from the set of feasible solutions, the optics designs with the smallest bunch lengths should be identified.
-These two conditions combined will provide an optics \lsnote{solution \sout{solutions}} that provides the most power output from the \lsnote{PETS structure for acceleration of the witness beam \sout{test}}. 
+These two conditions combined will provide an optics solution that provides the most power output from the PETS structure for acceleration of the witness beam. 
 
 The built in GA in OPAL was again used for these simulations. 
 Several rounds of optimizations were tried and many failed for various reasons, 

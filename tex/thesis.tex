@@ -159,8 +159,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{introduction}
-\clearpage
+%\input{introduction}
+%\clearpage
 
 \input{exp_setup}
 \clearpage
@@ -194,10 +194,9 @@ Conclusion...
 Power readings long yellow cable:
 \begin{table} %or [hbt] ?
 	\caption{Readings taken of power meter during RF measurements.
-	Where Att. stands for attenuation.
-	Bolded measurements were taken on a second day, 
-	with a reduced amount of attenuation.}
-	\rowcolors{2}{blue!15}{white}
+	Where Att. stands for attenuation. Bolded measurements were taken on a second day, 
+	without the \SI{10}{dB} attenuator shown in Figure~\ref{fig:tikzdrivegun}.}
+	\rowcolors{3}{blue!15}{white}
 	\begin{center}
 		\begin{tabular}{cccp{6cm}}
 			\toprule
@@ -205,12 +204,12 @@ Power readings long yellow cable:
 			\textbf{Cavity} & \textbf{Probe Att.} & \textbf{Splitter Att.} 	& \textbf{Power Meter Measurement} \\
 							& \textbf{dBm}		  & \textbf{dB}			   	& \textbf{dBm} \\
 			\midrule
-			Gun & -53.2& $9.5 \pm 0.3$ & -14.18, \textbf{-3.88, -3.83}  \\
+			Gun & 53.2& $9.5 \pm 0.3$ & -14.18, \textbf{-3.88, -3.83}  \\
 			2 &   --     & $9.5 \pm 0.3$ & -18.88, \textbf{-9.6}  \\
 			3 &   --     & $4.0 \pm 1.0$ & -12.38, -12.24, -12.24, 12.21,\newline -12.39, -12.24, -12.24, \textbf{-1.54} \\
-			4 & -61.95 & $9.5 \pm 0.3$ & 18.84, -18.89, \textbf{-10.11, \newline -10.15, -10.13, -10.10, -10.07}  \\
+			4 & 61.95 & $9.5 \pm 0.3$ & 18.84, -18.89, \textbf{-10.11, \newline -10.15, -10.13, -10.10, -10.07}  \\
 			5 &  --      & $9.5 \pm 0.3$ & -17.76, \textbf{-8.46, -8.31}  \\
-			6 & -61    & 			   & -14.36,-14.28,-14.25,-14.30,\newline-14.35,-14.33,-14.32,\newline 
+			6 & 61    & 			   & -14.36,-14.28,-14.25,-14.30,\newline-14.35,-14.33,-14.32,\newline 
 											\textbf{-2.83, -2.84, -2.81, -2.82} \\
 			\bottomrule
 		\end{tabular}

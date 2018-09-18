@@ -1,0 +1,76 @@
+\def \gunleft {-1.0}
+\def \gunright {0.3}
+\def \loneright {1.0}
+\def \ltworight {2.0}
+\def \lthreeright {3.0}
+\def \lfourright {4.0}
+\def \lfiveright {5.0}
+\def \lsixright {6.0}
+\def \quadone {7.3}
+\def \quadfour{16}
+
+%Full Staging
+\draw[very thick, ->] (8,1) -- (27,1);
+
+%Line between kicker and septum
+\node[] at (15,2) {Drive Line};
+\node[] at (23,-4) {Witness Line};
+\draw[very thick] (\lsixright+5.2,1.0) -- (12.5,0.7);
+
+%Kicker 
+\draw[fill=orange,  thick, rounded corners =0.1cm] (\lsixright+3.3,0.5)rectangle ({\lsixright+0.84+4.6},1.5) node[pos=.5, white] {\tiny $Kicker$};
+%Septum
+\node[] at (12.2,-0.8) {\tiny Septum};
+\draw[fill=black!60!green,  thick, rounded corners =0.1cm] (12.2,0.9)rectangle ({13.2},-0.1) node[pos=.5, white] {};
+%Line between kicker and septum
+\draw[very thick] (13.25,0.2) -- (14.5,-0.5);
+%Dipole
+\node[] at (15,-1.7) {\tiny Dipole};
+\draw[fill=black!60!green, thick, rounded corners =0.1cm] (14.5,0.0)rectangle ({15.6},-1.0) node[pos=.5, white] {};
+%Line between dipole and quads
+\draw[very thick, ->] (15.6,-0.5) -- (22,-0.5);
+%Witness
+\draw[very thick, <-] (16,-2.5) -- (27,-2.5);
+%Waveguide
+\draw[very thick] (20,-0.5) -- (20,-3);
+%Waveguide
+\draw[very thick] (25.5,1.5) -- (25.5,-3);
+%PETS2
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (18.5,0.0)rectangle (20.5,-1) node[pos=.5, white] {\tiny$\text{PETS}_2$};
+%PETS1
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (24,1.5)rectangle (26,0.5) node[pos=.5, white] {\tiny$\text{PETS}_1$};
+%ACC2
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (18.5,-2)rectangle (20.5,-3) node[pos=.5, white] {\tiny$\text{ACC}_2$};
+%ACC1
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (24,-2)rectangle (26,-3) node[pos=.5, white] {\tiny$\text{ACC}_1$};
+
+
+
+%Simplified Staging
+\draw[very thick, ->] (12,11) -- (25,11);
+
+%Line between kicker and septum
+\node[] at (13,12) {Drive Line};
+\node[] at (21,6) {Witness Line};
+
+%Witness
+\draw[very thick, <-] (14,10-2.5) -- (25,10-2.5);
+%Waveguide
+\draw[very thick] (18,11.5) -- (18,7);
+%Waveguide
+\draw[very thick] (23.5,11.5) -- (23.5,10-3);
+%PETS2
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (16.5,11.5)rectangle (18.5,10.5) node[pos=.5, white] {\tiny$\text{PETS}_2$};
+%PETS1
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (22,11.5)rectangle (24,10.5) node[pos=.5, white] {\tiny$\text{PETS}_1$};
+%ACC2
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (16.5,8)rectangle (18.5,7) node[pos=.5, white] {\tiny$\text{ACC}_2$};
+%ACC1
+\draw[fill=black!60!yellow,  thick, rounded corners =0.1cm] (22,8)rectangle (24,7) node[pos=.5, white] {\tiny$\text{ACC}_1$};
+
+
+
+
+
+
+

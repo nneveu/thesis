@@ -490,19 +490,19 @@ maximum power to the gun, typical of TBA running conditions.
 Using the set up in Figure~\ref{fig:tikzdrivegun}, the power meter measured  $P_{g} = \SI{-14.18}{dBm}$
 in the control room. Now we must account for attenuation to know the true power
 signal out of the gun. \lsnote{ {\it Did you ever compare to Eric's measurement?}}
-\nrnote{\it He did not take direct power measurements. He measured the power supplied by the 
-klystrons, which would not be effected by differences in the power splitters or 
-attenuation in the waveguide as it travels to the cavity. }
+\nrnote{\it We used different methods (he measured forward and rev power from klystron diodes).
+My numbers are still smaller than his...still looking for what's wrong here. }
 \begin{equation}
-P_g =P_{meas}- \left(P_r + A_1 + C_2 + S + C_3 + A_2 \right)
+P_g =P_{meas} + A_{probe}+A_1 + C_2 + S + C_3 + A_2 
 \end{equation}
-Where A's represent attenuators, C's represent cable calibration numbers.
+Where A's represent attenuators, C's represent cable calibration numbers, 
+and S is the attenuation due to the splitter in the control room.
 \begin{equation*}
 \begin{aligned}
 P_g \, \SI{}{[dBm]} = \\
 \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} \\
- + \SI{9.5}{dB}+ \SI{0.56}{dB} + \SI{10}{dB} + \SI{14.18}{dBm} \\
- = \SI{124}{dBm} or 95.6?
+ + \SI{9.5}{dB}+ \SI{10}{dB} + \SI{14.18}{dBm} \\
+ = \SI{95.08}{dBm} 
 \end{aligned}
 \end{equation*}
 
@@ -514,47 +514,82 @@ P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
 P \, \SI{}{[mW]} = \SI{1}{[mW]} \cdot 10^{\frac{P \, [\SI{}{dBm}]}{\SI{10}{}}}
 \end{equation}
 \begin{equation} 
-P_2 = 10^{\SI{9.56}{dBm}} \cdot  \SI{1}{[mW]} = 3.6 \, \SI{}{[MW]} 
+P_2 = 10^{\SI{9.508}{dBm}} \cdot  \SI{1}{[mW]} = 3.6 \, \SI{}{[MW]} 
 \end{equation}
 
+
+As described in Chapter 5 of E. Wisniewski's thesis~\cite{eric}, 
+the power measurements can be related to the electric field 
+based on the Super Fish (SF) \cite{superfish} model used to define the gun.
+\begin{equation}
+	\frac{E_{z \left(measured\right)}}{E_{z(SF)}} = \sqrt{\frac{P_{measured}}{P_{(SF)}}}
+\end{equation}
+\begin{equation}
+	E_z = 1.86\sqrt{\frac{P_{measured}}{7.498\times10^-3}} = \SI{40}{MV/m}
+\end{equation}
+Using the measurements above, this gives an estimate for the gradient in the gun.
+\nrnote{These are still too low...}
+
 \Subsection{Linac Cavity Measurements}
-\lsnote{{\it Need intro sentences.  Why do this?}}
-There are six linear accelerating (linac) cavities after the gun. 
+Next the power levels in the six linear accelerating (linac) cavities after the gun
+were investigated. Information on the power ratio between cavities can 
+guide simulation work. It is especially important to know if one cavity
+has more or less power in the first two or three tanks, when the beam is 
+lower energy and more susceptible to these differences.
 Each are connected to the control room in the same way as the gun. 
 The only differences are in the attenuation at the pick up probe and 
 the splitter attenuation. Using the methods in section \ref{gunenergy}, 
-and the attenuation values, we can calculate the power in each linac cavity:
+and the attenuation values, we can calculate the power in linac cavity four:
 \lsnote{There are missing values in table}
+\nrnote{AWA is missing those values, I added a sentence about this}
 \begin{table} %or [hbt] ?
 	\caption{\label{tab:powerlinac} Power and attenuation values for the 
 		linac cavities. Note that all cavities have an additional 
-		\SI{33}{dB} attenuation added after the probe.}
+		\SI{33}{dB} attenuation added after the probe.
+		The table is missing several probe attenuation values because the
+		AWA currently has no record of these numbers.}
 	\begin{center}
-		\begin{tabular}{ccccc}
+		\rowcolors{2}{blue!15}{white}
+		\begin{tabular}{ccccc}	
 			\toprule
 			\toprule
 			\textbf{Cavity} & \textbf{Probe Att.} & \textbf{Splitter Att.} & \textbf{Power Meter 1}  & \textbf{Power Meter 2} \\
 			\midrule
-			Gun & \SI{-53.2}{dB}& $9.5 \pm \SI{0.3}{dBm}$ & \SI{-14.18}{dBm} & \SI{-3.86}{dBm}  \\
-			2 & \SI{}{dB}       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.88}{dBm} & \SI{-9.6}{dBm}  \\
-			3 & \SI{}{dB}       & $4.0 \pm \SI{1.0}{dBm}$ & \SI{-12.24}{dBm} & \SI{-1.54}{dBm}  \\
-			4 & \SI{-61.95}{dB} & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.89}{dBm} & \SI{-10.11}{dBm}  \\
-			5 & \SI{}{dB}       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-17.76}{dBm} & \SI{-8.39}{dBm}  \\
-			6 & \SI{-61}{dB}    & \SI{}{dB} 			  & \SI{-14.32}{dBm} & \SI{-2.83}{dBm} \\
+			Gun & \SI{53.2}{dB}& $9.5 \pm \SI{0.3}{dBm}$ & \SI{-14.18}{dBm} & \SI{-3.86}{dBm}  \\
+			2 & --       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.88}{dBm} & \SI{-9.6}{dBm}  \\
+			3 & --       & $4.0 \pm \SI{1.0}{dBm}$ & \SI{-12.24}{dBm} & \SI{-1.54}{dBm}  \\
+			4 & \SI{61.95}{dB} & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.89}{dBm} & \SI{-10.11}{dBm}  \\
+			5 & --       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-17.76}{dBm} & \SI{-8.39}{dBm}  \\
+			6 & \SI{61}{dB}    & $4.0 \pm \SI{1}{dBm}$  & \SI{-14.32}{dBm} & \SI{-2.83}{dBm} \\
 			\bottomrule
 		\end{tabular}
 	\end{center}
 \end{table}
-
 \begin{equation}
-P_1 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dBm}
+P_4 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dBm}
 \end{equation}
 
-\lsnote{Concluding sentences.  What is significance of your measurement?}
+Using the simulated Q and U values in \cite{linac}, the procedure in \cite{eric}
+is followed ... 
+\nrnote{need to finish this paragraph}
+
+Four and six are the only cavities we can calculate the gradient for, 
+but the measurements still give us an idea of which cavities are receiving more power.
+For example, since linac cavity 2, 4, and 5 all share the same splitter, 
+we can compare those measurements. It appears that cavity 5 is receiving about 
+\SI{1}{dBm} more than 2 and 4. Comparing 3 and 6 indicates a larger discrepancy 
+of \SI{2}{dBm}. Note, this comparison does assume the probe attenuations 
+are not drastically different. 
+With this information, simulations can be adjusted so that linac tanks 
+3 and 5 receive slightly more power than the others.
 
 \Section{Beam diagnostics}
 
-\lsnote{You need an intro for the diagnostics section.  What beam measurements need to be done for TBA and optimization studies, and what are the corresponding diagnostics?  Describe what will follow.}
+There are several beam diagnostics that have and will continue to be used in 
+TBA experiments at the AWA. They include beam size, energy, bunch length, 
+and emittance measurements. The first three will be discussed in detail 
+in the following sections. 
+\nrnote{need to elaborate here...}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -612,12 +647,11 @@ then be used to determine the beam energy.
 Based on the procedure above, there is one number which is used to back calculate the mean energy. The current
 supplied to the dipole is determined by the number of "counts"
 keyed into the control system. A counts to current conversion
-is calculated based on the measurements shown in Table \ref{tab:counts}.  \lsnote{{\it This table reference is not right}}
+is calculated based on the measurements shown in Table \ref{tab:counts}.  
 \begin{table}
-\begin{center}
+	\centering
 	\caption{Counts to current data for the first dipole in the drive beam line.}
 	\label{tab:counts}
-\end{center}
 	\begin{tabular}{c c} 
 		\toprule
 		\toprule
@@ -631,28 +665,40 @@ is calculated based on the measurements shown in Table \ref{tab:counts}.  \lsnot
 		
 		15000 & 56.3 \\
 		\bottomrule
-		
 	\end{tabular}
 \end{table}
 Then the B-field is calculated given the current: 
 \begin{equation}
 	\SI{}{B\,[T]} = (180.9708\cdot \SI{}{I\,[A]} - 7.2053)\cdot 10^{-4}
-\end{equation}
-There are a few geometric calculations that need to be done using the magnetic field value. 
-before we can calculate the energy. 
-The radius of curvature, $\rho$, 
-can be calculated using the effective length of the dipole, L, and bending angle, $\theta$.
+\end{equation}\label{eq:b}
+\begin{figure*}
+	\begin{center}		
+		\begin{tikzpicture}[scale=1]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=0.5\textwidth]{./images/dipole_geometry}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-1.25,0.5) {$\frac{L}{2}$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-0.5,-2) {$\frac{\theta}{2}$};
+		\node[fill=white, inner sep=2pt] (txt2) at (0.7,-2) {$\frac{\theta}{2}$};
+		\node[fill=white, inner sep=2pt] (txt2) at (1.25,0.5) {$\frac{L}{2}$};
+		\node[fill=white, inner sep=2pt] (txt2) at (2.5,-2) {$\rho$};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Simplified drawing of the beam trajectory through a dipole with a uniform field. }
+\end{figure*}\label{fig:dipole-geometry}
+There are a few geometric calculations that need to be done using the magnetic field value
+before we can calculate the energy. The dipole geometry and variables used are shown in Figure~\ref{fig:dipole-geometry}.
+The radius of curvature, $\rho$, can be calculated using the geometric equation for sin, and 
+will include the effective length of the dipole, L, and bending angle, $\theta$:
 \begin{equation}
 	\rho = \frac{L}{2\cdot \sin(\frac{\theta}{2})}
-\end{equation}
-\lsnote{{\it Starting here, the derivation below is hard to follow.  I am still not sure how you got eq. 2.11.  Then, eq. 2.12 needs more explanation, at least units in the proper places.  Eq. 2.13 seems to be missing a `c' in the momentum term.}}
+\end{equation}\label{eq:rho}
 Using $\rho$, and geometry, we can also estimate the x offset of the
 beam after the dipole: 
 \begin{equation}
 	\Delta x = \rho \left( 1- \cos\theta \right)
-\end{equation}
+\end{equation}\label{eq:xoff}
 Using this and the famous relationship, $B\rho$ \cite{Wiedemann},
-we can relate the B field and the beam momentum. 
+we can relate the B field and the beam momentum. \nrnote{\it check units}
 \begin{equation}
 	\SI{}{p\,\left[\frac{MeV}{c}\right]} = \frac{B\cdot \rho}{3.3356}\cdot 10^3
 \end{equation}
@@ -661,34 +707,23 @@ We can then calculate the total energy by including the rest mass of the electro
 	\SI{}{E\,[MeV]} = \sqrt{0.511^2+p^2}
 \end{equation}\label{eq:energy}
 
-\Subsubsection{Hard Edge Dipole Example}
-\begin{figure*}
-	\begin{center}		
-		\begin{tikzpicture}[scale=1]
-		\node (fig1) at (0,0)
-		{\includegraphics[width=0.5\textwidth]{./images/dipole_geometry}};
-		\node[fill=white, inner sep=2pt] (txt2) at (-1.25,0.5) {$\frac{L}{2}$};
-		\node[fill=white, inner sep=2pt] (txt2) at (-0.5,-2) {$\frac{\theta_k}{2}$};
-		\node[fill=white, inner sep=2pt] (txt2) at (0.7,-2) {$\frac{\theta_k}{2}$};
-		\node[fill=white, inner sep=2pt] (txt2) at (1.25,0.5) {$\frac{L}{2}$};
-		\node[fill=white, inner sep=2pt] (txt2) at (2.5,-2) {$\rho$};
-		\end{tikzpicture}
-	\end{center} 
-	\caption{Simplified drawing of the beam trajectory through a dipole with a uniform field. }
-\end{figure*}\label{fig:dipole-geometry}
-\lsnote{{\it I do think a numerical example is appropriate here}}
-\nrnote{this example is more of a double check and reference for me than for the reader...}
+\Subsection{Dipole Example}
+
 Since this calculation is used several time throughout the 
 beam line for different magnets, lets consider a hard edge 
 dipole, to show how the above equations can be used to determine
 the x offset after the magnet, and the beam energy. 
+Let's define the dipole length, $L=\SI{0.2}{[m]}$, angle, $\theta=\SI{20}{^\circ}$. 
+Using Equation~\ref{eq:rho}, 
+the corresponding radius is $\rho = \SI{0.5759}{[m]}$. 
+With these values we can now calculate the offset, $\Delta x \approx \SI{34}{[mm]}$, 
+using Equation~\ref{eq:xoff}. This result is confirmed by a simulation in OPAL. 
 
-Let's define the dipole length, $L=\SI{0.2}{[m]}$, angle, $\theta=\SI{20}{degrees}$. 
-The corresponding radius is $\rho = \SI{0.5759}{[m]}$. With these values we can now 
-calculate the offset, $\Delta x \approx \SI{34}{[mm]}$, which is confirmed by OPAL. 
-
-\nrnote{not sure if I want to include energy since it depends on measured counts....}
-Given a count of  energy of $\SI{64.8}{[MeV]}$ given measured counts of 
+Now consider a second more realistic experimental case.
+The energy is unknown, but the current supplied to the magnet is given as \SI{0}{A}.
+Using Equation~\ref{eq:b}, the magnetic field is calculated, \SI{0}{T}.
+\nrnote{finish this thought with real numbers...}
+Given a ......  energy of $\SI{64.8}{[MeV]}$ given measured counts of 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -386,7 +386,7 @@ to determine the impedance along the kicker plates, feedthroughs, and cables.
 	\end{center} 
 	\caption{CAD drawing of AWA kicker design, courtesy of Scott Doran from AWA.
 	Ports are connected the HV cables purchased from FID GmbH. 
-	Power is suppled by a \lsnote{pulsar \sout{puslar}} also fabricated by FID GmbH and borrowed from the APS Electronics group.}
+	Power is suppled by a pulsar also fabricated by FID GmbH and borrowed from the APS Electronics group.}
 \end{figure*}\label{fig:AWAkicker}
 \begin{figure}%[h]
 	\begin{center}
@@ -522,7 +522,6 @@ is fairly linear with respect to kicker voltage.
 	\label{fig:linear}
 \end{figure}
 
-\nrnote{rewrote this section to explain angle calculation}
 Using the x offset numbers found in Figure~\ref{fig:linear}, 
 we can compare the measured angle vs. first order approximations from Section~\ref{theory}. 
 Note the x offset seen on the YAG screen is not solely due to the trajectory in the kicker.
@@ -530,7 +529,7 @@ The set up must be broken into two parts: when the beam is inside the kicker,
 and when it is drifting towards the YAG screen after it exits the kicker.
 The later part can be approximated as a triangle as shown in Figure~\ref{fig:kicker-geometry}.
 Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
-Combining these two, the equation for the x offset seen during the experiment
+Combining these two terms, the equation for the x offset seen during the experiment
 can be written as:
 \begin{equation}
 	\Delta x = \Delta x_{kicker} + \Delta x_{drift}
@@ -540,7 +539,7 @@ can be written as:
 	\label{eq:kdata}
 \end{equation}
 Where $\rho$ is the bending radius in the kicker, and $L_{drift}$ is \SI{0.28}{m} as shown in Figure~\ref{fig:kyag}.
-Using the small angle approximation, this equation simplifies:
+Using the small angle approximation, this equation simplifies to:
 \begin{equation}
 	\Delta x = \rho - \rho \left(1-\frac{\theta^2}{2}\right) + L_{drift} \theta_{k}
 \end{equation}
@@ -557,18 +556,23 @@ to the length of the kicker plates:
 \end{equation}
 Where the length of the kicker is \SI{1}{m} and the drift is \SI{0.28}{m}:
 \begin{equation}
-	\Delta x = \SI{0.780}{m}\,\,\theta_{k}
+	\Delta x = \SI{0.78}{m}\,\,\theta_{k}
 		\label{eq:kdx}
 \end{equation}
-In Equation~\ref{eq:kdx}, $\Delta x$, was measured and is the data shown in Figure~\ref{fig:linear}. Note, the beam centroid location at kicker voltage $=0$, 
+In Equation~\ref{eq:kdx}, $\Delta x$, was measured and is the data shown in Figure~\ref{fig:linear}. 
+Note, the beam centroid location at kicker voltage $=0$, 
 represents the beam location on the YAG screen when the kicker is turned off.
 This is used as a reference point to calculate $\Delta x$ at each voltage value
-(i.e. $\Delta x_1 = x_{v1} - x_{v0}$)
+(i.e. $\Delta x_i = x_{vi} - x_{v0}$).
 With these $\Delta x$ values, Equation~\ref{eq:kdata} can be rewritten to 
 solve for the experimentally achieved angle $\theta_{k}$.
-Next the energy measurment was analyized to determine the beam energy. 
-THe method described in Chapter \ref{chp:exp}. \nrnote{add in energy calc}
-These values are plotted in Figure~\ref{fig:angles} in comparison 
+
+Next the energy measurement was analyzed to determine the beam energy. 
+The method described in Chapter \ref{chp:exp} was used, 
+and the current measured to bend the beam \SI{15}{^\circ} was about \SI{9}{A}.
+This corresponds to an energy of about \SI{65}{MeV} \nrnote{double check w/ Shao}. 
+This energy was then used to calculate the ideal angle values vs. kicker voltage.
+The are plotted in Figure~\ref{fig:angles} in comparison 
 to the ideal values for a \SI{65}{MeV} beam. 
 \begin{figure}
 	\centering
@@ -584,7 +588,8 @@ to the ideal values for a \SI{65}{MeV} beam.
 	\label{fig:angles}
 \end{figure}
 
-Beam size data was also taken, see Figure \ref{fig:kickerbeamsize}. 
+Beam size data on the YAG screen after the kicker was taken, 
+see Figure \ref{fig:kickerbeamsize} for examples of this data. 
 These measurements were used to calculate the total beam size and 
 centroid location of the beam. A combination fit was used to extract 
 the beam sizes as described in Section~\ref{sec:beamsize}. 
@@ -598,34 +603,60 @@ A Gaussian fit was used for the beam core, and linear fits were used for the tai
 		Various kicker voltage settings were used and deflection of the beam was observed.}
 	\label{fig:kickerbeamsize}
 \end{figure}
-While the kicker does slightly increase the beam size in the kicked direction, 
-the large discrepancy in the horizontal and vertical beam size
-can not be attributed to the kicker alone.
-This is clear when looking at the beam sizes when the kicker is off (voltage = 0). 
-The beam is already asymmetric before the kicker is turned on.
+The kicker slightly increase the beam size in the kicked direction (x), 
+but the large discrepancy in the horizontal and vertical beam size can not be attributed to the kicker alone.
+If the asymmetries were due to the kicker only, they would not be present when the kicker is off.
+Persistence of the asymmetry when the kicker is off (voltage = 0) indicates 
+the sources of error is not an intrinsic problem associated with the kicker.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{./images/xybeamsizes_high_charge_kicker_scan_angle}
+	\includegraphics[width=0.8\textwidth]{./images/xybeamsizes_high_charge_kicker_scan_angle_asymmetric}
 	\caption{Beam size data during voltage scan. Asymmetry between the x and y beam sizes
 		 is present even when the kicker is off at V = 0. This suggests the asymmetry is not
-	     caused by the kicker alone. }
+	     caused by the kicker alone. Scans of the gun voltage showed large impact on the beam sizes
+     	 and is probably the source of the majority of the asymmetry in the x and y dimensions.
+         The gradient shown in this figure is \SI{55}{MV/m}. Further scanning and to improve agreement
+     	is left for future work at the AWA. }
      \label{fig:beamsize}
 \end{figure}
 
-\lsnote{{\it In the figure, it looks like the simulation also predicts that the beam is not round.  So, the source of the asymmetry must be known?}}
-There are several possible sources for the asymmetries between the x and y dimensions 
-in Figure~\ref{fig:beamsize}. These include the initial laser profile (which was not exactly symmetric
-when the data was taken), the off axis fields in the accelerating cavities, 
+There are several possible sources of the asymmetric beam sizes. 
+These include the initial laser profile (which was not exactly symmetric
+when the data was taken), field strengths in the accelerating cavities, 
 and uncertainties in the quadrupoles strengths.
-If the asymmetries were due to the kicker, they would not be present when the kicker is off.
-Persistence of the asymmetry when the kicker is off indicates 
-the sources of error can be fixed with better control of the quadrupoles, 
-and is not an intrinsic problem associated with the kicker.
+The solenoid field is excluded due to a recent measurement of the magnetic field, 
+done by G. Ha and E. Wisniewski at the AWA. 
+To check the laser radius contribution, symmetric and asymmetric simulations were done.
+The difference in the x beam size in these two cases was only \SI{0.3}{mm} rms. 
+Therefore, this is not the major contributing factor.
+
+Next, several gradient values in the gun were simulated. 
+This parameter had a strong impact on the beam sizes, with a range of \SI{1.5}{mm} 
+in the x direction and \SI{0.3}{mm} in the y direction.
+It's clear the field strength and asymmetries in the RF field map 
+are strongly effecting the results seen in Figure~\ref{fig:beamsize}.
+Details of the simulation set up for these tests can be found in Appendix~\ref{gunsims}.
+The gradient that achieved the agreement seen in Figure~\ref{fig:beamsize} was \SI{55}{MV/m}.
+Which is considerably lower than the reported AWA maximum gradient of \SI{85}{MV/m}.
+It is possible that the lower gradient and resulting asymmetric beam size effect is 
+distributed in lower gradients for the cavities. 
+In other words, perhaps the the gradient in the gun is not that low, but rather
+the gradients in the gun and all six linac cavities are slightly lower than expected.
+
+In conclusion, there are several contributing factors to the asymmetries in the beam.
+From simulations, the laser radius mismatch contributes an estimated \SI{0.3}{mm} of difference 
+between the x and y dimensions. Also in simulation, a difference of about \SI{1.5}{mm} 
+is attributed to the gun gradient and asymmetries in the RF fields. 
+This is an unexpected and meaningful result for the AWA, and will inform experiments moving forward.
+Finally, there is a variance of ~\SI{0.5}{mm} attributed to the kicker through analysis of the 
+data shown in Figure~\ref{fig:beamsize}.
+Note, these errors are not a major hurdle for TBA experiments, as they 
+be mitigated with precise control of the quadrupoles.
 
 
 \Section{TBA Beam Line}
 
-While  the kicker and septum parameters were defined by the constraints dicussed above, 
+While  the kicker and septum parameters were defined by the constraints discussed above, 
 the optics must be used to address the aperture limits further down stream.
 There were three clear goals TBA beam line configuration: 
 \begin{itemize}

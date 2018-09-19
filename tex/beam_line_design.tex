@@ -611,7 +611,7 @@ the sources of error is not an intrinsic problem associated with the kicker.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{./images/xybeamsizes_high_charge_kicker_scan_angle_asymmetric}
-	\caption{Beam size data during voltage scan. Asymmetry between the x and y beam sizes
+	\caption{Beam size data taken during kicker voltage scan. Asymmetry between the x and y beam sizes
 		 is present even when the kicker is off at V = 0. This suggests the asymmetry is not
 	     caused by the kicker alone. Scans of the gun voltage showed large impact on the beam sizes
      	 and is probably the source of the majority of the asymmetry in the x and y dimensions.
@@ -1018,7 +1018,7 @@ the max beam size along the beam line was plotted for these optimized points.
 The results in Figure~\ref{fig:optresults} are promising, they indicate the optics 
 can be well controlled through the kicker, septum, and leading into the staging area.
 \begin{figure}
-	%\includegraphics[width=0.5\textwidth]{images/xy-max-min-optLinac-40nC_IM184}
+	%\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=184_IBF=333_KQ1=4.43_KQ2=-4.29_KQ3=2.5_KQ4=-0.99.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=209_IBF=395_KQ1=1.1_KQ2=-1.88_KQ3=0.39_KQ4=0.61.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=211_IBF=328_KQ1=-0.21_KQ2=0.37_KQ3=-0.26_KQ4=0.25.stat}.pdf}
@@ -1031,17 +1031,45 @@ can be well controlled through the kicker, septum, and leading into the staging 
 	These plots correspond to the Pareto points in Figure~\ref{fig:tba-paretoxonly}. }
 \end{figure}
  
-The best scenario corresponding to a matching strength of \SI{197}{A} was then explored further.
+The best scenario, corresponding to a matching strength of \SI{197}{A}, was then explored further.
 With guidance from some of the failed runs described in Section~\ref{failed}, 
-quadrupole strengths were chosen for 5 and 6 and the rest of the beam line to the PETS location 
-was simulated.
+strengths of \SI{2.0}{A} and \SI{1.25}{A} were chosen respectively for 
+quadrupoles 5 and 6. The rest of the beam line was simulated to the PETS location. 
+The focus remains on 100\% transmission, 
+because that has been the main limiting factor in previous TBA experiments. 
 \begin{figure}
-	\includegraphics[width=0.75\textwidth]{images/}
+	\centering
+	\includegraphics[width=0.75\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
 	\label{fig:2Dfullbeamline}
 	\caption{2D beam line simulation to the PETS location.
-	}
+	This optics configuration achieves 100\% transmission at the PETS location
+	(i.e. smallest aperture on plot near 23 meters).	}
+\end{figure}
+Remember, up to now, the optimization and and simulations have taken place using
+2D field maps and space charge. No coherent syncrotron radiation (CSR) effects
+were calculated, and asymmetries in the fields are expected to change the 
+results as shown earlier in Figure~\ref{fig:beamsize}.
+These two effects were left out in early simulations as they significantly 
+increase the time to simulation. This would lengthen the amount of time 
+needed to run the GA to over 4 or 5 days.
+Therefore, a 2D study was done first, and the solution checked.
+A second simulation of the same design variables was done including 
+3D RF field maps and CSR effects. 
+\begin{figure}
+	\includegraphics[width=0.75\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
+	\caption{Simulation of the full beam line including CSR and 3D field maps. }
+	\label{fig:3D}
 \end{figure}
 
+
+A significant achievement to note is the absence of quadrupole strength values for the last triplet.
+The optimization work was able to find a suitable optics solution without using the last three quadrupoles 
+in the beam line. This is positions the AWA at a significant advantage when running future TBA experiments.
+Not all realistic effects are included in the simulation (i.e. wakefield in the PETS), 
+and this optics solution allows for three more degrees of freedom that can be used during experiments 
+to compensate for these differences. An optics solution is presented here 
+as an option for future TBA experiments, and results suggest the beam line layout 
+defined above is capable of successfully demonstrating fully staged TBA at the AWA.
 
 \Section{Chapter Summary}
 
@@ -1062,10 +1090,12 @@ A septum, which will follow the kicker was fabricated by IMP.
 Further design work included determination of the beam line geometry
 using mechanical and hardware constraints at the AWA. 
 A point to point matrix calculation was done to determine if the 
-beam size entering the first quadrupoles could be maintained near the kicker.
+beam size entering the first four quadrupoles could be maintained near the kicker.
+This exercise resulted in a field strength of \SI{\pm 4.14}{T/m}, 
+which is well below the hardware limit of \SI{\pm9}{T/m}. 
 Next, a beam line optimization was done using the built in genetic algorithm in OPAL.  
 Six design variables and five objectives were used. 
-The results are plotted, and confirm the beam line geometer can deliver 
+The results are plotted, and confirm the beam line geometry can deliver 
 a \SI{40}{nC} beam to the PETS location with 100\% transmission.
 Future work includes further optimization of the beam line, 
 installation of the septum, quadrupoles, and PETS.

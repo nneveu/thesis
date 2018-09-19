@@ -1003,12 +1003,12 @@ design variables for the four smallest beam sizes.
 			%\rowcolor{blue!30} 
 			\textbf{Simulation Parameter} 	&  \textbf{1} & \textbf{2} &\textbf{3} & \textbf{4} \\ 
 			\midrule
-			{Buck Focusing Solenoid [A]}	&  395   & 357   & 328   & 333  \\
-			Matching Solenoid [A]		&  209   & 211   & 211   & 184   \\
-			Quadrupole 1 [T-m]			&  1.10  & -0.72 & -0.21 & 4.43  \\ 
-			Quadrupole 2 [T-m]			&  -1.88 & 0.20  & 0.37  & -4.29 \\
-			Quadrupole 3 [T-m]			&  0.39  & -0.73 & -0.26 & 2.50\\
-			Quadrupole 4 [T-m]			&  0.61  & 1.92  & 0.25  & -0.99\\ 
+			{Buck Focusing Solenoid [A]}	& 478 &  395   & 357   & 328 \\
+			Matching Solenoid [A]	& 197	&  209   & 211   & 211  \\
+			Quadrupole 1 [T-m]		& -0.8	&  1.10  & -0.72 & -0.21 \\ 
+			Quadrupole 2 [T-m]		& 0.9	&  -1.88 & 0.20  & 0.37  \\
+			Quadrupole 3 [T-m]		& 0.8	&  0.39  & -0.73 & -0.26\\
+			Quadrupole 4 [T-m]		& -1.0	&  0.61  & 1.92  & 0.25 \\ 
 			\bottomrule
 		\end{tabular}
 	\end{center}
@@ -1018,7 +1018,7 @@ the max beam size along the beam line was plotted for these optimized points.
 The results in Figure~\ref{fig:optresults} are promising, they indicate the optics 
 can be well controlled through the kicker, septum, and leading into the staging area.
 \begin{figure}
-	%\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=184_IBF=333_KQ1=4.43_KQ2=-4.29_KQ3=2.5_KQ4=-0.99.stat}.pdf}
+
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=209_IBF=395_KQ1=1.1_KQ2=-1.88_KQ3=0.39_KQ4=0.61.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=211_IBF=328_KQ1=-0.21_KQ2=0.37_KQ3=-0.26_KQ4=0.25.stat}.pdf}
@@ -1056,11 +1056,20 @@ Therefore, a 2D study was done first, and the solution checked.
 A second simulation of the same design variables was done including 
 3D RF field maps and CSR effects. 
 \begin{figure}
-	\includegraphics[width=0.75\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
-	\caption{Simulation of the full beam line including CSR and 3D field maps. }
+	\centering
+	%\includegraphics[width=0.75\textwidth]{{images/}.pdf}
+	\caption{Simulation of the full beam line including CSR and 3D field maps.
+	Asymmetries in the RF field maps are causing additional focusing in the linac. }
 	\label{fig:3D}
 \end{figure}
-
+Significant focusing was observed when the 3D RF maps were used.
+A scan of the matching solenoid was done to compensate for the effect.
+\begin{figure}
+	\caption{Simulation of full beam line using optimized quad setting, 
+	3D RF field maps, and CSR. The solenoid strength was weakened to compensate 
+	for focusing in the linac due to 3D fields.}
+	\label{fig:weaksol}
+\end{figure}
 
 A significant achievement to note is the absence of quadrupole strength values for the last triplet.
 The optimization work was able to find a suitable optics solution without using the last three quadrupoles 

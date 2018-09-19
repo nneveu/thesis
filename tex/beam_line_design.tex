@@ -1040,13 +1040,15 @@ because that has been the main limiting factor in previous TBA experiments.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
+		\includegraphics[width=0.75\textwidth]{{images/zrms-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
 	\label{fig:2Dfullbeamline}
 	\caption{2D beam line simulation to the PETS location.
 	This optics configuration achieves 100\% transmission at the PETS location
-	(i.e. smallest aperture on plot near 23 meters).	}
+	(i.e. smallest aperture on plot near 23 meters).
+	The bunch length is acceptable for TBA demonstrations.	}
 \end{figure}
 Remember, up to now, the optimization and and simulations have taken place using
-2D field maps and space charge. No coherent syncrotron radiation (CSR) effects
+2D field maps and space charge. No coherent synchrotron radiation (CSR) effects
 were calculated, and asymmetries in the fields are expected to change the 
 results as shown earlier in Figure~\ref{fig:beamsize}.
 These two effects were left out in early simulations as they significantly 
@@ -1057,6 +1059,7 @@ A second simulation of the same design variables was done including
 3D RF field maps and CSR effects. 
 \begin{figure}
 	\centering
+	\nrnote{will add figure with 3D CSR, no solenoid adjustment}
 	%\includegraphics[width=0.75\textwidth]{{images/}.pdf}
 	\caption{Simulation of the full beam line including CSR and 3D field maps.
 	Asymmetries in the RF field maps are causing additional focusing in the linac. }
@@ -1065,6 +1068,7 @@ A second simulation of the same design variables was done including
 Significant focusing was observed when the 3D RF maps were used.
 A scan of the matching solenoid was done to compensate for the effect.
 \begin{figure}
+	\nrnote{will add figure with 3D, CSR, solenoid adjustment}
 	\caption{Simulation of full beam line using optimized quad setting, 
 	3D RF field maps, and CSR. The solenoid strength was weakened to compensate 
 	for focusing in the linac due to 3D fields.}

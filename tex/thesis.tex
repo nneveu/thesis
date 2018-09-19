@@ -140,18 +140,25 @@
 
 %%% Abstract %%%
 \begin{abstract}           % abstract environment, this is optional
-	\par Two beam acceleration is a candidate for future high energy physics machines and FEL user facilities. 
-	This scheme consists of two independent electron beam lines operating synchronously. \lsnote{More explanation of two beam acceleration generically above including why it is attractive, and then say something below about AWA before moving on to the detailed description.}
-	High-charge, 70 MeV drive bunch trains are injected from the RF photoinjector into decelerating 
+	\par Two beam acceleration (TBA) is a candidate for future high energy physics machines and FEL user facilities. 
+	This is a scheme in which one electron accelerator transports and supplies the RF power needed for acceleration
+	on a secondary and independent 'witness' accelerator. This technology is attractive for its potential to 
+	improve the efficient and simplicity of large scale machines. A study the CLIC collaboration \cite{CLICdesignReport}, 
+	shows TBA could deliver power more efficiently than a klystron gallery. 
+	At the Argonne Wakefield Accelerator Facility, research into this potential acclerator scheme is ongoing.
+	Completed experiments include a simplified staging set up, where 
+	high-charge, 65 MeV drive bunch trains were injected from the RF photoinjector into decelerating 
 	structures to generate a few hundred MW's of RF power. 
-	This RF power is transferred through an RF waveguide to accelerating structures that are used to accelerate the witness beam. 
-	Staging refers to the sequential acceleration (energy gain) in two or more structures on the witness beam line. \lsnote{Summarize the work needed for the fully staged demo, and then summarize what you contributed toward that.}
-	A kicker was incorporated on the drive beam line to accomplish a modular design so that each accelerating structure can be independently powered by a separate drive beam. 
-	Simulations were performed in OPAL-T to model the beam lines. 
-	Beam size at the center of the structures was minimized to ensure good charge transmission. 
-	Energy spread was minimized for bunches traveling through the kicker and dipoles. 
-	The resulting design will be the basis for proof of principle experiments that will take place at the Argonne Wakefield Accelerator (AWA) facility. Installation of the beam line has begun 
-	and initial results are also shown.
+	This RF power was transferred through an RF waveguide to accelerating structures that were used to accelerate the witness beam. 
+	Staging refers to the sequential acceleration (energy gain) in two or more structures on the witness beam line. 
+	AWA plans to demonstrate fully staged TBA, which requires a separate beam line for each decelerating/accelerating pair.
+	In this thesis, experimental preparations needed for TBA work was done. 
+	Simulations and optimization of the high charge beam line were done using the code OPAL.
+	A kicker was designed and incorporated on the drive beam line to accomplish a modular design so that each accelerating structure can be independently powered by a separate drive beam. 
+	Optics optimization was done to minimize the beam size at the center of the decelerating structures to ensure good charge transmission. 
+	The resulting design will be the basis for proof of principle experiments that will take place at the AWA facility. 
+	Future work includes installation of a septum, dipole, and subsequent quadrupole. Further optics optimization 
+	could also take place.
 	 
 \end{abstract}
 
@@ -224,7 +231,7 @@ Specifications for the splitters used during RF measurements can be found at the
 \Appendix{Gun Simulations with Varied Voltage and Laser Radius}\label{gunsims}
 The gun voltage was varied in Chapter~\ref{chp:4}. 
 The symmetric and asymmetric laser radius effects were simulated.
- 
+ \nrnote{more detail and links to repository will be added here.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 \Appendix{How to build OPAL on Bebop at ANL} \label{build}

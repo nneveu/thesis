@@ -686,19 +686,28 @@ Solutions were found that meet the requirements listed above.
 The effect of a beam line component (such as a dipole, quadrupole, or straight beam pipe) on the phase space coordinates of a particle can be modeled as a matrix operator~\cite{brown,Wiedemann}.  These building blocks may be `stacked' to model the effect of an entire beam line, or section of a beam line, on the coordinates of a  particle.  
 These common building blocks were used as a check that the 
 beam properties after the first four quadrupoles 
-would allow transport through the kicker (see Figure~\ref{fig:quads}),
-\iftrue
-\begin{figure}
-	\centering
-	\includegraphics[width=0.75\textwidth]{./images/p2p_optics}
-	\caption{\nrnote{I will add focal length label to this plot.}}
-	\label{fig:p2p}
-\end{figure}
-\fi
+would allow transport through the kicker (see Figure~\ref{fig:full-staging}),
+\begin{figure*}
+	\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=0.5\textwidth]{./images/p2p_optics}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-4.8,-2) {$f_1$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-2.7,-2) {$f_1+f_2$};
+		\node[fill=white, inner sep=2pt] (txt2) at (7,0.0) {Beam Direction};
+		\node[fill=white, inner sep=2pt] (txt2) at (0,-2) {$f_2+f_3$};
+		\node[fill=white, inner sep=2pt] (txt2) at (2.7,-2) {$f_3+f_4$};
+		\node[fill=white, inner sep=2pt] (txt2) at (4.7,-2) {$f_4$};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Simplified drawing of a point to point optics configuration for quadruplet telescope model.}
+		\label{fig:p2p}
+\end{figure*}
+
 by establishing that the beam size could be maintained near the kicker during transport.  
 Four quadruple strengths and the six distances between the quadrupoles are parameters under consideration. 
 To reduce the number of variables from ten to four, 
-the quadruplet telescope module as described by K. Brown in \cite{brown} is used.  
+the quadruplet telescope module described by K. Brown in \cite{brown} is used.  
 The transfer matrix R, defined as:  
 \begin{equation}
 R_q = R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1} 
@@ -706,7 +715,7 @@ R_q = R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \c
 \end{equation}
 where a matrix with the subscript d refers to a drift as defined by,
 \begin{equation}
-R_{di} = 
+R_{d_i} = 
 \begin{bmatrix}
 1 & L_i \\
 0 & 1
@@ -714,13 +723,12 @@ R_{di} =
 \end{equation}
 and a matrix with subscript q refers to a quadrupole as defined by,
 \begin{equation}
-R_{qi} = 
+R_{q_i} = 
 \begin{bmatrix}
 1 & 0 \\
 \pm \frac{1}{f_i} & 1
 \end{bmatrix}
 \end{equation}
-
 Substitution and matrix multiplication results in a transfer matrix of the 
 the following form for the quadruplet:
 \begin{equation}
@@ -734,7 +742,7 @@ Where $f_1 \ldots f_4$ stand for the focal lengths of each quad before the kicke
 Due to other experiments in the AWA tunnel, 
 the first quadrupole was required to be at least $\SI{3}{m}$ away from the exit of the 
 last accelerating cavity in the linac. This gives the initial drift length and value
-for $f_1$.  \lsnote{{\it How does this give the value of f1?}}
+for $f_1$, see Figure~\ref{fig:p2p}.
 To achieve point to point transport of the beam as described in~\cite{brown}, 
 we can equate $f_1 = f_4$ and $f_2 = f_3$. This reduces Equation~\ref{kb2} to:
 \begin{equation}
@@ -747,10 +755,12 @@ R_q =
 We can further simplify this problem set up by 
 assuming $f_1=f_2$. 
 Given the total distance, D, available for the
-quads in the beam line, \SI{3.8}{m}, we can then solve
-for the focal length $f_1$: \lsnote{{\it Are you missing an assumption?  The following eq. says to me that you are assuming that the center of  a quad is at the focal point of a previous quad..}}
+quads in the beam line, \SI{3.8}{m}, and refering to Figure~\ref{fig:p2p}, 
+an equation is written to solve for the focal length $f_1$: 
 \begin{align}
-D = 4f_1 + 4 f_2 = 8f_1 = \SI{3.8}{m} \\
+D = 2 \left(f_1+f_2+f_3+f_4\right)\\
+= 4f_1 + 4 f_2 \\
+8f_1 = \SI{3.8}{m} \\
 f_1 = \SI{0.475}{m}
 \end{align}
 
@@ -768,10 +778,10 @@ k = \SI{0.2998}{} \frac{g[\SI{}{T/m}]}{p [\SI{}{GeV/c}]}\label{k}
 The beam energy must also be accounted for with the dimensions of the quadrupole. 
 Given an energy of \SI{65}{MeV}, a quadrupole length of \SI{11}{cm}, 
 and Equation~\ref{k} we can calculate this configuration would require a 
-magnet strength of \SI{4.14}{[T/m]}. This is feasible considering the 
-max strength is \SI{9}{[T/m]}. This also gives some indication that 
+magnet strength of \SI{\pm4.14}{T/m}. This is feasible considering the 
+max strength is \SI{\pm9}{T/m}. This also gives some indication that 
 that there should be several possible solutions found during optimization
-since the point to point check is not at either extreme of the quadrupole limits.L 
+since the point to point check is not at either extreme of the quadrupole limits.
 
 
 \iffalse
@@ -800,7 +810,7 @@ we compare the sigma matrix before and after the qudrupoles:
 \end{align}
 \fi
 
-\Section{TBA Beam Line Optics Optimization}
+\Section{TBA Beam Line Optics Optimization}\label{failed}
  
 With the kicker and septum design set, 
 and the basic geometry of the beam line laid out, 
@@ -818,6 +828,7 @@ which include:
 	\item including too many design variables (15+)
 	\item over constraint of the objective values output from the simulation (upper bound too small at \SI{0.1}{mm} for beam sizes)
 	\item using bad hyper parameters
+	\item Setting the first optimization point upstream near the linac
 \end{itemize}
 and so on. 
 All iterations can be found in the following repository:
@@ -826,16 +837,16 @@ All iterations can be found in the following repository:
 \end{center}
 which also houses all plotting and simulation scripts used in this chapter.
 
-One draw back of using a GA, is that many simulation parameters 
+Some draw backs of using a GA, is that many simulation parameters 
 must be decided empirically after trial and error.
-There is no clear guidance on what type of problem set up will be 
+This can be computationally expensive, 
+and there is no clear guidance on what type of problem set up will be 
 best for unique optimization problems such as the beam dynamics in this case.
-Along these lines, hyper parameters were chosen based on four experiments ....
-\nrnote{should I just reference paper here... or go into details in paper}
-
-
+Luckily, ANL provides excellent computational resources \cite{lcrc}, and
+the availability of compute time was not a limiting factor in this work.
 \iffalse
-the hyper parameters were chosen by doing four small 
+Along these lines, hyper parameters were chosen based on four experiments 
+with various GA settings.
 GA runs with various settings, see Table \ref{tab:ex}. 
 It is clear that the hyper parameters in ex-2 and ex-3 are evolving slower in 
 comparison to ex-1 and ex-4. 
@@ -864,7 +875,9 @@ Much help was received from A. Adelmann in preparing and discussing these tests.
 The most successful optimization problem to date entailed optimizing the 
 beam size and energy spread at the fifth quarupole on the drive line.
 In other words, the first quadrupole between the septum and kicker.
-\nrnote{this helps reduce dispersion...include better explanation of this}
+Optimizing at this location helps reduce dispersion by minimizing 
+the beam size before it enters the $15^\circ$ bend that straightens out 
+the deflected beam line, see Figure~\ref{fig:full-staging}.
 \begin{table}%[h!]
 	\begin{center}
 		\caption{Input GA Parameters for large scale TBA optimization runs.}
@@ -916,7 +929,7 @@ can be found in Appendix~\ref{opt-tba-code}.
 The OPAL input file and other files needed to run simulations on the ANL cluster 
 can be found in the repository listed above.
 Details of how the magnet settings, phases, and element locations defined 
-in Table~\ref{tab:variables} are also on the repository.
+in Table~\ref{tab:variables} are also in the repository.
 
 
 \Subsection{Optimization Results}
@@ -930,12 +943,14 @@ A Pareto front comparing the trade off between bunch length and energy spread wa
 	This data was a result of the simulation setup in Section \ref{setup}.}
 \label{fig:tba-pareto}
 \end{figure}
-From Figure \ref{fig:tba-pareto}, there are not many bunch lengths options.
-Only one point is excluded from the plot at about \SI{5}{mm}, a region 
+From Figure~\ref{fig:tba-pareto}, there are not many bunch lengths options.
+Only one point is excluded from the plot at \SI{5}{mm}, a region 
 not desirable for TBA. The results in the transverse dimension were
-more instructive. As expected the beam sizes in the x dimension are larger 
+more instructive. Two Pareto fronts comparing beam sizes
+and momentum in the x and y dimensions are plotted in Figure~\ref{fig:tba-paretoxy}.
+As expected the beam sizes in the x dimension are larger 
 due to the bending elements. This indicates the x dimension will be the 
-limiting factor in areas with tight aperatures such as the PETS.
+limiting factor in areas with tight apertures such as the PETS.
 \iftrue
 \begin{figure}
 	\centering
@@ -951,12 +966,13 @@ chooses the best points w.r.t the objectives chosen. This guarantees no
 relationship between all objectives. 
 For example, the smallest beam size in y, at less than \SI{0.35}{mm} on Figure~\ref{fig:tba-paretoxy}, 
 may not have the matching solenoid or quad strengths, as the smallest x position 
-at a little over \SI{0.35}{mm}. In other words, the best optics scenario for the x dimension
+at a little over \SI{2.5}{mm}. In other words, the best optics scenario for the x dimension
 may or may not be the best optics scenario for the y dimension. 
 
 With this in mind, the Pareto front was re-plotted in Figure~\ref{fig:tba-paretoxonly} 
 with one key difference. The y values were forced to coincide with the same 
-x value design variables. Now a true point to point comparison is possible in this plot.
+design variables used in the x dimension. 
+Now a true point to point comparison is possible in this plot.
 We chose the x dimension to be the determining plot, 
 due to it's clear limitations in comparison to the y dimensions in Figure~\ref{fig:tba-paretoxy}. 
 \nrnote{the sentences above are awkward, not sure how to word this} 
@@ -977,14 +993,15 @@ beam size were give higher priority. Table~\ref{tab:designopt}, shows a summary 
 design variables for the four smallest beam sizes.
 \begin{table}%[h!]
 	\begin{center}
-		\caption{Input Parameters for large scale TBA optimization runs.}
+		\caption{Input Parameters for large scale TBA optimization runs.
+		Points are numbered for later reference.}
 		\label{tab:designopt}
 		\rowcolors{2}{blue!10}{white}   
 		\begin{tabular}{lcccc}
 			\toprule
 			\toprule
 			%\rowcolor{blue!30} 
-			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ 
+			\textbf{Simulation Parameter} 	&  \textbf{1} & \textbf{2} &\textbf{3} & \textbf{4} \\ 
 			\midrule
 			{Buck Focusing Solenoid [A]}	&  395   & 357   & 328   & 333  \\
 			Matching Solenoid [A]		&  209   & 211   & 211   & 184   \\
@@ -996,9 +1013,34 @@ design variables for the four smallest beam sizes.
 		\end{tabular}
 	\end{center}
 \end{table}
-The beam size along the beam line was plotted for these optimized points.
-\nrnote{a lot more figures to add here, beam sizes along beam line here}
+Since 100\% transmission is the main goal at this point, 
+the max beam size along the beam line was plotted for these optimized points.
+The results in Figure~\ref{fig:optresults} are promising, they indicate the optics 
+can be well controlled through the kicker, septum, and leading into the staging area.
+\begin{figure}
+	%\includegraphics[width=0.5\textwidth]{images/xy-max-min-optLinac-40nC_IM184}
+	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}
+	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=209_IBF=395_KQ1=1.1_KQ2=-1.88_KQ3=0.39_KQ4=0.61.stat}.pdf}
+	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=211_IBF=328_KQ1=-0.21_KQ2=0.37_KQ3=-0.26_KQ4=0.25.stat}.pdf}
+	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=211_IBF=357_KQ1=-0.72_KQ2=0.2_KQ3=-0.73_KQ4=1.92.stat}.pdf}
+	\label{fig:optresults}
+	\caption{Optimized 2D simulation results leading into quadrupole 5 on the drive beam line. 
+		The maximum beam size is plotted along the beam line, and aperture limits are shown in black.
+		All scenarios correspond to 100\% transmission through the septum. The PETS location is 
+		not shown yet, because quadrupole 5 and 6 were not optimized.
+	These plots correspond to the Pareto points in Figure~\ref{fig:tba-paretoxonly}. }
+\end{figure}
  
+The best scenario corresponding to a matching strength of \SI{197}{A} was then explored further.
+With guidance from some of the failed runs described in Section~\ref{failed}, 
+quadrupole strengths were chosen for 5 and 6 and the rest of the beam line to the PETS location 
+was simulated.
+\begin{figure}
+	\includegraphics[width=0.75\textwidth]{images/}
+	\label{fig:2Dfullbeamline}
+	\caption{2D beam line simulation to the PETS location.
+	}
+\end{figure}
 
 
 \Section{Chapter Summary}

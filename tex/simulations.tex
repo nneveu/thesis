@@ -5,13 +5,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\lsnote{{\it I updated this comment} You still need a bit more here in the summary paragraphs.  (1) Why are simulations needed?  -> for (1), you should also include that simulation determines beamline design parameters (streamlining hardware configuration) and parameter settings (saving time). Mention that AWA machine is often reconfigured, so especially important.  In SC discussion, when you say `high charge' give some numbers.  (2) What simulation work was done?  -> include a summary description of what was modeled (3) What were the results?   This suff all has to be before the first sub-section.}
-
 With the rapid improvement in computing resources and codes in recent years,  
 accelerator facilities can now strive to rely on accurate beam dynamics simulations. 
 These simulations model single particle effects 
 (e.g. particle tracking in a magnetic field) as well as collective effects such as space charge (SC),  
 and coherent synchrotron radiation (CSR).
+Accurate simulations can benefit accelerator communities in several ways.
+Before beam line construction countless configurations can be tested in simulation.
+This can prevent costly hardware mistakes. 
+Predictive power w.r.t. beam dynamics could also significantly reduce the amount of time 
+spent configuring the machine for various experiments. This is key for the AWA
+where the operating charge is changed often, and so the optics must change as well.
 
 The beam dynamics reported in this thesis, were simulated with 
 the open source, particle-in-cell (PIC) code OPAL \cite{opal}. 
@@ -40,11 +44,17 @@ When the number of cores is increased to 16, the same run takes less than
 5 minutes. This reduction in time by ~80\%, combined with the capability to run 
 many cases at once on the cluster allows for more efficient use of time.
 Typical running conditions were on 16 cores, for random samples up to 128 cores, 
-and up to 5,200 cores for large optimization runs.\\
-\lsnote{What was modeled and why goes here}\\
-\lsnote{What was achieved goes here}\\  
-\lsnote{summarize what follows}
+and up to 5,200 cores for large optimization runs.
 
+The model used for the simulations in this chapter is the AWA drive line operated at \SI{40}{nC}. 
+This beam line consist of a gun, solenoids, six linac cavities, and quadrupoles.
+This is the line that will be used to feed high charge bunch trains to the PETS, 
+which will be installed downstream. Optimization of this beam line was done at \SI{40}{nC}
+to improve beam line settings during future experiments.
+A model based method was used for this work at first. The results showed that 
+it is best to run the RF cavities off crest to compensate for energy spread in the gun. 
+The model based method was compared to the more popular genetic algorithm as a verification test.
+The results from both methods were similar, and the GA was used for beam line design work in Chapter~\ref{chp:4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -756,7 +766,9 @@ implemented in OPAL-t~\cite{optpilot}. Details of this work can be found in Chap
 
 \Section{Chapter Summary}
 
-PIC simulations of the AWA drive line are essential to the TBA project. \lsnote{{\it say why}}
+PIC simulations of the AWA drive line are essential to the TBA project. 
+Accurate predictions of the beam dynamics in the drive line will ensure the 
+success of fully staged TBA, espcially with the tighter tolerances required by the PETS apertures.
 A new code, OPAL-t, was investigated as an alternative to ASTRA and GPT. 
 The benefits of OPAL include being free and being able to run on a parallel platform.
 A benchmark was done to ensure that OPAL gave results consistent with other codes used by members of the AWA.

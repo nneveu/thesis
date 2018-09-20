@@ -466,7 +466,7 @@ Details of the set up, and results of the studies follow.
 
 The kicker was installed in the AWA drive beam line approximately \SI{16.5}{m} downstream of the cathode.
 The HV pulsar was located on the roof of the bunker.
-During the beam tests the accelerator was operated in TBA-like conditions \lsnote{with machine settings} based on simulations 
+During the beam tests the accelerator was operated in TBA-like conditions with machine settings based on simulations 
 done to optimize for future TBA runs, see Table~\ref{tab:krunparam}.
  \begin{table}%[h!]
 	\begin{center}
@@ -515,7 +515,7 @@ A simplified experimental setup is shown in Figure~\ref{fig:kyag}
 \end{figure*}
 \fi
 The centroid position of the beam was measured for several kicker voltages, and a linear fit was performed.
-The R value for the fit in Figure \ref{fig:linear} is 0.99704. This \lsnote{shows \sout{suggests}} that the beam offset 
+The R value for the fit in Figure \ref{fig:linear} is 0.99704. This shows that the beam offset 
 is fairly linear with respect to kicker voltage. 
 \begin{figure}
 	\centering
@@ -525,10 +525,10 @@ is fairly linear with respect to kicker voltage.
 \end{figure}
 
 Using the x offset numbers found in Figure~\ref{fig:linear}, 
-\lsnote{\sout{we can compare}} the measured angle vs. first order approximations from Section~\ref{theory} \lsnote{can be compared {\it passive voice}}. 
+the measured angle vs. first order approximations from Section~\ref{theory} can be compared . 
 Note the x offset seen on the YAG screen is not solely due to the trajectory in the kicker.
-The \lsnote{contributions to the total deflection \sout{set up}} must be broken into two parts: \lsnote{\sout{when}} the \lsnote{deflection of the} beam \lsnote{\sout{is}} inside the kicker, 
-and \lsnote{the position change} when \lsnote{the beam \sout{it}} is drifting towards the YAG screen after it exits the kicker.
+The contributions to the total deflection must be broken into two parts: the deflection of the beam inside the kicker, 
+and the position change when the beam is drifting towards the YAG screen after it exits the kicker.
 The later part can be approximated as a triangle as shown in Figure~\ref{fig:kicker-geometry}.
 Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
 Combining these two terms, the equation for the x offset seen during the experiment
@@ -617,8 +617,7 @@ the sources of error is not an intrinsic problem associated with the kicker.
 		 is present even when the kicker is off at V = 0. This suggests the asymmetry is not
 	     caused by the kicker alone. Scans of the gun voltage showed large impact on the beam sizes
      	 and is probably the source of the majority of the asymmetry in the x and y dimensions.
-         The \lsnote{gun} gradient \lsnote{to get the simulation values} shown in this figure \lsnote{was \sout{is}} \SI{55}{MV/m}. \lsnote{\sout{Further scanning and to improve agreement
-     	is left for future work at the AWA.}} }
+	 The gun gradient to get the simulation values shown in this figure was \SI{55}{MV/m}.} 
      \label{fig:beamsize}
 \end{figure}
 
@@ -636,10 +635,10 @@ Next, several gradient values in the gun were simulated.
 This parameter had a strong impact on the beam sizes, with a range of \SI{1.5}{mm} 
 in the x direction and \SI{0.3}{mm} in the y direction.
 It's clear the field strength and asymmetries in the RF field map 
-are strongly \lsnote{affecting \sout{effecting}} the results seen in Figure~\ref{fig:beamsize}.
+are strongly affecting the results seen in Figure~\ref{fig:beamsize}.
 Details of the simulation set up for these tests can be found in Appendix~\ref{gunsims}.
 The gradient that achieved the agreement seen in Figure~\ref{fig:beamsize} was \SI{55}{MV/m}.
-\lsnote{This \sout{Which}} is considerably lower than the reported AWA maximum gradient of \SI{85}{MV/m}.
+This is considerably lower than the reported AWA maximum gradient of \SI{85}{MV/m}.
 It is possible that the lower gradient and resulting asymmetric beam size effect is 
 distributed in lower gradients for the cavities. 
 In other words, perhaps the the gradient in the gun is not that low, but rather
@@ -652,7 +651,7 @@ is attributed to the gun gradient and asymmetries in the RF fields.
 This is an unexpected and meaningful result for the AWA, and will inform experiments moving forward.
 Finally, there is a variance of ~\SI{0.5}{mm} attributed to the kicker through analysis of the 
 data shown in Figure~\ref{fig:beamsize}.
-Note, these errors are not a major hurdle for TBA experiments, as they \lsnote{can}
+Note, these errors are not a major hurdle for TBA experiments, as they can
 be mitigated with precise control of the quadrupoles.
 
 
@@ -668,16 +667,16 @@ There were three clear goals TBA beam line configuration:
 \end{itemize}
 
 With the third item addressed partially addressed in Section~\ref{theory}, 
-it remained to determine if an optics solution \lsnote{exists \sout{existed} that can \sout{to}} satisfy the 
+it remained to determine if an optics solution exists that can satisfy the 
 first two requirements (transmission and bunch length). 
 In the case of bunch length, there was no set goal, but a clear understanding 
 that a shorter bunch will generate more power in the PETS structures [ref here].
-\lsnote{Regarding \sout{For}} transmission, an aperture of \SI{17.6}{mm} exists at the PETS.
+Regarding transmission, an aperture of \SI{17.6}{mm} exists at the PETS.
 This is roughly three times smaller than the rest of the beam line.
 
-As a first \lsnote{check \sout{test}}, a point to point matrix calculation was done 
+As a first check, a point to point matrix calculation was done 
 to determine if the beam size could be maintained near the kicker.
-Next the information \lsnote{presented} in Chapter~\ref{simulations} was used to form the 
+Next the information presented in Chapter~\ref{simulations} was used to form the 
 base line of further optimization efforts. The genetic algorithm in OPAL
 was used to explore and optimize the optics in the TBA beam line.
 Solutions were found that meet the requirements listed above.
@@ -706,12 +705,12 @@ would allow transport through the kicker (see Figure~\ref{fig:full-staging}),
 		\label{fig:p2p}
 \end{figure*}
 by establishing that the beam size could be maintained near the kicker during transport.  
-Four quadruple strengths and the six \lsnote{{\it Isn't it 5?}} distances between the quadrupoles are parameters under consideration. 
-To reduce the number of variables from ten to four, \lsnote{the drift lengths are set to be sums of focal lengths, as in}
-the quadruplet telescope module described by K. Brown in \cite{brown} \lsnote{\sout{is used}}.  
-The transfer matrix R, defined as:  \lsnote{You have only 3 quads below}
+Four quadruple strengths and the five distances between the quadrupoles are parameters under consideration. 
+To reduce the number of variables from ten to four, the drift lengths are set to be sums of focal lengths, as in
+the quadruplet telescope module described by K. Brown in \cite{brown}.  
+The transfer matrix R, defined as:  
 \begin{equation}
-R_q = R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1} 
+	R_q =  R_{d5}  \cdot R_{q4} \cdot   R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1} 
 \label{kb1}
 \end{equation}
 where a matrix with the subscript d refers to a drift as defined by,
@@ -823,15 +822,14 @@ These two conditions combined will provide an optics solution that provides the 
 
 The built in GA in OPAL was again used for these simulations. 
 Several rounds of optimizations were tried and many failed for various reasons, 
-\lsnote{some of} which include:
+some of which include:
 \begin{itemize}
-	\item using too many objectives (6+)
+	\item using too many objectives (7+)
 	\item including too many design variables (15+)
-	\item over constraint of the objective values \lsnote{\sout{output from the simulation}} (upper bound too small at \SI{0.1}{mm} for beam sizes)
+	\item over constraint of the objective values (upper bound too small at \SI{0.1}{mm} for beam sizes)
 	\item using bad hyper parameters
-	\item \lsnote{setting \sout{Setting}} the first optimization point upstream near the linac
+	\item setting the first optimization point upstream near the linac
 \end{itemize}
-\lsnote{\sout{and so on.}} 
 All iterations can be found in the following repository:
 \begin{center}
 	\url{https://github.com/nneveu/awa-tba}
@@ -874,12 +872,12 @@ Much help was received from A. Adelmann in preparing and discussing these tests.
 
 \Subsection{Optimization Setup}\label{setup}
 The most successful optimization problem to date entailed optimizing the 
-beam size and energy spread at the fifth quarupole on the drive line.
+3D beam size, transverse momentum, and energy spread at the fifth quarupole on the drive line.
 In other words, the first quadrupole between the septum and kicker.
 Optimizing at this location helps reduce dispersion by minimizing 
-the beam size before it enters the $15^\circ$ bend that straightens out 
+the energy spread before it enters the $15^\circ$ bend that straightens out 
 the deflected beam line, see Figure~\ref{fig:full-staging}.
-\lsnote{{\it Minimizing the energy spread would minimize the increase in beam size due to dispersion - is that what you meant?  Minimizing the beam size does not affect spread due to dispersion.}}
+This helps reduce transverse beam size growth in the last dipole.
 \begin{table}%[h!]
 	\begin{center}
 		\caption{Input GA Parameters for large scale TBA optimization runs.}
@@ -891,7 +889,7 @@ the deflected beam line, see Figure~\ref{fig:full-staging}.
 			%\rowcolor{blue!30} 
 			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ 
 			\midrule
-			{Number of Objectives}			&  5 \\
+			{Number of Objectives}			&  6 \\
 			Number of Design Variables		&  8 \\
 			Number of Constraints			&  2 \\
 			{Gene Mutation Probability} 	&  0.01\\ 

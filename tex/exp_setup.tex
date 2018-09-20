@@ -670,7 +670,8 @@ is calculated based on the measurements shown in Table \ref{tab:counts}.
 Then the B-field is calculated given the current: 
 \begin{equation}
 	\SI{}{B\,[T]} = (180.9708\cdot \SI{}{I\,[A]} - 7.2053)\cdot 10^{-4}
-\end{equation}\label{eq:b}
+	\label{eq:b}
+\end{equation}
 \begin{figure*}
 	\begin{center}		
 		\begin{tikzpicture}[scale=1]
@@ -701,29 +702,35 @@ Using this and the famous relationship, $B\rho$ \cite{Wiedemann},
 we can relate the B field and the beam momentum. \nrnote{\it check units}
 \begin{equation}
 	\SI{}{p\,\left[\frac{MeV}{c}\right]} = \frac{B\cdot \rho}{3.3356}\cdot 10^3
+	\label{eq:pdipole}
 \end{equation}
 We can then calculate the total energy by including the rest mass of the electrons \cite{Griffiths}:
 \begin{equation}
 	\SI{}{E\,[MeV]} = \sqrt{0.511^2+p^2}
-\end{equation}\label{eq:energy}
+	\label{eq:energy}
+\end{equation}
 
 \Subsection{Dipole Example}
-
 Since this calculation is used several time throughout the 
-beam line for different magnets, lets consider a hard edge 
-dipole, to show how the above equations can be used to determine
-the x offset after the magnet, and the beam energy. 
+beam line for different magnets, a hard edge dipole example is shown 
+to demonstrate how the above equations can be used to determine
+the x offset after the magnet and the beam energy. 
 Let's define the dipole length, $L=\SI{0.2}{[m]}$, angle, $\theta=\SI{20}{^\circ}$. 
 Using Equation~\ref{eq:rho}, 
 the corresponding radius is $\rho = \SI{0.5759}{[m]}$. 
 With these values we can now calculate the offset, $\Delta x \approx \SI{34}{[mm]}$, 
-using Equation~\ref{eq:xoff}. This result is confirmed by a simulation in OPAL. 
+using Equation~\ref{eq:xoff}. This result was confirmed by a simulation in OPAL. 
 
-Now consider a second more realistic experimental case.
-The energy is unknown, but the current supplied to the magnet is given as \SI{0}{A}.
-Using Equation~\ref{eq:b}, the magnetic field is calculated, \SI{0}{T}.
-\nrnote{finish this thought with real numbers...}
-Given a ......  energy of $\SI{64.8}{[MeV]}$ given measured counts of 
+Now consider a second experimental case.
+A beam of unknown energy passes through the dipole described above
+with a bending a bending angle of $20^\circ$. 
+The current supplied to the magnet in order to achieve this bending angle is \SI{10}{A}.
+Using Equation~\ref{eq:b}, the corresponding magnetic field is, \SI{0.18}{T}.
+Solving for the momentum with Equations~\ref{eq:pdipole}, and pulling the 
+result into Equation~\ref{eq:energy}, 
+the estimated energy of the beam is $\SI{49}{[MeV]}$.
+The is the calculation done for all energy measurements at the AWA.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -731,34 +738,185 @@ Given a ......  energy of $\SI{64.8}{[MeV]}$ given measured counts of
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\lsnote{Intro - why beam size measurements needed?}
-Beam size measurements are taken by using YAG screens at multiple z locations along the beam line.
-The code used to produce all the following images can be found at this git repository: 
+Transverse beam size imaging and measurements are crucial to the 
+operations at AWA. During experiments, these diagnostics give 
+give valuable information about the machine set up, help with alignment, 
+and used as a reference for tuning the beam line.
+Basically, beam size measurements are the quickest way to evaluate the
+optics configuration on the machine. 
+These measurements are taken using YAG screens at multiple z locations along the beam line.
+The code used to produce all images in the following sections can be found at this git repository: 
 \url{https://github.com/nneveu/imageProcessing}
+Note, all image routines referenced in this section can be found on the repository.
 
 \Subsection{Capturing Images}
-\nrnote{Add tikz picture here to show how camera is pointed into beam line with mirrors}\\
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{images/YAG_screen}
+	\label{fig:YAGscreen}
+	\caption{Picture of a YAG screen diagnostic before installation in the beam line.
+	The yellowish circle is the YAG screen and fluoresces when the beam hits it. 
+	The mirror captures and directs the light to a camera waiting outside the beam line.}
+\end{figure}
 Raw YAG screen images can vary widely depending on the camera set up, charge, and 
-light in the room. In some cases the edges of the YAG screen are illuminated as shown in Figure~.
-The focal distance is also different for every camera and depends on the camera and mirror
+light in the room. In some cases the edges of the metallic YAG holder
+ are illuminated as shown in Figure~\ref{fig:yag-holder}.
+Large amounts of dark current sometimes overlap with the electron beam as in Figure~\ref{fig:darkcurrent}, 
+and on special occasions the image is fairly clean as in Figure~\ref{fig:clean}. 
+The focal distance is different for every camera and depends on the physical camera and mirror
 locations inside and outside of the vacuum chambers.
-\lsnote{include some actual YAG images}
+\begin{figure}	
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/yag-in-image}
+	\caption{YAG screen image that is effected by the YAG holder fluorescing at an intensity that is greater than 
+		background. The beam is too close to the holder to safely crop this area out.}
+	\label{fig:yag-holder}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.45\textwidth]{images/darkcurrent}
+	\caption{Image where dark current is present. Background subtraction must take place to 
+	analyze images with dark current.}
+	\label{fig:darkcurrent}
+\end{figure}	
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/cleanyag}
+	\caption{Image where YAG holder light is far away enough from beam data that it can be safely cropped out.}
+	\label{fig:clean}
+\end{figure}
 
 \Subsection{Post Processing Images}
-A python script was written to take beam images and convert them to profiles in the x and y direction.
+A python script was written to take beam images and calculate the x and y.
+In other words, $\sigma_{x}$ and $\sigma_y$, which is the beam size. 
 This is done in a series of steps, and requires that one or more images can be used as a 
-background image and fiducial image. A background image must capture any dark current 
-that is present when the beam is not hitting the YAG screen. The fiducial image must 
-clearly show the edges of the YAG screen so that a mm/pixel conversion can be calculated.
+fiducial image. The fiducial image must clearly show the edges of the YAG screen so that a 
+mm/pixel conversion can be calculated.
+When dark current is present, an image of the dark current alone
+(when the beam is not hitting the YAG screen) is necessary for background subtraction.
 The following steps detail the post processing from raw image to transverse beam size estimate.
 
 \Subsubsection{Step 1: Calculating the fiducial}
+A fiducial image is used as a frame of reference. 
+For the images at AWA, the YAG screen holder is used 
+as the point of reference, because the radius is well documented and known.
+A good fiducial image should be well illuminated and have a clear view of the YAG holder 
+edges as shown in Figure~\ref{fig:fiducial}.
+No beam is present in this image and the lights in the bunker are on.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/YAG6_kicker_fiducial}
+	\label{fig:fiducial}
+	\caption{Fiducial image taken of the sixth YAG screen on the drive line.
+	The yellow circle is the resulting best fit using the python script. }
+\end{figure}
+After selection of an image, the \verb|circle_finder()| routine is used 
+to fit a circle to the image and return the radius in pixels.
+The fiducial can then be calculated:
+\begin{equation}
+	f = \frac{\SI{44.45}{mm}}{pixels} 
+\end{equation}
+Once $f$ is known, it can be used to determine physical beam sizes.
 
-\Subsubsection{Step 2: Remove background intensity}
 
-\Subsubsection{Step 3: Calculate x and y beam profile}
+\Subsubsection{Step 2: Select on charge}
+At the AWA, large charge fluctuations can occur when the laser intensity is not stable, 
+this is especially true of high charge experiments, and less so for low charge operation.
+The charge is a parameter that strongly impacts the beam size, 
+therefore it is important to only compare beam images of similar charge value.
+A reasonable range should be chosen for the experiment. 
+Given a data set of 100 images and roughly \SI{40}{nC}, 
+a range of \SI{\pm0.5}{nC} has proven to be an acceptable cutoff.
+The charge data is stored in a separate file, 
+but saved at the same time as the image data. 
+The charge data can be analyzed and used to return the indexes
+that correspond to images of similar charges. 
+This is done with the \verb|ict_charge()| and \verb|select_on_charge()| functions.
+The charge is calculated by integrating the data using Simpson's rule.
+The option exists to plot the ICT curve for visual inspection, an 
+example is shown in Figure~\ref{fig:ict}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{images/ictcurve}
+	\caption{Example of ICT data taken during an experiment. 
+	One set of ICT data is taken for every image captured. 
+	ICT and beam images are recorded simultaneously.}
+	\label{fig:ict}
+\end{figure}
 
-\Subsubsection{Step 4: Fit profile to calculate beam size}
+\Subsubsection{Step 3: Remove background intensity}
+If dark current is present, it should be removed before determining beam sizes.
+This can be done with a simple background subtraction if two appropriate images are available.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/darkcurrent}
+	\includegraphics[width=0.3\textwidth]{images/backgroundonly}
+	\includegraphics[width=0.3\textwidth]{images/background_cutout}%
+	\caption{Example of an image with dark current. A background image is taken 
+	when the beam is not present (middle picture). This is subtracted from the original beam image
+	before calculating beam sizes.}
+	\label{fig:backgroundsubtraction}
+\end{figure}
+First both the beam image and background image need to be loaded into 
+arrays using the \verb|readimage()| function.
+Next, a choice must be made on whether only one frame will be used 
+as the background, or if averaging will be done. 
+The dark current is a stable effect, but there can be some slight jitter.
+Averaging can smooth jitter out in some cases, and can be done with 
+the \verb|average_images()| routine. 
+Next, a call to \verb|background_subtraction()| will do a simple pixel to 
+pixel subtraction of the two images. Any negative pixel values are set to 0.
+This case can occur when the background image is brighter than the beam image. 
+For example in Figure~\ref{fig:backgroundsubtraction}, this would occur in regions 
+where dark current is present, but no beam is (near YAG holder). 
+
+
+\Subsubsection{Step 4: Calculate x and y beam sizes}
+With a fiducial, charge cut, and clean beam images, the beam sizes profiles can be generated.
+This is done with a fitting model. Currently two options are implemented:
+a pure Gaussian fit or a combination model that uses a Gaussian for 
+the beam center and a linear fit for the tails (where no beam is).
+This routine is called \verb|combo_model()| and uses methods from 
+the \verb|lmfit| python package.
+This function returns beam sizes for every image and 
+a correlation coefficient (R), as a measure of how well the fit matches the data. 
+A plot is also made for each image, showing the data overlaid with 
+the resulting fit, as shown in in Figure~\ref{fig:combo}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{images/combomodel}
+	\label{fig:combo}
+	\caption{Beam profile fit overlaid on data. 
+		The fitted curve is used to estimate the beam size.}
+\end{figure}
+
+\Subsubsection{Step 5: Add profile and dimensions to display image}
+While the data in Step 4 is mostly numerical, it is helpful to 
+display the beam profiles along side the beam image. 
+This can be done with \verb|add_dist_to_image()|. 
+An x projection is added to each axis, and gives a visual representation of the beam size. 
+The fiducial is need for this step in order to add physical dimension to the image.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/yag1_1nC_M260_BF430}
+	\caption{Average beam image with profile distribution.
+	The speckled background are caused by background x-rays that are 
+	generated when the accelerator is running.}
+\end{figure}
+
+\Section{Solenoid Scans}
+
+Using the data analysis techniques in the previous section. 
+Solenoid scans were done to pin down discrepancies between 
+simulations and experimental beam sizes. 
+This method was used because it was the smallest experimental 
+set up possible to probe this topic.
+The data was taken at the first YAG screen in the beam line.
+The only elements before this YAG screen are the gun, two solenoids, 
+and one linac cavity. 
+Scans were done at low, \SI{1}{nC}, and high charge, \SI{40}{nC}. 
+
+
 
 
 \Section{Bunch Length Measurements}\label{sec:bunchlength}

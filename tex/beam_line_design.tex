@@ -906,7 +906,7 @@ In code form, these parameters translate to an OPAL input file that
 can be found in Appendix~\ref{opt-tba-code}.
 \begin{table}%[h!]
 	\begin{center}
-		\caption{Non-varing Input Parameters for large scale TBA optimization runs.}
+		\caption{\lsnote{Non-varying \sout{Non-varing}} Input Parameters for large scale TBA optimization runs.}
 		\label{tab:variables}
 		\rowcolors{2}{blue!10}{white}   
 		\begin{tabular}{lc}
@@ -965,7 +965,7 @@ design variables for a point to point comparison. A Pareto analysis always
 chooses the best points w.r.t the objectives chosen. This guarantees no 
 relationship between all objectives. 
 For example, the smallest beam size in y, at less than \SI{0.35}{mm} on Figure~\ref{fig:tba-paretoxy}, 
-may not have the matching solenoid or quad strengths, as the smallest x position 
+may not have the \lsnote{same input parameter settings for the} matching solenoid or quad strengths, as the smallest x position 
 at a little over \SI{2.5}{mm}. In other words, the best optics scenario for the x dimension
 may or may not be the best optics scenario for the y dimension. 
 
@@ -973,8 +973,8 @@ With this in mind, the Pareto front was re-plotted in Figure~\ref{fig:tba-pareto
 with one key difference. The y values were forced to coincide with the same 
 design variables used in the x dimension. 
 Now a true point to point comparison is possible in this plot.
-We chose the x dimension to be the determining plot, 
-due to it's clear limitations in comparison to the y dimensions in Figure~\ref{fig:tba-paretoxy}. 
+We chose the \lsnote{values of momentum spread to coincide with small horizontal beam size, since this was more difficult to achieve than small vertical beam size, see \sout{x dimension to be the determining plot, 
+due to it's clear limitations in comparison to the y dimensions in}} Figure~\ref{fig:tba-paretoxy}. 
 \nrnote{the sentences above are awkward, not sure how to word this} 
 \iftrue
 \begin{figure}
@@ -1015,8 +1015,9 @@ design variables for the four smallest beam sizes.
 \end{table}
 Since 100\% transmission is the main goal at this point, 
 the max beam size along the beam line was plotted for these optimized points.
-The results in Figure~\ref{fig:optresults} are promising, they indicate the optics 
+The results in Figure~\ref{fig:optresults} are promising, \lsnote{<- something wrong with that figure reference} they indicate the optics 
 can be well controlled through the kicker, septum, and leading into the staging area.
+\lsnote{{\it Having the bunch length at the PETS in the 4.19 or 4.20 figure caption would be a useful addition since you spent some time talking about its importance.}}
 \begin{figure}
 
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}
@@ -1047,7 +1048,7 @@ because that has been the main limiting factor in previous TBA experiments.
 	(i.e. smallest aperture on plot near 23 meters).
 	The bunch length is acceptable for TBA demonstrations.	}
 \end{figure}
-Remember, up to now, the optimization and and simulations have taken place using
+\lsnote{\sout{Remember, up to now} Up to this point}, the optimization and and simulations have taken place using
 2D field maps and space charge. No coherent synchrotron radiation (CSR) effects
 were calculated, and asymmetries in the fields are expected to change the 
 results as shown earlier in Figure~\ref{fig:beamsize}.
@@ -1094,24 +1095,24 @@ They also added in performing a Time Domain Reflectometer (TDR) measurement to c
 the impedance of the kicker, feedthrough, and cable connections. 
 A mismatch at the connection point between the kicker plates and feedthroughs was discovered.
 While the mismatch reduces the available voltage between the plates, it is not a danger to 
-the equipment or beam. After the two out side vacuum tests, the kicker was installed on 
+the equipment or beam. After the two \lsnote{outside \sout{out side}} vacuum tests, the kicker was installed on 
 the AWA drive line. It was tested with \SI{30}{nC} beams. 
 The beam deflection and angle due to the kicker were measured and 
-compared to first order. 
-A septum, which will follow the kicker was fabricated by IMP.
+compared to first order\lsnote{, and showed that the kicker performance meets beam dynamics specifications}. 
+\lsnote{The remainder of the beamline is awaiting installation. \sout{A septum, which will follow the kicker was fabricated by IMP.}}
 
-Further design work included determination of the beam line geometry
-using mechanical and hardware constraints at the AWA. 
-A point to point matrix calculation was done to determine if the 
+Further design work included determination of \lsnote{\sout{the}} beam line \lsnote{input parameter settings \sout{geometry} (incorporating 
+\sout{using}} mechanical and hardware constraints\lsnote{) that achieve beam transmission through the power extractor (PETS)\sout{at the AWA}}. 
+\lsnote{Initally, a \sout{A}} point to point matrix calculation was done to determine if the 
 beam size entering the first four quadrupoles could be maintained near the kicker.
-This exercise resulted in a field strength of \SI{\pm 4.14}{T/m}, 
+This exercise resulted in \lsnote{determining that the \sout{a}} field strength \lsnote{needed for a point to point beam transfer is \sout{of}} \SI{\pm 4.14}{T/m}, 
 which is well below the hardware limit of \SI{\pm9}{T/m}. 
 Next, a beam line optimization was done using the built in genetic algorithm in OPAL.  
 Six design variables and five objectives were used. 
 The results are plotted, and confirm the beam line geometry can deliver 
 a \SI{40}{nC} beam to the PETS location with 100\% transmission.
-Future work includes further optimization of the beam line, 
-installation of the septum, quadrupoles, and PETS.
+Future work includes \lsnote{checking the optimization results for the full beamline against beam measurements.  This requires that the remaining hardware be installed.  It is expected that the design work presented will enable successful beam transport through the new beamline, and that in turn will enable demonstration of fully independent staging for a two-beam acceleration scheme. \sout{further optimization of the beam line, 
+installation of the septum, quadrupoles, and PETS.}}
 
 
  

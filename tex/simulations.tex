@@ -39,7 +39,7 @@ case of TBA, a high charge is needed in the drive beam line, therefore transvers
 space charge must be calculated in the simulations to give realistic results.
 Typical charge for a TBA experiment at the AWA is \SI{40}{nC}. 
 This is much higher than other facilities that usually operate at \SI{1}{nC} or below. 
-Higher charge also means higher emittances which can reach the \SI{100}{\u m} if not careful.
+Higher charge also means higher emittances which can reach the \SI{100}{\micro\meter} if not careful.
 
 The ability to run the code in parallel dramatically reduced the amount of simulation time needed. 
 For example, simulating the gun and linac, about \SI{15}{m} of elements,
@@ -281,6 +281,7 @@ w.r.t the peak rf voltage.
 	%   \vspace*{-.5\baselineskip}
 	\centering
 	\caption{Simulation Parameters}
+	\rowcolors{2}{blue!15}{white}
 	\begin{tabular}{lcc}
 		\toprule
 		\toprule
@@ -313,7 +314,7 @@ transverse characteristics. We expected charge, energy,
 and laser parameters to have the most impact on the simulation values.
 
 
-\Subsection{Comparison to Experimental Measurments}
+\Subsection{Comparison to Experimental Measurements}
 Comparison of simulation and experimental results are shown in Figure~\ref{sims}.
 \begin{figure*}%[!tbh]
 	\centering
@@ -327,7 +328,7 @@ to the simulation model. Since the bunch length does not change measurably
 after the gun, it is reasonable to suspect one of the parameters in the 
 gun is the source of the discrepancy. Gun simulation parameters include the laser radius, 
 solenoid strengths, gradient, and emission model. The solenoid strength is ruled 
-out due to the recent measurment discussed in Chapter~\ref{chp:exp}. 
+out due to the recent measurement discussed in Chapter~\ref{chp:exp}. 
 Laser radius discrepancies should only impact the transverse beam dimensions 
 through coupling of the space charge force which is accounted for the in simulation. 
 Also, it is now known that the gun gradient is lower than expected.
@@ -349,11 +350,12 @@ Note the bunch length is shown in Figure~\ref{sims}.
 The table gives bunch duration, and the plot gives bunch length for the same data.
 \begin{table}[h]
 	\centering
-	\caption{Experimental Measurements}
+	\caption{Experimental Bunch Length Measurements}
+	\rowcolors{2}{blue!15}{white}
 	\begin{tabular}{rccc}
 		\toprule
 		\toprule
-		\textbf{Charge} & \textbf{Bunch Dur. (RMS)} \textbf{Bunch Length (RMS)} & \textbf{Laser spot size}  \\
+		\textbf{Charge} & \thead{\textbf{Bunch Dur.}\\ \textbf{(RMS)}} & \thead{\textbf{Bunch Length}\\\textbf{(RMS)}} & \textbf{Laser spot size}  \\
 		\midrule
 		\SI{0.3}{nC} & \SI{2.2}{ps} &  \SI{0.33}{mm} & 4 mm    \\ %[3pt]
 		\SI{0.7}{nC} & \SI{2.6}{ps} &  \SI{0.36}{mm} & 4 mm   \\ %[3pt]

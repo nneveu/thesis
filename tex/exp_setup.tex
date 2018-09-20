@@ -914,20 +914,40 @@ set up possible to probe this topic.
 The data was taken at the first YAG screen in the beam line.
 The only elements before this YAG screen are the gun, two solenoids, 
 and one linac cavity. 
-Scans were done at low, \SI{1}{nC}, and high charge, \SI{40}{nC}. 
-
-
+Scans were done at low, \SI{1}{nC}, and high charge, \SI{40}{nC}, see Figure~\ref{label}. 
+When post processing the data, the beam sizes were smaller than expected.
+There were two possible sources of this error. 
+The matching solenoid field could be higher than expected, i.e. stronger focusing.
+Or the gun gradient could be lower than expected, resulting in a lower energy 
+beam that would be focused more strongly by the solenoid field.
+This work motivated a new measurement of the solenoid field strength when 
+the cathode was changed. It was determined that the field is behaving as expected, 
+which suggests the gun gradient is lower than previously estimated.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/xbeamsizes_low_charge_sol_scan_11-02-2017}%
+	\includegraphics[width=0.5\textwidth]{images/ybeamsizes_low_charge_sol_scan_11-02-2017}\\
+	\includegraphics[width=0.5\textwidth]{images/xbeamsizes_high_charge_sol_scan_10-17-2017}%
+	\includegraphics[width=0.5\textwidth]{images/ybeamsizes_high_charge_sol_scan_10-17-2017}
+	\caption{Beam size data compared to simulations. The matching solenoid was varied. 
+	The beam sizes were calculated using the code and methods described in Section~\ref{sec:beamsize}. 
+	The rough agreement was only achieved when the gradient in the gun was lowered.}
+\end{figure}
 
 
 \Section{Bunch Length Measurements}\label{sec:bunchlength}
 
-Must have line break here.\\
-\lsnote{Intro: why needed?}
+For TBA experiments, the bunch length is a key parameter.
+Smaller bunch lengths result in more power out of the PETS. 
+Therefore is important to be able to measure this beam characteristic 
+and compare to simulations. Better understanding of the bunch length
+will lead to better results in fully staged TBA.
 
 \Subsection{Measurement Technique}
 In order to measure the bunch length, we performed an autocorrelation scan
 of the Coherent Transition Radiation (CTR) produced by the electron distribution \cite{Happek, WBarry}.
-\lsnote{{\it Also, describe how CTR produced}} In brief, the CTR is transported into a Michelson interferometer (MI)
+CTR is produced by the bunch when it pases through a metallic foil inserted into the beam line. 
+The CTR is transported into a Michelson interferometer (MI)
 where it's split and directed into two MI arms with a half-transparent pellicle \cite{PhysRevSTAB.9.082801}. 
 The CTR beams are then combined together at the exit of the MI with the variable path difference.
 The resulting CTR intensity is registered with a liquid helium cooled IR Labs
@@ -996,32 +1016,31 @@ MLA and relay optics.
 	\label{bolo}
 \end{figure}
 
-\lsnote{ Here, instead of sim discussion, have modification for independent staging, and previous energy gain measurement.}
-
-
-\Section{AWA Design Requirements} \label{sec:requirements}
-
-\lsnote{{\it Not sure if this section should be here, or later, more toward end of chapter.  This section is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?  Probably need another (or repeated) figure here.}}
-
-
-% An example for enumerate
-\begin{enumerate}
-	\item Kicker Design
-	\item Septum Design
-	\item Optimization 
-\end{enumerate}
-
-% A quotation example
-% Every quota must be accompanied by a reference to the source
-% in a footnote or in the Bibliography
-\begin{quotation}
-	test
-\end{quotation}
-
-
-
 
 \Section{Chapter Summary}
 
-Line break.
+A significant amount of experimental setup and preparation is 
+required before the demonstration of fully staged TBA.
+Work in the area has begun and continues. 
+The UV laser pulse train intensities were measured and significantly improved.
+It was discovered that the UV splitters were contributing to non-uniformity in the laser intensities. 
+This was mitigated through the purchase and characterization of 
+new splitters with a tighter tolerance on the UV coating. 
+The best performing splitters were chosen and installed at the AWA, 
+where they are currently used.
+RF power measurments using the pick up probe in the gun were made and compared to previous 
+measurmeents using the waveguide couplers. 
+Measurments were also made for the linac tanks, but there exisit no alternative data 
+set to compare to at the present time.
+The procedure for energy measurments using a spectrometer was described.
+An example energy measurment was given.
+Beam image analysis techniques were discussed in detail.
+All the code used is freely available on github.
+This includes fiducial calculation, charge selection, background substraction, 
+calculation of beam sizes, and plotting proflie distributions. 
+An experimental measurement using the image anaylsis techniques is shown. 
+The experiment was a solenoid scan at the first YAG screen on the drive line.
+The results informed the AWA that the gun gradient is lower than expected.
+Finally, the use of CTR to perform bunch length measurments was discussed.
+
 

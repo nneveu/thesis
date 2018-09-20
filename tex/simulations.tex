@@ -36,7 +36,11 @@ It was chosen for several reasons:
 
 The first item is crucial to standard operations at the AWA. Especially in the 
 case of TBA, a high charge is needed in the drive beam line, therefore transverse 
-space charge must be calculated in the simulations to give realistic results. \lsnote{{\it you need a sentence here giving the range of charge and typical emittance, or alternatively include in Table 1.1 and have (see Table 1.1 for beam parameters) at end of sentence. }}
+space charge must be calculated in the simulations to give realistic results.
+Typical charge for a TBA experiment at the AWA is \SI{40}{nC}. 
+This is much higher than other facilities that usually operate at \SI{1}{nC} or below. 
+Higher charge also means higher emittances which can reach the \SI{100}{\u m} if not careful.
+
 The ability to run the code in parallel dramatically reduced the amount of simulation time needed. 
 For example, simulating the gun and linac, about \SI{15}{m} of elements,
 with 100,000 particles on one core would take about 30 minutes. 
@@ -319,29 +323,42 @@ Comparison of simulation and experimental results are shown in Figure~\ref{sims}
 \end{figure*}
 While, we do not have an exact match, the results follow the same trends.
 The discrepancies indicate there are still adjustments that can be made
-to the simulation model. \lsnote{{\it It is not clear what the nature of the problem might be: it could be that some realities of beam line hardware are not included in sim, or as you say, incorrectly matched input parameters.  It would be good to have a discussion on how to narrow down the source of the difference.}} We will continue to try to improve agreement
-as more of these measurements are made. 
+to the simulation model. Since the bunch length does not change measurably 
+after the gun, it is reasonable to suspect one of the parameters in the 
+gun is the source of the discrepancy. Gun simulation parameters include the laser radius, 
+solenoid strengths, gradient, and emission model. The solenoid strength is ruled 
+out due to the recent measurment discussed in Chapter~\ref{chp:exp}. 
+Laser radius discrepancies should only impact the transverse beam dimensions 
+through coupling of the space charge force which is accounted for the in simulation. 
+Also, it is now known that the gun gradient is lower than expected.
+One other source of error could be the longitudinal laser proflie.
+There is currently no way to measure this at the AWA. 
+
+We will continue to try to improve agreement as more of these measurements are made. 
 This can include better measurements of the beam energy and careful attention to other 
 beam line parameters such as the laser radius and solenoid strengths.
 In the case of high charge simulations, where the agreement is the worst, 
-more consideration is needed for large charge fluctuations in the data.\lsnote{{\it <- Not sure what you meant in that last sentence}}
+more consideration is needed for large charge fluctuations in the data.
+When running at high charge the fluctuations in the laser intensity can results in 
+large swings in the bunch charge (i.e. \SI{20}{nC} to \SI{40}{nC}. 
+In attempts to compensate for this, large amounts of data were taken and some 
+outliers removed. Perhaps a more through analysis of the charge distribution is needed. 
 
-Experimentally measured values of the bunch duration are shown in Table~\ref{exp}.
-Note the units in the table are picoseconds and the units in Figure~\ref{sims} are millimeters. \lsnote{{\it So, do the conversion to mm and include in the table.  Then you can have a sentence or two about the comparison.}}
+Experimentally measured values of the bunch duration and bunch length are shown in Table~\ref{exp}.
+Note the bunch length is shown in Figure~\ref{sims}. 
 The table gives bunch duration, and the plot gives bunch length for the same data.
-\lsnote{\sout{We hope these can serve as future reference for others doing experiments at the AWA.} {\it If you include some speculation as mentioned in prev. comment, it could go here to wrap up the section.  You had said earlier that the linac phases were not well known - where is the bunch length detector?  Is it possible linac phase errors could be the culprit?  Do you also have transverse measurments?  If so, how do they compare with simulation?  Maybe there is some emittance exchange?}}
 \begin{table}[h]
 	\centering
 	\caption{Experimental Measurements}
-	\begin{tabular}{rcc}
+	\begin{tabular}{rccc}
 		\toprule
 		\toprule
-		\textbf{Charge} & \textbf{Bunch Dur. (RMS)} & \textbf{Laser spot size}  \\
+		\textbf{Charge} & \textbf{Bunch Dur. (RMS)} \textbf{Bunch Length (RMS)} & \textbf{Laser spot size}  \\
 		\midrule
-		\SI{0.3}{nC} & \SI{2.2}{ps} & 4 mm    \\ %[3pt]
-		\SI{0.7}{nC} & \SI{2.6}{ps} & 4 mm   \\ %[3pt]
-		\SI{1.3}{nC} & \SI{2.6}{ps} & 4 mm    \\
-		\SI{30}{nC}  & \SI{4.1}{ps} & 9 mm \\ %[3pt]
+		\SI{0.3}{nC} & \SI{2.2}{ps} &  \SI{0.33}{mm} & 4 mm    \\ %[3pt]
+		\SI{0.7}{nC} & \SI{2.6}{ps} &  \SI{0.36}{mm} & 4 mm   \\ %[3pt]
+		\SI{1.3}{nC} & \SI{2.6}{ps} &  \SI{0.39}{mm} & 4 mm    \\
+		\SI{30}{nC}  & \SI{4.1}{ps} &  \SI{0.615}{mm} & 9 mm \\ %[3pt]
 		\bottomrule
 	\end{tabular}
 	\label{exp}
@@ -378,11 +395,13 @@ to bound the optimization work in a "trust-region", so that
 effort is not wasted in an infeasible search space.
 A strength of model based methods is their efficient use of function evaluations. 
 
-After a model based method was implemented, a common technique was 
-used as confirmation \lsnote{{\it Confirmation of what?}} and for exploratory work. \lsnote{{\it What type of exploratory work?}} The algorithm used for confirmation 
+After a model based method was implemented, 
+a common optimization technique was used to benchmark the results. 
+The algorithm used for confirmation 
 is called a genetic algorithm (GA). An implementation of this algorithm is
 build into OPAL. GA's follow nature's lead as the name suggests.
-A random sample is done, and the best points \lsnote{finish that thought ->} (give some criteria) \lsnote{ -> or delete.}
+A random sample is done, and the best points based the defined objectives
+(i.e. emittance, bunch length, beam size, etc.)
 are selected. Those points are then mixed to form a new "generation"
 and a new round of simulations is started. This method continues
 until some convergence criteria is met. While this method does 
@@ -482,9 +501,7 @@ Non-varying parameters are listed in table~\ref{tab:gun};
 their values are based on realistic parameters at PITZ and AWA~\cite{pitz, benchmark}.
 
 Local optimization runs were started using five points 
-\lsnote{OK, then do you mean `each with a different selection of values for the optimization parameters'?  {\it If yes, add that here.}} 
-\nrnote{No, it was a total of five points with various simulation inputs.}with various 
-differences from the optimum value. The optimization runs converged 
+with different design variables. All optimization runs converged 
 (in less than 100 function evaluations) to a parameter set ($S_3=\SI{269}{A}$,
 $\phi_g=\SI{-3.0}{^{\circ}}$, and $R=\SI{0.6}{mm}$) with an emittance of $\SI{1.08}{\um}$.
 An exhaustive search of the parameter space was not done, and there may be other local minima that were not found.
@@ -731,16 +748,18 @@ the GA and model based method are similar. Both methods gave desirable
 results for the linac optimization problem. 
 The main difference between the two methods is the amount of computational 
 resources needed, see the comparison in Table~\ref{tab:optcompare}.
-Note, that as a general \lsnote{rule of thumb, \sout{r.o.t.}} most people simulate at least 100 generations, before stopping a GA.
-\lsnote{This suggests that while \sout{These results suggest}} the model based method and GA will arrive at 
-the same conclusion, \lsnote{\sout{per say, but at different times.} there will likely be a time difference for completion. {\it Is this significant?}}
+Note, that as a general rule of thumb, most people simulate at least 100 generations, before stopping a GA.
+This suggests that while the model based method and GA will arrive at 
+the same conclusion, there will likely be a time difference for completion. 
+The time to solution for the two cases can be significnatly different, 
+order thousands of compute hours.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/model_vs_ga}
 	\caption{Comparison of model based and GA simulations results.}
 	\label{fig:GAvsModel}
 \end{figure}
-\begin{table}[h] %or [hbt] ?
+\begin{table}%[h] %or [hbt] ?
 	\caption{Number of simulation evaluations for model based and GA optimizations.
 	These numbers correspond to the lines in Figure~\ref{fig:GAvsModel}.}
 	\label{tab:optcompare}
@@ -759,11 +778,6 @@ the same conclusion, \lsnote{\sout{per say, but at different times.} there will 
 	\end{center}
 \end{table}
 
-\lsnote{{\it What you are trying to say below goes in the chapter summary.  You can use it as the final wrap up, something like `Validation of OPAL T and initial optimization studies provided a tool to design the TBA experimental area.  This work is described in the next chapter.}}
-Next, work began on designing the TBA experimental area. 
-Initial probes into this problem were done using the genetic algorithm
-implemented in OPAL-t~\cite{optpilot}. Details of this work can be found in Chapter~\ref{chp:4}.
-
 \Section{Chapter Summary}
 
 PIC simulations of the AWA drive line are essential to the TBA project. 
@@ -776,11 +790,20 @@ No major discrepancies were found in the space charge and CSR algorithms.
 Although, note that the OPAL CSR routine can not be used for low energy beams.
 Convergence studies were also done to determine base line computational 
 parameters for future simulations.
-After benchmarking, all PIC simulations of the TBA beam linein this work were performed using OPAL-t on clusters provided by ANL.
+After benchmarking, all PIC simulations of the TBA beam line were performed using OPAL-t on clusters provided by ANL.
 
 Next, optimization to find a set of operating parameters for
-\SI{40}{nC} TBA experiments was done. A model based method BOBYQA was used to optimize the gun and linac. \lsnote{{\it You need a few sentences about the resulting optimized beam parameters and whether they make sense.}}
-Validation of the model based method was done by doing a comparison with the commonly used GA method. The results agreed well, and suggest that the model based methods require fewer computational resources than a GA. 
+\SI{40}{nC} TBA experiments was done. A model based method BOBYQA was used to optimize the gun and linac. 
+From these results it is clear that the laser radius should be as large as possible to mitigate space charge forces.
+In addition, the RF cavities should be run off crest to minimize energy spread.
+Validation of the model based method was done by doing a comparison with the commonly used GA method. 
+The results agreed well, and suggest that the model based methods require fewer computational resources than a GA. 
+
+Next, work began on designing the TBA experimental area. 
+Initial probes into this problem were done using the genetic algorithm
+implemented in OPAL-t~\cite{optpilot}. Details of this work can be found in Chapter~\ref{chp:4}.
+Validation of OPAL T and initial optimization studies provided a tool to design the TBA experimental area.  
+This work is described in the next chapter.
 
 
 

@@ -20,7 +20,7 @@ Finally a review of the design requirements for fully staged TBA is discussed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The AWA facility houses two rf photoinjector electron guns operating
+The AWA facility houses two RF photoinjector electron guns operating
 at \SI{1.3}{GHz}, and three subsequent beam lines. 
 Two of the beam lines are currently used for staged TBA, and the
 third is used for Emittance Exchange experiments (EEX). A layout of
@@ -68,7 +68,7 @@ bunch operation. The second pulse is sent to a UV multispitter table, shown in
 Figure~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
 used for TBA drive trains,
 
-The rf photoinjector on the drive line uses a semiconducting
+The RF photoinjector on the drive line uses a semiconducting
 cesium telluride (CsTe) cathode, and is followed by a linear accelerator (linac). The
 drive linac uses six copper cavities and four klystrons to accelerate the drive beam
 to energies of 50-\SI{70}{MeV}. The number of bunches generated from each 
@@ -114,7 +114,7 @@ Optimization of the UV optics was performed and is detailed in Section \ref{sec:
 	\end{center}
 \end{figure}
 
-The witness line rf photoinjector, located on the left side of Figure~\ref{fig:bunker}, 
+The witness line RF photoinjector, located on the left side of Figure~\ref{fig:bunker}, 
 uses a magnesium cathode and the following linac consists of one copper
 accelerating cavity. Prior to the multisplitter table, shown in
 Figure~\ref{fig:optics}, the laser pulse is split between the drive and witness side.
@@ -412,12 +412,7 @@ signal generator. The resulting power was $P_s=\SI{-8.92}{dBm}$}
 
 The power reading in the control room was $P_c = \SI{-9.48}{dBm}$, and the power reading in 
 the tunnel from the signal generator was $P_s = \SI{-8.92}{dBm}$, so the
-attenuation is $\SI{0.56}{dB}$. However, one more cable needs to be accounted for and 
-subtracted from the overall attenuation. A short blue heliax was used to connect the 
-signal generator to the control room cables, as shown in Figure~\ref{fig:tikzcalibration}.
-This cable not normally connected to the control room as shown in Figure~\ref{fig:tikzdrivegun}. 
-\lsnote{You should finish the thought - how much attenuation from the Heliax, and what is the adjusted correction?}
-
+attenuation is $\SI{0.56}{dB}$. 
 
 \Subsection{Drive Gun Measurements}\label{gunenergy}
 After the cable calibration, the set up was returned to typical rf conditions as 
@@ -501,8 +496,8 @@ and S is the attenuation due to the splitter in the control room.
 \begin{aligned}
 P_g \, \SI{}{[dBm]} = \\
 \SI{53.2}{dB} + \SI{36}{dB} + \SI{0.56}{dB} \\
- + \SI{9.5}{dB}+ \SI{10}{dB} + \SI{14.18}{dBm} \\
- = \SI{95.08}{dBm} 
+ + \SI{9.7}{dB}+ \SI{10}{dB} - \SI{9.07}{dBm} \\
+ = \SI{100.39}{dBm} 
 \end{aligned}
 \end{equation*}
 
@@ -514,7 +509,7 @@ P \, \SI{}{[dBm]} = 10 \cdot \log{\frac{P \, \SI{}{[mW]}}{\SI{1}{[mW]}}}
 P \, \SI{}{[mW]} = \SI{1}{[mW]} \cdot 10^{\frac{P \, [\SI{}{dBm}]}{\SI{10}{}}}
 \end{equation}
 \begin{equation} 
-P_2 = 10^{\SI{9.508}{dBm}} \cdot  \SI{1}{[mW]} = 3.6 \, \SI{}{[MW]} 
+P_2 = 10^{\SI{100.39}{dBm}} \cdot  \SI{1}{[mW]} = \SI{10.94}{MW} 
 \end{equation}
 
 
@@ -525,10 +520,10 @@ based on the Super Fish (SF) \cite{superfish} model used to define the gun.
 	\frac{E_{z \left(measured\right)}}{E_{z(SF)}} = \sqrt{\frac{P_{measured}}{P_{(SF)}}}
 \end{equation}
 \begin{equation}
-	E_z = 1.86\sqrt{\frac{P_{measured}}{7.498\times10^-3}} = \SI{40}{MV/m}
+	E_z = 1.86\sqrt{\frac{P_{measured}}{7.498\times10^-3}} = \SI{71}{MV/m}
 \end{equation}
 Using the measurements above, this gives an estimate for the gradient in the gun.
-\nrnote{These are still too low...}
+
 
 \Subsection{Linac Cavity Measurements}
 Next the power levels in the six linear accelerating (linac) cavities after the gun

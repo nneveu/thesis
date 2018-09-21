@@ -5,15 +5,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\lsnote{The introduction needs more perspective on what consitutes `high gradient'.  It would be good if you mentioned the typical gradients/limitations of conventional accelerating structures, and mention that they are powered by Klystrons etc.  In other words, you need the broader context in the introduction.}
-
 A new generation of accelerators dedicated to High Energy Physics
 (HEP), would likely be of the TeV scale. Reduction in the size and cost
-of such machines is key to their feasibility. One scheme that may potentially achieve this is 
-through accelerator technology R\&D. Investigation into a 
-high gradient candidate for future HEP machines is an active research area a
-short pulse, two-beam acceleration (TBA) scheme using 
-wakefield power extractors such as that being developed at the Argonne Wakefield Accelerator (AWA) facility. 
+of such machines is key to their feasibility. 
+Investigation into a high gradient candidates for future HEP machines is an active research. 
+Traditional accelerating gradients are on the order of 10's of MV/m
+with the power source being a klystron gallery.
+High gradient structures and schemes such as the 
+short pulse, two-beam acceleration (TBA) scheme 
+at the Argonne Wakefield Accelerator (AWA) facility
+use novel structures to reach 100's of MV/m or more. 
 A goal of the AWA group is to demonstrate fully staged TBA, 
 achieving a gradient of 250 MV/m. If successful, this would
 be the only facility in the world capable of such gradients used for
@@ -33,7 +34,7 @@ The Compact Linear Collider (CLIC) collaboration, proposes a similar TBA scheme 
 a \SI{240}{ns} pulse design. This limits the acceleration gradient
 to roughly \SI{150}{MV/m} at room temperature due to rf breakdown \cite{CLICdesignReport}.
 Higher gradients could be reached when driven by a very short drive
-beam pulse, such as the 20ns pulse length proposed by AWA \cite{WeiPaper}. 
+beam pulse, such as the \SI{20}{ns} pulse length proposed by AWA \cite{WeiPaper}. 
 While the peak power and gradients are considerably larger in the short pulse scheme, 
 the average power is still feasible and within current technology capabilities.
 While the two groups vary on approach, they agree that TBA would 
@@ -45,7 +46,6 @@ needed when using traditional \SI{50}{MW} klystron sources.
 It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
 \SI{9.2}{TW} power required in the CLIC design specification reports \cite{CLICdesignReport}. 
 With TBA, CLIC projected a \SI{3}{TeV} energy at a length of \SI{48}{km}.
-%In contrast to CLIC's 48 km projected machine length needed to reach \SI{3}{TeV}, 
 In contrast, the Next Linear Collider (NLC) collaboration projected a \SI{1}{TeV} machine 
 with length \SI{26}{km}, using X-band klystrons \cite{NLC}. 
 This drastic difference occurs in the infrastructure needed to generate and transfer
@@ -75,72 +75,50 @@ feasible to use such methods. Single stage TBA, and staging
 in a simplified scheme have been demonstrated at the AWA in 2016 \cite{tba2017}.
 In the simplified scheme, both bunch trains travel through two decelerating stages.
 This causes energy loss in stage 1 as the the second bunch train travels to stage 2.
-\nrnote{add figure here to show difference between simplified and full staging}
+\begin{figure}
+	\begin{center}
+		\begin{tikzpicture}[scale=\textwidth/35cm, text=black]
+		\input{./images/singlestage.tex}
+		\node[fill=white, inner sep=2pt] (txt2) at (5,10) {Simplified Staging:};
+		\node[fill=white, inner sep=2pt] (txt2) at (4,-1) {Full Staging:};
+		\end{tikzpicture}
+	\end{center}
+	\caption{Simplified drawing of the two staging schemes.
+		The arrows indicate what direction the beams travels.
+		'Simplified staging' refers to experiments that took place at the AWA  prior to 2017.
+		'Full Staging' refers to the TBA scheme that is the subject of this thesis.
+		Installation efforts are currently ongoing.
+		PETS stands for Power Extraction and Transfer Structure, and ACC stands for Accelerating structure. 
+		The subscript on each structure refers to which stage the structures belong to (first or second). 
+		In the simplified staging scheme the stages are not separated, meaning bunch train two travels
+		through and loses energy in the first stage before reaching the second stage.
+		This is prevented by separate beam lines in the full staging layout. }
+	\label{fig:one}
+\end{figure}
 
 Fully staged TBA introduces a fast rise time kicker
 and subsequent dogleg-like beam line. In this scenario, bunch trains can be 
 be directed to two independent decelerating structures. 
 Therefore you can extract the maximum amount of power in each stage.
-Experimental preparations, design, optimization, 
-and initial testing of the fully staged beam line
-is the subject of this thesis. 
+The thesis work included experimental preparation of fully staged TBA, 
+along with beam line design and optimization. 
 
-\lsnote{First, summarize here what main work you did for the thesis.  Then, you can describe what is to come in the thesis to follow: e.g. `Chapter 2 presents'.  This would be the end of the introductory chapter.\\
-Non-independent staging power measurments\\
-Kicker specification and testing\\
-Kicker beamline simulation and optimization : \\
-optimization studies, optics settings, phase settings, experimental measurements}
-
-Experimental work included UV laser pulse train improvement, 
+Chapter 2 details the experimental setup, which included ultraviolet laser pulse train improvement, 
 which improves the RF power generation in the wakefield structures.
-\nrnote{I will add more details to this summary paragraph}
-An image processing script was written in Python to analyze YAG screen data. 
-A vast number of simulations were performed in OPAL-t~\cite{opal}.
-The photoinjector was optimized for \SI{40}{nC}, 
-which improved the beam parameters entering the TBA experimental area.
-Simulations of the TBA beam line were done to ensure transmission at
-the wakefield structure. Optimization of the optics was done using 
-a genetic algorithm. 
-Experimental results and comparison to simulations, along 
-with the following beam dynamics analysis is shown here.
+Also discussed are measurements of the RF power in the gun and linac cavities.
+Description of beam size analysis and an image processing script written in Python is covered.
+In Chapter 3, the simulation code, OPAL~\cite{opal}, and model used for beam line design is covered in detail.
+Benchmarking and initial optimization work is discussed. The photoinjector was optimized for \SI{40}{nC}. 
+In Chapter 4, the design of a stripline kicker is discussed. 
+The achievable kicker angle and mechanical constraints at the AWA 
+were used to lay out the fully staged TBA beam line. 
+Simulations of the configuration were done to ensure transmission at
+the wakefield structure downstream. Optimization of the optics was done using 
+a genetic algorithm and confirm the configuration can transmit a \SI{40}{nC} beam.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Two Beam Acceleration}
-
-\lsnote{This is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?}
-
-In order to design and test the desired beam line, three technologies 
-new to the AWA were investigated. These include a kicker, septum magnets, 
-and non-GA optimization algorithms.
-
-% An example for enumerate
-\begin{enumerate}
-	\item Kicker Design
-	\item Septum Design
-	\item Optimization 
-\end{enumerate}
-
-% A quotation example
-% Every quota must be accompanied by a reference to the source
-% in a footnote or in the Bibliography
-\begin{quotation}
-	test
-\end{quotation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Accelerating Structures} hold
-
-\Subsection{Dielectric Structures}
-hold
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\Subsection{Power Generation}
-\lsnote{Somewhere you need a comprehensive description of simplified staging vesus full staging.  I am not sure it is here, but it should be before you mention simplified staging.}
+\Section{Power Generation}
 
 Currently, all \lsnote{define PETS acronym} PETS and accelerating structures installed in the AWA's
 simplified staging scheme are metallic. It has been shown that a few
@@ -178,6 +156,26 @@ as CST Microwave Studio.
 
 \lsnote{ Here, instead of sim discussion, have modification for independent staging, and previous energy gain measurement.}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{images/old_tba}
+	\label{fig:old-tba}
+	\caption{Measurements of the energy during simplified staging experiments, 
+		figure courtesy of Gwanghui Ha at AWA.
+		Drive Train 1 refers to the stage one, and Drive Train 2 to stage 2. 
+		Energy gain was observed in each stage independently.
+		A larger energy gain was observed when both stages supplied RF to the witness beam line.}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Simplified Staging Results}
+
+
+
+
+
 \Section{AWA Design Requirements} \label{sec:requirements}
 
 \lsnote{{\it Not sure if this section should be here, or later, more toward end of chapter.  This section is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?  Probably need another (or repeated) figure here.}}
@@ -195,7 +193,29 @@ as CST Microwave Studio.
         test
 \end{quotation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Fully Staged Two Beam Acceleration}
 
+\lsnote{This is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?}
+
+In order to design and test the desired beam line, three technologies 
+new to the AWA were investigated. These include a kicker, septum magnets, 
+and non-GA optimization algorithms.
+
+% An example for enumerate
+\begin{enumerate}
+	\item Kicker Design
+	\item Septum Design
+	\item Optimization 
+\end{enumerate}
+
+% A quotation example
+% Every quota must be accompanied by a reference to the source
+% in a footnote or in the Bibliography
+\begin{quotation}
+	test
+\end{quotation}
 
 
 

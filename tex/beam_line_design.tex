@@ -1043,8 +1043,9 @@ where 80\% power generation in the PETS is possible.
 
 Note, the horizontal beam sizes are not as small as in Figure~\ref{fig:xz-pareto}, 
 but this is considered acceptable given the improved bunch length values.
+There is truly a "trade-off" to be made between the two.
 Table~\ref{tab:designopt}, shows a summary of 
-design variables for the four smallest horizontal beam sizes in Figure~\ref{fig:tba-pareto}.
+design variables and beam sizes for Figure~\ref{fig:tba-pareto}.
 \begin{table}%[h!]
 	\begin{center}
 		\caption{Input Parameters for large scale TBA optimization runs.
@@ -1055,7 +1056,7 @@ design variables for the four smallest horizontal beam sizes in Figure~\ref{fig:
 			\toprule
 			\toprule
 			%\rowcolor{blue!30} 
-			\textbf{Simulation Parameter} 	&  \textbf{1} & \textbf{2} &\textbf{3} & \textbf{4} \\ 
+			\textbf{Simulation Parameter} 	&  \textbf{A} & \textbf{B} &\textbf{C} & \textbf{D} \\ 
 			\midrule
 			{Buck Focusing Solenoid [A]}	& 478 &  395   & 357   & 328 \\
 			Matching Solenoid [A]	& 197	&  209   & 211   & 211  \\
@@ -1070,9 +1071,8 @@ design variables for the four smallest horizontal beam sizes in Figure~\ref{fig:
 \end{table}
 Since 100\% transmission is the main goal at this point, 
 the max beam size along the beam line was plotted for these optimized points.
-The results in Figure~\ref{fig:optresults} are promising, \lsnote{<- something wrong with that figure reference} they indicate the optics 
+The results in Figure~\ref{fig:optresults} are promising, they indicate the optics 
 can be well controlled through the kicker, septum, and leading into the staging area.
-\lsnote{{\it Having the bunch length at the PETS in the 4.19 or 4.20 figure caption would be a useful addition since you spent some time talking about its importance.}}
 \begin{figure}
 
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}
@@ -1084,26 +1084,34 @@ can be well controlled through the kicker, septum, and leading into the staging 
 		The maximum beam size is plotted along the beam line, and aperture limits are shown in black.
 		All scenarios correspond to 100\% transmission through the septum. The PETS location is 
 		not shown yet, because quadrupole 5 and 6 were not optimized.
-	These plots correspond to the Pareto points in Figure~\ref{fig:tba-paretoxonly}. }
+	These plots correspond to the Pareto points in Figure~\ref{fig:tba-pareto}. }
 	\label{fig:optresults}
 \end{figure}
  
 The best scenario, corresponding to a matching strength of \SI{197}{A}, was then explored further.
 With guidance from some of the failed runs described in Section~\ref{failed}, 
-strengths of \SI{2.0}{A} and \SI{1.25}{A} were chosen respectively for 
+strengths of \SI{-2.0}{A} and \SI{1.25}{A} were chosen respectively for 
 quadrupoles 5 and 6. The rest of the beam line was simulated to the PETS location. 
 The focus remains on 100\% transmission, 
 because that has been the main limiting factor in previous TBA experiments. 
+These results are promising for several reasons. 
+The two obvious benefits to this solution are transmission and beam size. 
+More subtle, but still significant is the value of the quadrupole strengths.
+All of the optimized settings in Table~\ref{tab:designopt} are far from the 
+extreme limits of the magnetic, meaning there is plenty of wiggle room to adjust 
+the magnets during an experiment. This is important, because not all effects are 
+included in this simulation. 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.75\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
-		\includegraphics[width=0.75\textwidth]{{images/zrms-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
+	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}%
+		\includegraphics[width=0.5\textwidth]{{images/zrms-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25.stat}.pdf}
 	\label{fig:2Dfullbeamline}
-	\caption{2D beam line simulation to the PETS location.
+	\caption{2D beam line simulation to the PETS location using optimized design variables from Table~\ref{tab:designopt}, column A.
 	This optics configuration achieves 100\% transmission at the PETS location
 	(i.e. smallest aperture on plot near 23 meters).
 	The bunch length is acceptable for TBA demonstrations.	}
 \end{figure}
+
 Up to this point, the optimization and and simulations have taken place using
 2D field maps and space charge. No coherent synchrotron radiation (CSR) effects
 were calculated, and asymmetries in the fields are expected to change the 
@@ -1113,33 +1121,39 @@ increase the time to simulation. This would lengthen the amount of time
 needed to run the GA to over 4 or 5 days.
 Therefore, a 2D study was done first, and the solution checked.
 A second simulation of the same design variables was done including 
-3D RF field maps and CSR effects. 
+3D RF field maps and CSR effects, see Figure~\ref{fig:3D}. 
 \begin{figure}
 	\centering
-	\nrnote{will add figure with 3D CSR, no solenoid adjustment}
-	%\includegraphics[width=0.75\textwidth]{{images/}.pdf}
-	\caption{Simulation of the full beam line including CSR and 3D field maps.
-	Asymmetries in the RF field maps are causing additional focusing in the linac. }
+	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25_CSR.stat}.pdf}%
+	\includegraphics[width=0.5\textwidth]{{images/zrms-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25_CSR.stat}.pdf}%	
+	\caption{Simulation of the optimized settings in Table~\ref{tab:designopt} with CSR and 3D field maps.
+	 Significant focusing/defocusing is observed, and particles are lost starting at the kicker.
+	}
 	\label{fig:3D}
 \end{figure}
-Significant focusing was observed when the 3D RF maps were used.
-A scan of the matching solenoid was done to compensate for the effect.
+Asymmetries in the RF field maps are causing additional focusing in the horizontal direction
+and defocusing in the vertical direction. The optics need to be adjusted to compensate for 3D effects, 
+and given the solution in 2D, there is plenty of range on the solenoid and quadrupoles to do this.
+A scan of the matching solenoid was done to try to reduce the over focusing in the horizontal direction
+see the updated 3D beam line simulation in Figure~\ref{fig:weaksol}.
 \begin{figure}
 	\nrnote{will add figure with 3D, CSR, solenoid adjustment}
 	\caption{Simulation of full beam line using optimized quad setting, 
-	3D RF field maps, and CSR. The solenoid strength was weakened to compensate 
-	for focusing in the linac due to 3D fields.}
+		3D RF field maps, and CSR. The solenoid strength was weakened to compensate 
+		for focusing in the linac due to 3D fields.}
 	\label{fig:weaksol}
 \end{figure}
 
-A significant achievement to note is the absence of quadrupole strength values for the last triplet.
+It is important to note the large differences in 2D and 3D results. While 2D work can set a foundation
+for beam line studies, it should not be used for comparison to experiment; 
+at least in the case of high charge at the AWA. Aside from this insight,
+a significant achievement to point out is the absence of quadrupole strength values for the last triplet.
 The optimization work was able to find a suitable optics solution without using the last three quadrupoles 
-in the beam line. This is positions the AWA at a significant advantage when running future TBA experiments.
-Not all realistic effects are included in the simulation (i.e. wakefield in the PETS), 
+in the beam line. This positions the AWA at a significant advantage when running future TBA experiments.
+Not all realistic effects are included in the simulation (i.e. wakefield in the PETS, non-uniform laser profile distribution), 
 and this optics solution allows for three more degrees of freedom that can be used during experiments 
-to compensate for these differences. An optics solution is presented here 
-as an option for future TBA experiments, and results suggest the beam line layout 
-defined above is capable of successfully demonstrating fully staged TBA at the AWA.
+to compensate for the differences. In summary, these results indicate the beam line configuration proposed 
+can successfully demonstrate fully staged TBA at the AWA.
 
 \Section{Chapter Summary}
 

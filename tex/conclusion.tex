@@ -1,0 +1,71 @@
+\Chapter{CONCLUSION}
+
+Two beam acceleration (TBA) is a promising candidate for future high energy machines. Active research and development on this topic is taking place at the AWA. There has already been successful demonstrations of single stage metallic and dielectric 
+TBA at the AWA. Further, a simplified two stage scheme was also demonstrated. 
+Next steps are to demonstrate a fully staged TBA scheme, 
+and the work presented supports those efforts. 
+
+Initial experimental work included improving the ultraviolet pulse train. This one done through careful measurement of the UV optics on the multisplitter table. Results showed the current splitters were of low quality, and a higher grade set was ordered. Measurements of the new splitters also took place 
+to select the best out of the order. 
+A considerable improvement in the UV pulse train intensity distribution was observed. The deviation between pulses was reduced by about 16.5\%.
+Next RF power measurements were done for each of the accelerating 
+cavities at the AWA. A pick up probe in the cavity sends a signal back to the control room when the accelerator is running. A power meter was used to measure the signal and the cables were calibrated to account for losses. 
+These measurements helped guide simulation parameters. 
+
+Several sets of energy measurements were taken for the same reason. 
+The method for measuring energy included using a dipole spectrometer. 
+When the beam is bent a known angle, the energy can be back calculated. 
+Probably the most important beam diagnostic at the AWA, 
+because of their ease to use are the Yittrium Aluminum Garnet (YAG) screens. 
+Cameras pointed at the YAG screens can take pictures of the 
+transverse beam profile. 
+Various data analysis techniques can then be used to determine 
+the beam size and charge. A script was written in Python
+to perform this analysis, and it is available on github for others to use. 
+A solenoid scan was done using the data analysis script
+and helped confirm discrepancies between experiment and 
+simulations. 
+The last beam diagnostic used in this work was a Coherent Transition Radiation (CTR) screen. When the beam passes
+through a specially designed foil in the beam line, 
+it emits CTR. This light can be focused into a Michelson 
+interferometer and used to calculate the bunch length. 
+This is a difficult measurement do to the necessity of a 
+bolometer to measure intensity. 
+
+Moving on to simulation work, a benchmark was done between OPAL, ASTRA, and GPT 
+to confirm the correct use of OPAL. 
+Part of that work included convergence studies needed for computational parameters such as number of particles and grid size.
+Bunch length simulations were compared to the experimental 
+measurements done previously.
+Further work included optimization of the drive line for \SI{40}{nC} bunches. 
+A model based optimization method was used first, 
+and compared to a genetic algorithm. 
+Both methods returned similar results, indicating either
+can be used for photoinjector optimization. 
+
+A fast rise time kicker was designed, fabricated, and tested 
+at the AWA. 
+The kicker meets specifications and the deflection angle 
+along with mechanical constraints were used to layout 
+a fully staged TBA beam line. 
+Massively parallel optimizations were then done to 
+determine an optics configuration that would guarantee 
+100\% transmission at the PETS location. 
+A 2D solution was found that did not require use of the
+last triplet in the beam  line. 
+Differences in the 2D and 3D simulations indicate the optics 
+solution needed to be adjusted to account for coherent syncrotron radiation (CSR) and 3D field maps. 
+Since the 2D solution did not require hard focusing in any of the magnets, 
+there is plenty of room to optimize the optics for the 3D scenario.
+In conclusion a beam line design was presented that is capable of 
+demonstrating fully staged TBA. 
+
+
+
+
+
+
+
+
+
+

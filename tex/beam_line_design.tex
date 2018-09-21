@@ -871,9 +871,56 @@ Much help was received from A. Adelmann in preparing and discussing these tests.
 \fi
 
 \Subsection{Optimization Setup}\label{setup}
-The most successful optimization problem to date entailed optimizing the 
+The most successful optimization problem to date entailed minimizing the 
 3D beam size, transverse momentum, and energy spread at the fifth quarupole on the drive line.
-In other words, the first quadrupole between the septum and kicker.
+Three constraints were used to limit the maximum beam size and asymmetry (transverse roundness) considered by the algorithm.
+The difference in x and y was included as a constraint, because failed optimization runs in the 
+past had converged on solutions that had a very small beam size in x, and an unrealistic and large 
+beam size in the y. This constraint was added to avoid this error.
+In general, constraints serve as a way to eliminate clearly undesirable results and exclude them 
+from the algorithm that determines which individuals are fit.
+
+All objectives and constraints are shown in Table~\ref{tab:opt-tba-obj}. 
+Constraints were evaluated at the entrance of the kicker \SI{16.5}{m}, and
+objectives were minimized \SI{19.4}{m} after the cathode. 
+\begin{table}%[h!]
+	\begin{center}
+		\caption{Objectives (beam parameters of interest) and constraints used during large scale optimization runs.
+		Constraints were evaluated at \SI{16.5}{m} (entrance of the kicker).
+		If the simulation results did not meet the constraints, the GA ignored those results.
+		All six objectives were minimized simultaneously during the GA runs at \SI{19.5}{m}.
+	(entrance of the fifth quadrupole)}
+		\label{tab:opt-tba-obj}
+		\rowcolors{2}{blue!10}{white}   
+		\begin{tabular}{lc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Beam Parameter} 	&  \textbf{Symbol} \\ 
+			\midrule
+			Beam size in x		&  $\sigma_x$ \\
+			Beam size in y		&  $\sigma_y$ \\
+			Bunch length in z	&  $\sigma_z$ \\
+			Momentum in x		&  $\sigma_{px}$ \\
+			Momentum in y		&  $\sigma_{py}$\\ 
+			Energy spread 		& dE \\
+			\bottomrule
+		\end{tabular}\hspace{2em}
+		\rowcolors{3}{blue!10}{white}
+		\begin{tabular}{ll}
+		\toprule
+		\toprule
+		%\rowcolor{blue!30} 
+		\textbf{Constraint} 	&  \textbf{Equation} \\ 
+		\midrule
+		Beam size in x		&  $\sigma_x \leq \SI{0.1}{m}$ \\
+		Beam size in y		&  $\sigma_y \leq \SI{0.1}{m}$  \\
+		Roundness check		&  $\sigma_x - \sigma_y \leq \SI{0.005}{m}$ \\
+		\bottomrule
+	\end{tabular}
+	\end{center}
+\end{table}
+In other words, the first quadrupole between the septum and kicker, see Figure~\ref{fig:full-staging}.
 Optimizing at this location helps reduce dispersion by minimizing 
 the energy spread before it enters the $15^\circ$ bend that straightens out 
 the deflected beam line, see Figure~\ref{fig:full-staging}.
@@ -906,7 +953,7 @@ In code form, these parameters translate to an OPAL input file that
 can be found in Appendix~\ref{opt-tba-code}.
 \begin{table}%[h!]
 	\begin{center}
-		\caption{\lsnote{Non-varying \sout{Non-varing}} Input Parameters for large scale TBA optimization runs.}
+		\caption{Non-varying Input Parameters for large scale TBA optimization runs.}
 		\label{tab:variables}
 		\rowcolors{2}{blue!10}{white}   
 		\begin{tabular}{lc}
@@ -933,33 +980,38 @@ in Table~\ref{tab:variables} are also in the repository.
 
 
 \Subsection{Optimization Results}
-After fourty-eight hours, the optimization run described in Section \ref{setup}
-completed and the results were analyzed. 
-A Pareto front comparing the trade off between bunch length and energy spread was plotted.  \lsnote{{\it I don't really understand this.  The Pareto front for bunch length and transverse emittance makes sense because 6D emittance is conserved, and there really is a trade off between those parameters.  Bunch length and energy spread make less sense to me, given a specific bunch length, the energy spread should depend on the bucket height.  According to table  4.5, you don't allow anything that should impact the longitudinal parameters to vary, other than solenoid, which could do emittance exchange. These differences in bunch length shown may be due to the transverse emittance and not the momentum spread.}}
+After forty-eight hours, the optimization run described in Section~\ref{setup} completed and the results were analyzed. 
+Note, all six objectives were minimized during the optimization run, but it is hard to determine which 
+of the thousands of results were the "best" per say. This depends on several criteria, which must be 
+determined by the experiment. Usually Pareto fronts are used to compare trade offs,
+as done in Chapter~\ref{simulations}, but in the case of a high dimensional problem, such as this, 
+no two parameters will visualize all of the available information.
+
+As a work around, several different Pareto fronts were plotted, with the understanding that 
+no one plot is a representation of the whole data set.
+First, a Pareto front comparing the trade off between bunch length and transverse beam size was plotted.  
 \begin{figure}
 	\centering
-	\includegraphics[width=0.75\textwidth]{./images/dE_vs_zrms_pareto_front_quads_before_Q5}
-	\caption{Simulated Pareto front of energy spread vs. bunch length.
-	This data was a result of the simulation setup in Section \ref{setup}.}
-\label{fig:tba-pareto}
+	\includegraphics[width=0.65\textwidth]{images/x_vs_z_pareto_front_Q5}
+	\caption{Simulated Pareto front of transverse beam size in x vs. bunch length.
+		This data was a result of the simulation setup in Section \ref{setup}.}
+	\label{fig:xz-pareto}
 \end{figure}
-From Figure~\ref{fig:tba-pareto}, there are not many bunch lengths options.
-Only one point is excluded from the plot at \SI{5}{mm}, a region 
-not desirable for TBA. The results in the transverse dimension were
+While the beam size data in Figure~\ref{fig:xz-pareto} is promising, the bunch lengths are too long.
+At \SI{3}{mm}, less than 60\% of the possible power is generated in the PETS (refer to form factor discussion in Chapter 1). 
+The results in the transverse dimension were
 more instructive. Two Pareto fronts comparing beam sizes
 and momentum in the x and y dimensions are plotted in Figure~\ref{fig:tba-paretoxy}.
 As expected the beam sizes in the x dimension are larger 
 due to the bending elements. This indicates the x dimension will be the 
-limiting factor in areas with tight apertures such as the PETS.  \lsnote{{\it A host of questions arises here as well.  Maybe differences are due to longitudinal trade-offs?   What the final values of variable  parameters for the solutions in your figure, and what are all the beam parameters at every point (longitudinal and transverse)?  On the other hand, varying only quadrupoles cannot affect bunch length, etc. so in this case you are truly optimizing only transverse parameters at a given location - anyway, clarification is needed here.}}
-\iftrue
+limiting factor in areas with tight apertures such as the PETS.  
 \begin{figure}
 	\centering
-	\includegraphics[width=0.75\textwidth]{./images/xy_vs_pxy_pareto_front_quads_before_Q5}
+	\includegraphics[width=0.75\textwidth]{./images/xy_vs_pxpy_pareto_front_Q5}
 	\caption{Simulated Pareto front of beam size vs. momentum.
 		This data was a result of the simulation setup in Section \ref{setup}.}
 	\label{fig:tba-paretoxy}
 \end{figure}
-\fi
 Note the two curves in Figure~\ref{fig:tba-paretoxy}, may not represent the same 
 design variables for a point to point comparison. A Pareto analysis always 
 chooses the best points w.r.t the objectives chosen. This guarantees no 
@@ -971,26 +1023,28 @@ may or may not be the best optics scenario for the y dimension.
 
 With this in mind, the Pareto front was re-plotted in Figure~\ref{fig:tba-paretoxonly} 
 with one key difference. The y values were forced to coincide with the same 
-design variables used in the x dimension. 
-Now a true point to point comparison is possible in this plot.
+design variables used in the x dimension. The same was done for bunch length.
+Now a true point to point comparison is possible in these plots.
 We chose the values of momentum spread to coincide with small horizontal beam size, 
 since this was more difficult to achieve than small vertical beam size, see Figure~\ref{fig:tba-paretoxy}. 
-\nrnote{the sentences above are awkward, not sure how to word this} 
-\iftrue
 \begin{figure}
 	\centering
-	\includegraphics[width=0.75\textwidth]{./images/xonly_pareto_front_quads_before_Q5}
-	\caption{Simulated Pareto front of beam size vs. momentum.
-		Adjusted to force y beam sizes to correspond to same design variables 
+	\includegraphics[width=0.5\textwidth]{./images/xz_vs_px_pareto_front_Q5}%
+	\includegraphics[width=0.5\textwidth]{images/xy_vs_px_pareto_front_Q5}
+	\caption{Simulated Pareto front of beam sizes vs. momentum.
+		Adjusted to force y beam sizes and bunch length to correspond to same design variables 
 		as the x beam sizes.
 		This data was a result of the simulation setup in Section \ref{setup}.}
-	\label{fig:tba-paretoxonly}
+	\label{fig:tba-pareto}
 \end{figure}
-\fi
-The momentum variance in Figure~\ref{fig:tba-paretoxonly} is small in comparison to 
-the beam size variance. Therefore, design variable values resulting in a smaller 
-beam size were give higher priority. Table~\ref{tab:designopt}, shows a summary of 
-design variables for the four smallest beam sizes.
+The momentum variance in Figure~\ref{fig:tba-pareto} is small in comparison to 
+the beam size variance. The bunch length values are also improved with all but one below \SI{2}{mm}
+where 80\% power generation in the PETS is possible. 
+
+Note, the horizontal beam sizes are not as small as in Figure~\ref{fig:xz-pareto}, 
+but this is considered acceptable given the improved bunch length values.
+Table~\ref{tab:designopt}, shows a summary of 
+design variables for the four smallest horizontal beam sizes in Figure~\ref{fig:tba-pareto}.
 \begin{table}%[h!]
 	\begin{center}
 		\caption{Input Parameters for large scale TBA optimization runs.
@@ -1009,6 +1063,7 @@ design variables for the four smallest beam sizes.
 			Quadrupole 2 [T-m]		& 0.9	&  -1.88 & 0.20  & 0.37  \\
 			Quadrupole 3 [T-m]		& 0.8	&  0.39  & -0.73 & -0.26\\
 			Quadrupole 4 [T-m]		& -1.0	&  0.61  & 1.92  & 0.25 \\ 
+			Bunch Length [mm]		& 1.5	& 1.58	 & 1.68  & 1.9 \\
 			\bottomrule
 		\end{tabular}
 	\end{center}
@@ -1024,12 +1079,13 @@ can be well controlled through the kicker, septum, and leading into the staging 
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=209_IBF=395_KQ1=1.1_KQ2=-1.88_KQ3=0.39_KQ4=0.61.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=211_IBF=328_KQ1=-0.21_KQ2=0.37_KQ3=-0.26_KQ4=0.25.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=211_IBF=357_KQ1=-0.72_KQ2=0.2_KQ3=-0.73_KQ4=1.92.stat}.pdf}
-	\label{fig:optresults}
+
 	\caption{Optimized 2D simulation results leading into quadrupole 5 on the drive beam line. 
 		The maximum beam size is plotted along the beam line, and aperture limits are shown in black.
 		All scenarios correspond to 100\% transmission through the septum. The PETS location is 
 		not shown yet, because quadrupole 5 and 6 were not optimized.
 	These plots correspond to the Pareto points in Figure~\ref{fig:tba-paretoxonly}. }
+	\label{fig:optresults}
 \end{figure}
  
 The best scenario, corresponding to a matching strength of \SI{197}{A}, was then explored further.

@@ -180,7 +180,7 @@ structures. The thesis will focus on beam line design and beam dynamics.
 
 
 
-\Subsection{Ideal Power Output from Decelerating Structure}
+\Subsection{Ideal power output from PETS}
 The acceleration gradient achieved at the AWA will depend heavily 
 on the PETS and accelerating structure designs, and beam quality 
 provided to those structures. This section will focus on the 
@@ -217,6 +217,13 @@ Where $k_{z}=\frac{2\pi}{\lambda_{z}}$ is the longitudinal wave number
 of the decelerating structure, and $\sigma_{z}$ is the rms bunch length \cite{PETSeq}. 
 Note the subscript z refers to the characteristics of the structure and bunch in the longitudinal
 direction. 
+As an example, Figure~\ref{fig:form} shows the expected form factor for fully staging.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{images/formfactorsqrd}
+	\caption{Form factor as a function of bunch length for fully staging (\SI{40}{nC}).}
+	\label{form}
+\end{figure}
 
 When a Guassian bunch, as described above, travels through a 
 decelerating structure, it radiates electromagnetic waves and 
@@ -333,50 +340,30 @@ the beam properties in Table~\ref{table:beam1}, and Equation \ref{eq:power}.
 \end{table}
 For the metallic PETS in during simplified staging, a power output of \SI{57}{MW} was expected.
 For a dielectric PETS with simplified staging beam inputs, a power of \SI{70}{MW} is expected.
-For fully staging these numbers jump to XX and XX respectively.
-With the input power in hand, we now switch to analyzing the 
-witness beam. The electric field strength, $E_{a}$, in 
+For fully staging these numbers jump to XX and XX respectively. \nrnote{I will fill in XX, todo: double check numbers below}
+
+\Subsection{Ideal accelerating gradient}
+With the input power in hand, the witness beam can be analyzed. 
+The electric field strength, $E_{a}$, in 
 the accelerating structure due to an externally applied power,
 $P_{t}$, is \cite{wangler}: 
 \begin{equation}
 E_{a}^{2}=\frac{P_{t\,}\omega}{v_{ga}}\frac{R}{Q_a}
 \label{eq:electricfield}
 \end{equation}
-\begin{equation}
-E_{a}=112\:\left[\frac{MV}{m}\right]
-\end{equation}
 Where $\omega$, is the angular frequency of the accelerating structure,
-and $v_{ga}$ is the group velocity. The gradient, G, per stage is
-then: 
-\begin{equation}
-G=E_{a}=112\,\left[\frac{MV}{m}\right]
-\end{equation}
+and $v_{ga}$ is the group velocity. 
+For the metallic structure and power above this results in $E_a=\SI{112}{MV/m}$.
+The gradient, G, per stage is then: 
 For two stages, and 100\% charge transmission through both stages,
 we expect an energy gain of: 
 \begin{equation}
 \triangle E=qG*2L_{a}=7.4\,MeV
 \end{equation}
-The expected accelerating gradient can also be calculated. 
+Using Table~\ref{table:PETS} and the same analysis, 
+the resulting gradient inside the dielectric structures is
+$G=\SI{45}{MV/m}$ and the energy gain is $E = \SI{13.5}{MeV}$.
 
-
-
-
-
-
-For purposes of comparison, the energy gain may be determined under the same conditions 
-that were applied to the metallic structure analysis. Assuming the same beam charge as before, 18.75 [nC], 
-the expected power drops to $P_t=60\,$ MW. 
-We can then plug this and the parameters from table \ref{table:daccel} into equation \ref{eq:electricfield}. 
-The resulting gradient inside the dielectric structures is: 
-
-\begin{equation}
-G = 45\,\frac{MV}{m}
-\end{equation}
-Which would result in an energy gain of: 
-
-\begin{equation}
-\triangle E = 13.5\,MeV
-\end{equation}
 
 While the gradient is lower than the metallic structure, the dielectric 
 structure is about 4.5 times longer, which results in an energy gain that is 
@@ -385,27 +372,32 @@ In summary, benefits of dielectric structures include higher power
 generated in the PETS, higher energy gain in the accelerating structure, 
 and simpler geometry. This last factor is an advantage when it comes 
 to fabrication time and cost, both of which should be considered
-in future large scale machines. It is also expected that less break 
-down will occur at high power levels, due to the lower amount
-a free electrons available in the dielectric structures. 
-
-
-
+in future large scale machines. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Simplified Staging Results}
 
+Simplified staging experiments took place at the AWA in 2016. 
+Metallic PETS and accelerating structures were used. 
+The beam line configuration was the same as shown in Figure~\ref{fig:one}.
+Significant challenges included getting 100\% transmission in stage two.
+This goal was never achieved, with a max transmission near 80\%. 
+After much effort and hours of hand tuning, 
+an energy gain of \SI{4}{Me} was measured, see Figure~\ref{fig:old-tba}. 
+This energy gain corresponds to a 
+gradient of \SI{60.6}{MV/m}, much lower than the \SI{112}{MV/m} predicted above.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{images/old_tba}
 	\label{fig:old-tba}
 	\caption{Measurements of the energy during simplified staging experiments, 
-		figure courtesy of Gwanghui Ha at AWA.
+		figure courtesy of G. Ha at AWA.
 		Drive Train 1 refers to the stage one, and Drive Train 2 to stage 2. 
 		Energy gain was observed in each stage independently.
 		A larger energy gain was observed when both stages supplied RF to the witness beam line.}
 \end{figure}
+The biggest source of error is expected to be the transmission loss, 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -416,15 +408,18 @@ a free electrons available in the dielectric structures.
 In order to design and test the desired beam line, three technologies 
 new to the AWA were investigated. These include a kicker, septum magnets, 
 and massively parallel optimization algorithms.
+The kicker will provide a fast Transverse Electric and Magnetic (TEM) field 
+that will direct bunches into the bent beam line shown in Figure~\ref{fig:one}. 
+This must be done with an electric static element as opposed to a magnet because 
+the bunch spacing is too short to allow for the slow rise time of a magnetic field.
+In addition the kick will be weak, so a septum magnet will be used to further
+separate the two bunch trains. 
 
-
-\lsnote{{\it Not sure if this section should be here, or later, more toward end of chapter.  This section is probably where you should have the overview of simple staging versus full staging, and a summary of what was required to go to full staging.  The title of the section should also be changed, maybe `Fully staged two beam acceleration'?  Probably need another (or repeated) figure here.}}
-% An example for enumerate
-\begin{enumerate}
-        \item Kicker Design
-        \item Septum Design
-        \item Optimization
-\end{enumerate}
+In addition to the hardware design and fabrication, much effort was put into simulations
+to provide more realistic predictions of the beam dynamics in the accelerators.
+Better simulations can help avoid problems such as the transmission loss in the second stage.
+They can also reduce the amount of time spent on hand tuning the optics in the 
+beam line during experiments.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

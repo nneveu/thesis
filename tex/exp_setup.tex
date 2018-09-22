@@ -129,7 +129,7 @@ This set up allows only one bunch per pulse on the witness line.
 
 Initially some work had to be done for the production of a good quality  bunch train. Ideally, to extract maximum power from a series of bunches, each electron bunch should have the same amount of charge.  Improving the laser pulse train intensity distribution improves the electron bunch charge distribution; 
 which  helps produce an RF power pulse that is closer to uniform. 
-The generated power depends on both the charge and shape of the bunch, as shown in Equation~\ref{eq:rfpower}. 
+The generated power depends on both the charge and shape of the bunch, as shown in Equation~\ref{eq:power1}. 
 Several factors contribute to non-uniformity in the bunches. These include the cathode material
 (i.e. slightly different QE along the surface), shot to shot noise in the laser pulse, 
 distortion of laser pulses due to traveling through air, and the quality of the optics. 
@@ -907,7 +907,7 @@ set up possible to probe this topic.
 The data was taken at the first YAG screen in the beam line.
 The only elements before this YAG screen are the gun, two solenoids, 
 and one linac cavity. 
-Scans were done at low, \SI{1}{nC}, and high charge, \SI{40}{nC}, see Figure~\ref{label}. 
+Scans were done at low, \SI{1}{nC}, and high charge, \SI{40}{nC}, see Figure~\ref{fig:solscan}. 
 When post processing the data, the beam sizes were smaller than expected.
 There were two possible sources of this error. 
 The matching solenoid field could be higher than expected, i.e. stronger focusing.
@@ -925,6 +925,7 @@ which suggests the gun gradient is lower than previously estimated.
 	\caption{Beam size data compared to simulations. The matching solenoid was varied. 
 	The beam sizes were calculated using the code and methods described in Section~\ref{sec:beamsize}. 
 	The rough agreement was only achieved when the gradient in the gun was lowered.}
+\label{fig:solscan}
 \end{figure}
 
 
@@ -944,7 +945,7 @@ The CTR is transported into a Michelson interferometer (MI)
 where it's split and directed into two MI arms with a half-transparent pellicle \cite{PhysRevSTAB.9.082801}. 
 The CTR beams are then combined together at the exit of the MI with the variable path difference.
 The resulting CTR intensity is registered with a liquid helium cooled IR Labs
-bolometer \cite{bolo} as a function of path difference.
+bolometer \cite{IRlabs} as a function of path difference.
 The path difference is then converted into time as $\Delta \tau = 2 \Delta x$.
 The resulting FWHM bunch duration is determined from the Gaussian fit of 
 the interferogram; see Figure~\ref{interferogram}.

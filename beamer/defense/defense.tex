@@ -605,13 +605,16 @@ Requirements and Mechanical Constraints:
 
 \begin{frame}
 	\frametitle{Beam Size Results in Optimized Solutions}
-	\centering
-	\Wider[4em]{
-	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}%
-	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=209_IBF=395_KQ1=1.1_KQ2=-1.88_KQ3=0.39_KQ4=0.61.stat}.pdf} \\
-	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=211_IBF=328_KQ1=-0.21_KQ2=0.37_KQ3=-0.26_KQ4=0.25.stat}.pdf}
-	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=211_IBF=357_KQ1=-0.72_KQ2=0.2_KQ3=-0.73_KQ4=1.92.stat}.pdf}
-}
+	\vspace{-1em}
+	\begin{center}
+		\Wider[4em]{
+			\centering
+		\includegraphics[width=0.35\textwidth]{{../../tex/images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}%
+		\includegraphics[width=0.35\textwidth]{{../../tex/images/xy-max-min-optLinac-40nC_IM=209_IBF=395_KQ1=1.1_KQ2=-1.88_KQ3=0.39_KQ4=0.61.stat}.pdf} \\
+		\includegraphics[width=0.35\textwidth]{{../../tex/images/xy-max-min-optLinac-40nC_IM=211_IBF=328_KQ1=-0.21_KQ2=0.37_KQ3=-0.26_KQ4=0.25.stat}.pdf}%
+		\includegraphics[width=0.35\textwidth]{{../../tex/images/xy-max-min-optLinac-40nC_IM=211_IBF=357_KQ1=-0.72_KQ2=0.2_KQ3=-0.73_KQ4=1.92.stat}.pdf}
+	}
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -655,14 +658,18 @@ Requirements and Mechanical Constraints:
 \includegraphics[width=\textwidth]{{../../tex/images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25_CSR.stat}.pdf}		
 \end{minipage}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Adjusted 3D/CSR Solution}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\iffalse
+{
+	\renewcommand{\secimage}{../../tex/images/YAG_screen}
 \section{Experimental Measurements}
-
 \begin{frame}
 \frametitle{Beam Sizes}
 Rewrote AWA Matlab script in python.
@@ -694,8 +701,7 @@ Rewrote AWA Matlab script in python.
 \begin{column}{0.4\textwidth}
 %\vspace{-9em}
 \begin{itemize}
-	\item only charge fluctuations are considered in error bars
-	\item Need to check laser profiles  
+	\item only charge fluctuations are considered in error bars 
 	\item Radius probably needs to be adjusted in simulations of high charge
 \end{itemize}
 \end{column}
@@ -709,20 +715,67 @@ Used Michelson interferometer and CTR light.
 
 \Wider[4em]{
 	\includegraphics[width=0.55\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f5}\includegraphics[width=0.45\linewidth]{/home/nicole/Documents/ctr_paper_ipac2018/poster/images/THPMF048f3}
+	%THPMF048f1
+}
+\end{frame}
+\subsection{Kicker}
+\begin{frame}
+	\frametitle{Kicker Fabrication}
+	\centering
+	\includegraphics[width=0.7\textwidth]{../../tex/images/kicker}\\
+	\includegraphics[width=0.33\textwidth]{../../tex/images/FID_feedthrough1}%
+	\includegraphics[width=0.33\textwidth]{../../tex/images/FID_feedthrough2}%
+	\includegraphics[width=0.33\textwidth]{../../tex/images/kicker_plates}
+\end{frame}
+
+\begin{frame}
+	\frametitle{High Voltage and TDR Test}
+	TDR = Time Domain Reflectometer
+	\vspace{2em}
+	
+	\centering
+	\includegraphics[width=0.45\textwidth]{../../tex/images/kicker1}\hspace{1em}%
+	\vspace{-2em}
+	\includegraphics[width=0.5\textwidth]{../../tex/images/TDR_AWA_kicker}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kicker YAG Screen Data}
+	\begin{itemize}
+		\item V = voltage supplied to kicker
+		\item Kicker off at V=0
+		\item Kicker on at V=$\pm$18 and V=$\pm$22
+	\end{itemize}
+\vspace{1em}
+	\centering
+	\Wider[4em]{
+	\includegraphics[width=0.33\textwidth]{../../tex/images/yag6_kicker_voltage0}%
+	\includegraphics[width=0.33\textwidth]{../../tex/images/yag6_kicker_voltage18}%
+	\includegraphics[width=0.33\textwidth]{../../tex/images/yag6_kicker_voltage22}%
 }
 \end{frame}
 
 \begin{frame}
-	\frametitle{Kicker Results}
+\frametitle{Kicker Beam Size and Linearity Results}
+\begin{itemize}
+	\item Asymmetric laser profile
+	\item Asymmetry enhanced by off axis fields in cavity
+	\item Angle lower than ideal, but within range needed for TBA
+\end{itemize}
+\vspace{1em}
+\centering
+\Wider[4em]{
+\includegraphics[width=0.6\textwidth]{../../tex/images/xybeamsizes_high_charge_kicker_scan_angle_asymmetric}
+\includegraphics[width=0.39\textwidth]{../../tex/images/kicker_angle_comparison}
+}
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Summary}
-Overall Goals: 
 \begin{itemize}
-	\item Improve operating conditions and design of experiments through simulation and optimization work.
+	\item Significant groundwork done for simulations and optimization at the AWA
+	\item A layout was designed for fully staged TBA
+	\item Improvement of operating conditions and design of experiments through simulation and optimization work.
 	\item Have reliable/reasonable predictions that can reduce the amount of time spent on hand tuning.
 	\item Use simulations and optimization for beam line design.
 \end{itemize}
@@ -730,13 +783,14 @@ Overall Goals:
 \vspace{1em}
 \centering
 \color{blue}\huge{Thanks for your attention!}
+\includegraphics[width=0.3\textwidth]{../../beamer/long_talk/DOE_logo_color_cmyk-eps-converted-to}
 \end{frame}
 
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Backup}
 \begin{frame}
-	\frametitle{PETS and ACC Paramters}
+	\frametitle{PETS and ACC Parameters}
 	Add table here
 \end{frame}
 

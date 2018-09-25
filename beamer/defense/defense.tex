@@ -149,7 +149,7 @@
 	\end{minipage}
 \end{frame}
 
-\section{Facility Introduction}
+\section{Introduction}
 \begin{frame}
 \frametitle{Argonne Wakefield Accelerator Facility (AWA)}
 \Wider[4em]{
@@ -206,7 +206,7 @@ Current experiments include:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {	\renewcommand{\secimage}{../../tex/images/pets-cst}
-\section{Two Beam Acceleration (TBA)}
+\subsection{Two Beam Acceleration (TBA)}
 \begin{frame}
 	\frametitle{What is Two Beam Acceleration (TBA)?}
 	\begin{center}
@@ -494,34 +494,47 @@ f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
 
 \begin{frame}
 \frametitle{BOBYQA Results}
+\vspace{2em}
 \Wider[4em]{
-	\small Convergence of function minimum vs. number of evaluations for different weights.
+\begin{minipage}{0.5\textwidth}
+	Convergence of function minimum vs. \\
+	number of evaluations per weights.
 	\centering
-	\includegraphics[width=0.7\textwidth]{../../tex/images/THPAB155f2}
+	\includegraphics[width=\textwidth]{../../tex/images/THPAB155f2}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	\centering
+	Trade off between emittance and bunch length
+	\includegraphics[width=\textwidth]{../../tex/images/THPAB155f1}%
+\end{minipage}
 }
 \end{frame}
 
 \begin{frame}
-\frametitle{Approximate Pareto Front}
+\frametitle{Validation of Model Based Results}
+\vspace{-0.5em}
 \centering
-Trade off between emittance and bunch length
-\includegraphics[width=0.45\textwidth]{../../tex/images/THPAB155f1}%
-\includegraphics[width=0.45\linewidth]{/home/nicole/Documents/presentations/ipac2018/opt-ipac18/THPMF049f3}
+\includegraphics[width=0.65\linewidth]{../../tex/images/model_vs_ga}
 \begin{itemize}
-	\item Validation of model based results
-	\item In total, 2,492 simulations for BOBYQA.
-	\item xx,xxx for GA
+	\item 2,393 simulations for BOBYQA.
+	\item 2,432 for 19 generation GA.
+	\item 25,600 for 200 generation GA.
 \end{itemize}
 \end{frame}
-
+}%end of simulations section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{TBA Beam Line Design}
 \begin{frame}
-\frametitle{Beam line under design}
+\frametitle{TBA Beam Line Under Design}
 \begin{tikzpicture}[scale=\textwidth/22cm, text=black]
-%\begin{tikzpicture}[scale=0.5, text=black]
 \input{/home/nicole/Documents/thesis/beamer/tba_talk/bentbeam.tex}
 \end{tikzpicture}
 
 \vspace{-1.5em}
+
 Requirements and Mechanical Constraints:
 \begin{itemize}
 	\item 100\% transmission, i.e. reasonable beam size at structure
@@ -540,10 +553,70 @@ Requirements and Mechanical Constraints:
 \end{frame}
 
 \begin{frame}
+	\frametitle{GA applied to TBA Beam Line}
+	\begin{center}
+		\setcounter{mpfootnote}{\value{footnote}}%
+		\renewcommand{\thempfootnote}{\arabic{mpfootnote}}%	
+		\begin{tabular}{ l *{3}{c}}
+			%\toprule
+			\textbf{Variable} & \textbf{Range} & \textbf{Unit} \\
+			\midrule
+			Buck Focusing Solenoid Strength & $ 300 \le S_3 \le 500$  & amps \\
+			Matching Solenoid Strength & $ 180 \le S_3 \le 280$  & amps \\
+			Quadrupole Strength  & $-8.0 \le K_i$\footnote[1]{$K_i=[K_{1},\ldots,K_{4}]$}  $\le 8.0$ & T/m \\
+			%\bottomrule    
+		\end{tabular}
+	\end{center}
+\begin{minipage}{0.4\textwidth}
+	\textbf{Simulation Inputs:}
+	\begin{itemize}
+		\item 6 design variables
+		\item Laser radius is 9 cm
+		\item Laser FWHM 10 ps
+		\item All cavities at $-20^\circ$
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+	\textbf{Objectives:}
+	\begin{itemize}
+		\item Transverse beam size, $\sigma_{x,y}$
+		\item Transverse momentum, $\sigma_{px,py}$
+		\item Bunch length, $\sigma_z$
+		\item Energy spread, dE
+	\end{itemize}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{OPAL GA Code}
+	Note sure if I should show a sample here....
+\end{frame}
+
+\begin{frame}
+	\frametitle{TBA Pareto Fronts}
+	\includegraphics[width=0.5\textwidth]{../../tex/images/xz_vs_px_pareto_front_Q5}%
+	\includegraphics[width=0.5\textwidth]{../../tex/images/xy_vs_px_pareto_front_Q5}%
+	\begin{itemize}
+		\item Looking at entrance of 5th quad
+		\item Location between septum and dipole
+		\item Optimizing here will reduce beam size growth in dipole
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Beam Size Results in Optimized Solutions}
+	\centering
+	\Wider[4em]{
+	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}%
+	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=209_IBF=395_KQ1=1.1_KQ2=-1.88_KQ3=0.39_KQ4=0.61.stat}.pdf} \\
+	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=211_IBF=328_KQ1=-0.21_KQ2=0.37_KQ3=-0.26_KQ4=0.25.stat}.pdf}
+	\includegraphics[width=0.47\textheight]{{../../tex/images/xy-max-min-optLinac-40nC_IM=211_IBF=357_KQ1=-0.72_KQ2=0.2_KQ3=-0.73_KQ4=1.92.stat}.pdf}
+}
+\end{frame}
+
+\begin{frame}
 \vspace{-1em }
-
-\frametitle{Scenario 1: Last Triplet off}
-
+\frametitle{Best Solution}
 \tiny
 \begin{minipage}{0.6\textwidth}
 	\begin{itemize}
@@ -560,12 +633,10 @@ Requirements and Mechanical Constraints:
 			\toprule
 			\textbf{Quad} &  \textbf{Value} & \textbf{Unit} \\
 			\midrule
-			Q1	  &0.0  & amps \\
-			Q2 	  &-1.7 & amps \\
-			Q3	  &3.3  & amps \\
-			Q4    &-1.7 & amps \\
-			Q5    &-1.25& amps \\
-			Q6	  &-0.25& amps \\
+			Q1	  & -0.8 & amps \\
+			Q2 	  & 0.9  & amps \\
+			Q3	  & 0.8  & amps \\
+			Q4    & -1.0 & amps \\
 			\bottomrule	
 		\end{tabular}	
 	\end{table}	
@@ -573,46 +644,23 @@ Requirements and Mechanical Constraints:
 
 \vspace{1em}
 
-\begin{minipage}{0.45\textwidth}
-
+\begin{minipage}{0.49\textwidth}
 \centering	
-2D Field Maps only
-
-\includegraphics[width=\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/xyrms-optLinac-40nC_KQ3=3.2_KQ5=-1.25_KQ6=-0.25_KQ7=0_KQ8=0}.pdf}	
+2D Field Maps only \\
+\includegraphics[width=\textwidth]{{../../tex/images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0.stat}.pdf}	
 \end{minipage}
-\begin{minipage}{0.45\textwidth}
-
+\begin{minipage}{0.49\textwidth}
 \centering
-3D Maps and CSR included
-
-\includegraphics[width=\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/xyrms-csr_fields}.pdf}		
+3D Maps and CSR included \\
+\includegraphics[width=\textwidth]{{../../tex/images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25_CSR.stat}.pdf}		
 \end{minipage}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Scenario 1: Lower Matching}
-\begin{itemize}
-\item CSR and 3D field maps
-\item Difference in energy due to CSR = 0.2 MeV
-\end{itemize}
-
-\centering
-M = 220 \hspace{5em} M=225 \hspace{5em} M=230
-
-%\includegraphics[width=0.3\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/KQ3=3.2/xyrms-optLinac-40nC_KQ3=3.2_IM=220}.pdf}%	
-%\includegraphics[width=0.3\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/KQ3=3.2/xyrms-optLinac-40nC_KQ3=3.2_IM=225}.pdf}%	
-%\includegraphics[width=0.3\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/KQ3=3.2/xyrms-optLinac-40nC_KQ3=3.2_IM=230}.pdf} \\%
-%\includegraphics[width=0.3\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/KQ3=3.2/xy-max-min-optLinac-40nC_KQ3=3.2_IM=220}.pdf}%	
-%\includegraphics[width=0.3\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/KQ3=3.2/xy-max-min-optLinac-40nC_KQ3=3.2_IM=225}.pdf}%	
-%\includegraphics[width=0.3\textwidth]{{/home/nicole/Documents/awa-tba/pareto_stat_plots/safehold/KQ3=3.2/xy-max-min-optLinac-40nC_KQ3=3.2_IM=230}.pdf}%
-%
-\end{frame}
-}%end of simulations section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
 \section{Experimental Measurements}
 
 \begin{frame}
@@ -704,6 +752,7 @@ Overall Goals:
 \end{itemize}	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi
 \end{document}
 
 

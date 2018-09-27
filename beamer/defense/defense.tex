@@ -57,8 +57,8 @@
 
 % load additional packages
 \usepackage{listings}
-\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
-\lstset{framextopmargin=50pt,frame=bottomline}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=false}
+\lstset{framextopmargin=20pt,frame=bottomline}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -138,13 +138,13 @@
 \defverbatim[colored]\lstVars{
 \begin{lstlisting}[language=C++,keywordstyle=\color{red}]
 // Solenoids 		
-dv0: DVAR, VARIABLE="IBF",    LOWERBOUND=300.0, UPPERBOUND=500.0;
-dv1: DVAR, VARIABLE="IM",     LOWERBOUND=180.0, UPPERBOUND=280.0;
+dv0: DVAR, VARIABLE="IBF", LOWERBOUND=300, UPPERBOUND=500;
+dv1: DVAR, VARIABLE="IM", LOWERBOUND=180, UPPERBOUND=280;
 // Quad values
-dv4: DVAR, VARIABLE="KQ1", LOWERBOUND=-8.0, UPPERBOUND=8.0;
-dv5: DVAR, VARIABLE="KQ2", LOWERBOUND=-8.0, UPPERBOUND=8.0;
-dv6: DVAR, VARIABLE="KQ3", LOWERBOUND=-8.0, UPPERBOUND=8.0;
-dv7: DVAR, VARIABLE="KQ4", LOWERBOUND=-8.0, UPPERBOUND=8.0;	
+dv4: DVAR, VARIABLE="KQ1", LOWERBOUND=-8, UPPERBOUND=8;
+dv5: DVAR, VARIABLE="KQ2", LOWERBOUND=-8, UPPERBOUND=8;
+dv6: DVAR, VARIABLE="KQ3", LOWERBOUND=-8, UPPERBOUND=8;
+dv7: DVAR, VARIABLE="KQ4", LOWERBOUND=-8, UPPERBOUND=8;	
 \end{lstlisting}
 }
 
@@ -160,9 +160,13 @@ rmspx3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_px',19.4))";
 rmspy3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_py',19.4))";	
 
 //Kicker apeture
-c1: CONSTRAINT, EXPR="fabs(statVariableAt('rms_x',16.5))<0.1";
-c2: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5))<0.1";
-c3: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5)-statVariableAt('rms_x',16.5))<0.005";	
+c1: CONSTRAINT, EXPR="fabs(
+		statVariableAt('rms_x',16.5))<0.1";
+c2: CONSTRAINT, EXPR="fabs(
+		statVariableAt('rms_y',16.5))<0.1";
+c3: CONSTRAINT, EXPR="fabs(
+	statVariableAt('rms_y',16.5)
+	-statVariableAt('rms_x',16.5))<0.005";	
 \end{lstlisting}
 }
 
@@ -733,6 +737,35 @@ Requirements and Mechanical Constraints:
 
 \begin{frame}
 	\frametitle{Adjusted 3D/CSR Solution}
+		\includegraphics[width=0.5\textwidth]{{../../tex/images/xy-max-min-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat}.pdf}%
+	\includegraphics[width=0.5\textwidth]{{../../tex/images/zrms-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat}.pdf}
+	
+	\tiny
+	\begin{minipage}{0.5\textwidth}
+		\begin{table} 
+		\centering
+		\begin{tabular}{ l *{3}{c}}
+			\toprule
+			\textbf{Quad} &  \textbf{Value} & \textbf{Unit} \\
+			\midrule
+			Q1	  & -1.5 & amps \\
+			Q2 	  & 1.6  & amps \\
+			Q3	  & 1.5  & amps \\
+			Q4    & -1.7 & amps \\
+			\bottomrule	
+		\end{tabular}	
+	\end{table}	
+\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+	\begin{itemize}
+		\item Strengthened all quads by 0.7 A
+		\item Last triplet not used!!!
+	\end{itemize}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Movies!}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -748,7 +781,7 @@ Rewrote AWA Matlab script in python.
 \begin{itemize}
 	\item Fiducial calculation
 	\item Background subtraction 
-	\item Fitting functions; Gaussian and piecewise
+	\item Fitting functions; Gaussian and piece wise
 \end{itemize}	
 
 \vspace{1em}

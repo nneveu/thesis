@@ -4,7 +4,7 @@
 
 Before final experimental measurements can be done, 
 a fair amount of set up and preliminary measurements must be made and understood. 
-In this chapter, a some background information on the facility will be presented, 
+In this chapter, background information on the facility will be presented, 
 including the changes required  to achieve fully independent staging.
 The laser pulse train generated at the facility was measured and improved 
 through the characteristics of the ultraviolet optics being used. 
@@ -66,7 +66,7 @@ splitting the original laser pulse into two pulses using a UV splitter on the
 ceiling of the bunker. One of the split pulses is sent (as is) to the witness beam line for one
 bunch operation. The second pulse is sent to a UV multispitter table, shown in 
 Figure~\ref{fig:optics} where it is split into trains of various lengths. Eight pulses are 
-used for TBA drive trains,
+used for TBA drive trains.
 
 The RF photoinjector on the drive line uses a semiconducting
 cesium telluride (CsTe) cathode, and is followed by a linear accelerator (linac). The
@@ -101,7 +101,7 @@ Optimization of the UV optics was performed and is detailed in Section \ref{sec:
 	When in the multisplitter, the original laser pulse is split into a pulse train of
 	2, 4, 8, or 16 pulses. 
 	The intensity of original laser pluse is equal to the sum of all members in the pulse train.
-	The spacing in the plus train is one period of the RF supplied to the cavities, w
+	The spacing in the plus train is one period of the RF supplied to the cavities,
 	which is \SI{1.3}{GHz} or \SI{769}{ps}. }
 	%\label{inter}
 	%\caption{Bolometer. }
@@ -168,7 +168,7 @@ had no measurable effect on the T/R ratio. Polarization did have a significant e
 the results, which led to more careful observation of this in the future.
 Table~\ref{tab:reflection} shows the $\pm 5\%$ splitters were performing at about 55/45 ratio, 
 The results indicated the ratio of reflection to transmission for each splitter ranged from 
-$T/R\approx55/45$ to $53/47$. 
+$T/R\approx56/44$ to $53/47$. 
 \begin{table}%[hbt]
 	\begin{center}
 		\caption{Average transmission and reflection measurements for original $\pm 5\%$ splitters.
@@ -181,11 +181,11 @@ $T/R\approx55/45$ to $53/47$.
 			%\rowcolor{blue!30} 
 			\textbf{Splitter \#} & \textbf{Transmission \%}  & \textbf{Reflection \%} \\ \hline
 			%\midrule
-			1 &    &     \\ %[3pt]
-			2 &   &     \\ %[3pt]
-			3 &   &     \\		 
-			4 &    & 		\\
-			5 &   &     \\ \hline
+			1 &  47  &  53   \\ %[3pt]
+			2 &  45  &  55   \\ %[3pt]
+			3 &  47  &  53   \\		 
+			4 &  44  & 	56	\\
+			5 &  44  &  56   \\ \hline
 			%\bottomrule
 		\end{tabular}	
 	\end{center}
@@ -336,7 +336,7 @@ also be the source of power difference at the cavities.
 In an effort to understand these differences, 
 power measurements of the drive gun, and linac tanks 
 one through six on the drive line were taken.
-The sections below detail the calibration used during power measurements and the 
+The next sections detail the calibration used during power measurements and the 
 resulting values that informed simulations. 
 
 \Subsection{Cable Calibration} \label{cablecal}
@@ -533,8 +533,6 @@ Each are connected to the control room in the same way as the gun.
 The only differences are in the attenuation at the pick up probe and 
 the splitter attenuation. Using the methods in section \ref{gunenergy}, 
 and the attenuation values, we can calculate the power in linac cavity four:
-\lsnote{There are missing values in table}
-\nrnote{AWA is missing those values, I added a sentence about this}
 \begin{table} %or [hbt] ?
 	\caption{\label{tab:powerlinac} Power and attenuation values for the 
 		linac cavities. Note that all cavities have an additional 
@@ -562,9 +560,9 @@ and the attenuation values, we can calculate the power in linac cavity four:
 P_4 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dBm}
 \end{equation}
 
-Using the simulated Q and U values in \cite{linac}, the procedure in \cite{eric}
-is followed ... 
-\nrnote{need to finish this paragraph}
+%Using the simulated Q and U values in \cite{linac}, the procedure in \cite{eric}
+%is followed ... 
+%\nrnote{need to finish this paragraph}
 
 Four and six are the only cavities we can calculate the gradient for, 
 but the measurements still give us an idea of which cavities are receiving more power.
@@ -582,7 +580,7 @@ There are several beam diagnostics that have and will continue to be used in
 TBA experiments at the AWA. They include beam size, energy, bunch length, 
 and emittance measurements. The first three will be discussed in detail 
 in the following sections. 
-\nrnote{need to elaborate here...}
+%\nrnote{need to elaborate here...}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -722,7 +720,7 @@ Using Equation~\ref{eq:b}, the corresponding magnetic field is, \SI{0.18}{T}.
 Solving for the momentum with Equations~\ref{eq:pdipole}, and pulling the 
 result into Equation~\ref{eq:energy}, 
 the estimated energy of the beam is $\SI{49}{[MeV]}$.
-The is the calculation done for all energy measurements at the AWA.
+This is how the the energy calculation is done for all measurements at the AWA.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -880,7 +878,9 @@ the resulting fit, as shown in in Figure~\ref{fig:combo}
 	\includegraphics[width=0.75\textwidth]{images/combomodel}
 	\label{fig:combo}
 	\caption{Beam profile fit overlaid on data. 
-		The fitted curve is used to estimate the beam size.}
+		The fitted curve is used to estimate the beam size.
+	The data is not centered on zero because the beam was not centered on the YAG screen.
+	This offset does not effect the beam size calculation, as only the fit is considered.}
 \end{figure}
 
 \Subsubsection{Step 5: Add profile and dimensions to display image}
@@ -1013,9 +1013,9 @@ MLA and relay optics.
 
 \Section{Chapter Summary}
 
-A significant amount of experimental setup and preparation is 
+A significant amount of experimental investigation is 
 required before the demonstration of fully staged TBA.
-Work in the area has begun and continues. 
+Work in these areas has begun and continues. 
 The UV laser pulse train intensities were measured and significantly improved.
 It was discovered that the UV splitters were contributing to non-uniformity in the laser intensities. 
 This was mitigated through the purchase and characterization of 

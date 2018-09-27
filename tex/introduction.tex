@@ -155,17 +155,21 @@ by Rosing and Gai \cite{RosingWei}:
 \begin{equation}
 E^m_z\left(r,\theta,z_0\right)= \frac{N}{\sigma \sqrt{2\pi}}\int_{-\infty}^{z_0}E^m_0\left(r,\theta,z\right)e^{-\left[\frac{\left(z_0-z\right)^2}{2\sigma^2}\right]}dz
 \end{equation}
-This form of the electric field depends on the material properties of the structure.
-See the full expression for $E_0^m$ in \cite{RosingWei}, for the permittivity ($\epsilon$), dependence. 
+Where $r$, $\theta$, and $z$ define the cylindrical coordinate space, 
+$z_0$ is the distance behind the drive bunch where the field is being calculated, 
+N is the total charge, and $\sigma$ is the bunch length.
+This form of the electric field depends on the material properties of the structure
+(see the full expression for $E_0^m$ in \cite{RosingWei}, for the permittivity, $\epsilon$, dependence). 
 Materials with auspicious permittivities can be chosen to support larger fields
 in the longitudinal direction, the field component 
 used for acceleration.   
-After maximizing the electric field, the wake potential can be calculated: 
+After maximizing the electric field, the wake potential, $W_z$, can be calculated: 
 \begin{equation}
-W_z\left(s\right)= -\frac{1}{eL} \int_{0}^{L} dz E_z \left(z,\frac{\left(z+s\right)}{c}\right)
+W_z\left(z\right)= -\frac{1}{Q} \int_{0}^{L} E_z \left(z,\frac{\left(z+z_0\right)}{c}\right)dz
 \label{eq:wakepotential}
 \end{equation} 
-
+Where c is the speed of light, Q is the charge, 
+and L is the location where the charge leaves the cavity \cite{SLACwakefields}.
 As shown by the negative sign in equation \ref{eq:wakepotential}, wakefields are a source of 
 energy loss in the beam, often disrupting desired particle trajectories, 
 and were considered an undesirable side effect.
@@ -278,7 +282,7 @@ Both of these terms appear in the denominator of the power equation, meaning mor
 energy will be transferred to the witness beam.
 \begin{table}
 	\begin{center}
-	\caption{Parameters of 11.7Ghz metallic and dielectric PETS}
+	\caption{Parameters of \SI{11.7}{GHz} metallic and dielectric PETS}
 	\label{table:PETS}
 	\rowcolors{2}{blue!15}{white}
 	
@@ -289,9 +293,9 @@ energy will be transferred to the witness beam.
 			\midrule
 			Wavelength 	& $\lambda_{z}$ & 25.6 mm 	&  25.6 mm	\\  
 			Wave number & $k_{z}$ 		& 245 $m^{-1}$ 	& 245 $m^{-1}$\\  
-			Length of structure & L & 0.3 m & 0.3 m\\  
+			Length of structure & L & 0.3 m & 0.26 m\\  
 			Group velocity & $v_{g}$ & 0.22 c & 0.195 c\\  
-			Shunt Impedance / Q & $\frac{R}{Q_{d}}$ & 3.92 $\frac{k\Omega}{m}$  & 4.3 $\frac{k\Omega}{m}$\\  
+			Shunt Impedance / Q & $\frac{R}{Q_{d}}$ & 3.92 $\frac{k\Omega}{m}$  & 4.32 $\frac{k\Omega}{m}$\\  
 			Quality Factor & $Q_{d}$ & 6500 &3706\\  
 			\bottomrule		
 		\end{tabular}
@@ -299,7 +303,7 @@ energy will be transferred to the witness beam.
 \end{table}
 \begin{table}
 	\begin{center}
-		\caption{Parameters of 11.7Ghz metallic and dielectric accelerating cavities}
+		\caption{Parameters of \SI{11.7}{GHz} metallic and dielectric accelerating cavities}
 		\label{table:acc}
 		\rowcolors{2}{blue!15}{white}
 		
@@ -338,9 +342,9 @@ the beam properties in Table~\ref{table:beam1}, and Equation \ref{eq:power}.
 		\end{tabular}
 	\end{center}
 \end{table}
-For the metallic PETS in during simplified staging, a power output of \SI{57}{MW} was expected.
-For a dielectric PETS with simplified staging beam inputs, a power of \SI{70}{MW} is expected.
-For fully staging these numbers jump to XX and XX respectively. \nrnote{I will fill in XX, todo: double check numbers below}
+For the metallic PETS in during simplified staging, a power output of \SI{54}{MW} was expected.
+For a dielectric PETS with simplified staging beam inputs, a power of \SI{50}{MW} is expected.
+For fully staging these numbers jump to \SI{218}{MW} and \SI{200}{MW} respectively. 
 
 \Subsection{Ideal accelerating gradient}
 With the input power in hand, the witness beam can be analyzed. 
@@ -397,7 +401,7 @@ gradient of \SI{60.6}{MV/m}, much lower than the \SI{112}{MV/m} predicted above.
 		Energy gain was observed in each stage independently.
 		A larger energy gain was observed when both stages supplied RF to the witness beam line.}
 \end{figure}
-The biggest source of error is expected to be the transmission loss, 
+The biggest source of error is expected to be the transmission loss. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -406,8 +410,8 @@ The biggest source of error is expected to be the transmission loss,
 \Section{Modifications to Reach Fully Staged TBA} \label{sec:requirements}
 
 In order to design and test the desired beam line, three technologies 
-new to the AWA were investigated. These include a kicker, septum magnets, 
-and massively parallel optimization algorithms.
+new to the AWA Facility were investigated. These include a kicker, septum magnets, 
+and massively parallel optimization.
 The kicker will provide a fast Transverse Electric and Magnetic (TEM) field 
 that will direct bunches into the bent beam line shown in Figure~\ref{fig:one}. 
 This must be done with an electric static element as opposed to a magnet because 
@@ -429,7 +433,7 @@ beam line during experiments.
 
 \Section{Thesis Outline}
 
-The rest of the thesis details work done at AWA.
+The rest of the thesis details work done at AWA Facility.
 Chapter 2 covers experimental measurements and preparations for TBA.
 These include RF measurements and beam diagnostics (energy, beam size, and bunch length measurements).
 Chapter 3 discusses simulation work done to model the drive line at AWA.

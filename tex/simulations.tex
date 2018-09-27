@@ -23,7 +23,7 @@ PIC codes simulate the electromagnetic forces that particles see in an accelerat
 This is done by mapping the input particles onto a grid. 
 Then in each time (or z) step, the forces due to space charge, accelerating gradients, 
 and magnets are calculated and applied to the grid.
-OPAL comes in two flavors, OPAL-CYC and OPAL-T. The first is used to model 
+OPAL comes in two flavors, \verb|OPAL-cycl| and \verb|OPAL-t|. The first is used to model 
 cyclotrons, and the latter, which is used for this work, is suited for photoinjectors. 
 OPAL-T was chosen in part because it models the 3D space charge necessary to accurately simulate the high charge bunches at the AWA. 
 It was chosen for several reasons:
@@ -689,7 +689,11 @@ $\epsilon_x(v,z_1)$ or $\sigma_z(v,z_1)$ that is less than $\epsilon_{\min}$ or 
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{images/THPAB155f2}
-		\caption{\label{fig:iterations}Minimum observed objective function values during eleven BOBYQA runs at \SI{40}{nC}.}
+		\caption{\label{fig:iterations}Eleven optimization runs were started, one corresponding to each weight in Eq.~\ref{eq:newobj}.
+			Each time a simulation was completed, the objective function, $f$, was evaluated and the next simulation inputs were 
+			decided by BOBYQA. The minimum observed objective function values are plotted for the runs at \SI{40}{nC}.
+			When the objective function converged to $10^-4$, the optimization runs were stopped. 
+		}
 	\end{center}
 \end{figure}
 
@@ -738,7 +742,7 @@ While the model based results are promising,
 GA's are the most commonly used type of optimization algorithm in the accelerator community.
 In particular the Non-dominated Sorting Genetic Algorithm II (NSGA-II)~\cite{NSGA}, 
 is the implementation that is most commonly used.
-\nrnote{add another sentence about NSGAII details.}
+%\nrnote{add another sentence about NSGAII details.}
 To validate that the model based method was giving comparable results to what a GA would give, 
 a low fidelity version of the linac simulation in Section~\ref{sec:linacopt} was formulated.
 This fidelity change included reducing the number of particles and grid points. 
@@ -752,8 +756,8 @@ The main difference between the two methods is the amount of computational
 resources needed, see the comparison in Table~\ref{tab:optcompare}.
 Note, that as a general rule of thumb, most people simulate at least 100 generations, before stopping a GA.
 This suggests that while the model based method and GA will arrive at 
-the same conclusion, there will likely be a time difference for completion. 
-The time to solution for the two cases can be significnatly different, 
+the same conclusion, there may be a difference in computation resources required. 
+The time to solution for the two cases can be significantly different, 
 order thousands of compute hours.
 \begin{figure}
 	\centering

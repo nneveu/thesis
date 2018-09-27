@@ -41,7 +41,7 @@ The electronics group at the Advanced Photon Source (APS) provided equipment and
 The tests included a high voltage (HV) test and Time Domain Reflectometer (TDR) measurement.
 Both tests were intended to verify the electrical properties of the kicker were acceptable for operation at HV.
 After these tests, the kicker was installed and tested with low and high charge beams. 
-The kick was found to be linear with respect to the voltage of the pulser.  
+The provided angle was found to be linear with respect to the voltage of the pulser.  
 The angle was slightly lower than the simulation result, probably due to reflections at the
 connection between the cables and kicker plates. 
 The septum design was specified based on simulation work and the kicker angle.
@@ -571,7 +571,7 @@ solve for the experimentally achieved angle $\theta_{k}$.
 Next the energy measurement was analyzed to determine the beam energy. 
 The method described in Chapter \ref{chp:exp} was used, 
 and the current measured to bend the beam \SI{15}{^\circ} was about \SI{9}{A}.
-This corresponds to an energy of about \SI{62}{MeV}}. 
+This corresponds to an energy of about \SI{62}{MeV}. 
 This energy was then used to calculate the ideal angle values vs. kicker voltage.
 The are plotted in Figure~\ref{fig:angles} in comparison 
 to the ideal values for a \SI{65}{MeV} beam. 
@@ -656,7 +656,7 @@ be mitigated with precise control of the quadrupoles.
 
 \Section{TBA Beam Line}
 
-While  the kicker and septum parameters were defined by the constraints discussed above, 
+While  the  er and septum parameters were defined by the constraints discussed above, 
 the optics must be used to address the aperture limits further down stream.
 There were three clear goals TBA beam line configuration: 
 \begin{itemize}
@@ -984,7 +984,7 @@ Note, all six objectives were minimized during the optimization run, but it is h
 of the thousands of results were the "best" per say. This depends on several criteria, which must be 
 determined by the experiment. Usually Pareto fronts are used to compare trade offs,
 as done in Chapter~\ref{simulations}, but in the case of a high dimensional problem, such as this, 
-no two parameters will visualize all of the available information.
+no two objectives will visualize all of the available information.
 
 As a work around, several different Pareto fronts were plotted, with the understanding that 
 no one plot is a representation of the whole data set.
@@ -1134,10 +1134,10 @@ Asymmetries in the RF field maps are causing additional focusing in the horizont
 and defocusing in the vertical direction. The optics need to be adjusted to compensate for 3D effects, 
 and given the solution in 2D, there is plenty of range on the solenoid and quadrupoles to do this.
 A scan of the matching solenoid was done to try to reduce the over focusing in the horizontal direction
-see the updated 3D beam line simulation in Figure~\ref{fig:weaksol}.
+see the updated 3D beam line simulation in Figure~\ref{fig:adjsol}.
 \begin{figure}
-	\includegraphics[width=0.5\textwidth]{images/xy-max-min-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat.pdf}
-	\includegraphics[width=0.5\textwidth]{images/zrms-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat.pdf}
+	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat}.pdf}
+	\includegraphics[width=0.5\textwidth]{{images/zrms-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat}.pdf}
 	\caption{Simulation of full beam line using optimized quad setting, 
 		3D RF field maps, and CSR. The solenoid strength was adjusted to compensate 
 		for focusing in the linac due to 3D fields.}

@@ -242,21 +242,6 @@ QUIT;
 \frametitle{AWA Facility}
 Current experiments include:
 \begin{itemize}
-	\item{Emittance Exchange (EEX)}
-	\item{Electron Radiography Imaging (ERI)}
-	\item{Cathode Studies}
-	\item Plasma wakefield (very recent)
-\end{itemize}
-\vspace{0.3cm}
-\centering
-\includegraphics[height=0.45\textheight]{/home/nicole/Documents/presentations/space_charge_2017/EEX}\hspace{0.5em}%
-\includegraphics[height=0.45\textheight]{../long_talk/cathode}
-\end{frame}
-
-\begin{frame}
-\frametitle{AWA Facility}
-Current experiments include:
-\begin{itemize}
 	\item{Two Beam Acceleration (TBA)}
 	\item{Dielectric accelerating and decelerating structure tests}
 	\item{Beam line design for TBA = my thesis}
@@ -775,61 +760,7 @@ Requirements and Mechanical Constraints:
 {
 	\renewcommand{\secimage}{../../tex/images/YAG_screen}
 \section{Experimental Measurements}
-\begin{frame}
-\frametitle{Beam Sizes}
-Rewrote AWA Matlab script in python.
-\begin{itemize}
-	\item Fiducial calculation
-	\item Background subtraction 
-	\item Fitting functions; Gaussian and piece wise
-\end{itemize}	
 
-\vspace{1em}
-\centering
-\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/laser}%
-\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG2}%
-\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG3}
-\end{frame}
-
-\begin{frame}[t]
-\frametitle{Matching Solenoid Scans}
-\begin{columns}[T]
-\begin{column}{0.76\textwidth}
-\begin{minipage}{0.5\textheight}
-	\includegraphics[width=1.0\linewidth]{../../tex/images/xbeamsizes_low_charge_sol_scan_11-02-2017}	\includegraphics[width=1.0\linewidth]{../../tex/images/ybeamsizes_low_charge_sol_scan_11-02-2017}
-\end{minipage}
-\begin{minipage}{0.5\textheight}
-	\includegraphics[width=1.0\linewidth]{../../tex/images/xbeamsizes_high_charge_sol_scan_10-17-2017}
-	\includegraphics[width=1.0\linewidth]{../../tex/images/ybeamsizes_high_charge_sol_scan_10-17-2017}
-\end{minipage}
-\end{column}
-\begin{column}{0.4\textwidth}
-%\vspace{-9em}
-\begin{itemize}
-	\item only charge fluctuations are considered in error bars 
-	\item Radius probably needs to be adjusted in simulations of high charge
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Bunch Length Measurements}
-Used Michelson interferometer and CTR light.
-\centering
-\Wider[4em]{
-	\begin{minipage}{0.5\textwidth}
-		\centering
-		\includegraphics[width=0.7\textwidth]{../../tex/images/THPMF048f1}\\
-		\includegraphics[width=\textwidth]{../../tex/images/THPMF048f5}
-	\end{minipage}\hspace{1em}
-	\begin{minipage}{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../../tex/images/THPMF048f3}
-	\end{minipage}
-}
-\end{frame}
-\subsection{Kicker}
 \begin{frame}
 	\frametitle{Kicker Fabrication}
 	\centering
@@ -892,13 +823,35 @@ Used Michelson interferometer and CTR light.
 \end{frame}
 
 \begin{frame}
-\frametitle{Summary}
+\frametitle{\small{Summary:	One goal at AWA is to demonstrate fully staged TBA. 
+Thesis accomplishments towards this goal include:}}
+
+\Wider[4em]{
 \begin{itemize}
-	\item Significant groundwork done for simulations and optimization at the AWA
-	\item A layout was designed for fully staged TBA using these tools
-	\item TBA beam line is currently being installed
-	%\item Improvement of operating conditions and design of experiments through simulation and optimization work.
-	%\item Have reliable/reasonable predictions that can reduce the amount of time spent on hand tuning.
+	\item OPAL implemented on ANL HPC clusters, and benchmarked.
+	\item Optimization algorithms have been compared.
+	\begin{itemize}
+		\item Model based algorithms are faster.
+		\item Built-in GA in OPAL is easier to use.
+	\end{itemize}
+	\item First optimization test set laser and phase parameters.
+	\begin{itemize}
+		\item Laser radius should be as large as possible.
+		\item Running off crest improves the bunch length.
+	\end{itemize}
+	\item 100\% transmission and small bunch length was achieved (sim). 
+	\item TBA kicker was tested and installed.
+	\item Beam tests verified kicker parameters.
+	\item 3D simulations needed for accurate physics representation.
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Remaining milestones for fully staged TBA:}
+\begin{itemize}
+	\item Complete installation of the beam line.
+	\item Compare beam measurements to optimized results.
 \end{itemize}
 
 \vspace{2em}
@@ -917,6 +870,62 @@ Used Michelson interferometer and CTR light.
 	\frametitle{PETS and ACC Parameters}
 	Add table here
 \end{frame}
+
+\begin{frame}
+\frametitle{Beam Sizes}
+Rewrote AWA Matlab script in python.
+\begin{itemize}
+	\item Fiducial calculation
+	\item Background subtraction 
+	\item Fitting functions; Gaussian and piece wise
+\end{itemize}	
+
+\vspace{1em}
+\centering
+\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/laser}%
+\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG2}%
+\includegraphics[width=0.415\textheight]{/home/nicole/Documents/presentations/space_charge_2017/YAG3}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Matching Solenoid Scans}
+\begin{columns}[T]
+\begin{column}{0.76\textwidth}
+	\begin{minipage}{0.5\textheight}
+		\includegraphics[width=1.0\linewidth]{../../tex/images/xbeamsizes_low_charge_sol_scan_11-02-2017}	\includegraphics[width=1.0\linewidth]{../../tex/images/ybeamsizes_low_charge_sol_scan_11-02-2017}
+	\end{minipage}
+	\begin{minipage}{0.5\textheight}
+		\includegraphics[width=1.0\linewidth]{../../tex/images/xbeamsizes_high_charge_sol_scan_10-17-2017}
+		\includegraphics[width=1.0\linewidth]{../../tex/images/ybeamsizes_high_charge_sol_scan_10-17-2017}
+	\end{minipage}
+\end{column}
+\begin{column}{0.4\textwidth}
+	%\vspace{-9em}
+	\begin{itemize}
+		\item only charge fluctuations are considered in error bars 
+		\item Radius probably needs to be adjusted in simulations of high charge
+	\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Bunch Length Measurements}
+Used Michelson interferometer and CTR light.
+\centering
+\Wider[4em]{
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{../../tex/images/THPMF048f1}\\
+\includegraphics[width=\textwidth]{../../tex/images/THPMF048f5}
+\end{minipage}\hspace{1em}
+\begin{minipage}{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{../../tex/images/THPMF048f3}
+\end{minipage}
+}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Backup: Code Used}

@@ -56,7 +56,9 @@
 
 
 % load additional packages
-
+\usepackage{listings}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt,frame=bottomline}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -133,6 +135,62 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\secimage}{../../tex/images/awa_gun}
 \begin{document}
+\defverbatim[colored]\lstVars{
+\begin{lstlisting}[language=C++,keywordstyle=\color{red}]
+// Solenoids 		
+dv0: DVAR, VARIABLE="IBF",    LOWERBOUND=300.0, UPPERBOUND=500.0;
+dv1: DVAR, VARIABLE="IM",     LOWERBOUND=180.0, UPPERBOUND=280.0;
+// Quad values
+dv4: DVAR, VARIABLE="KQ1", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+dv5: DVAR, VARIABLE="KQ2", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+dv6: DVAR, VARIABLE="KQ3", LOWERBOUND=-8.0, UPPERBOUND=8.0;
+dv7: DVAR, VARIABLE="KQ4", LOWERBOUND=-8.0, UPPERBOUND=8.0;	
+\end{lstlisting}
+}
+
+
+\defverbatim[colored]\lstObjs{
+\begin{lstlisting}[language=C++,keywordstyle=\color{red}]
+//Q5 Entrance
+de3: OBJECTIVE,EXPR="fabs(statVariableAt('dE',19.4))";
+rmss3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_s',19.4))";
+rmsx3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_x',19.4))";
+rmsy3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_y',19.4))";
+rmspx3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_px',19.4))";
+rmspy3: OBJECTIVE,EXPR="fabs(statVariableAt('rms_py',19.4))";	
+
+//Kicker apeture
+c1: CONSTRAINT, EXPR="fabs(statVariableAt('rms_x',16.5))<0.1";
+c2: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5))<0.1";
+c3: CONSTRAINT, EXPR="fabs(statVariableAt('rms_y',16.5)-statVariableAt('rms_x',16.5))<0.005";	
+\end{lstlisting}
+}
+
+\defverbatim[colored]\lstinfo{
+\begin{lstlisting}[language=C++,keywordstyle=\color{red}]
+OPTIMIZE, INPUT="tmpl/optLinac-40nC.tmpl",
+OUTPUT="optLinac-40nC",
+OUTDIR="results",
+OBJECTIVES = {rmss3, rmsx3, rmsy3, rmspx3, rmspy3, de3},
+DVARS = {dv0, dv1, dv4, dv5, dv6, dv7},
+CONSTRAINTS = {c1, c2, c3}, 
+INITIALPOPULATION=656,
+MAXGENERATIONS=200,
+NUM_MASTERS=1,
+NUM_COWORKERS=8,
+SIMTMPDIR="tmp",
+TEMPLATEDIR="tmpl",
+FIELDMAPDIR="fieldmaps",
+NUM_IND_GEN=328,
+GENE_MUTATION_PROBABILITY=0.01,
+MUTATION_PROBABILITY=0.01,
+RECOMBINATION_PROBABILITY=0.09;
+QUIT;		
+\end{lstlisting}
+}
+
+
+
 
 \begin{frame}
   \titlepage
@@ -229,7 +287,7 @@ Current experiments include:
 	\alpha & = \frac{\omega}{2 Q_{cavity} v_g}  
 	\end{flalign*}
 	\begin{flalign*}
-	P_t & = \frac{\omega Q^2}{4 v_g} \frac{R}{ Q_{cavity} } \frac{1-e^{-\alpha L}}{\alpha} \phi^2
+	P_t & = \frac{\omega \textcolor{red}{Q^2} }{4 v_g} \frac{R}{ Q_{cavity} } \frac{1-e^{-\alpha L}}{\alpha} \textcolor{red}{\phi^2}
 	\end{flalign*}
 \end{minipage}\hfill
 \begin{minipage}{0.5\textwidth}
@@ -588,10 +646,24 @@ Requirements and Mechanical Constraints:
 \end{frame}
 
 \begin{frame}
-	\frametitle{OPAL GA Code}
-	Note sure if I should show a sample here....
+	\frametitle{OPAL GA Code: Variables}
+	\centering
+	\Wider[8em]{\tiny\lstVars}
+\end{frame}
+\begin{frame}
+\frametitle{OPAL GA Code: Objectives}
+\centering
+\tiny\lstObjs
+\end{frame}
+\begin{frame}
+\frametitle{OPAL GA Code: Simulations}
+\begin{center}
+	\Wider[8em]{\tiny\lstinfo}
+\end{center}
+
 \end{frame}
 
+\subsection{Results}
 \begin{frame}
 	\frametitle{TBA Pareto Fronts}
 	\includegraphics[width=0.5\textwidth]{../../tex/images/xz_vs_px_pareto_front_Q5}%
@@ -729,6 +801,8 @@ Used Michelson interferometer and CTR light.
 	\frametitle{Kicker Fabrication}
 	\centering
 	\includegraphics[width=0.7\textwidth]{../../tex/images/kicker}\\
+	\tiny{*CAD drawing courtesy Scott Doran}
+	\vspace{1em}
 	\includegraphics[width=0.33\textwidth]{../../tex/images/FID_feedthrough1}%
 	\includegraphics[width=0.33\textwidth]{../../tex/images/FID_feedthrough2}%
 	\includegraphics[width=0.33\textwidth]{../../tex/images/kicker_plates}

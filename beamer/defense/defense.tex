@@ -56,6 +56,7 @@
 
 
 % load additional packages
+\usepackage{multimedia}
 \usepackage{listings}
 \lstset{basicstyle=\footnotesize\ttfamily,breaklines=false}
 \lstset{framextopmargin=20pt,frame=bottomline}
@@ -110,6 +111,7 @@
 %\date[IIT, April 2009]{
 %           Space Charge 2017 \\ Oc 18, 2009  }
 
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Section title frame 
 \AtBeginSection[]{
 	\begin{frame}
@@ -130,10 +132,11 @@
 	%\vfill 
 \end{frame}
 }
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\secimage}{../../tex/images/awa_gun}
+%\newcommand{\secimage}{../../tex/images/awa_gun}
 \begin{document}
 \defverbatim[colored]\lstVars{
 \begin{lstlisting}[language=C++,keywordstyle=\color{red}]
@@ -195,7 +198,6 @@ QUIT;
 
 
 
-
 \begin{frame}
   \titlepage
 \end{frame}
@@ -247,12 +249,23 @@ Current experiments include:
 	\item{Beam line design for TBA = my thesis}
 \end{itemize}
 \vspace{0.5cm}
-\includegraphics[height=0.45\textheight]{/home/nicole/Documents/presentations/space_charge_2017/stage}\hfill\includegraphics[height=0.45\textheight]{/home/nicole/Documents/presentations/space_charge_2017/dielectrics}
+
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[height=0.45\textheight]{/home/nicole/Documents/presentations/space_charge_2017/stage}
+	%\hfill\includegraphics[height=0.45\textheight]{/home/nicole/Documents/presentations/space_charge_2017/dielectrics}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+	\begin{tikzpicture}[scale=\textwidth/15cm, text=black]
+	\input{onestage.tex}
+	\end{tikzpicture}
+\end{minipage}
+
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{	\renewcommand{\secimage}{../../tex/images/pets-cst}
+%{	\renewcommand{\secimage}{../../tex/images/pets-cst}
 \subsection{Two Beam Acceleration (TBA)}
 \begin{frame}
 	\frametitle{What is Two Beam Acceleration (TBA)?}
@@ -273,7 +286,7 @@ Current experiments include:
 \end{itemize}
 \begin{minipage}{0.45\textwidth}
 	\begin{flalign*}
-	\alpha & = \frac{\omega}{2 Q_{cavity} v_g}  
+	\phi=exp\left[\frac{-(k_{z}\textcolor{red}{\sigma_{z}})^{2}}{2}\right]
 	\end{flalign*}
 	\begin{flalign*}
 	P_t & = \frac{\omega \textcolor{red}{Q^2} }{4 v_g} \frac{R}{ Q_{cavity} } \frac{1-e^{-\alpha L}}{\alpha} \textcolor{red}{\phi^2}
@@ -314,13 +327,32 @@ Current experiments include:
 	\item Plug and play various structures	
 \end{itemize}
 \end{frame}
-}
+%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{
-	\renewcommand{\secimage}{../../tex/images/YAG1_40nC}
+%{	\renewcommand{\secimage}{../../tex/images/YAG1_40nC}
 \section{Simulations}
+\begin{frame}
+\frametitle{Simulation Overview}
+\Wider[4em]{
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}
+
+		\item Did benchmark between OPAL, GPT, ASTRA
+		\item Introduce optimization jargon
+		\item Optimized linac for 40 nC
+		\item Compared model based and genetic algorithms 			
+
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+	\includegraphics[width=\textwidth]{../../tex/images/YAG1_40nC}
+\end{minipage}
+}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{Code and Resources: }
 OPAL, Python (Main Codes of Choice)
@@ -330,6 +362,7 @@ OPAL, Python (Main Codes of Choice)
 		\item Parallel 
 		\item Open Source
 		\item 3D space charge (40 nC)
+		\item Built in optimization (Genetic Algorithm)
 	\end{itemize}	
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
@@ -343,7 +376,7 @@ OPAL, Python (Main Codes of Choice)
 	\end{itemize}
 \end{minipage}
 \begin{center}
-\vspace{0.5em}
+\vspace{0.25em}
 \includegraphics[height=0.4\textheight]{../comp_talk/bebop} \hspace{1em} \includegraphics[height=0.4\textheight]{../comp_talk/theta}
 \end{center}
 \end{frame}
@@ -414,8 +447,21 @@ OPAL, Python (Main Codes of Choice)
 \Wider[4em]{
 All codes matched within $5\%$. \\
 Below precision of diagnostics at AWA.\\  
-\vskip12pt
-\includegraphics[width=0.49\linewidth]{../../tex/images/benchmark_gun}\hfill \includegraphics[width=0.49\linewidth]{../../tex/images/benchmark_5m}
+\vspace{1em}
+
+\centering
+\begin{minipage}{0.45\textwidth}
+	\centering
+	\textcolor{blue}{Inside Gun}
+	
+	\includegraphics[width=\textwidth]{../../tex/images/benchmark_gun}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+	\centering
+	\textcolor{blue}{Outside Gun}
+	
+	\includegraphics[width=\linewidth]{../../tex/images/benchmark_5m}
+\end{minipage}
 }
 \end{frame}
 
@@ -568,7 +614,7 @@ f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
 	\item 25,600 for 200 generation GA.
 \end{itemize}
 \end{frame}
-}%end of simulations section
+%}%end of simulations section
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -634,23 +680,7 @@ Requirements and Mechanical Constraints:
 \end{minipage}
 \end{frame}
 
-\begin{frame}
-	\frametitle{OPAL GA Code: Variables}
-	\centering
-	\Wider[8em]{\tiny\lstVars}
-\end{frame}
-\begin{frame}
-\frametitle{OPAL GA Code: Objectives}
-\centering
-\tiny\lstObjs
-\end{frame}
-\begin{frame}
-\frametitle{OPAL GA Code: Simulations}
-\begin{center}
-	\Wider[8em]{\tiny\lstinfo}
-\end{center}
 
-\end{frame}
 
 \subsection{Results}
 \begin{frame}
@@ -737,6 +767,8 @@ Requirements and Mechanical Constraints:
 			Q2 	  & 1.6  & amps \\
 			Q3	  & 1.5  & amps \\
 			Q4    & -1.7 & amps \\
+			Q5 	  & -2.0 & amps \\
+			Q6    & 1.25 & amps \\
 			\bottomrule	
 		\end{tabular}	
 	\end{table}	
@@ -744,22 +776,43 @@ Requirements and Mechanical Constraints:
 	\begin{minipage}{0.4\textwidth}
 	\begin{itemize}
 		\item Strengthened all quads by 0.7 A
-		\item Last triplet not used!!!
+		\item No quad strengths are near limits!
 	\end{itemize}
 \end{minipage}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Movies!}
+	\frametitle{Movie Time}
+	Movie made in visIt program, developed by Lawrence Livermore National Lab.
+	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{
-	\renewcommand{\secimage}{../../tex/images/YAG_screen}
+%{	\renewcommand{\secimage}{../../tex/images/YAG_screen}
 \section{Experimental Measurements}
+\begin{frame}
+\frametitle{Experimental Overview}
+\Wider[4em]{
+	\begin{minipage}{0.55\textwidth}
+		\centering
+		\begin{itemize}
+			
+			\item Designed kicker (gap and length).
+			\item Performed high voltage and TDR test. 
+			\item Tested kicker with 30 nC.
+			\item 3D effects must be used in simulation to match data.		
+			
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{../../tex/images/YAG_screen}
+	\end{minipage}
+}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Kicker Fabrication}
@@ -863,7 +916,7 @@ Thesis accomplishments towards this goal include:}}
 \includegraphics[width=0.5\textwidth]{../../beamer/long_talk/DOE_logo_color_cmyk-eps-converted-to}
 \end{frame}
 
-\iffalse
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Backup}
 \begin{frame}
@@ -926,6 +979,22 @@ Used Michelson interferometer and CTR light.
 }
 \end{frame}
 
+\begin{frame}
+\frametitle{OPAL GA Code: Variables}
+\centering
+\Wider[8em]{\tiny\lstVars}
+\end{frame}
+\begin{frame}
+\frametitle{OPAL GA Code: Objectives}
+\centering
+\tiny\lstObjs
+\end{frame}
+\begin{frame}
+\frametitle{OPAL GA Code: Simulations}
+\begin{center}
+\Wider[8em]{\tiny\lstinfo}
+\end{center}
+\end{frame}
 
 \begin{frame}
 \frametitle{Backup: Code Used}
@@ -939,7 +1008,6 @@ Used Michelson interferometer and CTR light.
 \end{itemize}	
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\fi
 \end{document}
 
 

@@ -8,7 +8,7 @@
 A new generation of accelerators dedicated to High Energy Physics
 (HEP), would likely be of the TeV scale. Reduction in the size and cost
 of such machines is key to their feasibility. 
-Investigation into a high gradient candidates for future HEP machines is an active research. 
+Investigation into a high gradient candidates for future HEP machines is an active research area. 
 Traditional accelerating gradients are on the order of 10's of MV/m
 with the power source being a klystron gallery.
 High gradient structures and schemes such as the 
@@ -41,8 +41,8 @@ While the two groups vary on approach, they agree that TBA would
 require less infrastructure when constructing a linear TeV scale machine, 
 versus the cost of more conventional technology. 
 
-For example, a case study was done comparing the infrastructure 
-needed when using traditional \SI{50}{MW} klystron sources.
+A case study was done comparing the infrastructure 
+needed using traditional \SI{50}{MW} klystron sources versus the TBA case.
 It would take roughly 35,000 klystrons to construct a linear machine to deliver the same 
 \SI{9.2}{TW} power required in the CLIC design specification reports \cite{CLICdesignReport}. 
 With TBA, CLIC projected a \SI{3}{TeV} energy at a length of \SI{48}{km}.
@@ -50,15 +50,15 @@ In contrast, the Next Linear Collider (NLC) collaboration projected a \SI{1}{TeV
 with length \SI{26}{km}, using X-band klystrons \cite{NLC}. 
 This drastic difference occurs in the infrastructure needed to generate and transfer
 RF power in the two cases. In TBA, a high charge bunch train is generated in 
-a photoinjector and propagated down stream using conventional technology 
-(accelerating structures, quads, dipoles, etc). After it has reached the design energy
+a photoinjector and propagated downstream using conventional technology 
+(accelerating structures, quads, dipoles, etc). After it has reached the design energy, the beam
 is focused into specially designed wakefield structures (decelerating structure).
 The RF is then generated in the decelerating structure and supplied to the witness 
 beam line through a waveguide connection. This has two benefits over traditional klystron technology.
 One, you can have structures at higher frequencies (any multiple of the machine frequency), 
 which helps push the gradient. Readily available and production klystrons are limited in this aspect.
 Second, all the waveguide infrastructure needed to connect a klystron to the accelerating 
-structures is eliminated. There is the initial cost near the photoinjector, 
+structures is eliminated. There is an initial cost near the photoinjector, 
 but downstream, much of the infrastructure costs are eliminated.
 Theoretically, TBA can deliver the same amount of power as conventional methods with less 
 infrastructure, and therefore lower cost, in the case of a large machine. 
@@ -103,24 +103,11 @@ Therefore you can extract the maximum amount of power in each stage.
 The thesis work included experimental preparation of fully staged TBA, 
 along with beam line design and optimization. 
 
-Chapter 2 details the experimental setup, which included ultraviolet laser pulse train improvement, 
-which improves the RF power generation in the wakefield structures.
-Also discussed are measurements of the RF power in the gun and linac cavities.
-Description of beam size analysis and an image processing script written in Python is covered.
-In Chapter 3, the simulation code, OPAL~\cite{opal}, and model used for beam line design is covered in detail.
-Benchmarking and initial optimization work is discussed. The photoinjector was optimized for \SI{40}{nC}. 
-In Chapter 4, the design of a stripline kicker is discussed. 
-The achievable kicker angle and mechanical constraints at the AWA 
-were used to lay out the fully staged TBA beam line. 
-Simulations of the configuration were done to ensure transmission at
-the wakefield structure downstream. Optimization of the optics was done using 
-a genetic algorithm and confirm the configuration can transmit a \SI{40}{nC} beam.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Power Generation}
 
-Wakefields are RF energy that is generated in a structure when a beam passes by. 
+Wakefields are RF energy that is generated in a structure when a beam passes through it. 
 The electromagnetic fields
 associated with the beam induce surface charges on the structure walls.
 If the material has a finite conductivity, discontinuities, or both, the
@@ -134,7 +121,7 @@ often calculated numerically using a simulation code. Once calculated,
 the wake potential can then be used to determine how much energy the 
 beam will lose after passing through a specific structure. 
 
-Metallic structures used in simplified staging experiments at the AWA, consist of 35 cells and irises. 
+Metallic structures used in simplified staging experiments at the AWA, consist of 35 cells and irises. \lsnote{{\it What?  35 cells sounds more like a linac than a TBA structure.}}
 The dielectric PETS are also under development at the AWA. 
 They consist of a cylindrical metal tube lined with a dielectric \cite{PETSeq}, 
 see Fig. \ref{fig:PETS}. Both are candidates for use in full staging, and 
@@ -159,7 +146,7 @@ Where $r$, $\theta$, and $z$ define the cylindrical coordinate space,
 $z_0$ is the distance behind the drive bunch where the field is being calculated, 
 N is the total charge, and $\sigma$ is the bunch length.
 This form of the electric field depends on the material properties of the structure
-(see the full expression for $E_0^m$ in \cite{RosingWei}, for the permittivity, $\epsilon$, dependence). 
+(see the full expression for $E_0^m$ in \cite{RosingWei}, for the permittivity, $\epsilon$, dependence).   \lsnote{Also, the sentence above doesn't make sense, and I don't know what Eo is supposed to represent.}
 Materials with auspicious permittivities can be chosen to support larger fields
 in the longitudinal direction, the field component 
 used for acceleration.   
@@ -176,7 +163,7 @@ and were considered an undesirable side effect.
 However, people studying wakefields quickly realized that fields
 generated by beams in certain structures resemble fields externally 
 applied to cavities or waveguides used to accelerate particle beams.
-Hence, the idea to use wakefields as a power source for beam acceleration. 
+Hence, the idea arose to use wakefields as a power source for beam acceleration. 
 
 Note, while wakefield generation is a crucial tool used in TBA at the AWA, the thesis does not include 
 structure design. Other members of the AWA group have designed the PETS and accelerating
@@ -194,7 +181,7 @@ used in the simplified staging scheme were metallic.
 While the field is not as high as a dielectric structure would provide,
 they have proven to be a great first step 
 in determining whether or not TBA was possible at the AWA. Given 
-the simplified scheme, predictions can and were made for the acceleration 
+the simplified scheme, predictions could be made for the acceleration 
 gradient and energy gain, based on well known principles. 
 
 A few key equations demonstrate the relationship between beam 
@@ -221,16 +208,16 @@ Where $k_{z}=\frac{2\pi}{\lambda_{z}}$ is the longitudinal wave number
 of the decelerating structure, and $\sigma_{z}$ is the rms bunch length \cite{PETSeq}. 
 Note the subscript z refers to the characteristics of the structure and bunch in the longitudinal
 direction. 
-As an example, Figure~\ref{fig:form} shows the expected form factor for fully staging.
+As an example, Figure~\ref{fig:form} shows the expected form factor for full staging.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{images/formfactorsqrd}
-	\caption{Form factor as a function of bunch length for fully staging (\SI{40}{nC}).}
+	\caption{Form factor as a function of bunch length for full staging (\SI{40}{nC}).}
 	\label{fig:form}
 \end{figure}
 
 When a Guassian bunch, as described above, travels through a 
-decelerating structure, it radiates electromagnetic waves and 
+decelerating structure, it radiates an electromagnetic field and 
 power is lost in the structure. Conservation of energy dictates 
 that the amount of power left in the beam 
 after it travels some distance through the structure is equal to 
@@ -244,7 +231,7 @@ P_t = \frac{E^2_a}{2 \alpha R}
 \end{equation} 
 Where $\alpha=\frac{\omega}{2Q_{d}v_{g}}$ is the attenuation constant of the 
 decelerating structure \cite{CLICdesignReport, Whittum}, which quantifies 
-how much power in the bunch is transferred into usable electric field. R is the shunt impedance
+how much power in the bunch is transferred into usable electric field. \lsnote{{\it You also need to define the parameters in your equation for alpha, such as vg, or else at least say they are defined in Table 1.1}} R is the shunt impedance
 per unit length, and $E_a$ is the longitudinal electric field in the structure
 generated by the beam. 
 $E_a$ can be written with respect to 
@@ -274,7 +261,7 @@ and are candidates for the fully staged beam line.
 The frequency of interest for work in the thesis is \SI{11.7}{GHz}. 
 This is the 9th harmonic of the facility frequency of \SI{1.3}{GHz}.
 Out of several high gradient structures being developed at the AWA, 
-this is the lowest frequency, and have the largest aperture possible. 
+this is the lowest frequency structure with the largest aperture possible. 
 Properties of the metallic and dielectric structures were provided by C. Jing and are listed in 
 Tables \ref{table:PETS} and \ref{table:acc}. 
 Notice both the loss factor, Q, and group velocity are lower for the dielectric PETS. 
@@ -350,14 +337,14 @@ For fully staging these numbers jump to \SI{218}{MW} and \SI{200}{MW} respective
 With the input power in hand, the witness beam can be analyzed. 
 The electric field strength, $E_{a}$, in 
 the accelerating structure due to an externally applied power,
-$P_{t}$, is \cite{wangler}: 
+$P_{t}$, is \cite{wangler}: \lsnote{{\it It is weird to have $E^{2}$ on the LHS.  If it is squared, it would be better to take square root of both sides of equation to have E on LHS.}}
 \begin{equation}
 E_{a}^{2}=\frac{P_{t\,}\omega}{v_{ga}}\frac{R}{Q_a}
 \label{eq:electricfield}
 \end{equation}
 Where $\omega$, is the angular frequency of the accelerating structure,
 and $v_{ga}$ is the group velocity. 
-For the metallic structure and power above this results in $E_a=\SI{112}{MV/m}$.
+\lsnote{{\it The next two sentences are not right.  You have units of gradient for the field, and you didn't finish the gradient sentence.}}  For the metallic structure and power above this results in $E_a=\SI{112}{MV/m}$.
 The gradient, G, per stage is then: 
 For two stages, and 100\% charge transmission through both stages,
 we expect an energy gain of: 
@@ -369,14 +356,13 @@ the resulting gradient inside the dielectric structures is
 $G=\SI{45}{MV/m}$ and the energy gain is $E = \SI{13.5}{MeV}$.
 
 
-While the gradient is lower than the metallic structure, the dielectric 
+While the gradient of the dielectric structure is lower than the metallic structure, the dielectric 
 structure is about 4.5 times longer, which results in an energy gain that is 
 almost double that of the metallic accelerating structure.
 In summary, benefits of dielectric structures include higher power
 generated in the PETS, higher energy gain in the accelerating structure, 
 and simpler geometry. This last factor is an advantage when it comes 
-to fabrication time and cost, both of which should be considered
-in future large scale machines. 
+to fabrication time and cost, both of which are an important consideration for future large scale machines. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -386,9 +372,9 @@ Simplified staging experiments took place at the AWA in 2016.
 Metallic PETS and accelerating structures were used. 
 The beam line configuration was the same as shown in Figure~\ref{fig:one}.
 Significant challenges included getting 100\% transmission in stage two.
-This goal was never achieved, with a max transmission near 80\%. 
+This goal was never achieved, with a maximum transmission near 80\%. 
 After much effort and hours of hand tuning, 
-an energy gain of \SI{4}{Me} was measured, see Figure~\ref{fig:old-tba}. 
+an energy gain of \SI{4}{MeV} was measured, see Figure~\ref{fig:old-tba}. 
 This energy gain corresponds to a 
 gradient of \SI{60.6}{MV/m}, much lower than the \SI{112}{MV/m} predicted above.
 \begin{figure}
@@ -409,18 +395,15 @@ The biggest source of error is expected to be the transmission loss.
 
 \Section{Modifications to Reach Fully Staged TBA} \label{sec:requirements}
 
-In order to design and test the desired beam line, three technologies 
-new to the AWA Facility were investigated. These include a kicker, septum magnets, 
-and massively parallel optimization.
+In order to design and test fully staged TBA, a mechanism to route the drive beam into two independent beam lines had to be developed, along with an optics design for the new beam line. A kicker and a septum magnet will be used to route the beam. 
 The kicker will provide a fast Transverse Electric and Magnetic (TEM) field 
 that will direct bunches into the bent beam line shown in Figure~\ref{fig:one}. 
-This must be done with an electric static element as opposed to a magnet because 
+This must be done with an electrostatic element as opposed to a magnet because 
 the bunch spacing is too short to allow for the slow rise time of a magnetic field.
 In addition the kick will be weak, so a septum magnet will be used to further
-separate the two bunch trains. 
+separate the two bunch trains. Simulations were used to determine hardware specifications such as the gap and plate dimensions of the kicker.
 
-In addition to the hardware design and fabrication, much effort was put into simulations
-to provide more realistic predictions of the beam dynamics in the accelerators.
+In addition to aiding the hardware design, simulations provide more realistic predictions of the beam dynamics in the machine, and allow optics design optimization.
 Better simulations can help avoid problems such as the transmission loss in the second stage.
 They can also reduce the amount of time spent on hand tuning the optics in the 
 beam line during experiments.
@@ -435,8 +418,18 @@ beam line during experiments.
 
 The rest of the thesis details work done at AWA Facility.
 Chapter 2 covers experimental measurements and preparations for TBA.
-These include RF measurements and beam diagnostics (energy, beam size, and bunch length measurements).
-Chapter 3 discusses simulation work done to model the drive line at AWA.
-This includes optimization work.
-Chapter 4 covers kicker and beam line optics design for fully staged TBA.
+The ultraviolet laser pulse train generation was modified, 
+which improves the RF power generation in the wakefield structures.
+Measurements of the RF power in the gun and linac cavities are discussed.  
+The beam diagnostics (energy, beam size, and bunch length measurements) are also described, including a description of beam size analysis and an image processing script written in Python. 
+In Chapter 3 the simulation code, OPAL~\cite{opal}, and the model used for the new beam line design is covered in detail.
+Benchmarking of OPAL, determination of optimization parameters, and comparison of optimization methods is described.  The OPAL simulation was used to optimize the new drive beam line for TBA for a \SI{40}{nC} beam. 
+In Chapter 4, the design of a stripline kicker needed to route beam into the new beam line is presented.
+The achievable kicker angle and mechanical constraints at the AWA 
+were used to lay out the fully staged TBA beam line. 
+Simulations of the new beam line were done to ensure transmission at
+the wakefield structure downstream. Optimization of the optics was done using 
+a genetic algorithm and confirm the configuration can transmit a \SI{40}{nC} beam, while maintaining a short bunch length needed for good power generation.
+
+
 

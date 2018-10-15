@@ -545,12 +545,12 @@ and the attenuation values, we can calculate the power in linac cavity four:
 			\toprule
 			\textbf{Cavity} & \textbf{Probe Att.} & \textbf{Splitter Att.} & \textbf{Power Meter 1}  & \textbf{Power Meter 2} \\
 			\midrule
-			Gun & \SI{53.2}{dB}& $9.5 \pm \SI{0.3}{dBm}$ & \SI{-14.18}{dBm} & \SI{-3.86}{dBm}  \\
-			2 & --       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.88}{dBm} & \SI{-9.6}{dBm}  \\
-			3 & --       & $4.0 \pm \SI{1.0}{dBm}$ & \SI{-12.24}{dBm} & \SI{-1.54}{dBm}  \\
-			4 & \SI{61.95}{dB} & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-18.89}{dBm} & \SI{-10.11}{dBm}  \\
-			5 & --       & $9.5 \pm \SI{0.3}{dBm}$ & \SI{-17.76}{dBm} & \SI{-8.39}{dBm}  \\
-			6 & \SI{61}{dB}    & $4.0 \pm \SI{1}{dBm}$  & \SI{-14.32}{dBm} & \SI{-2.83}{dBm} \\
+			Gun & \SI{53.2}{dB}& $9.5 \pm \SI{0.3}{dB}$ & \SI{-14.18}{dBm} & \SI{-3.86}{dBm}  \\
+			2 & --       & $9.5 \pm \SI{0.3}{dB}$ & \SI{-18.88}{dBm} & \SI{-9.6}{dBm}  \\
+			3 & --       & $4.0 \pm \SI{1.0}{dB}$ & \SI{-12.24}{dBm} & \SI{-1.54}{dBm}  \\
+			4 & \SI{61.95}{dB} & $9.5 \pm \SI{0.3}{dB}$ & \SI{-18.89}{dBm} & \SI{-10.11}{dBm}  \\
+			5 & --       & $9.5 \pm \SI{0.3}{dB}$ & \SI{-17.76}{dBm} & \SI{-8.39}{dBm}  \\
+			6 & \SI{61}{dB}    & $4.0 \pm \SI{1}{dB}$  & \SI{-14.32}{dBm} & \SI{-2.83}{dBm} \\
 			\bottomrule
 		\end{tabular}
 	\end{center}
@@ -713,7 +713,7 @@ using Equation~\ref{eq:xoff}. This result was confirmed by a simulation in OPAL.
 
 Now consider a second experimental case.
 A beam of unknown energy passes through the dipole described above
-with a bending a bending angle of $20^\circ$. 
+with a bending angle of $20^\circ$. 
 The current supplied to the magnet in order to achieve this bending angle is \SI{10}{A}.
 Using Equation~\ref{eq:b}, the corresponding magnetic field is, \SI{0.18}{T}.
 Solving for the momentum with Equations~\ref{eq:pdipole}, and pulling the 
@@ -736,7 +736,7 @@ Basically, beam size measurements are the quickest way to evaluate the
 optics configuration on the machine. 
 These measurements are taken using YAG screens at multiple z locations along the beam line.
 The code used to produce all images in the following sections can be found at this git repository: 
-\url{https://github.com/nneveu/imageProcessing}
+\url{https://github.com/nneveu/imageProcessing}.
 Note, all image routines referenced in this section can be found on the repository.
 
 \Subsection{Capturing Images}
@@ -916,11 +916,12 @@ This work motivated a new measurement of the solenoid field strength when
 the cathode was changed. It was determined that the field is behaving as expected, 
 which suggests the gun gradient is lower than previously estimated.
 \begin{figure}
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/xbeamsizes_low_charge_sol_scan_11-02-2017}%
-	\includegraphics[width=0.5\textwidth]{images/ybeamsizes_low_charge_sol_scan_11-02-2017}\\
-	\includegraphics[width=0.5\textwidth]{images/xbeamsizes_high_charge_sol_scan_10-17-2017}%
-	\includegraphics[width=0.5\textwidth]{images/ybeamsizes_high_charge_sol_scan_10-17-2017}
+	\includegraphics[width=0.45\textwidth]{images/xbeamsizes_low_charge_sol_scan_11-02-2017}%
+	\includegraphics[width=0.45\textwidth]{images/ybeamsizes_low_charge_sol_scan_11-02-2017}\\
+	
+	
+	\includegraphics[width=0.45\textwidth]{images/xbeamsizes_high_charge_sol_scan_10-17-2017}%
+	\includegraphics[width=0.45\textwidth]{images/ybeamsizes_high_charge_sol_scan_10-17-2017}
 	\caption{Beam size data compared to simulations. The matching solenoid was varied. 
 	The beam sizes were calculated using the code and methods described in Section~\ref{sec:beamsize}. 
 	The rough agreement was only achieved when the gradient in the gun was lowered.}
@@ -936,7 +937,7 @@ Therefore is important to be able to measure this beam characteristic
 and compare to simulations. Better understanding of the bunch length
 will lead to better results in fully staged TBA.
 
-\Subsection{Measurement Technique}
+\Subsection{Measurement Technique} %Add block diagram?
 In order to measure the bunch length, we performed an autocorrelation scan
 of the Coherent Transition Radiation (CTR) produced by the electron distribution \cite{Happek, WBarry}.
 CTR is produced by the bunch when it pases through a metallic foil inserted into the beam line. 

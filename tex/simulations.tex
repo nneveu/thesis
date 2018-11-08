@@ -13,7 +13,7 @@ and coherent synchrotron radiation (CSR).
 Accurate simulations can benefit accelerator communities in several ways.
 Before beam line construction countless configurations can be tested in simulation.
 This can prevent costly hardware mistakes. 
-Predictive power w.r.t. beam dynamics could also significantly reduce the amount of time 
+Predictive power \lsnote{with respect to \sout{w.r.t.}} beam dynamics could also significantly reduce the amount of time 
 spent configuring the machine for various experiments. This is key for the AWA
 where the operating charge is changed often, and so the optics must change as well.
 
@@ -36,10 +36,10 @@ It was chosen for several reasons:
 
 The first item is crucial to standard operations at the AWA. Especially in the 
 case of TBA, a high charge is needed in the drive beam line, therefore transverse 
-space charge must be calculated in the simulations to give realistic results.
+space charge \lsnote{forces} must be calculated in the simulations to give realistic results.
 Typical charge for a TBA experiment at the AWA is \SI{40}{nC}. 
 This is much higher than other facilities that usually operate at \SI{1}{nC} or below. 
-Higher charge also means higher emittances which can reach the \SI{100}{\micro\meter} if not careful.
+Higher charge also means higher emittances, which can reach \lsnote{\sout{the}} \SI{100}{\micro\meter}, \lsnote{if beam transport is not optimized\sout{if not careful}}.
 
 The ability to run the code in parallel dramatically reduced the amount of simulation time needed. 
 For example, simulating the gun and linac, about \SI{15}{m} of elements,
@@ -47,18 +47,19 @@ with 100,000 particles on one core would take about 30 minutes.
 When the number of cores is increased to 16, the same run takes less than 
 5 minutes. This reduction in time by ~80\%, combined with the capability to run 
 many cases at once on the cluster allows for more efficient use of time.
-Typical running conditions were on 16 cores, for random samples up to 128 cores, 
-and up to 5,200 cores for large optimization runs.
+Typical running conditions were \lsnote{simulated} on 16 cores, \lsnote{\sout{for}} random samples \lsnote{used} up to 128 cores, 
+and up to 5,200 cores \lsnote{were used} for large optimization runs.
+\lsnote{\it I have no idea what you meant by `random samples'.}
 
-The model used for the simulations in this chapter is the AWA drive line operated at \SI{40}{nC}. 
-This beam line consist of a gun, solenoids, six linac cavities, and quadrupoles.
+The \lsnote{accelerator} model used for the simulations in this chapter is the AWA drive line operated at \SI{40}{nC}. 
+This beam line \lsnote{consists} of a gun, solenoids, six linac cavities, and quadrupoles.
 This is the line that will be used to feed high charge bunch trains to the PETS, 
 which will be installed downstream. Optimization of this beam line was done at \SI{40}{nC}
 to improve beam line settings during future experiments.
-A model based method was used for this work at first. The results showed that 
+A model based method was used for \lsnote{the initial simulations presented in this chapter \sout{this work at first}}. The results showed that 
 it is best to run the RF cavities off crest to compensate for energy spread in the gun. 
 The model based method was compared to the more popular genetic algorithm as a verification test.
-The results from both methods were similar, and the GA was used for beam line design work in Chapter~\ref{chp:4}
+The results from both methods were similar, and the GA \lsnote{method} was used for beam line design work in Chapter~\ref{chp:4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,7 +87,7 @@ at the Laboratory Computing Resource Center (LCRC) provided by ANL~\cite{lcrc}.
 
 \Subsection{Gun Simulations}
 The SC algorithms were probed using the AWA photoinjector, 
-a 1.5 cell copper standing-wave cavity at 1.3 GHz, 
+\lsnote{an RF gun which is} a 1.5 cell copper standing-wave cavity at 1.3 GHz, 
 with bucking, focusing, and matching solenoids. 
 In the remainder of this thesis, the word gun is used 
 in place of photoinjector. The simulation parameters were chosen to 
@@ -235,7 +236,7 @@ In summary, all three codes (OPAL, ASTRA, GPT), agreed well when modeling a phot
 with space charge effects, solenoid and RF fields.
 OPAL and GPT also agree on energy loss and energy spread calculations at high energy.
 At low energy they diverge, and GPT is more accurate because it calculates 
-$\beta$ at all time vs. assuming the beam is relativistic.
+$\beta$ at all \lsnote{times instead of \sout{time vs.}} assuming the beam is relativistic.
 Preference on which code to use depends more on ease of use 
 and availability, especially for the AWA facility where $\beta\approx 1$. 
 
@@ -262,7 +263,7 @@ if unreasonable  parameters  were chosen,
 OPAL-t would not complete the run (crash or hang up).  
 
 From these runs, it was concluded that an appropriate starting point 
-for mid fidelity simulations is 32 cubed grid with a time step
+for mid fidelity simulations is \lsnote{a} 32 cubed grid with a time step
 of 0.1 ps. The number of particles for such a run should be on the
 order of 10's of thousands. On eight or sixteen compute cores
 these simulations take on the order of minutes.
@@ -272,11 +273,11 @@ these simulations take on the order of minutes.
 As shown in Figures~\ref{fig:benchplot_gun} and \ref{fig:benchplot_5m}, 
 OPAL simulation output includes the bunch length.
 A set of low and high charge simulations were done  
-for comparison with the experimental set up in Section~\ref{sec:bunchlength}.
+for comparison \lsnote{using \sout{with}} the experimental set up in Section~\ref{sec:bunchlength}.
 Input parameters for the simulations are shown in Table~\ref{simparam}.
-Note that on crest refers to the phase of max energy gain.
+Note that on crest refers to the phase of \lsnote{maximum} energy gain.
 In the case of the gun, a -~$5^{\circ}$ phase is measured 
-w.r.t the peak rf voltage.
+\lsnote{with respect to \sout{w.r.t}} the peak rf voltage.
 \begin{table}[hbt]
 	%   \vspace*{-.5\baselineskip}
 	\centering
@@ -322,7 +323,7 @@ Comparison of simulation and experimental results are shown in Figure~\ref{sims}
 	\caption{Comparison of simulations and experimental measurements.}
 	\label{sims}
 \end{figure*}
-While, we do not have an exact match, the results follow the same trends.
+While \lsnote{\sout{,}} we do not have an exact match, the results follow the same trends.
 The discrepancies indicate there are still adjustments that can be made
 to the simulation model. Since the bunch length does not change measurably 
 after the gun, it is reasonable to suspect one of the parameters in the 
@@ -335,8 +336,8 @@ Also, it is now known that the gun gradient is lower than expected.
 One other source of error could be the longitudinal laser proflie.
 There is currently no way to measure this at the AWA. 
 
-We will continue to try to improve agreement as more of these measurements are made. 
-This can include better measurements of the beam energy and careful attention to other 
+\lsnote{\sout{We will continue to try to improve agreement} Agreement is likely to improve} as more of these measurements are made. 
+\lsnote{\sout{This} These} can include better measurements of the beam energy and careful attention to other 
 beam line parameters such as the laser radius and solenoid strengths.
 In the case of high charge simulations, where the agreement is the worst, 
 more consideration is needed for large charge fluctuations in the data.
@@ -401,17 +402,17 @@ After a model based method was implemented,
 a common optimization technique was used to benchmark the results. 
 The algorithm used for confirmation 
 is called a genetic algorithm (GA). An implementation of this algorithm is
-build into OPAL. GA's follow nature's lead as the name suggests.
-A random sample is done, and the best points based the defined objectives
+\lsnote{built \sout{build}} into OPAL. GA's follow nature's lead as the name suggests.
+A random sample is done, and the best points based \lsnote{on} the defined objectives
 (i.e. emittance, bunch length, beam size, etc.)
 are selected. Those points are then mixed to form a new "generation"
 and a new round of simulations is started. This method continues
-until some convergence criteria is met. While this method does 
+until some convergence criteria \lsnote{are \sout{is}} met. While this method does 
 produce results, and is widely used, it requires large amounts 
 of computational resources to to reach convergence.
 This is the most commonly used optimization in accelerator physics
 at the moment. Preliminary designs 
-for the TBA optics configuration were probed using the GA in to OPAL. 
+for the TBA optics configuration were probed using the GA in \lsnote{\sout{to}} OPAL. 
 
 
 
@@ -499,7 +500,7 @@ a baseline test of BOBYQA when applied to this accelerator application.
 An optimization of the single objective emittance ($\epsilon_x$) was 
 performed over a length of \SI{5}{m}. 
 All linacs were turned off and only gun parameters were varied. 
-Non-varying parameters are listed in table~\ref{tab:gun}; 
+Non-varying parameters are listed in \lsnote{\it{capitalize Table ->}} table~\ref{tab:gun}; 
 their values are based on realistic parameters at PITZ and AWA~\cite{pitz, benchmark}.
 
 Local optimization runs were started using five points 
@@ -528,12 +529,12 @@ However, the results match expectations based on the literature.
 
 \Subsection{Linac Optimization}\label{sec:linacopt}
 Next we performed a multiobjective optimization of the linac (Figure~\ref{fig:beamline}), 
-by adjusting the ten parameters in table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
+by adjusting the ten parameters in \lsnote{\it{capitalize Table ->}} table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
 and was chosen to match upcoming two-beam acceleration experiments~\cite{tba2017}. 
 Two objectives were considered: emittance and bunch length ($\sigma_z$). 
 The location of interest is $z_1=\SI{12.51}{m}$, as this is the entrance of the first 
 quadrupole magnet after the linac. Optimization was required only for the horizontal emittance, $\epsilon_{x}$.  This is because there were no asymmetric focusing elements in the linac, and the beam is round, $\epsilon_{x}=\epsilon_{y}$. 
-The non-varying parameters for all linac simulation runs are shown in table~\ref{tab:linac}.  The particle distribution initially emitted from the cathode is generated within OPAL using input parameters such as the cathode material, the work function and the laser energy.  In this case, was used with a laser of initial kinetic energy of \SI{4}{eV}. 
+The non-varying parameters for all linac simulation runs are shown in \lsnote{\it{capitalize Table ->}} table~\ref{tab:linac}.  The particle distribution initially emitted from the cathode is generated within OPAL using input parameters such as the cathode material, the work function and the laser energy.  \lsnote{{\it The following sentence needs to be fixed.}} In this case, was used with a laser of initial kinetic energy of \SI{4}{eV}. 
 These are typical operating conditions at AWA. 
 
 
@@ -627,7 +628,7 @@ These are typical operating conditions at AWA.
 \end{table}
 
 A 1,000 point sample of linac parameters were drawn from the domain
-in table~\ref{tab:parameters} and simulated. Of these, 132 simulations completed
+in \lsnote{\it{capitalize Table ->}} table~\ref{tab:parameters} and simulated. Of these, 132 simulations completed
 without error, and the emittance and bunch length at $z_1=\SI{12.51}{m}$ was
 recorded for each of these points. From the sample of the 132 successful simulations 
 the minimum and maximum values of emittance and bunch length
@@ -692,15 +693,15 @@ $\epsilon_x(v,z_1)$ or $\sigma_z(v,z_1)$ that is less than $\epsilon_{\min}$ or 
 		\caption{\label{fig:iterations}Eleven optimization runs were started, one corresponding to each weight in Eq.~\ref{eq:newobj}.
 			Each time a simulation was completed, the objective function, $f$, was evaluated and the next simulation inputs were 
 			decided by BOBYQA. The minimum observed objective function values are plotted for the runs at \SI{40}{nC}.
-			When the objective function converged to $10^-4$, the optimization runs were stopped. 
+			When the objective function converged to \lsnote{$10^{-4}$}, the optimization runs were stopped. 
 		}
 	\end{center}
 \end{figure}
 
-We note that seven of the BOBYQA runs converged to emittance values
+\lsnote{\sout{We note} Note} that seven of the BOBYQA runs converged to emittance values
 between \SI{20}{\mu m} and \SI{50}{\mu m}, which is shown in Figure~\ref{fig:trade} 
 along with gun phase and bunch length for each of the 11
-optimized points. We annotate Figure~\ref{fig:trade} with $T$ because that parameter 
+optimized points. \lsnote{\sout{We annotate}} Figure~\ref{fig:trade} \lsnote{is annotated} with $T$ because that parameter 
 shows strong correlation with the gun phase. Other optimized parameters such as the laser radius were found to stay within a 
 narrow range (\SIrange{10}{16}{mm}).  
 \begin{figure}%[h]
@@ -787,7 +788,7 @@ order thousands of compute hours.
 \Section{Chapter Summary}
 
 PIC simulations of the AWA drive line are essential to the TBA project. 
-Accurate predictions of the beam dynamics in the drive line will ensure the 
+Accurate predictions of the beam dynamics in the drive line \lsnote{\sout{will ensure the} are needed for the} 
 success of fully staged TBA, espcially with the tighter tolerances required by the PETS apertures.
 A new code, OPAL-t, was investigated as an alternative to ASTRA and GPT. 
 The benefits of OPAL include being free and being able to run on a parallel platform.
@@ -805,11 +806,11 @@ In addition, the RF cavities should be run off crest to minimize energy spread.
 Validation of the model based method was done by doing a comparison with the commonly used GA method. 
 The results agreed well, and suggest that the model based methods require fewer computational resources than a GA. 
 
-Next, work began on designing the TBA experimental area. 
+\lsnote{\sout{Next, work began on designing the TBA experimental area.}}  Validation of OPAL T and initial optimization studies provided a tool to design the \lsnote{beam transport to the} TBA experimental area.  
 Initial probes into this problem were done using the genetic algorithm
 implemented in OPAL-t~\cite{optpilot}. Details of this work can be found in Chapter~\ref{chp:4}.
-Validation of OPAL T and initial optimization studies provided a tool to design the TBA experimental area.  
-This work is described in the next chapter.
+\lsnote{\sout{Validation of OPAL T and initial optimization studies provided a tool to design the \lsnote{beam transport to the} TBA experimental area.  
+This work is described in the next chapter.}}
 
 
 

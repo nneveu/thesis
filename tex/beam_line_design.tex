@@ -208,7 +208,7 @@ which is readily available at the AWA.
 It is also safer to design away from the limit of the equipment. 
 Therefore a bend angle less than $20^\circ$ is preferred and allows room for tolerance errors. 
 This has the added benefit of reducing energy spread. 
-If the beam is bent at a smaller angle, less coherent synchrotron radiation (CSR) and energy spread will be induced.
+If the beam is bent at a smaller angle, less coherent synchrotron radiation (CSR) and energy spread will be induced.\lsnote{{\it Did you mean transverse position spread?  Magnets cannot increase energy spread.  Unless the CSR does that - but - I don't think that likely.}}
 
 Using the equations from Section \ref{theory}, 
 tables were made for different plate lengths giving possible gap, angle, and x offset values for comparison. 
@@ -270,7 +270,7 @@ The gap needed to be large enough to allow the full width of the beam to pass th
 for the transverse offset of the beam as it exits the kicker. 
 
 At this point, it was clear the gap needed to be larger than \SI{30}{mm}, due to the beam size at \SI{40}{nC}. 
-Around this time, it was also learned that the max pulsar was $\pm$ \SI{30}{kV}, not $\pm$ \SI{35}{kV} as expected. 
+Around this time, it was also learned that the \lsnote{maximum \sout{max}} pulsar \lsnote{voltage} was $\pm$ \SI{30}{kV}, not $\pm$ \SI{35}{kV} as expected. 
 These two factors would drive the possible kick angle below \SI{2}{^\circ}, if the kicker plates remained the same length.
 The next question was whether to push for a larger angle by elongating the kicker plates, 
 or whether plate gap values at \SI{40}{mm} and above were sufficient, see Table \ref{tab:kickparam}.
@@ -281,7 +281,7 @@ After the septum, the two beams will separate into their own beam pipes.
 This connection piece before the split, is a custom vacuum chamber designed at 
 AWA by Scott Doran, and ordered from MDC Vacuum Products. 
 The large chamber requires more vacuum pumping than other areas, 
-which could complicate installation if the chamber was too long. 
+which could complicate installation if the chamber \lsnote{were \sout{was}} too long. 
 In this regard, a larger angle from the kicker would help by shortening the pipe length between the kicker and septum.
 Therefore, it was decided to elongate the kicker plates to accommodate the larger gap width and still achieve \SI{2}{^\circ}.
  \begin{table}%[h!]
@@ -314,7 +314,7 @@ that the beam energy in the TBA configuration is closer to \SI{65}{MeV},
 rather than the theoretical maximum of \SI{75}{MeV}.
 This is a results of asymmetries in the cavities and the distribution of power
 between the witness and drive lines.
-A new table of voltages and angles was calculated. At this plate length, 
+A new table of voltages and angles \lsnote{were \sout{was}} calculated. At this plate length, 
 a gap width of \SI{40}{mm} provided roughly \SI{2}{^\circ} of kick again. 
 This angle would satisfy the one inch pipe inner diameter spacing in the septum as well. 
 
@@ -326,9 +326,9 @@ angle and x offset required in the TBA beam line.
 In other words, if the kicker were unable to deliver a \SI{2}{^\circ}
 kick for a \SI{65}{MeV}, could the energy be lowered to still achieve
 a fully staged TBA demonstration. 
-With the pulsar being variable between 18 and 30 kV,
+With the pulsar \lsnote{output} being variable between 18 and 30 kV,
 several feasible options were calculated using the equations in Section \ref{theory}, 
-and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}
+and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}\lsnote{.}
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.65\textwidth]{./images/AngleVsEnergy}
@@ -495,7 +495,7 @@ done to optimize for future TBA runs, see Table~\ref{tab:krunparam}.
 	\end{center}
 \end{table}
 All accelerating cavities were operated at \SI{-20}{^\circ} off crest to minimize energy spread.
-A simplified experimental setup is shown in Figure~\ref{fig:kyag}
+A simplified experimental setup is shown in Figure~\ref{fig:kyag}\lsnote{.}
 \begin{figure*}
 	\begin{center}		
 		\begin{tikzpicture}[scale=0.7]
@@ -528,8 +528,8 @@ the measured angle vs. first order approximations from Section~\ref{theory} can 
 Note the x offset seen on the YAG screen is not solely due to the trajectory in the kicker.
 The contributions to the total deflection must be broken into two parts: the deflection of the beam inside the kicker, 
 and the position change when the beam is drifting towards the YAG screen after it exits the kicker.
-The later part can be approximated as a triangle as shown in Figure~\ref{fig:kicker-geometry}.
-Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
+The \lsnote{latter \sout{later}} part can be approximated \lsnote{using the \sout{as a}} triangle \lsnote{\sout{as}} shown in Figure~\ref{fig:kicker-geometry}.
+\lsnote{{\it Using that figure, tan(thetak) = ldrift/deltax, so it seems like you need ldrift/tan(thetak) in the  following equation, instead of a product.}} Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
 Combining these two terms, the equation for the x offset seen during the experiment
 can be written as:
 \begin{equation}

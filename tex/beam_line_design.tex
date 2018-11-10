@@ -560,7 +560,7 @@ Where the length of the kicker is \SI{1}{m} and the drift is \SI{0.28}{m}:
 	\Delta x = \SI{0.78}{m}\,\,\theta_{k}
 		\label{eq:kdx}
 \end{equation}
-In Equation~\ref{eq:kdx}, $\Delta x$, was measured and is the data shown in Figure~\ref{fig:linear}. 
+\lsnote{The position offset on the YAG screen due to the kicker \sout{In Equation~\ref{eq:kdx}}}, $\Delta x$, was measured and \lsnote{\sout{is}} the data \lsnote{is} shown in Figure~\ref{fig:linear}. 
 Note, the beam centroid location at kicker voltage $=0$, 
 represents the beam location on the YAG screen when the kicker is turned off.
 This is used as a reference point to calculate $\Delta x$ at each voltage value
@@ -604,11 +604,11 @@ A Gaussian fit was used for the beam core, and linear fits were used for the tai
 		Various kicker voltage settings were used and deflection of the beam was observed.}
 	\label{fig:kickerbeamsize}
 \end{figure}
-The kicker slightly increase the beam size in the kicked direction (x), 
+The kicker slightly \lsnote{increases \sout{increase}} the beam size in the kicked direction (x), 
 but the large discrepancy in the horizontal and vertical beam size can not be attributed to the kicker alone.
 If the asymmetries were due to the kicker only, they would not be present when the kicker is off.
 Persistence of the asymmetry when the kicker is off (voltage = 0) indicates 
-the sources of error is not an intrinsic problem associated with the kicker.
+the \lsnote{source \sout{sources}} of error is not an intrinsic problem associated with the kicker.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{./images/xybeamsizes_high_charge_kicker_scan_angle_asymmetric}
@@ -620,13 +620,13 @@ the sources of error is not an intrinsic problem associated with the kicker.
      \label{fig:beamsize}
 \end{figure}
 
-There are several possible sources of the asymmetric beam sizes. 
+There are several possible sources of the asymmetric beam \lsnote{size \sout{sizes}}. 
 These include the initial laser profile (which was not exactly symmetric
 when the data was taken), field strengths in the accelerating cavities, 
 and uncertainties in the quadrupoles strengths.
 The solenoid field is excluded due to a recent measurement of the magnetic field, 
 done by G. Ha and E. Wisniewski at the AWA. 
-To check the laser radius contribution, symmetric and asymmetric simulations were done.
+To check the laser radius contribution, \lsnote{simulations with} symmetric and asymmetric \lsnote{laser cross-sections \sout{simulations}} were done.
 The difference in the x beam size in these two cases was only \SI{0.3}{mm} rms. 
 Therefore, this is not the major contributing factor.
 
@@ -634,12 +634,12 @@ Next, several gradient values in the gun were simulated.
 This parameter had a strong impact on the beam sizes, with a range of \SI{1.5}{mm} 
 in the x direction and \SI{0.3}{mm} in the y direction.
 It's clear the field strength and asymmetries in the RF field map 
-are strongly affecting the results seen in Figure~\ref{fig:beamsize}.
+are strongly affecting the results \lsnote{presented \sout{seen}} in Figure~\ref{fig:beamsize}.
 Details of the simulation set up for these tests can be found in Appendix~\ref{gunsims}.
 The gradient that achieved the agreement seen in Figure~\ref{fig:beamsize} was \SI{55}{MV/m}.
 This is considerably lower than the reported AWA maximum gradient of \SI{85}{MV/m}.
 It is possible that the lower gradient and resulting asymmetric beam size effect is 
-distributed in lower gradients for the cavities. 
+\lsnote{due to a distribution \sout{distributed in} of} lower gradients \lsnote{in \sout{for}} the cavities. 
 In other words, perhaps the the gradient in the gun is not that low, but rather
 the gradients in the gun and all six linac cavities are slightly lower than expected.
 
@@ -656,7 +656,7 @@ be mitigated with precise control of the quadrupoles.
 
 \Section{TBA Beam Line}
 
-While  the  er and septum parameters were defined by the constraints discussed above, 
+While  the \lsnote{kicker \sout{er}} and septum parameters were defined by the constraints discussed above, 
 the optics must be used to address the aperture limits further down stream.
 There were three clear goals TBA beam line configuration: 
 \begin{itemize}
@@ -665,25 +665,25 @@ There were three clear goals TBA beam line configuration:
 	\item Arrange the beam line for quick and easy installation
 \end{itemize}
 
-With the third item addressed partially addressed in Section~\ref{theory}, 
+With the third item \lsnote{\sout{addressed}} partially addressed \lsnote{\sout{in} (see Section~\ref{theory})}, 
 it remained to determine if an optics solution exists that can satisfy the 
 first two requirements (transmission and bunch length). 
 In the case of bunch length, there was no set goal, but a clear understanding 
-that a shorter bunch will generate more power in the PETS structures [ref here].
-Regarding transmission, an aperture of \SI{17.6}{mm} exists at the PETS.
-This is roughly three times smaller than the rest of the beam line.
+that a shorter bunch will generate more power in the PETS structures [ref here]. \lsnote{{\it <-Put in a reference or remove} Since the PETS 
+\sout{Regarding transmission, an}} aperture of \SI{17.6}{mm} \lsnote{\sout{exists at the PETS.
+This}} is roughly three times smaller than the rest of the beam line, \lsnote{care must be taken to achieve  good transmission there.}
 
-As a first check, a point to point matrix calculation was done 
+As a first check \lsnote{of the rough design}, a point to point matrix calculation was done 
 to determine if the beam size could be maintained near the kicker.
-Next the information presented in Chapter~\ref{simulations} was used to form the 
-base line of further optimization efforts. The genetic algorithm in OPAL
-was used to explore and optimize the optics in the TBA beam line.
+Next the \lsnote{simulation studies \sout{information}} presented in Chapter~\ref{simulations} \lsnote{were \sout{was}} used \lsnote{as a \sout{to form the}} 
+base line \lsnote{for \sout{of} the final \sout{further}} optimization. \lsnote{\sout{efforts.}} The genetic algorithm in OPAL
+was used to \lsnote{achieve \sout{explore and optimize}} the optics design \lsnote{required for \sout{in the} testing fully staged TBA. \sout{beam line.}}
 Solutions were found that meet the requirements listed above.
 
 
 
 \Subsection{Point to Point Check}
-The effect of a beam line component (such as a dipole, quadrupole, or straight beam pipe) on the phase space coordinates of a particle can be modeled as a matrix operator~\cite{brown,Wiedemann}.  These building blocks may be `stacked' to model the effect of an entire beam line, or section of a beam line, on the coordinates of a  particle.  
+The effect of a beam line component (such as a dipole, quadrupole, or straight beam pipe) on the phase space coordinates of a particle can be modeled as a matrix operator~\cite{brown,Wiedemann}.  These building blocks may be `stacked' to \lsnote{determine \sout{model}} the effect of an entire beam line, or section of a beam line, on the coordinates of a  particle.  
 These common building blocks were used as a check that the 
 beam properties after the first four quadrupoles 
 would allow transport through the kicker (see Figure~\ref{fig:full-staging}),
@@ -707,7 +707,7 @@ by establishing that the beam size could be maintained near the kicker during tr
 Four quadruple strengths and the five distances between the quadrupoles are parameters under consideration. 
 To reduce the number of variables from ten to four, the drift lengths are set to be sums of focal lengths, as in
 the quadruplet telescope module described by K. Brown in \cite{brown}.  
-The transfer matrix R, defined as:  
+The transfer matrix R, \lsnote{is} defined as:  
 \begin{equation}
 	R_q =  R_{d5}  \cdot R_{q4} \cdot   R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1} 
 \label{kb1}
@@ -769,12 +769,12 @@ the currently installed hardware at the AWA.
 \begin{equation}
 \frac{1}{f} = kl 
 \end{equation}
-Where $l$ is the quadrupole's effective length, and k is the gradient w.r.t 
-the beam energy and magnet strength \cite{Wiedemann}:
+Where $l$ is the quadrupole's effective length, and k is the gradient \lsnote{with respect to \sout{w.r.t}} 
+the beam energy and magnet strength \cite{Wiedemann}: \lsnote{{\it There is a problem with the units in the following equation.  k should have units of $1/m^{2}$, so that kl has units of 1/m.  It looks like you have a mix of the $1/Brho$ and $e/p$ forms.}}
 \begin{equation}
 k = \SI{0.2998}{} \frac{g[\SI{}{T/m}]}{p [\SI{}{GeV/c}]}\label{k}
 \end{equation}
-The beam energy must also be accounted for with the dimensions of the quadrupole. 
+The beam energy \lsnote{and the effective length of the quadrupole are needed for a numerical estimate of the quadrupole gradient needed to maintain the beam size at the kicker. \sout{must also be accounted for with the dimensions of the quadrupole.}} 
 Given an energy of \SI{65}{MeV}, a quadrupole length of \SI{11}{cm}, 
 and Equation~\ref{k} we can calculate this configuration would require a 
 magnet strength of \SI{\pm4.14}{T/m}. This is feasible considering the 
@@ -815,11 +815,11 @@ With the kicker and septum design set,
 and the basic geometry of the beam line laid out, 
 an optimization of the beam line optics was performed.
 This was done for two reasons. First, to confirm that solutions 
-exist at \SI{40}{nC} where the beam is transmitted 100\% through the PETS structure in the deflected beam line.
+exist at \SI{40}{nC} \lsnote{that allow \sout{where}} the beam \lsnote{to be \sout{is}} transmitted \lsnote{at} 100\% through the PETS structure in the deflected beam line.
 Second, from the set of feasible solutions, the optics designs with the smallest bunch lengths should be identified.
 These two conditions combined will provide an optics solution that provides the most power output from the PETS structure for acceleration of the witness beam. 
 
-The built in GA in OPAL was again used for these simulations. 
+The\lsnote{built-in \sout{built in}} GA in OPAL was again used for these simulations. 
 Several rounds of optimizations were tried and many failed for various reasons, 
 some of which include:
 \begin{itemize}
@@ -835,7 +835,7 @@ All iterations can be found in the following repository:
 \end{center}
 which also houses all plotting and simulation scripts used in this chapter.
 
-Some draw backs of using a GA, is that many simulation parameters 
+Some \lsnote{drawbacks \sout{draw backs}} of using a GA, \lsnote{are \sout{is}} that many simulation parameters 
 must be decided empirically after trial and error.
 This can be computationally expensive, 
 and there is no clear guidance on what type of problem set up will be 
@@ -875,20 +875,20 @@ The most successful optimization problem to date entailed minimizing the
 Three constraints were used to limit the maximum beam size and asymmetry (transverse roundness) considered by the algorithm.
 The difference in x and y was included as a constraint, because failed optimization runs in the 
 past had converged on solutions that had a very small beam size in x, and an unrealistic and large 
-beam size in the y. This constraint was added to avoid this error.
+beam size in \lsnote{\sout{the}} y. This constraint was added to avoid this error.
 In general, constraints serve as a way to eliminate clearly undesirable results and exclude them 
 from the algorithm that determines which individuals are fit.
 
 All objectives and constraints are shown in Table~\ref{tab:opt-tba-obj}. 
-Constraints were evaluated at the entrance of the kicker \SI{16.5}{m}, and
+Constraints were evaluated at the entrance of the kicker \lsnote{at} \SI{16.5}{m}, and
 objectives were minimized \SI{19.4}{m} after the cathode. 
 \begin{table}%[h!]
 	\begin{center}
 		\caption{Objectives (beam parameters of interest) and constraints used during large scale optimization runs.
 		Constraints were evaluated at \SI{16.5}{m} (entrance of the kicker).
 		If the simulation results did not meet the constraints, the GA ignored those results.
-		All six objectives were minimized simultaneously during the GA runs at \SI{19.5}{m}.
-	(entrance of the fifth quadrupole)}
+		All six objectives were minimized simultaneously during the GA runs at \SI{19.5}{m}\lsnote{,\sout{.}}
+	(entrance of the fifth quadrupole)\lsnote{.}}
 		\label{tab:opt-tba-obj}
 		\rowcolors{2}{blue!10}{white}   
 		\begin{tabular}{lc}
@@ -919,9 +919,9 @@ objectives were minimized \SI{19.4}{m} after the cathode.
 	\end{tabular}
 	\end{center}
 \end{table}
-In other words, the first quadrupole between the septum and kicker, see Figure~\ref{fig:full-staging}.
+\lsnote{That is the location of \sout{In other words,}} the first quadrupole between the septum and kicker, see Figure~\ref{fig:full-staging}.
 Optimizing at this location helps reduce dispersion by minimizing 
-the energy spread before it enters the $15^\circ$ bend that straightens out 
+the energy spread before \lsnote{the beam \sout{it}} enters the $15^\circ$ bend that straightens out 
 the deflected beam line, see Figure~\ref{fig:full-staging}.
 This helps reduce transverse beam size growth in the last dipole.
 \begin{table}%[h!]
@@ -974,7 +974,7 @@ can be found in Appendix~\ref{opt-tba-code}.
 \end{table}
 The OPAL input file and other files needed to run simulations on the ANL cluster 
 can be found in the repository listed above.
-Details of how the magnet settings, phases, and element locations defined 
+Details of how \lsnote{to specify} the magnet settings, phases, and element locations defined 
 in Table~\ref{tab:variables} are also in the repository.
 
 
@@ -1013,7 +1013,7 @@ limiting factor in areas with tight apertures such as the PETS.
 \end{figure}
 Note the two curves in Figure~\ref{fig:tba-paretoxy}, may not represent the same 
 design variables for a point to point comparison. A Pareto analysis always 
-chooses the best points w.r.t the objectives chosen. This guarantees no 
+chooses the best points \lsnote{with respect to \sout{w.r.t}} the objectives chosen. This guarantees no 
 relationship between all objectives. 
 For example, the smallest beam size in y, at less than \SI{0.35}{mm} on Figure~\ref{fig:tba-paretoxy}, 
 may not have the same input parameter settings for the matching solenoid or quad strengths, as the smallest x position 
@@ -1022,7 +1022,7 @@ may or may not be the best optics scenario for the y dimension.
 
 With this in mind, the Pareto front was re-plotted in Figure~\ref{fig:tba-pareto} 
 with one key difference. The y values were forced to coincide with the same 
-design variables used in the x dimension. The same was done for bunch length.
+design variables used in the x dimension. The same was done for bunch length.  \lsnote{{\it I am confused here: you say `bunch length' (referring to Fig. 4.20) but the plots don't have the bunch length anywhere on them, only the transverse momentum spread.  Maybe you mislabeled them?  Otherwise the following comment on power generation is not supported.  If the bunch length really is not on figure 4.20 - then what bunch lengths correspond to those data points?  Basically, if not on plot, you need to specifically tell reader what the corresponding bunch lengths were - if only by saying that all points in Figure 4.20 had bunchlength of less than 2mm.}}
 Now a true point to point comparison is possible in these plots.
 We chose the values of momentum spread to coincide with small horizontal beam size, 
 since this was more difficult to achieve than small vertical beam size, see Figure~\ref{fig:tba-paretoxy}. 
@@ -1031,7 +1031,7 @@ since this was more difficult to achieve than small vertical beam size, see Figu
 	\includegraphics[width=0.5\textwidth]{./images/xz_vs_px_pareto_front_Q5}%
 	\includegraphics[width=0.5\textwidth]{images/xy_vs_px_pareto_front_Q5}
 	\caption{Simulated Pareto front of beam sizes vs. momentum.
-		Adjusted to force y beam sizes and bunch length to correspond to same design variables 
+		Adjusted to force y beam sizes and bunch length \lsnote{{\it but no bunchlength in plots, so need a comment on that}} to correspond to same design variables 
 		as the x beam sizes.
 		This data was a result of the simulation setup in Section \ref{setup}.}
 	\label{fig:tba-pareto}
@@ -1044,7 +1044,7 @@ Note, the horizontal beam sizes are not as small as in Figure~\ref{fig:xz-pareto
 but this is considered acceptable given the improved bunch length values.
 There is truly a "trade-off" to be made between the two.
 Table~\ref{tab:designopt}, shows a summary of 
-design variables and beam sizes for Figure~\ref{fig:tba-pareto}.
+design variables and beam sizes for Figure~\ref{fig:tba-pareto}.  \lsnote{{\it There are no beam sizes in the table, except bunch length.  Also, table caption says Input parameters, but the bunch length is not an input parameter.}}
 \begin{table}%[h!]
 	\begin{center}
 		\caption{Input Parameters for large scale TBA optimization runs.
@@ -1070,7 +1070,7 @@ design variables and beam sizes for Figure~\ref{fig:tba-pareto}.
 \end{table}
 Since 100\% transmission is the main goal at this point, 
 the max beam size along the beam line was plotted for these optimized points.
-The results in Figure~\ref{fig:optresults} are promising, they indicate the optics 
+The results \lsnote{shown} in Figure~\ref{fig:optresults} are promising, they indicate the optics 
 can be well controlled through the kicker, septum, and leading into the staging area.
 \begin{figure}
 
@@ -1087,7 +1087,7 @@ can be well controlled through the kicker, septum, and leading into the staging 
 	\label{fig:optresults}
 \end{figure}
  
-The best scenario, corresponding to a matching strength of \SI{197}{A}, was then explored further.
+The best scenario, corresponding to a matching \lsnote{solenoid} strength of \SI{197}{A}, was then explored further.
 With guidance from some of the failed runs described in Section~\ref{failed}, 
 strengths of \SI{-2.0}{A} and \SI{1.25}{A} were chosen respectively for 
 quadrupoles 5 and 6. The rest of the beam line was simulated to the PETS location. 
@@ -1097,7 +1097,7 @@ These results are promising for several reasons.
 The two obvious benefits to this solution are transmission and beam size. 
 More subtle, but still significant is the value of the quadrupole strengths.
 All of the optimized settings in Table~\ref{tab:designopt} are far from the 
-extreme limits of the magnetic, meaning there is plenty of wiggle room to adjust 
+extreme limits of the \lsnote{magnets \sout{magnetic}}, meaning there is plenty of wiggle room to adjust 
 the magnets during an experiment. This is important, because not all effects are 
 included in this simulation. 
 \begin{figure}
@@ -1116,29 +1116,29 @@ Up to this point, the optimization and and simulations have taken place using
 were calculated, and asymmetries in the fields are expected to change the 
 results as shown earlier in Figure~\ref{fig:beamsize}.
 These two effects were left out in early simulations as they significantly 
-increase the time to simulation. This would lengthen the amount of time 
+increase the time to simulation. \lsnote{These effects \sout{This}} would lengthen the amount of time 
 needed to run the GA to over 4 or 5 days.
 Therefore, a 2D study was done first, and the solution checked.
-A second simulation of the same design variables was done including 
+\lsnote{Then another \sout{A second}} simulation \lsnote{using \sout{of}} the same design variables was done \lsnote{that included \sout{including}} 
 3D RF field maps and CSR effects, see Figure~\ref{fig:3D}. 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25_CSR.stat}.pdf}%
 	\includegraphics[width=0.5\textwidth]{{images/zrms-optLinac-40nC_IM=197_IBF=478_KQ1=-0.8_KQ2=0.9_KQ3=0.8_KQ4=-1.0_KQ5=-2.0_KQ6=1.25_CSR.stat}.pdf}%	
-	\caption{Simulation of the optimized settings in Table~\ref{tab:designopt} with CSR and 3D field maps.
+	\caption{Simulation of the optimized settings in Table~\ref{tab:designopt} with CSR and 3D field maps \lsnote{included}.
 	 Significant focusing/defocusing is observed, and particles are lost starting at the kicker.
 	}
 	\label{fig:3D}
 \end{figure}
 Asymmetries in the RF field maps are causing additional focusing in the horizontal direction
 and defocusing in the vertical direction. The optics need to be adjusted to compensate for 3D effects, 
-and given the solution in 2D, there is plenty of range on the solenoid and quadrupoles to do this.
-A scan of the matching solenoid was done to try to reduce the over focusing in the horizontal direction
-see the updated 3D beam line simulation in Figure~\ref{fig:adjsol}.
+\lsnote{however, the 2D solution indicated that \sout{and given the solution in 2D,}} there is plenty of range on the solenoid and quadrupoles to do this.
+A scan of the matching solenoid was done to \lsnote{\sout{try to}} reduce the over focusing in the horizontal direction\lsnote{(}
+see the updated 3D beam line simulation in Figure~\ref{fig:adjsol} \lsnote{)}.
 \begin{figure}
 	\includegraphics[width=0.5\textwidth]{{images/xy-max-min-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat}.pdf}
 	\includegraphics[width=0.5\textwidth]{{images/zrms-csr_optLinac-40nC_IM=210_IBF=500_KQ1=-1.5_KQ2=1.6_KQ3=1.5_KQ4=-1.7_KQ5=-2.0_KQ6=1.25.stat}.pdf}
-	\caption{Simulation of full beam line using optimized quad setting, 
+	\caption{Simulation of full beam line using optimized quad \lsnote{settings \sout{setting}}, 
 		3D RF field maps, and CSR. The solenoid strength was adjusted to compensate 
 		for focusing in the linac due to 3D fields.}
 	\label{fig:adjsol}
@@ -1161,7 +1161,7 @@ Several design exercises took place to determine the TBA layout at the AWA.
 A stripline kicker was designed using first principles and simulations. 
 It was fabricated and assembled at ANL with some parts purchased from third party vendors.
 The kickers ability to maintain high voltage was tested with the help of staff members at the APS.
-They also added in performing a Time Domain Reflectometer (TDR) measurement to characterize 
+They also \lsnote{aided \sout{added}} in performing a Time Domain Reflectometer (TDR) measurement to characterize 
 the impedance of the kicker, feedthrough, and cable connections. 
 A mismatch at the connection point between the kicker plates and feedthroughs was discovered.
 While the mismatch reduces the available voltage between the plates, it is not a danger to 

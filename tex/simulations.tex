@@ -394,7 +394,7 @@ but this is not applicable in situations of complex dynamics.
 Finally, trust-region refers to the bounds on our input variables.
 There are physical constraints on the magnet and RF values we 
 can achieve in the real world. This information is used 
-to bound the optimization work in a "trust-region", so that
+to bound the optimization work in a ``trust-region'', so that
 effort is not wasted in an infeasible search space.
 A strength of model based methods is their efficient use of function evaluations. 
 
@@ -405,7 +405,7 @@ is called a genetic algorithm (GA). An implementation of this algorithm is
 \lsnote{built \sout{build}} into OPAL. GA's follow nature's lead as the name suggests.
 A random sample is done, and the best points based \lsnote{on} the defined objectives
 (i.e. emittance, bunch length, beam size, etc.)
-are selected. Those points are then mixed to form a new "generation"
+are selected. Those points are then mixed to form a new ``generation''
 and a new round of simulations is started. This method continues
 until some convergence criteria \lsnote{are \sout{is}} met. While this method does 
 produce results, and is widely used, it requires large amounts 
@@ -637,7 +637,7 @@ The raw $\epsilon_x(v,z_1)$ and $\sigma_z(v,z_1)$ sample values were then
 shifted and scaled to produce $\bar{\epsilon}_x(v,z_1)$, and $\bar{\sigma}_z(v,z_1)$,
 which have a minimum value of 0 and a maximum value of 1 over the 132-point sample set. That is, 
 \begin{equation}
-\bar{\epsilon}_x (v,z_1) = \frac{ \epsilon_x (v,z_1) - \epsilon_{\min} } { \epsilon_{\max} - \epsilon_{\min} }
+\bar{\epsilon}_x (v,z_1) = \frac{ \epsilon_x (v,z_1) - \epsilon_{\min} } { \epsilon_{\max} - \epsilon_{\min} }\, ,
 \label{eq:scale}
 \end{equation} 
 and $\bar{\sigma}_z (v,z_1)$ is defined similarly.
@@ -647,7 +647,7 @@ emittance and bunch length when optimizing.
 With the scaled values of $\bar{\epsilon}_x$ and $\bar{\sigma}_z$, a sequence
 of eleven optimization problems were solved by minimizing,
 \begin{equation}
-f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)
+f(v,w) = w \,\bar{\epsilon}_x(v,z_1) + (1-w)\, \bar{\sigma}_z(v,z_1)\, ,
 \label{eq:newobj}
 \end{equation}
 for $w \in \left\{ 0, 0.1, \ldots, 1 \right\}$. 

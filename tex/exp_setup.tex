@@ -38,7 +38,7 @@ that are separated into independent beam lines by a fast rise time kicker and se
 	\end{center}
 	\caption{AWA Facility bunker and simplified TBA staging layout. 
 		The drive beam line (right) supplies high charge bunch trains at \SI{70}{MeV}.
-		The witness beam line (left) supplies low charge one bunch at \SI{15}{MeV}. 
+		The witness beam line (left) supplies \lsnote{a} low charge \lsnote{single \sout{one}} bunch at \SI{15}{MeV}. 
 		CAD drawing of bunker courtesy of Scott Doran at AWA.}
 	\label{fig:bunker}
 \end{figure}
@@ -53,8 +53,8 @@ that are separated into independent beam lines by a fast rise time kicker and se
 		PETS stands for Power Extraction and Transfer Structure, and ACC stands for Accelerating structure. 
 		The subscript on each structure refers to which stage the structures belong to (first or second). 
 		In the simplified staging scheme the stages are not separated, meaning bunch train two travels
-		through and loses energy in the first stage before reaching the second stage.
-		This is prevented by separate beam lines in the full staging layout. }
+		through and loses energy in the first stage before reaching the second stage \lsnote{(top subfigure)}.
+		This is prevented by separate beam lines in the full staging layout \lsnote{(bottom subfigure)}. }
 	\label{fig:singlestage}
 \end{figure}
 
@@ -80,7 +80,7 @@ takes place in a complex network of UV optics located near the drive
 gun. The optics setup is called a beam splitter, or mulitsplitter,
 and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. 
 This timing is the repetition rate of the machine. 
-A simplified diagram of this is timing is shown in Figure~\ref{fig:lasertiming}, 
+A simplified diagram of \lsnote{the laser pulse propagtion \sout{this is timing}} is shown in Figure~\ref{fig:lasertiming}, 
 and a picture of the AWA multisplitter table is shown in Figure~\ref{fig:optics}. 
 Optimization of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
 \begin{figure}
@@ -101,8 +101,8 @@ Optimization of the UV optics was performed and is detailed in Section \ref{sec:
 	When in the multisplitter, the original laser pulse is split into a pulse train of
 	2, 4, 8, or 16 pulses. 
 	The intensity of original laser pluse is equal to the sum of all members in the pulse train.
-	The spacing in the pluse train is one period of the RF supplied to the cavities,
-	which is \SI{1.3}{GHz} or \SI{769}{ps}. }
+	The spacing in the pluse train is one period of the \lsnote{sinusoidal} RF \lsnote{voltage} supplied to the cavities,
+	which is \SI{1.3}{GHz} \lsnote{\sout{or} (T=}\SI{769}{ps}\lsnote{)}. }
 	%\label{inter}
 	%\caption{Bolometer. }
 	\label{fig:lasertiming}
@@ -165,7 +165,7 @@ Several configurations were tested this way: S-polarization, P-polarization,
 and laser incident on the back or front of the coating. 
 Whether the laser pulse hit the front or back of the optic
 had no measurable effect on the T/R ratio. Polarization did have a significant effect on
-the results, which led to more careful observation of this in the future.
+the results, which led to more careful observation of this in the future.  \lsnote{{\it <- previous sentence does not make sense - `led' past tense referring to observations that are still in the future?}}
 Table~\ref{tab:reflection} shows the $\pm 5\%$ splitters ratio measurments. 
 \begin{table}%[hbt]
 	\begin{center}
@@ -189,7 +189,7 @@ Table~\ref{tab:reflection} shows the $\pm 5\%$ splitters ratio measurments.
 \end{table}
 This caused an uneven laser intensity distribution, as the bunch intensity depends on the path 
 it takes through the multisplitter optics. Pulses that were reflected more than one
-time could have significantly lower intensities than other bunches. 
+time could have significantly lower intensities than other bunches.  \lsnote{{\it <-This statement and the one after stating T/R = 55/45 do not match with the table headings - in the table transmission is smaller.}} 
 Consider the path of laser pulse four as shown in Figure~\ref{fig:tikz}. 
 The pulse is transmitted through splitters 1, 2, and 4, but is reflected by splitter 3.
 \def \delayvertical {1.5}
@@ -254,7 +254,7 @@ in Fig~\ref{fig:tikz} the laser pulse is transmitted four times and reflected on
 \begin{equation}\label{eq:i4}
 I_4 =  T \cdot R \cdot T \cdot T \cdot T \cdot I_0 \approx 0.41 I_0.
 \end{equation}
-Therefore, this pulse would have a fairly high laser intensity, because it was transmitted multiple times. 
+\lsnote{{\it That equation result is wrong unless I am missing something.  If you go through a splitter, you have about half the original intensity.  Four splitters would give about 6 percent not 41 percent.  Same comment for equation below.}} Therefore, this pulse would have a fairly high laser intensity, because it was transmitted multiple times. 
 In the worst case, the laser pulse could be reflected ($45\%$) three times and transmitted ($55\%$) twice: 
 \begin{equation}\label{eq:i6}
 I_6 =  T \cdot R \cdot R \cdot R \cdot T \cdot  I_0 \approx 0.28 I_0.
@@ -266,7 +266,7 @@ As a result, it was necessary to investigate methods to improve the intensity di
 \Subsection{New UV Splitters}
 To improve the intensity distribution, splitters with a tolerance of $50\%\pm3\%$ were purchased, 
 installed, and the laser energy was measured again. The quality of the splitters was near tolerance 
-again, and the bias leaned toward reflection, $T/R \approx 47/53$. With the bias now reversed, 
+again, and the bias leaned toward reflection, $T/R \approx 47/53$. \lsnote{{\it Those numbers do match your table, but table caption says it is for the 5 percent splitters.}} With the bias now reversed, 
 the trend in intensity distribution was also reversed. The possibility of using a combination 
 of splitters from the $\pm3\%$ and $\pm5\%$ sets was explored. 
 Using a Python script to compare all possible combinations, it was determined that using only 
@@ -275,7 +275,7 @@ $\pm3\%$ splitters would result in the lowest variation in intensity.
 \Subsection{Train Intensity Measurements}
 The train intensity for an eight-pulse laser train was measured using the $\pm5\%$ and $\pm3\%$ splitters.
 A train of sixteen will be used for TBA experiments, but eight was chosen for these measurements to
-simplify the experimental setup, and reduced interruption to beam time 
+simplify the experimental setup, and \lsnote{to reduce \sout{reduced}} interruption to beam time 
 runs which were using the four splitter setup. 
 \begin{figure}%[h]
 	\begin{center}
@@ -286,9 +286,9 @@ runs which were using the four splitter setup.
 	\end{center}
 \end{figure}
 Equations~\ref{eq:i4} and~\ref{eq:i6} don't account for mirror losses in the delay legs, 
-a lower value is expected in experimental measurments. The path of laser pulse one and
-pulse four in the train can be described by an updated version of Equation~\ref{eq:i4}.
-The number of splitters is reduced to four, and both pulses are transmitted three 
+\lsnote{so} a lower \lsnote{pulse intensity \sout{value}} is expected in experimental measurments. The path of laser pulse one and
+pulse four in the train can be described \lsnote{in the format \sout{by an updated version}} of Equation~\ref{eq:i4}.
+The number of splitters is \lsnote{\sout{reduced to}} four, and both pulses are transmitted three 
 times and reflected once: 
 \begin{align}
 I_1 = R \cdot T \cdot T \cdot T \cdot I_0 \\
@@ -308,7 +308,7 @@ an improvement in laser pulse uniformity of 16.5\% was achieved.
 This results in more uniform electron bunch trains, which means bunches 
 of similar charge are delivered downstream. 
 Since the power output in the PETS is a function of charge and bunch length, 
-increased uniformity in the bunch train furthers the goals of TBA 
+increased uniformity in the bunch train furthers the goals of \lsnote{demonstrating} TBA 
 by helping provide more consistent power output from the PETS.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -317,7 +317,7 @@ by helping provide more consistent power output from the PETS.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In order to accurately simulate the RF fields in the cavities on the drive and witness line, 
+In order to accurately simulate the RF fields in the \lsnote{linac} cavities \lsnote{and gun} on the drive and witness line, 
 a set of detailed measurements were done to determine the power in each RF cavity.
 These measurements are important, for several reasons. 
 First, there are limited records at the AWA of these values in the past.
@@ -326,12 +326,12 @@ with respect to the other cavities.
 Ideally each cavity would be supplied the same amount of power, 
 but as with all experimental hardware, the waveguide network is not ideal.
 Two or more cavities are fed by one klystron which requires a network of 
-power splitters and attenuators. If the power is split exactly, the ratio 
+power splitters and attenuators. If the power is \lsnote{not} split \lsnote{evenly \sout{exactly}}, the ratio 
 of power delivered to each cavity may be different. 
 The amount of attenuation in the subsequent waveguide after the spitter could
-also be the source of power difference at the cavities.
+also be \lsnote{a \sout{the}} source of power difference at the cavities.
  
-In an effort to understand these differences, 
+In an effort to \lsnote{determine \sout{understand}} these differences, 
 power measurements of the drive gun, and linac tanks 
 one through six on the drive line were taken.
 The next sections detail the calibration used during power measurements and the 
@@ -342,7 +342,7 @@ There is a significant length of cable that connects the cavities to the control
 Since no cable is a perfect conductor, they do add attenuation to any signal propagated
 and measured after the cables.
 This attenuation needs to be accounted for so that the power measurements 
-taken are not misleading. The cable effects can be taken into account
+\lsnote{\sout{taken}} are \lsnote{accurate \sout{not misleading}}. The cable effects can be taken into account
 by comparing a reference single supplied directly to the power meter
 versus the reference single passed through the cables and then supplied to the power meter.
 To do this comparison, a signal generator was placed in the tunnel, see Figure~\ref{fig:signalgenerator}. 
@@ -401,7 +401,7 @@ signal generator. The resulting power was $P_s=\SI{-8.92}{dBm}$}
 			({\leftside+3},\topbox) node[pos=0.5, align=center] {Meter};
 		\end{circuitikz}
 	\end{center} 
-	\caption{Experimental setup when calibrating the cables from gun to control room. 
+	\caption{Experimental setup when calibrating \lsnote{\sout{the}} cables from \lsnote{the} gun \lsnote{location} to \lsnote{the} control room. 
 		Where $C_1$ is a short blue heliax, $C_2$ is a long heliax to the control room, 
 		and $C_3$ is a short yellow heliax to the 6 GHz scope or power meter.}
 	\label{fig:tikzcalibration}
@@ -413,15 +413,15 @@ the tunnel from the signal generator was $P_s = \SI{-8.92}{dBm}$, so the
 attenuation is $\SI{0.56}{dB}$. 
 
 \Subsection{Drive Gun Measurements}\label{gunenergy}
-After the cable calibration, the setup was returned to typical rf conditions as 
-shown in Figure~\ref{fig:tikzdrivegun}. This includes $\SI{53.2}{dB}$ from the pick 
-up probe itself, a $\SI{36}{dB}$ additional attenuation connected to the 
-drive gun pick up probe, followed by a long heliax to the 
-control room. The signal split in the control room with a mini-circuit ZFRSC-123-S+. 
+\lsnote{A power measurement was done to determine the accelerating gradient in the gun.}
+After the cable calibration, the setup was returned to typical \lsnote{operating \sout{rf}} conditions as 
+shown in Figure~\ref{fig:tikzdrivegun}. This includes $\SI{53.2}{dB}$ from the \lsnote{gun pickup \sout{pick up}} probe itself, a $\SI{36}{dB}$ additional attenuation \lsnote{from the pickup \sout{connected to the 
+drive gun pick up}} probe \lsnote{cable}, followed by a long heliax to the 
+control room. The signal \lsnote{is} split in the control room with a mini-circuit ZFRSC-123-S+. 
 Links to the specification sheets of all splitters used in this chapter can be found in Appendix~\ref{rf}.
 One port is used for Low Level RF (LLRF) control, and the other port was connected to a short 
 heliax, $C_3$, then to a $\SI{10}{dB}$ attenuator and finally to the 
-power meter. Normally a load is placed at port two when no power meter is connected. 
+power meter. Normally a load is placed at port two when \lsnote{a \sout{no}} power meter is \lsnote{not} connected. 
 Next, the klystrons and phase shifters were set to supply 
 maximum power to the gun, typical of TBA running conditions. 
 \def \delayvertical {1.5}
@@ -472,7 +472,7 @@ maximum power to the gun, typical of TBA running conditions.
 	\end{center} 
 	\caption{Experimental setup when measuring power from gun to control room. 
 		Where $\SI{53.2}{dB}$ of attenuation is due to the gun probe itself, 
-		$\SI{36}{dB}$ of additional attenuation is attached to gun pick up probe cable in the tunnel, 
+		$\SI{36}{dB}$ of additional attenuation is \lsnote{from the \sout{attached to}} gun \lsnote{pickup \sout{pick up}} probe cable in the tunnel, 
 		$C_2$ is a long heliax to the control room. The $\SI{9.5}{dB}$  splitter sends half the signal to the   
 		low level RF (LLRF) control system, and half to the power meter. 
 		$C_3$ is a short yellow heliax that connects the meter to the splitter and on to the 6 GHz scope or power meter.}
@@ -525,11 +525,11 @@ Using the measurements above, this gives an estimate for the gradient in the gun
 Next the power levels in the six linear accelerating (linac) cavities after the gun
 were investigated. Information on the power ratio between cavities can 
 guide simulation work. It is especially important to know if one cavity
-has more or less power in the first two or three tanks, when the beam is 
+has more or less power in the first two or three tanks, when the beam is \lsnote{at}
 lower energy and more susceptible to these differences.
 Each are connected to the control room in the same way as the gun. 
-The only differences are in the attenuation at the pick up probe and 
-the splitter attenuation. Using the methods in section \ref{gunenergy}, 
+The only differences are in the attenuation at the \lsnote{pickup \sout{pick up}} probe and 
+the splitter attenuation. \lsnote{The pickup probe attenuation is known only for cavities four and six.} Using the methods in section \ref{gunenergy}, 
 and the attenuation values, we can calculate the power in linac cavity four:
 \begin{table} %or [hbt] ?
 	\caption{\label{tab:powerlinac} Power and attenuation values for the 
@@ -562,8 +562,8 @@ P_4 = \SI{-61.95}{dBm} + \SI{33}{dB} + \SI{0.56}{dB} + \SI{9.5}{dBm} +\SI{10}{dB
 %is followed ... 
 %\nrnote{need to finish this paragraph}
 
-Four and six are the only cavities we can calculate the gradient for, 
-but the measurements still give us an idea of which cavities are receiving more power.
+Four and six are the only cavities \lsnote{for which the gradients can be calculated \sout{we can calculate the gradient for}}, 
+but the measurements still give \lsnote{\sout{us}} an idea of which cavities are receiving more power.
 For example, since linac cavity 2, 4, and 5 all share the same splitter, 
 we can compare those measurements. It appears that cavity 5 is receiving about 
 \SI{1}{dBm} more than 2 and 4. Comparing 3 and 6 indicates a larger discrepancy 
@@ -574,9 +574,9 @@ With this information, simulations can be adjusted so that linac tanks
 
 \Section{Beam diagnostics}
 
-There are several beam diagnostics that have and will continue to be used in 
-TBA experiments at the AWA. They include beam size, energy, bunch length, 
-and emittance measurements. The first three will be discussed in detail 
+There are several \lsnote{types of} beam diagnostics that \lsnote{are \sout{have and will continue to be}} used in 
+TBA experiments at the AWA. They include \lsnote{instrumentation to measure} beam size, energy, bunch length, 
+and emittance \lsnote{\sout{measurements}}. The first three \lsnote{diagnostics} will be discussed in detail 
 in the following sections. 
 %\nrnote{need to elaborate here...}
 
@@ -628,15 +628,15 @@ Once the beam is centered through the quads on YAG screen 1,
 the dipole is then turned on to bend the beam.
 The two YAG screens are positioned so that when the dipole is off, 
 a centered beam will hit YAG screen 1. When the dipole is turned
-on, the beam is made to appear at the center of YAG screen 2 corresponding to a 
-beam bent $20^\circ$. In this way, the dipole strength needed to center the beam and YAG screen 2 can 
+on, \lsnote{its strength is adjusted until} the beam \lsnote{\sout{is made to appear} appears} at the center of YAG screen 2, corresponding to a 
+\lsnote{\sout{beam bent}} $20^\circ$ \lsnote{bend}. In this way, the dipole strength needed to center the beam \lsnote{on \sout{and}} YAG screen 2 can 
 then be used to determine the beam energy.
 
 \Subsection{Energy Calculation}
 Based on the procedure above, there is one number which is used to back calculate the mean energy. The current
 supplied to the dipole is determined by the number of ``counts''
 keyed into the control system. A count-to-current conversion
-is calculated based on the measurements shown in Table \ref{tab:counts}.  
+is calculated based on the measurements shown in Table \ref{tab:counts}. \lsnote{{\it Based on what measurments?  I don't know what you are talking about here.  The calibration of the counts to current cannot be based on beam energy measurements, since the beam energy is unknown unless the magnet is already calibrated.}}
 \begin{table}
 	\centering
 	\caption{Counts to current data for the first dipole in the drive beam line.}
@@ -656,7 +656,7 @@ is calculated based on the measurements shown in Table \ref{tab:counts}.
 		\bottomrule
 	\end{tabular}
 \end{table}
-Then the B-field is calculated given the current: 
+Then the B-field is calculated given the current: \lsnote{{\it Some explanation of where those numbers in the following equation come from is needed.}}
 \begin{equation}
 	\SI{}{B\,[T]} = (180.9708\cdot \SI{}{I\,[A]} - 7.2053)\cdot 10^{-4}.
 	\label{eq:b}
@@ -677,7 +677,7 @@ Then the B-field is calculated given the current:
 \end{figure*}\label{fig:dipole-geometry}
 There are several geometric calculations that need to be done using the magnetic field value
 before we can calculate the energy. The dipole geometry and variables used are shown in Figure~\ref{fig:dipole-geometry}.
-The radius of curvature, $\rho$, can be calculated using the geometric equation for sin, and 
+The radius of curvature, $\rho$, can be calculated using the \lsnote{geometry shown in the figure, \sout{geometric equation for sin,}} and 
 will include the effective length of the dipole, L, and bending angle, $\theta$:
 \begin{equation}
 	\rho = \frac{L}{2\cdot \sin(\frac{\theta}{2})}.
@@ -693,22 +693,23 @@ the magnetic field, B, and the beam momentum can be related: %\nrnote{\it check 
 	p\SI{}{\,\left[\frac{MeV}{c}\right]} = \frac{B\cdot \rho}{3.3356}\cdot 10^3.
 	\label{eq:pdipole}
 \end{equation}
-The total energy is then calculated by including the rest mass of the electrons \cite{Griffiths}:
+\lsnote{{\it I am suspicious of the above equation.  First of all, is B in Tesla or Gauss?  Secondly, since p is in MeV/c, then I think the numerical factor should be $1x10^{-6}$ if B is in Tesla.  Since the c got divided out for momentum instead of energy, the threes go away.}}  The total energy is then calculated by including the rest mass of the electrons \cite{Griffiths}:
 \begin{equation}
 	\SI{}{E\,[MeV]} = \sqrt{0.511^2+p^2}.
 	\label{eq:energy}
 \end{equation}
+\lsnote{{\it I don't think you should leave out the `c' in $(pc)^{2}$.  Afterall, you are doing a numerical calculation, not a derivation. (so c=1 just causes trouble)}}
 
 \Subsection{Dipole Example}
-Since this calculation is used several time throughout the 
+Since this calculation is used several \lsnote{times \sout{time}} throughout the 
 beam line for different magnets, a hard edge dipole example is shown 
 to demonstrate how the above equations can be used to determine
 the x offset after the magnet and the beam energy. 
-The dipole length and angle are defined as, $L=\SI{0.2}{m}$, angle, $\theta=\SI{20}{^\circ}$. 
+The dipole length and \lsnote{bending} angle are \lsnote{\sout{defined as,}} $L=\SI{0.2}{m}$, \lsnote{and \sout{angle,}} $\theta=\SI{20}{^\circ}$. 
 Using Equation~\ref{eq:rho}, 
 the corresponding radius is $\rho = \SI{0.5759}{[m]}$. 
 With these values we can now calculate the offset, $\Delta x \approx \SI{34}{[mm]}$, 
-using Equation~\ref{eq:xoff}. This result was confirmed by a simulation in OPAL. 
+using Equation~\ref{eq:xoff}. This result was confirmed by a simulation in OPAL.   \lsnote{{\it The previous two equation references are broken.}}
 
 Now consider a second experimental case.
 A beam of unknown energy passes through the dipole described above
@@ -730,7 +731,7 @@ This is how the the energy calculation is done for all measurements at the AWA.
 Transverse beam size imaging and measurements are crucial to the 
 operations at AWA. During experiments, these diagnostics give 
 give valuable information about the machine setup, help with alignment, 
-and used as a reference for tuning the beam line.
+and \lsnote{are} used as a reference for tuning the beam line.
 Basically, beam size measurements are the quickest way to evaluate the
 optics configuration on the machine. 
 These measurements are taken using YAG screens at multiple z locations along the beam line.
@@ -745,7 +746,7 @@ Note, all image routines referenced in this section can be found on the reposito
 	\label{fig:YAGscreen}
 	\caption{Picture of a YAG screen diagnostic before installation in the beam line.
 	The yellowish circle is the YAG screen and fluoresces when the beam hits it. 
-	The mirror captures and directs the light to a camera waiting outside the beam line.}
+	The mirror captures and directs the light to a camera \lsnote{positioned \sout{waiting}} outside the \lsnote{vacuum chamber \sout{beam line}}.}
 \end{figure}
 Raw YAG screen images can vary widely depending on the camera setup, charge, and 
 light in the room. In some cases the edges of the metallic YAG holder
@@ -757,14 +758,14 @@ locations inside and outside of the vacuum chambers.
 \begin{figure}	
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/yag-in-image}
-	\caption{YAG screen image that is effected by the YAG holder fluorescing at an intensity that is greater than 
+	\caption{YAG screen image that is \lsnote{affected \sout{effected}} by the YAG holder fluorescing at an intensity that is greater than 
 		background. The beam is too close to the holder to safely crop this area out.}
 	\label{fig:yag-holder}
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.45\textwidth]{images/darkcurrent}
-	\caption{Image where dark current is present. Background subtraction must take place to 
+	\caption{\lsnote{Yag screen image with \sout{Image where}} dark current \lsnote{\sout{is}} present. Background subtraction must take place to 
 	analyze images with dark current.}
 	\label{fig:darkcurrent}
 \end{figure}	
@@ -776,13 +777,13 @@ locations inside and outside of the vacuum chambers.
 \end{figure}
 
 \Subsection{Post Processing Images}
-A Python script was written to take beam images and calculate the x and y.
-In other words, $\sigma_{x}$ and $\sigma_y$, which is the beam size. 
-This is done in a series of steps, and requires that one or more images can be used as a 
+A Python script was written to take beam images and calculate the \lsnote{beam size in} x and y \lsnote{by finding the standard deviation \sout{.
+In other words}}, $\sigma_{x}$ and $\sigma_y$. \lsnote{\sout{, which is the beam size.}} 
+This is done in a series of steps, and requires \lsnote{the availability of \sout{that}} one or more images \lsnote{that} can be used as a 
 fiducial image. The fiducial image must clearly show the edges of the YAG screen so that a 
 mm/pixel conversion can be calculated.
 When dark current is present, an image of the dark current alone
-(when the beam is not hitting the YAG screen) is necessary for background subtraction.
+(\lsnote{no photoemitted \sout{when the} beam \sout{is not}} hitting the YAG screen) is necessary for background subtraction.
 The following steps detail the post-processing from raw image to transverse beam size estimate.
 
 \Subsubsection{Step 1: Calculating the fiducial}
@@ -790,7 +791,7 @@ A fiducial image is used as a frame of reference.
 For the images at AWA, the YAG screen holder is used 
 as the point of reference, because the radius is well-documented and known.
 A good fiducial image should be well illuminated and have a clear view of the YAG holder 
-edges as shown in Figure~\ref{fig:fiducial}.
+edges as shown in Figure~\ref{fig:fiducial}.  \lsnote{{\it <- Problem with this figure reference}}
 No beam is present in this image and the lights in the bunker are on.
 \begin{figure}
 	\centering
@@ -814,7 +815,7 @@ this is especially true of high charge experiments, and less so for low charge o
 The charge is a parameter that strongly impacts the beam size, 
 therefore it is important to only compare beam images of similar charge value.
 A reasonable range should be chosen for the experiment. 
-Given a data set of 100 images and roughly \SI{40}{nC}, 
+Given a data set of 100 images and \lsnote{beam charge of} roughly \SI{40}{nC}, 
 a range of \SI{\pm0.5}{nC} has proven to be an acceptable cutoff.
 The charge data is stored in a separate file, 
 but saved at the same time as the image data. 
@@ -864,13 +865,13 @@ where dark current is present, but no beam is (near YAG holder).
 With a fiducial, charge cut, and clean beam images, the beam size profiles can be generated.
 This is done with a fitting model. Currently two options are implemented:
 a pure Gaussian fit or a combination model that uses a Gaussian for 
-the beam center and a linear fit for the tails (where no beam is).
+the beam center and a linear fit for the tails (\lsnote{the edge of the beam \sout{where no beam is}}).
 This routine is called \verb|combo_model()| and uses methods from 
 the \verb|lmfit| Python package.
 This function returns beam sizes for every image and 
 a correlation coefficient (R), as a measure of how well the fit matches the data. 
 A plot is also made for each image, showing the data overlaid with 
-the resulting fit, as shown in in Figure~\ref{fig:combo}
+the resulting fit, as shown in in Figure~\ref{fig:combo}.  \lsnote{{\it <- problem with figure reference}}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{images/combomodel}
@@ -885,7 +886,7 @@ the resulting fit, as shown in in Figure~\ref{fig:combo}
 While the data in Step 4 is mostly numerical, it is helpful to 
 display the beam profiles alongside the beam image. 
 This can be done with \verb|add_dist_to_image()|. 
-An x projection is added to each axis, and gives a visual representation of the beam size. 
+An x projection is added to each axis, \lsnote{{\it <- Isn't one a y projection?}} and gives a visual representation of the beam size. 
 The fiducial is needed for this step in order to add physical dimension to the image.
 \begin{figure}
 	\centering
@@ -900,12 +901,12 @@ The fiducial is needed for this step in order to add physical dimension to the i
 Using the data analysis techniques in the previous section, 
 solenoid scans were done to pin down discrepancies between 
 simulations and experimental beam sizes. 
-This method was used because it was the smallest experimental 
-setup possible to probe this topic.
+This method was used because \lsnote{of the simplicity of the \sout{it was the smallest}} experimental 
+setup \lsnote{\sout{possible to probe this topic}}.
 The data was taken at the first YAG screen in the beam line.
 The only elements before this YAG screen are the gun, two solenoids, 
 and one linac cavity. 
-Scans were done at low, \SI{1}{nC}, and high charge, \SI{40}{nC}, see Figure~\ref{fig:solscan}. 
+Scans were done at low \lsnote{charge \sout{,} (} \SI{1}{nC} \lsnote{\sout{,} )} and high charge \lsnote{\sout{,} (} \SI{40}{nC} \lsnote{\sout{,} )} see Figure~\ref{fig:solscan}. 
 When post-processing the data, the beam sizes were smaller than expected.
 There were two possible sources of this error. 
 The matching solenoid field could be higher than expected, i.e. stronger focusing.
@@ -923,7 +924,7 @@ which suggests the gun gradient is lower than previously estimated.
 	\includegraphics[width=0.45\textwidth]{images/ybeamsizes_high_charge_sol_scan_10-17-2017}
 	\caption{Beam size data compared to simulations. The matching solenoid strength was varied. 
 	The beam sizes were calculated using the code and methods described in Section~\ref{sec:beamsize}. 
-	A rough agreement was only achieved when the gradient in the gun was lowered.}
+	A rough agreement was only achieved when the gradient in the gun was lowered \lsnote{in the simulation}.}
 \label{fig:solscan}
 \end{figure}
 
@@ -954,7 +955,7 @@ the interferogram; see Figure~\ref{interferogram}.
 	\caption{An example interferogram for Q=30 nC and laser pulse FWHM of 1.5 ps.}
 	\label{interferogram}
 \end{figure}
-To alleviate the effect of charge fluctuations, we recorded 15 bolometer values for each data point.
+To alleviate the effect of charge fluctuations, \lsnote{\sout{we recorded}} 15 bolometer values for each data point \lsnote{were recorded}.
 The values were then averaged and the error bars were deduced from the data. The data points
 outside of the 3$\sigma$ bracket were considered as outliers and discarded. The resulting
 interference pattern as a function of time delay in the MI is similar to that presented in Figure~\ref{interferogram}.
@@ -983,9 +984,9 @@ and the resulting combined signal fed to the bolometer.
 Periodic refilling of the helium is required when taking data in order
 to keep the bolometer at \SI{4}{K}. The bolometer sensitivity knob for studies included in this work was at position ``1'' and
 the gain set to 200.
-For the case of 1 nC electrons beams, the laser transverse profile was homogenized prior to the vacuum injection \cite{PhysRevAccelBeams.20.103404}.
+For the case of 1 nC \lsnote{electron \sout{electrons}} beams, the laser transverse profile was homogenized prior to the vacuum injection \cite{PhysRevAccelBeams.20.103404}.
 To produce high charge 30 nC beams, we implemented an additional laser beamline that bypasses the homogenizer due to the losses in the 
-MLA and relay optics.
+MLA and relay optics.  \lsnote{{\it MLA never defined}}
 
 \begin{figure}
 	\centering
@@ -1012,28 +1013,29 @@ MLA and relay optics.
 
 \Section{Chapter Summary}
 
-A significant amount of experimental investigation is 
+A significant amount of \lsnote{preparation \sout{experimental investigation}} is 
 required before the demonstration of fully staged TBA.
-Work in these areas has begun and continues. 
-The UV laser pulse train intensities were measured and significantly improved.
+\lsnote{\sout{Work in these areas has begun and continues.}} 
+\lsnote{Since uniform bunch trains are desirable, the \sout{The}} UV laser pulse train intensities were measured and significantly improved.
 It was discovered that the UV splitters were contributing to non-uniformity in the laser intensities. 
-This was mitigated through the purchase and characterization of 
+\lsnote{A 16.5 percent improvement laser pulse uniformity was achieved \sout{in the This was mitigated}} through the purchase and characterization of 
 new splitters with a tighter tolerance on the UV coating. 
-The best performing splitters were chosen and installed at the AWA, 
-where they are currently used.
-RF power measurments using the pick up probe in the gun were made and compared to previous 
+The best performing splitters were chosen \lsnote{, sorted} and installed at the AWA, 
+where they are currently \lsnote{in use. \sout{used}}  
+
+\lsnote{The power level (and associated fields) in the gun and linac structures must be well understood so that simulations can accurately guide optimization of the machine.}
+RF power measurments using the \lsnote{pickup \sout{pick up}} probe in the gun were made and compared to previous 
 measurmeents using the waveguide couplers. 
-Measurments were also made for the linac tanks, but there exist no alternative data 
-set to compare to at the present time.
-The procedure for energy measurments using a spectrometer was described.
-An example energy measurment was given.
+Measurments were also made for the linac tanks, \lsnote{although \sout{but}} there exist no alternative data set to compare to at the present time \lsnote{, it was still possible to gain an understanding of the relative power levels in the linac cavities.  The power balance has an impact on beam dynamics}.
+
+\lsnote{Finally, the beam diagnostics and data processing must be understood, to make comparisons of experimental parameters to simulation results, and to quantify the success of fully staged two beam acceleration.}  The procedure for energy measurments using a spectrometer was described, \lsnote{along with an example measurement, since beam energy is a critical parameter of two beam acceleration. \sout{An example energy measurment was given.}}
 Beam image analysis techniques were discussed in detail.
-All the code used is freely available on github.
+\lsnote{\sout{All the code used is freely available on github.}}
 This includes fiducial calculation, charge selection, background subtraction, 
-calculation of beam sizes, and plotting proflie distributions. 
-An experimental measurement using the image anaylsis techniques is shown. 
+calculation of beam sizes, and plotting proflie distributions.  \lsnote{All the code used is freely available on github.}
+An experimental measurement \lsnote{that used \sout{using}} the image anaylsis techniques \lsnote{was presented \sout{is shown}}. 
 The experiment was a solenoid scan at the first YAG screen on the drive line.
-The results informed the AWA that the gun gradient is lower than expected.
+The results informed the AWA \lsnote{group} that the gun gradient is lower than expected.
 Finally, the use of CTR to perform bunch length measurments was discussed.
 
 

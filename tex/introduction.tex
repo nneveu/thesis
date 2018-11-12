@@ -124,7 +124,7 @@ often calculated numerically using a simulation code. Once calculated,
 the wake potential can then be used to determine how much energy the 
 beam will lose after passing through a specific structure. 
 
-Metallic structures used in simplified staging experiments at the AWA, consist of 35 cells and irises. \lsnote{{\it What?  35 cells sounds more like a linac than a TBA structure.}}
+Metallic structures used in simplified staging experiments at the AWA, consist of 34 cells and irises. 
 The dielectric PETS are also under development at the AWA. 
 They consist of a cylindrical metal tube lined with a dielectric \cite{PETSeq}, 
 see Fig. \ref{fig:PETS}. Both are candidates for use in full staging, and 
@@ -271,7 +271,7 @@ Out of several high gradient structures being developed at the AWA,
 this is the lowest frequency structure with the largest aperture possible. 
 Properties of the metallic and dielectric structures were provided by C.~Jing and are listed in 
 Tables \ref{table:PETS} and \ref{table:acc}. 
-Notice both the quality factor, $Q_D$, and group velocity are lower for the dielectric PETS. 
+Notice both the quality factor, $Q_d$, and group velocity are lower for the dielectric PETS. 
 Both of these terms appear in the denominator of the power equation, meaning more
 energy will be transferred to the witness beam.
 \begin{table}
@@ -308,7 +308,7 @@ energy will be transferred to the witness beam.
 			\midrule
 			Dielectric constant & $\epsilon$ & n/a & 16\;$\epsilon_0$ \\
 			Length of structure & L & 0.033 m & 0.15 m\\  
-			Group velocity & $v_{g}$ & 0.0153 c & 0.068 c\\  
+			Group velocity & $v_{a}$ & 0.0153 c & 0.068 c\\  
 			Shunt Impedance / Q & $\frac{R}{Q_{d}}$ & 16.4 $\frac{k\Omega}{m}$  & 1.4 $\frac{k\Omega}{m}$\\  
 			Quality Factor & $Q_{d}$ & 6500  &2468\\  
 			\bottomrule		
@@ -341,11 +341,10 @@ For a dielectric PETS with simplified staging beam inputs, a power of \SI{50}{MW
 For full staging, these numbers jump to \SI{218}{MW} and \SI{200}{MW} respectively. 
 
 \Subsection{Ideal accelerating gradient}
-With the input power in hand, the witness beam can be analyzed. 
+With the input power, the witness beam can be analyzed. 
 The electric field strength, $E_{a}$, in 
 the accelerating structure due to an externally applied power,
 $P_{t}$, is \cite{wangler}: 
-\nrnote{changed $v_ga$ to $v_a$, need to double check this is done everywhere}
 \begin{equation}
 	E_{a}=\sqrt{\frac{P_{t\,}\omega}{v_{a}}\frac{R}{Q_a}},
 \label{eq:electricfield}

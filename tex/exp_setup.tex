@@ -38,7 +38,7 @@ that are separated into independent beam lines by a fast rise time kicker and se
 	\end{center}
 	\caption{AWA Facility bunker and simplified TBA staging layout. 
 		The drive beam line (right) supplies high charge bunch trains at \SI{70}{MeV}.
-		The witness beam line (left) supplies \lsnote{a} low charge \lsnote{single \sout{one}} bunch at \SI{15}{MeV}. 
+		The witness beam line (left) supplies a low charge single bunch at \SI{15}{MeV}. 
 		CAD drawing of bunker courtesy of Scott Doran at AWA.}
 	\label{fig:bunker}
 \end{figure}
@@ -53,8 +53,8 @@ that are separated into independent beam lines by a fast rise time kicker and se
 		PETS stands for Power Extraction and Transfer Structure, and ACC stands for Accelerating structure. 
 		The subscript on each structure refers to which stage the structures belong to (first or second). 
 		In the simplified staging scheme the stages are not separated, meaning bunch train two travels
-		through and loses energy in the first stage before reaching the second stage \lsnote{(top subfigure)}.
-		This is prevented by separate beam lines in the full staging layout \lsnote{(bottom subfigure)}. }
+		through and loses energy in the first stage before reaching the second stage (top subfigure).
+		This is prevented by separate beamlines in the full staging layout (bottom subfigure). }
 	\label{fig:singlestage}
 \end{figure}
 
@@ -80,7 +80,7 @@ takes place in a complex network of UV optics located near the drive
 gun. The optics setup is called a beam splitter, or mulitsplitter,
 and trains are created at a rate of 0.5, 1, or \SI{2}{Hz}. 
 This timing is the repetition rate of the machine. 
-A simplified diagram of \lsnote{the laser pulse propagtion \sout{this is timing}} is shown in Figure~\ref{fig:lasertiming}, 
+A simplified diagram of the laser pulse propagtion is shown in Figure~\ref{fig:lasertiming}, 
 and a picture of the AWA multisplitter table is shown in Figure~\ref{fig:optics}. 
 Optimization of the UV optics was performed and is detailed in Section \ref{sec:uvoptics}.  
 \begin{figure}
@@ -101,10 +101,8 @@ Optimization of the UV optics was performed and is detailed in Section \ref{sec:
 	When in the multisplitter, the original laser pulse is split into a pulse train of
 	2, 4, 8, or 16 pulses. 
 	The intensity of original laser pluse is equal to the sum of all members in the pulse train.
-	The spacing in the pluse train is one period of the \lsnote{sinusoidal} RF \lsnote{voltage} supplied to the cavities,
-	which is \SI{1.3}{GHz} \lsnote{\sout{or} (T=}\SI{769}{ps}\lsnote{)}. }
-	%\label{inter}
-	%\caption{Bolometer. }
+	The spacing in the pluse train is one period of the sinusoidal rf voltage supplied to the cavities,
+	which is \SI{1.3}{GHz} (T=\SI{769}{ps}). }
 	\label{fig:lasertiming}
 \end{figure}
 \begin{figure}%[h]
@@ -286,9 +284,9 @@ runs which were using the four splitter setup.
 	\end{center}
 \end{figure}
 Equations~\ref{eq:i4} and~\ref{eq:i6} don't account for mirror losses in the delay legs, 
-\lsnote{so} a lower \lsnote{pulse intensity \sout{value}} is expected in experimental measurments. The path of laser pulse one and
-pulse four in the train can be described \lsnote{in the format \sout{by an updated version}} of Equation~\ref{eq:i4}.
-The number of splitters is \lsnote{\sout{reduced to}} four, and both pulses are transmitted three 
+therefore a lower pulse intensity is expected in experimental measurments. The path of laser pulse one and
+pulse four in the train can be described in the format of Equation~\ref{eq:i4}.
+The number of splitters is four, and both pulses are transmitted three 
 times and reflected once: 
 \begin{align}
 I_1 = R \cdot T \cdot T \cdot T \cdot I_0 \\
@@ -308,7 +306,7 @@ an improvement in laser pulse uniformity of 16.5\% was achieved.
 This results in more uniform electron bunch trains, which means bunches 
 of similar charge are delivered downstream. 
 Since the power output in the PETS is a function of charge and bunch length, 
-increased uniformity in the bunch train furthers the goals of \lsnote{demonstrating} TBA 
+increased uniformity in the bunch train furthers the goals of demonstrating TBA 
 by helping provide more consistent power output from the PETS.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -317,7 +315,7 @@ by helping provide more consistent power output from the PETS.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In order to accurately simulate the RF fields in the \lsnote{linac} cavities \lsnote{and gun} on the drive and witness line, 
+In order to accurately simulate the RF fields in the linac cavities and gun on the drive and witness line, 
 a set of detailed measurements were done to determine the power in each RF cavity.
 These measurements are important, for several reasons. 
 First, there are limited records at the AWA of these values in the past.
@@ -326,12 +324,12 @@ with respect to the other cavities.
 Ideally each cavity would be supplied the same amount of power, 
 but as with all experimental hardware, the waveguide network is not ideal.
 Two or more cavities are fed by one klystron which requires a network of 
-power splitters and attenuators. If the power is \lsnote{not} split \lsnote{evenly \sout{exactly}}, the ratio 
+power splitters and attenuators. If the power is not split evenly, the ratio 
 of power delivered to each cavity may be different. 
 The amount of attenuation in the subsequent waveguide after the spitter could
-also be \lsnote{a \sout{the}} source of power difference at the cavities.
+also be a source of power difference at the cavities.
  
-In an effort to \lsnote{determine \sout{understand}} these differences, 
+In an effort to determine these differences, 
 power measurements of the drive gun, and linac tanks 
 one through six on the drive line were taken.
 The next sections detail the calibration used during power measurements and the 
@@ -342,7 +340,7 @@ There is a significant length of cable that connects the cavities to the control
 Since no cable is a perfect conductor, they do add attenuation to any signal propagated
 and measured after the cables.
 This attenuation needs to be accounted for so that the power measurements 
-\lsnote{\sout{taken}} are \lsnote{accurate \sout{not misleading}}. The cable effects can be taken into account
+are accurate. The cable effects can be taken into account
 by comparing a reference single supplied directly to the power meter
 versus the reference single passed through the cables and then supplied to the power meter.
 To do this comparison, a signal generator was placed in the tunnel, see Figure~\ref{fig:signalgenerator}. 
@@ -401,7 +399,7 @@ signal generator. The resulting power was $P_s=\SI{-8.92}{dBm}$}
 			({\leftside+3},\topbox) node[pos=0.5, align=center] {Meter};
 		\end{circuitikz}
 	\end{center} 
-	\caption{Experimental setup when calibrating \lsnote{\sout{the}} cables from \lsnote{the} gun \lsnote{location} to \lsnote{the} control room. 
+	\caption{Experimental setup when calibrating cables from the gun location to the control room. 
 		Where $C_1$ is a short blue heliax, $C_2$ is a long heliax to the control room, 
 		and $C_3$ is a short yellow heliax to the 6 GHz scope or power meter.}
 	\label{fig:tikzcalibration}
@@ -413,7 +411,7 @@ the tunnel from the signal generator was $P_s = \SI{-8.92}{dBm}$, so the
 attenuation is $\SI{0.56}{dB}$. 
 
 \Subsection{Drive Gun Measurements}\label{gunenergy}
-\lsnote{A power measurement was done to determine the accelerating gradient in the gun.}
+A power measurement was done to determine the accelerating gradient in the gun.
 After the cable calibration, the setup was returned to typical \lsnote{operating \sout{rf}} conditions as 
 shown in Figure~\ref{fig:tikzdrivegun}. This includes $\SI{53.2}{dB}$ from the \lsnote{gun pickup \sout{pick up}} probe itself, a $\SI{36}{dB}$ additional attenuation \lsnote{from the pickup \sout{connected to the 
 drive gun pick up}} probe \lsnote{cable}, followed by a long heliax to the 
@@ -956,7 +954,7 @@ the interferogram; see Figure~\ref{interferogram}.
 	\caption{An example interferogram for Q=30 nC and laser pulse FWHM of 1.5 ps.}
 	\label{interferogram}
 \end{figure}
-To alleviate the effect of charge fluctuations, \lsnote{\sout{we recorded}} 15 bolometer values for each data point \lsnote{were recorded}.
+To alleviate the effect of charge fluctuations, 15 bolometer values for each data point were recorded.
 The values were then averaged and the error bars were deduced from the data. The data points
 outside of the 3$\sigma$ bracket were considered as outliers and discarded. The resulting
 interference pattern as a function of time delay in the MI is similar to that presented in Figure~\ref{interferogram}.
@@ -985,7 +983,7 @@ and the resulting combined signal fed to the bolometer.
 Periodic refilling of the helium is required when taking data in order
 to keep the bolometer at \SI{4}{K}. The bolometer sensitivity knob for studies included in this work was at position ``1'' and
 the gain set to 200.
-For the case of 1 nC \lsnote{electron \sout{electrons}} beams, the laser transverse profile was homogenized prior to the vacuum injection \cite{PhysRevAccelBeams.20.103404}.
+For the case of 1 nC electron beams, the laser transverse profile was homogenized prior to the vacuum injection \cite{PhysRevAccelBeams.20.103404}.
 To produce high charge 30 nC beams, we implemented an additional laser beamline that bypasses the homogenizer due to the losses in the 
 MLA and relay optics.  \lsnote{{\it MLA never defined}}
 
@@ -1014,29 +1012,27 @@ MLA and relay optics.  \lsnote{{\it MLA never defined}}
 
 \Section{Chapter Summary}
 
-A significant amount of \lsnote{preparation \sout{experimental investigation}} is 
+A significant amount of preparation is 
 required before the demonstration of fully staged TBA.
-\lsnote{\sout{Work in these areas has begun and continues.}} 
-\lsnote{Since uniform bunch trains are desirable, the \sout{The}} UV laser pulse train intensities were measured and significantly improved.
+Since uniform bunch trains are desirable, the UV laser pulse train intensities were measured and significantly improved.
 It was discovered that the UV splitters were contributing to non-uniformity in the laser intensities. 
-\lsnote{A 16.5 percent improvement laser pulse uniformity was achieved \sout{in the This was mitigated}} through the purchase and characterization of 
+A 16.5~\% improvement in laser pulse uniformity was achieved through the purchase and characterization of 
 new splitters with a tighter tolerance on the UV coating. 
-The best performing splitters were chosen \lsnote{, sorted} and installed at the AWA, 
-where they are currently \lsnote{in use. \sout{used}}  
+The best performing splitters were chosen, sorted and installed at the AWA, 
+where they are currently in use.   
 
-\lsnote{The power level (and associated fields) in the gun and linac structures must be well understood so that simulations can accurately guide optimization of the machine.}
-RF power measurments using the \lsnote{pickup \sout{pick up}} probe in the gun were made and compared to previous 
+The power level (and associated fields) in the gun and linac structures must be well understood so that simulations can accurately guide optimization of the machine.
+RF power measurments using the pickup probe in the gun were made and compared to previous 
 measurmeents using the waveguide couplers. 
-Measurments were also made for the linac tanks, \lsnote{although \sout{but}} there exist no alternative data set to compare to at the present time \lsnote{, it was still possible to gain an understanding of the relative power levels in the linac cavities.  The power balance has an impact on beam dynamics}.
+Measurments were also made for the linac tanks, although there exist no alternative data set to compare to at the present time, it was still possible to gain an understanding of the relative power levels in the linac cavities.  The power balance has an impact on beam dynamics.
 
-\lsnote{Finally, the beam diagnostics and data processing must be understood, to make comparisons of experimental parameters to simulation results, and to quantify the success of fully staged two beam acceleration.}  The procedure for energy measurments using a spectrometer was described, \lsnote{along with an example measurement, since beam energy is a critical parameter of two beam acceleration. \sout{An example energy measurment was given.}}
+Finally, the beam diagnostics and data processing must be understood, to make comparisons of experimental parameters to simulation results, and to quantify the success of fully staged two beam acceleration.}  The procedure for energy measurments using a spectrometer was described, along with an example measurement, since beam energy is a critical parameter of two beam acceleration. 
 Beam image analysis techniques were discussed in detail.
-\lsnote{\sout{All the code used is freely available on github.}}
 This includes fiducial calculation, charge selection, background subtraction, 
-calculation of beam sizes, and plotting proflie distributions.  \lsnote{All the code used is freely available on github.}
-An experimental measurement \lsnote{that used \sout{using}} the image anaylsis techniques \lsnote{was presented \sout{is shown}}. 
+calculation of beam sizes, and plotting proflie distributions.  All the code used is freely available on github.
+An experimental measurement that used the image anaylsis techniques was presented. 
 The experiment was a solenoid scan at the first YAG screen on the drive line.
-The results informed the AWA \lsnote{group} that the gun gradient is lower than expected.
+The results informed the AWA that the gun gradient is lower than expected.
 Finally, the use of CTR to perform bunch length measurments was discussed.
 
 

@@ -57,9 +57,9 @@ This beam line consists of a gun, solenoids, six linac cavities, and quadrupoles
 This is the line that will be used to feed high charge bunch trains to the PETS, 
 which will be installed downstream. Optimization of this beam line was done at \SI{40}{nC}
 to improve beam line settings during future experiments.
-A model based method was used for the initial simulations presented in this chapter. The results showed that 
+A model-based method was used for the initial simulations presented in this chapter. The results showed that 
 it is best to run the RF cavities off crest to compensate for energy spread in the gun. 
-The model based method was compared to the more popular genetic algorithm as a verification test.
+The model-based method was compared to the more popular genetic algorithm as a verification test.
 The results from both methods were similar, and the GA method was used for beam line design work in Chapter~\ref{chp:4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -377,7 +377,7 @@ were used to study the beam parameters at the entrance of the TBA experimental a
 Minimizing the emittance and bunch length after the six cavity linac,
 and choosing the optimal optics configuration for maximum beam transport 
 were the main objectives of all optimization work.
-The techniques used include model based, genetic,
+The techniques used include model-based, genetic,
 and structure exploiting algorithms. 
  
 Model-based, derivative-free, trust-region algorithms 
@@ -397,9 +397,9 @@ There are physical constraints on the magnet and RF values we
 can achieve in the real world. This information is used 
 to bound the optimization work in a ``trust-region'', so that
 effort is not wasted in an infeasible search space.
-A strength of model based methods is their efficient use of function evaluations. 
+A strength of model-based methods is their efficient use of function evaluations. 
 
-After a model based method was implemented, 
+After a model-based method was implemented, 
 a common optimization technique was used to benchmark the results. 
 The algorithm used for confirmation 
 is called a genetic algorithm (GA). An implementation of this algorithm is
@@ -740,35 +740,35 @@ can reduce the energy spread significantly.
 \Subsection{Genetic Algorithm: NSGA-II} \label{sec:ga}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-While the model based results are promising, 
+While the model-based results are promising, 
 GA's are the most commonly used type of optimization algorithm in the accelerator community.
 In particular the Non-dominated Sorting Genetic Algorithm II (NSGA-II)~\cite{NSGA}, 
 is the implementation that is most commonly used.
 %\nrnote{add another sentence about NSGAII details.}
-To validate that the model based method was giving comparable results to what a GA would give, 
+To validate that the model-based method was giving comparable results to what a GA would give, 
 a low fidelity version of the linac simulation in Section~\ref{sec:linacopt} was formulated.
 This fidelity change included reducing the number of particles and grid points. 
 The boundaries on the design variables were also reduced to ensure only 
 feasible simulation points were evaluated.
 
 Figure~\ref{fig:GAvsModel} clearly shows the optimized simulations results from 
-the GA and model based method are similar. Both methods gave desirable 
+the GA and model-based method are similar. Both methods gave desirable 
 results for the linac optimization problem. 
 The main difference between the two methods is the amount of computational 
 resources needed, see the comparison in Table~\ref{tab:optcompare}.
 Note, that as a general rule of thumb, most people simulate at least 100 generations, before stopping a GA.
-This suggests that while the model based method and GA will arrive at 
+This suggests that while the model-based method and GA will arrive at 
 the same conclusion, there may be a difference in computation resources required. 
 The time to solution for the two cases can be significantly different, 
 order thousands of compute hours.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/model_vs_ga}
-	\caption{Comparison of model based and GA simulations results.}
+	\caption{Comparison of model-based and GA simulations results.}
 	\label{fig:GAvsModel}
 \end{figure}
 \begin{table}%[h] %or [hbt] ?
-	\caption{Number of simulation evaluations for model based and GA optimizations.
+	\caption{Number of simulation evaluations for model-based and GA optimizations.
 	These numbers correspond to the lines in Figure~\ref{fig:GAvsModel}.}
 	\label{tab:optcompare}
 	\begin{center}
@@ -801,11 +801,11 @@ parameters for future simulations.
 After benchmarking, all PIC simulations of the TBA beam line were performed using \verb|OPAL-t| on clusters provided by ANL.
 
 Next, optimization to find a set of operating parameters for
-\SI{40}{nC} TBA experiments was done. A model based method BOBYQA was used to optimize the gun and linac. 
+\SI{40}{nC} TBA experiments was done. A model-based method BOBYQA was used to optimize the gun and linac. 
 From these results it is clear that the laser radius should be as large as possible to mitigate space charge forces.
 In addition, the RF cavities should be run off crest to minimize energy spread.
-Validation of the model based method was done by doing a comparison with the commonly used GA method. 
-The results agreed well, and suggest that the model based methods require fewer computational resources than a GA. 
+Validation of the model-based method was done by doing a comparison with the commonly used GA method. 
+The results agreed well, and suggest that the model-based methods require fewer computational resources than a GA. 
 
 Validation of \verb|OPAL-t| and initial optimization studies provided a tool 
 to design the beam transport to the TBA experimental area.  

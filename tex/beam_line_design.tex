@@ -207,7 +207,8 @@ which is readily available at the AWA.
 It is also safer to design away from the limit of the equipment. 
 Therefore a bend angle less than $20^\circ$ is preferred and allows room for tolerance errors. 
 This has the added benefit of reducing energy spread. 
-If the beam is bent at a smaller angle, less coherent synchrotron radiation (CSR) and energy spread will be induced.\lsnote{{\it Did you mean transverse position spread?  Magnets cannot increase energy spread.  Unless the CSR does that - but - I don't think that likely.}}
+If the beam is bent at a smaller angle, 
+less coherent synchrotron radiation (CSR) and transverse position spread will be induced.
 
 Using the equations from Section \ref{theory}, 
 tables were made for different plate lengths giving possible gap, angle, and x offset values for comparison. 
@@ -385,7 +386,7 @@ to determine the impedance along the kicker plates, feedthroughs, and cables.
 	\end{center} 
 	\caption{CAD drawing of AWA kicker design, courtesy of Scott Doran from AWA.
 	Ports are connected the HV cables purchased from FID GmbH. 
-	Power is suppled by a pulsar also fabricated by FID GmbH and borrowed from the APS Electronics group.}
+	Power is supplied by a pulsar also fabricated by FID GmbH and borrowed from the APS Electronics group.}
 \end{figure*}\label{fig:AWAkicker}
 \begin{figure}%[h]
 	\begin{center}
@@ -435,7 +436,7 @@ Due to resource and time constraints, it was a goal to use off the shelf parts w
 Therefore, the feedthrough mismatch is expected because they were not specifically designed to couple to the plate geometry.
 A substantial amount of time and resources were spent to minimize reflections for the APS kickers plotted in Figure \ref{fig:TDR}.
 However, that kicker still deviates from \SI{50}{\ohm} near the feedthroughs.
-Given this comparison to the kickers fabricated at the APS, C. Y. Yao advised the mismatch we observed was not dangerous to 
+Given this comparison to the kickers fabricated at the APS, C.~Y.~Yao advised the mismatch we observed was not dangerous to 
 the pulsar or cables that would drive the kicker.  
 The only negative result is the reduced amount of voltage supplied to the plates, and therefore, a reduction in the kick given to the beam.
 	\begin{figure}
@@ -529,13 +530,13 @@ The contributions to the total deflection must be broken into two parts: the def
 and the position change when the beam is drifting towards the YAG screen after it exits the kicker.
 The latter part can be approximated using the triangle shown in Figure~\ref{fig:kicker-geometry}.
 \lsnote{{\it Using that figure, tan(thetak) = ldrift/deltax, so it seems like you need ldrift/tan(thetak) in the  following equation, instead of a product.}} Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
-Combining these two terms, the equation for the x offset seen during the experiment
+ngCombining these two terms, the equation for the x offset seen during the experiment
 can be written as:
 \begin{equation}
 	\Delta x = \Delta x_{kicker} + \Delta x_{drift}\, ,
 \end{equation}
 \begin{equation}
-	\Delta x = \left(1-\cos\theta_{k}\right)\rho + L_{drift} \tan \theta_{k}\, ,
+	\Delta x = \left(1-\cos\theta_{k}\right)\rho + \frac{L_{drift}}{\tan \theta_{k}}\, ,
 	\label{eq:kdata}
 \end{equation}
 where $\rho$ is the bending radius in the kicker, and $L_{drift}$ is \SI{0.28}{m} as shown in Figure~\ref{fig:kyag}.
@@ -665,7 +666,7 @@ There were three clear goals TBA beam line configuration:
 	\item Arrange the beam line for quick and easy installation
 \end{itemize}
 
-With the third item partially addressed (see Section~\ref{theory})}, 
+With the third item partially addressed (see Section~\ref{theory}), 
 it remained to determine if an optics solution exists that can satisfy the 
 first two requirements (transmission and bunch length). 
 In the case of bunch length, there was no set goal, but a clear understanding 
@@ -753,7 +754,7 @@ R_q =
 \end{equation}
 The problem set-up can be further simplified by assuming $f_1=f_2$. 
 Given the total distance, D, available for the
-quads in the beam line, \SI{3.8}{m}, and refering to Figure~\ref{fig:p2p}, 
+quads in the beam line, \SI{3.8}{m}, and referring to Figure~\ref{fig:p2p}, 
 an equation is written to solve for the focal length $f_1$: 
 \begin{align}
 D = 2 \left(f_1+f_2+f_3+f_4\right)\\
@@ -1121,7 +1122,7 @@ The remainder of the beamline is awaiting installation.
 
 Further design work included determination of beam line input parameter settings (incorporating 
 mechanical and hardware constraints) that achieve beam transmission through the power extractor (PETS).
-Initally, a point to point matrix calculation was done to determine if the 
+Initially, a point to point matrix calculation was done to determine if the 
 beam size entering the first four quadrupoles could be maintained near the kicker.
 This exercise resulted in determining that the field strength needed for a point to point beam transfer is \SI{\pm 4.14}{T/m}, 
 which is well below the hardware limit of \SI{\pm9}{T/m}. 

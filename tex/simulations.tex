@@ -334,7 +334,7 @@ out due to the recent measurement discussed in Chapter~\ref{chp:exp}.
 Laser radius discrepancies should only impact the transverse beam dimensions 
 through coupling of the space charge force which is accounted for the in simulation. 
 Also, it is now known that the gun gradient is lower than expected.
-One other source of error could be the longitudinal laser proflie.
+One other source of error could be the longitudinal laser profile.
 There is currently no way to measure this at the AWA. 
 
 Agreement is likely to improve as more of these measurements are made. 
@@ -685,7 +685,7 @@ Figure~\ref{fig:pareto}, a total of 2,492 simulation evaluations were completed.
 Most simulation evaluations took approximately 7 minutes, using 16 cores and 100,000 particles. These numbers are driven by the amount of time \verb|OPAL-t| needs to simulate the beam line. 
 
 The best-found objective value through each BOBYQA run is shown in Figure~\ref{fig:iterations}. 
-Weight 0.0 and 1.0 are negative due to the scaling in Equation~(\ref{eq:scale}). While the weights, $w$, are always nonnegative, 
+Weight 0.0 and 1.0 are negative due to the scaling in Equation~(\ref{eq:scale}). While the weights, $w$, are always non-negative, 
 $\bar{\epsilon}_x (v,z_1)$ or $\bar{\sigma}_z(v,z_1)$ will be negative if BOBYQA finds a point with a value of 
 $\epsilon_x(v,z_1)$ or $\sigma_z(v,z_1)$ that is less than $\epsilon_{\min}$ or $\sigma_{\min}$ from the initial sample. 
 \begin{figure}%[h]
@@ -744,7 +744,6 @@ While the model-based results are promising,
 GA's are the most commonly used type of optimization algorithm in the accelerator community.
 In particular the Non-dominated Sorting Genetic Algorithm II (NSGA-II)~\cite{NSGA}, 
 is the implementation that is most commonly used.
-%\nrnote{add another sentence about NSGAII details.}
 To validate that the model-based method was giving comparable results to what a GA would give, 
 a low fidelity version of the linac simulation in Section~\ref{sec:linacopt} was formulated.
 This fidelity change included reducing the number of particles and grid points. 
@@ -790,7 +789,7 @@ order thousands of compute hours.
 
 PIC simulations of the AWA drive line are essential to the TBA project. 
 Accurate predictions of the beam dynamics in the drive line are needed for the 
-success of fully staged TBA, espcially with the tighter tolerances required by the PETS apertures.
+success of fully staged TBA, especially with the tighter tolerances required by the PETS apertures.
 A new code, \verb|OPAL-t|, was investigated as an alternative to ASTRA and GPT. 
 The benefits of \verb|OPAL| include being free and being able to run on a parallel platform.
 A benchmark was done to ensure that \verb|OPAL| gave results consistent with other codes used by members of the AWA.

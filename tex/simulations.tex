@@ -59,42 +59,44 @@ which will be installed downstream. Optimization of this beam line was done at \
 to improve beam line settings during future experiments.
 A model-based method was used for the initial simulations presented in this chapter. The results showed that 
 it is best to run the RF cavities off crest to compensate for energy spread in the gun. 
-The model-based method was compared to the more popular genetic algorithm as a verification test.
-The results from both methods were similar, and the GA method was used for beam line design work in Chapter~\ref{chp:4}
+The model-based method was compared to a genetic algorithm (GA) as a verification test.
+The results from both methods were similar, and the GA method was used for beam line design work in Chapter~\ref{chp:4}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Benchmarking}\label{sec:bench}
 
-Initially \verb|OPAL-t| was benchmarked against commonly used particle tracking codes ASTRA and GPT.  
+Initially \verb|OPAL-t| was benchmarked against commonly used particle tracking codes \verb|ASTRA| and \verb|GPT|.  
 This ensured correct use of the code, and reliability of \verb|OPAL-t|.  
 Two collective effects of particular interest to the AWA were included in the investigation: 
 space charge (SC) and coherent synchrotron radiation (CSR).
 The beam dynamics of a \SI{1}{nC} drive beam in the photoinjector were used as 
 the model for comparison in the space charge study. 
-A $20^{\circ}$ hard edge dipole magnet was used to benchmark CSR effects in GPT and \verb|OPAL-t| by bending a 1nC beam 
+A $20^{\circ}$ hard edge dipole magnet was used to benchmark CSR effects in 
+\verb|GPT| and \verb|OPAL-t| by bending a \SI{1}{nC} beam 
 at energies between \SI{2}{Mev} and \SI{100}{MeV}.  
 The results of these benchmark studies are presented below, 
 including a discussion of the similarities and differences between the codes.
  
 The AWA group has used several beam codes in the past including:\\
-\mbox{T-STEP/PARMELA}~\cite{parmela}, ASTRA~\cite{astra}, and GPT~\cite{gpt}.  
+\mbox{T-STEP/PARMELA}~\cite{parmela}, \verb|ASTRA|~\cite{astra}, and \verb|GPT|~\cite{gpt}.  
 In order to take advantage of computing resources offered by 
 Argonne National Laboratory (ANL), an investigation of 
 \verb|OPAL|~\cite{opal} was done; this is an open source and parallel code that comes in two flavors;  
 \verb|OPAL-cycl| and \verb|OPAL-t|. The latter was installed on the Blues and Bebop high performance computing clusters
 at the Laboratory Computing Resource Center (LCRC) provided by ANL~\cite{lcrc}.
-(See Appendix~\ref{build} for instruction on how to build OPAL-t at ANL.)
+(See Appendix~\ref{build} for instruction on how to build \verb|OPAL-t| at ANL.)
 
 \Subsection{Gun Simulations}
 The SC algorithms were probed using the AWA photoinjector, 
-an rf gun which is a 1.5 cell copper standing-wave cavity at 1.3 GHz, 
+an RF gun which is a 1.5-cell copper standing-wave cavity at \SI{1.3}{GHz}, 
 with bucking, focusing, and matching solenoids. 
 In the remainder of this thesis, the word gun is used 
 in place of photoinjector. The simulation parameters were chosen to 
-approximately generate the canonical ``2D transverse emittance of \SI{1}{\micro\metre} at bunch charge 1 nC'' case.  
+approximately generate the canonical ``2D transverse emittance of
+\SI{1}{\micro\metre} at bunch charge \SI{1}{nC}'' case.  
 The initial beam parameters were based on gun operations at PITZ \cite{pitz},
-due to the similarities between the PITZ and AWA rf guns.
+due to the similarities between the PITZ and AWA RF guns.
 The PITZ parameters came close to achieving the \SI{1}{\micro\metre}
 target without any optimization. A coarse 1D minimization
 using the golden section method~\cite{golden} of the 
@@ -105,10 +107,10 @@ used in this benchmark. The resulting minimum emittance was
 The initial bunch distribution parameters as well as the 
 on-axis gun gradient, and magnetic field of the solenoids used in 
 the benchmark are listed in Table~\ref{tab:bench}. 
-The rf gun and solenoid field maps were generated 
+The RF gun and solenoid field maps were generated 
 with the SUPERFISH/POISSON  codes~\cite{superfish}.
 The gradient was chosen to match typical operations at PITZ~\cite{pitz}
-and the AWA. The rf and solenoid fields seen by the beam in the gun are shown in Figure~\ref{fig:gunfields}.
+and the AWA. The RF and solenoid fields seen by the beam in the gun are shown in Figure~\ref{fig:gunfields}.
 \begin{table}
 	\begin{center}
 		\caption{Input simulation parameters for gun benchmark.}
@@ -146,40 +148,41 @@ and the AWA. The rf and solenoid fields seen by the beam in the gun are shown in
 \end{figure}
 
 Note that the codes use various methods to model 
-the rf and magnetic fields, SC, and image charge. 
-The ASTRA simulations used the axial E field of the  
+the RF and magnetic fields, SC, and image charge. 
+The \verb|ASTRA| simulations used the axial E field of the  
 gun and solenoids, and then extended the fields to find the
 transverse components using the paraxial approximation 
 (e.g. $E_r=-\frac{r}{2}\frac{dE_z}{dz}$). 
 The simulation used a 2D cylindrical-symmetric SC algorithm with a uniform  
-particle-deposition mesh; see ASTRA user manual~\cite{astra}.
+particle-deposition mesh; see \verb|ASTRA| user manual~\cite{astra}.
 The radial and longitudinal number of cells composing the mesh 
 were $N_r=32$ and $N_z=64$, with 100k particles.  
 The image charge close to the cathode was accounted for until 
 the bunch reached \SI{9.7}{cm} from the cathode surface. 
 
-GPT read in the 2D electric and magnetic field files,  
+\verb|GPT| read in the 2D electric and magnetic field files,  
 and used a square 3D adaptive SC mesh with $N_x=N_y=N_z=46$
-with 100k particles, see spacecharge3Dmesh option in GPT manual~\cite{gpt}.
-To calculate image charge, GPT uses a Dirichlet boundary condition at the  
-cathode (z=0). The calculation is turned off when the  
+with 100,000 particles, see spacecharge3Dmesh option in \verb|GPT| manual~\cite{gpt}.
+To calculate image charge, \verb|GPT| uses a Dirichlet boundary condition at the  
+cathode ($z=0$). The calculation is turned off when the  
 distance between the beam and cathode is longer than the 
-mesh box. OPAL-T also read in the field maps, and used a block 
-structured equidistant SC mesh, see OPAL manual for SC calculation~\cite{opal}.  
-Several square mesh sizes were run in OPAL-T. The results plotted in 
-Figure~\ref{fig:benchplot_gun} and~\ref{fig:benchplot_5m} correspond to a mesh of $N_x=N_y=N_z=46$, with 1 million particles. 
+mesh box. \verb|OPAL-t| also read in the field maps, and used a block 
+structured equidistant SC mesh, see \verb|OPAL| manual for SC calculation~\cite{opal}.  
+Several square mesh sizes were run in \verb|OPAL-t|. The results plotted in 
+Figure~\ref{fig:benchplot_gun} and~\ref{fig:benchplot_5m} 
+correspond to a mesh of $N_x=N_y=N_z=46$, with 1 million particles. 
 The image charge calculation uses a 
 shifted integrated Green function \cite{imagecharge}.  
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{images/benchmark_gun}
-		\caption{Beam envelopes in the gun for benchmark between OPAL, ASTRA, and GPT.}
+		\caption{Beam envelopes in the gun for benchmark between \verb|OPAL|, \verb|ASTRA|, and \verb|GPT|.}
 	    \label{fig:benchplot_gun}
 
         \vspace*{\floatsep}
         
 		\includegraphics[width=0.8\textwidth]{images/benchmark_5m}
-		\caption{Beam envelopes in drift for benchmark between OPAL, ASTRA, and GPT.}
+		\caption{Beam envelopes in drift for benchmark between \verb|OPAL|, \verb|ASTRA|, and \verb|GPT|.}
 	    \label{fig:benchplot_5m}
 	\end{center}
 \end{figure}
@@ -188,24 +191,24 @@ In general, the simulation results are in reasonable agreement
 and within expectations based on previous benchmarks \cite{codecompare}. 
 See Figure~\ref{fig:benchplot_gun} and~\ref{fig:benchplot_5m} 
 for a comparison of the beam envelopes generated by the three simulations in the gun and drift. 
-The apparent disagreement of emittance between ASTRA and the other
+The apparent disagreement of emittance between \verb|ASTRA| and the other
 two codes in the gun is because the former removes the angular momentum   
 induced by the solenoid, while the other two codes do not. 
 After the beam exits the solenoid, the emittance results  
 are in good agreement, as shown in Figure~\ref{fig:benchplot_5m}.
 
 \Subsection{Dipole Simulations}
-Simulations of a hard edge dipole were done in GPT  
-and OPAL-t in order to probe the CSR results.
+Simulations of a hard edge dipole were done in \verb|GPT|  
+and \verb|OPAL-t| in order to probe the CSR results.
 Short mono-energetic bunches with a Gaussian energy distribution with zero initial transverse emittance  
 were sent through the dipole.  Beam and dipole parameters are shown in Table~\ref{tab:benchcsr}. 
-The CSR routine used in OPAL-t is based on the routine used in ELEGANT \cite{elegant}, 
-which is known to assume the beam is ultra-relativistic. The CSR routine in GPT  
+The CSR routine used in \verb|OPAL-t| is based on the routine used in ELEGANT \cite{elegant}, 
+which is known to assume the beam is ultra-relativistic. The CSR routine in \verb|GPT|  
 does not use the ultra-relativistic approximation ($\beta=1$) 
 and as a result, works at all energies \cite{gptcsr}.  
-Therefore, we expected the routines to match well at high energy and  
+Therefore, the routines were expected to match well at high energy and  
 diverge at lower energy. Results of the CSR simulations are shown in Figure~\ref{fig:csr}  
-As expected, the results between GPT and OPAL-t disagree at low energies. 
+As expected, the results between \verb|GPT| and \verb|OPAL-t| disagree at low energies. 
 \begin{table}
 	\begin{center}
 		\caption{Input simulation parameters for CSR benchmark.}
@@ -227,58 +230,58 @@ As expected, the results between GPT and OPAL-t disagree at low energies.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{./images/CSR}
-	\caption{Results of CSR benchmark between OPAL and GPT.
+	\caption{Results of CSR benchmark between \verb|OPAL| and \verb|GPT|.
 	The codes agree well at high energies and diverge, as expected, at low energies.}
 	\label{fig:csr}
 \end{figure}
 
 \Subsection{Benchmark Conclusion}
-In summary, all three codes (OPAL, ASTRA, GPT), agreed well when modeling a photoinjector
+In summary, all three codes (\verb|OPAL|, \verb|ASTRA|, \verb|GPT|), agreed well when modeling a photoinjector
 with space charge effects, solenoid and RF fields.
-OPAL and GPT also agree on energy loss and energy spread calculations at high energy.
-At low energy they diverge, and GPT is more accurate because it calculates 
+\verb|OPAL| and \verb|GPT| also agree on energy loss and energy spread calculations at high energy.
+At low energy they diverge, and \verb|GPT| is more accurate because it calculates 
 $\beta$ at all times instead of assuming the beam is relativistic.
 Preference on which code to use depends more on ease of use 
 and availability, especially for the AWA facility where $\beta\approx 1$. 
 
 \Section{Convergence Studies}
 
-The OPAL code was chosen for modeling of the AWA after benchmarking was complete.
+The \verb|OPAL| code was chosen for modeling of the AWA after benchmarking was complete.
 Convergence runs were done for three parameters: 
 time step, SC mesh size, and number of particles.  
 Each case was tested in the gun using the same field maps and 
-baseline settings that were used to compare SC in OPAL-t,  
-ASTRA, and GPT in Section~\ref{sec:bench}. 
-All OPAL-t simulations were run on 
+baseline settings that were used to compare SC in \verb|OPAL-t|,  
+\verb|ASTRA|, and \verb|GPT| in Section~\ref{sec:bench}. 
+All \verb|OPAL-t| simulations were run on 
 sixteen cores, taking advantage of parallel calculations. 
-The number of particles was varied from 20k to 3.2 million.  
+The number of particles was varied from 20,000 to 3.2 million.  
 The longitudinal parameters (energy,  bunch length)  
 showed no variation, but there were slight deviations 
 in the transverse emittance and beam size. The same results 
-were observed when the time step was varied from 0.1 ps  to  10  ps.  
-When the grid size was changed from 32, 44, 46, and 64 cubed; 
+were observed when the time step was varied from \SI{0.1}{ps} to \SI{10}{ps}.  
+When the grid size was changed from 32, 44, 46, and $64^3$ ; 
 again the results lacked any major discrepancies.  
 In all cases, no appreciable differences were observed in the energy,
 emittance, beam size, or bunch length. In  most  cases,  
 if unreasonable  parameters  were chosen, 
-OPAL-t would not complete the run (crash or hang up).  
+\verb|OPAL-t| would not complete the run (crash or hang up).  
 
 From these runs, it was concluded that an appropriate starting point 
-for mid fidelity simulations is a 32 cubed grid with a time step
-of 0.1 ps. The number of particles for such a run should be on the
-order of 10's of thousands. On eight or sixteen compute cores
+for mid-fidelity simulations is a $32^3$  grid with a time step
+of \SI{0.1}{ps}. The number of particles for such a run should be on the
+order of tens of thousands. On eight or sixteen compute cores
 these simulations take on the order of minutes.
 
 \Section{Bunch Length Simulations}
 
 As shown in Figures~\ref{fig:benchplot_gun} and \ref{fig:benchplot_5m}, 
-OPAL simulation output includes the bunch length.
+\verb|OPAL| simulation output includes the bunch length.
 A set of low and high charge simulations were done  
 for comparison using the experimental set up in Section~\ref{sec:bunchlength}.
 Input parameters for the simulations are shown in Table~\ref{simparam}.
 Note that on crest refers to the phase of maximum energy gain.
-In the case of the gun, a -~$5^{\circ}$ phase is measured 
-with respect to the peak rf voltage.
+In the case of the gun, a $-5^{\circ}$ phase is measured 
+with respect to the peak RF voltage.
 \begin{table}[hbt]
 	%   \vspace*{-.5\baselineskip}
 	\centering
@@ -308,12 +311,12 @@ high charge case at \SI{30}{nC}.
 These charges and input parameters were specifically chosen to 
 match experimental measurements that had taken place or would 
 take place in the future. Each simulation was run with 10,000 particles 
-on 8 cores, and ran 2.5 minutes to reach a z location of \SI{17}{m}.
+on 8 cores, and ran 2.5 minutes to reach a $z$ location of \SI{17}{m}.
 Prior work \cite{benchmark} indicates the bunch length is not 
 very sensitive to the number of particles or grid size. 
-This would not be the case if we were comparing emittance, or 
-transverse characteristics. We expected charge, energy,
-and laser parameters to have the most impact on the simulation values.
+This would not be the case if comparing emittance, or 
+transverse characteristics. Charge, energy, and laser parameters 
+are expected to have the most impact on the simulation values.
 
 
 \Subsection{Comparison to Experimental Measurements}
@@ -381,7 +384,7 @@ The techniques used include model-based, genetic,
 and structure exploiting algorithms. 
  
 Model-based, derivative-free, trust-region algorithms 
-are increasingly popular for optimizing computationally 
+are increasingly popular in mathematics for optimizing computationally 
 expensive numerical simulations. The term model-based means 
 that the simulation output is used to construct a model. 
 This can be a quadratic function as described later, 
@@ -393,8 +396,8 @@ function for beam size that allows calculation of a derivative.
 Many common optimization techniques calculate derivatives, 
 but this is not applicable in situations of complex dynamics.
 Finally, trust-region refers to the bounds on our input variables.
-There are physical constraints on the magnet and RF values we 
-can achieve in the real world. This information is used 
+There are physical constraints on the magnet and RF values that 
+can be achieved in the real world. This information is used 
 to bound the optimization work in a ``trust-region'', so that
 effort is not wasted in an infeasible search space.
 A strength of model-based methods is their efficient use of function evaluations. 
@@ -403,7 +406,7 @@ After a model-based method was implemented,
 a common optimization technique was used to benchmark the results. 
 The algorithm used for confirmation 
 is called a genetic algorithm (GA). An implementation of this algorithm is
-built into OPAL. GA's follow nature's lead as the name suggests.
+built into \verb|OPAL|. GA's follow nature's lead as the name suggests.
 A random sample is done, and the best points based on the defined objectives
 (i.e. emittance, bunch length, beam size, etc.)
 are selected. Those points are then mixed to form a new ``generation''
@@ -425,12 +428,12 @@ in two cases of interest at the AWA.
 The first case was for lower beam charge, and used only the gun parameters for the optimization.  
 The second case was for higher beam charge, and included parameters of the downstream linac as well as the gun.
 In the first case,  the emittance of a \SI{1}{nC} electron 
-bunch produced by the AWA rf photocathode gun 
-was minimized by adjusting three parameters: rf gun phase, 
+bunch produced by the AWA RF photocathode gun 
+was minimized by adjusting three parameters: RF gun phase, 
 solenoid strength, and laser radius. The algorithm 
 converged to a set of parameters that yielded an
 emittance of \SI{1.08}{\um}. In the second case, 
-the number of optimization parameters was expanded to model the complete AWA rf 
+the number of optimization parameters was expanded to model the complete AWA RF 
 photoinjector (the gun and six accelerating cavities) at \SI{40}{nC}. 
 The optimization algorithm was used in a Pareto study; which is a type of study that compares the 
 trade-off between competing parameters, such as emittance and bunch 
@@ -454,12 +457,12 @@ If $\hat{v}$ is not a sufficient improvement over $v^k$,
 the model around $v^k$ is improved. For more
 information about derivative-free optimization, see~\cite{Conn2009a}.
 
-The parameters $v^k$ are generated and supplied to OPAL-t~\cite{opal}. 
-The optimization package NLopt and OPAL-t were used
+The parameters $v^k$ are generated and supplied to \verb|OPAL-t|~\cite{opal}. 
+The optimization package NLopt and \verb|OPAL-t| were used
 in combination with Python code written at ANL with the help 
 of Jeffrey Larson, to perform simulation evaluations and optimization.
 All the files needed to replicate the results in this section are available at: 
-$<$www.mcs.anl.gov/$\sim$jlarson/AWA$>$.  
+\url{<$www.mcs.anl.gov/$\sim$jlarson/AWA$>}.  
 
 \Subsection{Optimization Parameters}
 % ----------------------------------------------------
@@ -471,8 +474,8 @@ The minimized objective was emittance ($\epsilon_x$).
 When optimizing the gun and the entire linac, seven additional parameters were 
 varied: the longitudinal duration of the laser pulse, defined at full width at half maximum ($T$)
 and accelerating cavity phases ($\phi_L$). The optimization parameters and
-bounds are given in Table~\ref{tab:parameters}; we denote the set of
-ten optimization parameters as $v=[S_3, \phi_g, R, T, \phi_L]$, where 
+bounds are given in Table~\ref{tab:parameters}; the set of
+ten optimization parameters are denoted as $v=[S_3, \phi_g, R, T, \phi_L]$, where 
 $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavity $L_1$-$L_6$. 
 \begin{table}
 	\caption{\label{tab:parameters} Parameter bounds for gun and linac optimization.}
@@ -495,7 +498,7 @@ $\phi_L=[\phi_{L_1},\ldots,\phi_{L_6}]$ represents the phase of each linac cavit
 \Subsection{Gun Simulations Using BOBYQA} \label{sec:gunbobyqa}
 %\section{Gun Optimization}
 % ----------------------------------------------------
-There has been work done by other groups to optimize 1.5 cell rf guns
+There has been work done by other groups to optimize 1.5-cell RF guns
 at \SI{1}{nC}~\cite{pitz}. The known solution from that work was used as 
 a baseline test of BOBYQA when applied to this accelerator application.
 An optimization of the single objective emittance ($\epsilon_x$) was 
@@ -529,15 +532,17 @@ However, the results match expectations based on the literature.
 \end{table}
 
 \Subsection{Linac Optimization}\label{sec:linacopt}
-Next we performed a multiobjective optimization of the linac (Figure~\ref{fig:beamline}), 
+Next a multiobjective optimization of the linac (Figure~\ref{fig:beamline}) was done, 
 by adjusting the ten parameters in Table~\ref{tab:parameters}. The charge was set to \SI{40}{nC}
 and was chosen to match upcoming two-beam acceleration experiments~\cite{tba2017}. 
 Two objectives were considered: emittance and bunch length ($\sigma_z$). 
 The location of interest is $z_1=\SI{12.51}{m}$, as this is the entrance of the first 
-quadrupole magnet after the linac. Optimization was required only for the horizontal emittance, $\epsilon_{x}$.  This is because there were no asymmetric focusing elements in the linac, and the beam is round, $\epsilon_{x}=\epsilon_{y}$. 
-The non-varying parameters for all linac simulation runs are shown in Table~\ref{tab:linac}.  The particle distribution initially emitted from the cathode is generated within \verb|OPAL-t| using input parameters such as the cathode material, the work function and the laser energy.  \lsnote{{\it The following sentence needs to be fixed.}} In this case, was used with a laser of initial kinetic energy of \SI{4}{eV}. 
+quadrupole magnet after the linac. Optimization was required only for the horizontal emittance, $\epsilon_{x}$.  
+This is because there were no asymmetric focusing elements in the linac, and the beam is round, $\epsilon_{x}=\epsilon_{y}$. 
+The non-varying parameters for all linac simulation runs are shown in Table~\ref{tab:linac}. 
 These are typical operating conditions at AWA. 
-
+The particle distribution initially emitted from the cathode is generated within \verb|OPAL-t| 
+using input parameters such as the cathode material, the work function and the laser energy.  
 
 \def \gunleft {-1.0}
 \def \gunright {0.3}
@@ -598,10 +603,10 @@ These are typical operating conditions at AWA.
 		at (12.5,1.0) {$z_1$};
 		\end{tikzpicture}
 	\end{center}
-	\caption{Layout of the AWA linac. The \SI{70}{MeV} AWA rf photoinjector 
-		is an rf gun followed by a linac with six rf accelerating cavities, 
+	\caption{Layout of the AWA linac. The \SI{70}{MeV} AWA RF photoinjector 
+		is an RF gun followed by a linac with six RF accelerating cavities, 
 		labeled $L_1$-$L_6$ \cite{Power:2010zza}.  The cavity phases are controlled independently. 
-		The 1.5 cell rf gun operates at \SI{1.3}{GHz} with three solenoids 
+		The 1.5-cell RF gun operates at \SI{1.3}{GHz} with three solenoids 
 		and a Cs$_{2}$Te photocathode excited by a \SI{248}{nm} UV laser.  
 		Solenoid 1 ($S_1$) is used to buck the field at the cathode,
 		while the other two solenoids ($S_2$ and $S_3$) are used for emittance compensation.  
@@ -682,7 +687,8 @@ The number of simulation evaluations needed to obtain convergence
 in the BOBYQA runs varied from a minimum of 107 evaluations to a maximum of 208 
 evaluations. In order to generate the Pareto front in
 Figure~\ref{fig:pareto}, a total of 2,492 simulation evaluations were completed.
-Most simulation evaluations took approximately 7 minutes, using 16 cores and 100,000 particles. These numbers are driven by the amount of time \verb|OPAL-t| needs to simulate the beam line. 
+Most simulation evaluations took approximately 7 minutes, using 16 cores and 100,000 particles. 
+These numbers are driven by the amount of time \verb|OPAL-t| needs to simulate the beam line. 
 
 The best-found objective value through each BOBYQA run is shown in Figure~\ref{fig:iterations}. 
 Weight 0.0 and 1.0 are negative due to the scaling in Equation~(\ref{eq:scale}). While the weights, $w$, are always non-negative, 
@@ -708,7 +714,7 @@ narrow range (\SIrange{10}{16}{mm}).
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{images/THPAB155f3}
-		\caption{\label{fig:trade}Bunch length and emittance vs.~gun phase at each optimized point in the Pareto front for the linac at \SI{40}{nC}. The phase of the max energy gain is 0$^{\circ}$.}
+		\caption{\label{fig:trade}Bunch length and emittance vs.~gun phase at each optimized point in the Pareto front for the linac at \SI{40}{nC}. The phase of the max energy gain is $0^{\circ}$.}
 	\end{center}
 \end{figure}
 
@@ -724,9 +730,9 @@ This indicates optimized linac phases may benefit a range of gun settings during
 
 
 \Subsection{Lessons Learned from BOBYQA Work}
-Using an AWA beam line as the simulation model, we used the BOBYQA algorithm 
+Using an AWA beam line as the simulation model, the BOBYQA algorithm was used 
 to optimize the emittance produced by the gun at \SI{1}{nC}.
-Using the same algorithm, we performed a multiobjective analysis for the linac at \SI{40}{nC}. 
+Using the same algorithm, a multiobjective analysis for the linac at \SI{40}{nC}, was performed. 
 A Pareto front comparing the trade-off between bunch length and emittance was generated for the linac. 
 In total, only 2,492 simulation evaluations were needed to produce the approximate Pareto front.
 From this work a few key take aways are clear. First, larger laser radius
@@ -790,7 +796,7 @@ order thousands of compute hours.
 PIC simulations of the AWA drive line are essential to the TBA project. 
 Accurate predictions of the beam dynamics in the drive line are needed for the 
 success of fully staged TBA, especially with the tighter tolerances required by the PETS apertures.
-A new code, \verb|OPAL-t|, was investigated as an alternative to ASTRA and GPT. 
+A new code, \verb|OPAL-t|, was investigated as an alternative to \verb|ASTRA| and \verb|GPT|. 
 The benefits of \verb|OPAL| include being free and being able to run on a parallel platform.
 A benchmark was done to ensure that \verb|OPAL| gave results consistent with other codes used by members of the AWA.
 No major discrepancies were found in the space charge and CSR algorithms.
@@ -809,7 +815,7 @@ The results agreed well, and suggest that the model-based methods require fewer 
 Validation of \verb|OPAL-t| and initial optimization studies provided a tool 
 to design the beam transport to the TBA experimental area.  
 Initial probes into this problem were done using the genetic algorithm
-implemented in OPAL-t~\cite{optpilot}. Details of this work can be found in Chapter~\ref{chp:4}.
+implemented in \verb|OPAL-t|~\cite{optpilot}. Details of this work can be found in Chapter~\ref{chp:4}.
 
 
 

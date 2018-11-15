@@ -13,7 +13,7 @@ This includes a small transverse size of the beam to allow 100\% transmission,
 and a small bunch length to maximize power extraction from the PETS.
 Spectrometer magnets are used to measure the energy of the beam at the end of the beam lines.
 This second independent beam line design has been completed. 
-So far, installation and testing of the kicker has been done.  
+Installation and testing of the kicker has been done.  
 The remaining components have been specified, and several are now ready for installation (i.e. septum, quadrupoles, dipoles).
 \begin{figure}
 		\begin{center}
@@ -88,15 +88,15 @@ capacitor), increasing the beam deflection angle.
 
 The kicker is essentially a parallel plate waveguide. 
 A $\pm$\SI{30}{kV} power supply can be used to induce a maximum of \SI{60}{kV} potential difference 
-across the plates. Each plate will be terminated in a 50 $\Omega$ load.  
+across the plates. Each plate will be terminated in a $50\,\Omega$ load.  
 The combination of the two plates will result in a static TEM mode 
 between the plates. The electric field, $E_x$, and magnetic field, $B_y$,
-can be derived from the voltage or current. The electric field, $E_x$, due to a potential, V, is: 
+can be derived from the voltage or current. The electric field, $E_x$, due to a potential, $V$, is: 
 \begin{equation}
 E_x=\frac{V}{h},
 \end{equation}
 where h is the gap height. From Maxwell's equations, we know that the electric and magnetic 
-field are related by the speed of light, c, in the case of plane and TEM waves \cite{pozar}. 
+field are related by the speed of light, $c$, in the case of plane and TEM waves \cite{pozar}. 
 From this we can find the magnetic field induced between the plates: 
 \begin{equation}
 B_y=\frac{E_x}{c}.
@@ -104,7 +104,7 @@ B_y=\frac{E_x}{c}.
 \end{equation}
 The electrons are traveling at nearly the speed of light, $c$, and move through the kicker on a 
 trajectory perpendicular to the fields.  Plugging Equation \ref{Bv} into the Lorentz force equation, 
-it is shown that the force exerted on a charge, q, 
+it is shown that the force exerted on a charge, $q$, 
 from the electric and magnetic fields of the TEM mode are equal: 
 \begin{equation}
 F=q\,(E_x+v\times B_y),
@@ -269,9 +269,12 @@ and have room for the beam centroid deflection that the kicker will cause.
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
 for the transverse offset of the beam as it exits the kicker. 
 
-At this point, it was clear the gap needed to be larger than \SI{30}{mm}, due to the beam size at \SI{40}{nC}. 
-Around this time, it was also learned that the maximum pulsar voltage was $\pm$ \SI{30}{kV}, not $\pm$ \SI{35}{kV} as expected. 
-These two factors would drive the possible kick angle below \SI{2}{^\circ}, if the kicker plates remained the same length.
+At this point, it was clear the gap needed to be larger than \SI{30}{mm}, 
+due to the beam size at \SI{40}{nC}. Around this time, 
+it was also learned that the maximum pulsar voltage was $\pm$ \SI{30}{kV},
+not $\pm$ \SI{35}{kV} as expected. 
+These two factors would drive the possible kick angle below \SI{2}{^\circ}, 
+if the kicker plates remained the same length.
 The next question was whether to push for a larger angle by elongating the kicker plates, 
 or whether plate gap values at \SI{40}{mm} and above were sufficient, see Table \ref{tab:kickparam}.
 Additional mechanical constraints between the kicker and septum were considered. 
@@ -349,7 +352,7 @@ and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}.
 As a double check on the first order calculations in Figures \ref{fig:kickerangles} and \ref{fig:kickeroffset}, 
 a PIC simulation was done to estimate the beam 
 trajectory in the kicker and septum. 
-This work includes rf cavities and space charge effects.
+This work includes RF cavities and space charge effects.
 The two estimates match within reason, see Figure \ref{fig:beamtraj}. 
 \begin{figure}
 	\begin{center}
@@ -427,11 +430,11 @@ Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in 
 
 \Subsection{Time Domain Reflectometer Test}
 After the HV test was completed, a Time Domain Reflectometer (TDR) measurement was preformed at the APS~\cite{TDR}, 
-with the help of C. Y. Yao, A. Brill, X. Sun and C. Jing.
+with the help of C.~Y.~Yao, A.~Brill, X.~Sun and C.~Jing.
 This technique measures reflections along a conductor and gives information about discontinuities in the line being measured. 
 This information was used to determine the impedance along the cables, feedthroughs, and plates of the kicker. 
 Ideally, the response would be \SI{50}{\ohm} to reduce reflections and resulting power loss. 
-The measurements, plotted by C.Y. Yao in Figure \ref{fig:TDR}, show a larger impedance at the feedthrough locations.
+The measurements, plotted by C.~Y.~Yao in Figure \ref{fig:TDR}, show a larger impedance at the feedthrough locations.
 Due to resource and time constraints, it was a goal to use off the shelf parts where possible in fabrication of the kicker.
 Therefore, the feedthrough mismatch is expected because they were not specifically designed to couple to the plate geometry.
 A substantial amount of time and resources were spent to minimize reflections for the APS kickers plotted in Figure \ref{fig:TDR}.
@@ -449,7 +452,7 @@ The only negative result is the reduced amount of voltage supplied to the plates
 		\includegraphics[width=0.75\textwidth]{./images/TDR_APS_kicker}
 	
 		(b) TDR single mode measurements of an APS kicker.
-		\caption{TDR measurements of the impedance of AWA and APS kickers, plotted by C. Y. Yao.
+		\caption{TDR measurements of the impedance of AWA and APS kickers, plotted by C.~Y.~Yao.
 		Single mode refers to the orientation of the measurement. 
 		Only one port of the kicker is driven and measured at a time. }\label{fig:TDR}		
 		\end{center}
@@ -530,7 +533,7 @@ The contributions to the total deflection must be broken into two parts: the def
 and the position change when the beam is drifting towards the YAG screen after it exits the kicker.
 The latter part can be approximated using the triangle shown in Figure~\ref{fig:kicker-geometry}.
 \lsnote{{\it Using that figure, tan(thetak) = ldrift/deltax, so it seems like you need ldrift/tan(thetak) in the  following equation, instead of a product.}} Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
-ngCombining these two terms, the equation for the x offset seen during the experiment
+Combining these two terms, the equation for the x offset seen during the experiment
 can be written as:
 \begin{equation}
 	\Delta x = \Delta x_{kicker} + \Delta x_{drift}\, ,
@@ -672,7 +675,7 @@ first two requirements (transmission and bunch length).
 In the case of bunch length, there was no set goal, but a clear understanding 
 that a shorter bunch will generate more power in the PETS structures [ref here]. 
 \lsnote{{\it <-Put in a reference or remove} Since the PETS } 
-aperture of \SI{17.6}{mm} is roughly three times smaller than the rest of the beam line, 
+The structure aperture of \SI{17.6}{mm} is roughly three times smaller than the rest of the beam line, 
 care must be taken to achieve good transmission there.
 
 As a first check of the rough design, a point to point matrix calculation was done 
@@ -1118,7 +1121,7 @@ the equipment or beam. After the two outside vacuum tests, the kicker was instal
 the AWA drive line. It was tested with \SI{30}{nC} beams. 
 The beam deflection and angle due to the kicker were measured and 
 compared to first order, and showed that the kicker performance meets beam dynamics specifications. 
-The remainder of the beamline is awaiting installation. 
+The remainder of the beam line is awaiting installation. 
 
 Further design work included determination of beam line input parameter settings (incorporating 
 mechanical and hardware constraints) that achieve beam transmission through the power extractor (PETS).
@@ -1130,9 +1133,9 @@ Next, a beam line optimization was done using the built in genetic algorithm in 
 Six design variables and five objectives were used. 
 The results are plotted, and confirm the beam line geometry can deliver 
 a \SI{40}{nC} beam to the PETS location with 100\% transmission.
-Future work includes checking the optimization results for the full beamline against beam measurements.  
+Future work includes checking the optimization results for the full beam line against beam measurements.  
 This requires that the remaining hardware be installed.  
-It is expected that the design work presented will enable successful beam transport through the new beamline, 
+It is expected that the design work presented will enable successful beam transport through the new beam line, 
 and that in turn will enable demonstration of fully independent staging for a two-beam acceleration scheme. 
 
  

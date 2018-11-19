@@ -4,7 +4,7 @@
 \Section{Introduction}
 
 Independent staging requires two drive beam lines, with routing of bunch trains via a kicker and septum, 
-see Figure \ref{fig:full-staging}. The kicker and septum must direct the beam to a dipole, 
+see Figure~\ref{fig:full-staging}. The kicker and septum must direct the beam to a dipole, 
 that will straighten the beam trajectory to travel parallel to the original beam path. 
 In this configuration the two drive beam lines will be parallel to each other after the dipole.
 Several quadrupoles are required to control the beam size, and deliver the desired beam parameters
@@ -54,7 +54,7 @@ two quadrupoles on the bent beam line, and three focusing quadrupoles
 before the PETS structure.
 A point to point matrix calculation was done to ensure that transport of the
 beam was possible through the desired kicker gap.  This was followed by an optimization 
-performed using the OPAL code and a built-in genetic algorithm. 
+performed using the \verb|OPAL| code and a built-in genetic algorithm. 
 There were optimization results in several optics scenarios that can transport 
 the beam through the PETS with 100\% transmission.  
 
@@ -77,7 +77,7 @@ acceleration field is maximum when the witness beam arrives at the accelerating 
 Magnetic options for transverse bunch train separation, 
 such as a dipole, were disqualified due to their slow rise times 
 
-Borrowing from a successful neighbor, a design implemented by Indiana University (IU) \cite{iukicker}
+Borrowing from a successful neighbor, a design implemented by Indiana University (IU)~\cite{iukicker}
 was adapted to fit the TBA requirements at the AWA. Redesign required consideration
 of the length and gap between the kicker plates. Both are key parameters that determine 
 what angle the beam will be deflected. Longer plates result in the beam traveling 
@@ -95,15 +95,15 @@ can be derived from the voltage or current. The electric field, $E_x$, due to a 
 \begin{equation}
 E_x=\frac{V}{h},
 \end{equation}
-where h is the gap height. From Maxwell's equations, we know that the electric and magnetic 
-field are related by the speed of light, $c$, in the case of plane and TEM waves \cite{pozar}. 
-From this we can find the magnetic field induced between the plates: 
+where h is the gap height. From Maxwell's equations, it is known that the electric and magnetic 
+field are related by the speed of light, $c$, in the case of plane and TEM waves~\cite{pozar}. 
+The magnetic field induced between the plates: 
 \begin{equation}
 B_y=\frac{E_x}{c}.
 \label{Bv}
 \end{equation}
 The electrons are traveling at nearly the speed of light, $c$, and move through the kicker on a 
-trajectory perpendicular to the fields.  Plugging Equation \ref{Bv} into the Lorentz force equation, 
+trajectory perpendicular to the fields.  Plugging Equation~\ref{Bv} into the Lorentz force equation, 
 it is shown that the force exerted on a charge, $q$, 
 from the electric and magnetic fields of the TEM mode are equal: 
 \begin{equation}
@@ -115,7 +115,7 @@ F=q\,(E_x+v\times B_y),
 
 Since the force due to the electric field is equal and oriented in the same direction as the force due to the magnetic field, 
 the total kick is twice that from either field alone.  
-The angle induced by electric and magnetic fields has been calculated in \cite{iukicker, Wiedemann}
+The angle induced by electric and magnetic fields has been calculated in~\cite{iukicker, Wiedemann}
 and is rewritten in the following terms:  
 \begin{equation}
 \theta_E= \frac{V\,L}{h\,T},
@@ -123,8 +123,8 @@ and is rewritten in the following terms:
 \begin{equation}
 \theta_B= \frac{B\,L}{B\rho},
 \end{equation}
-where L is the plate length, and T is the kinetic energy of the beam. 
-Rigidity, or $B\rho$, is a common accelerator physics term that can be found in text such as Wiedemann \cite{Wiedemann}. 
+where L is the plate length, and $T$ is the kinetic energy of the beam. 
+Rigidity, or $B\rho$, is a common accelerator physics term that can be found in text such as Wiedemann~\cite{Wiedemann}. 
 It is a convenient way to relate the magnetic field and trajectory of an energetic beam traveling through that field:
 \begin{equation}
 	B\rho=3.33564\,\,T\, \text{[GeV-Tesla]}.
@@ -151,7 +151,7 @@ using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of de
 		\node[fill=white, inner sep=2pt] (txt2) at (-6.5,0) {$x$};
 		\node[fill=white, inner sep=2pt] (txt2) at (-2,3) {Beam Direction};
 		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,-2) {$\rho$};
-		\node[fill=white, inner sep=2pt] (txt2) at (2,2) {$\theta_k$};
+		\node[fill=white, inner sep=2pt] (txt2) at (2.3,3.8) {$\theta_k$};
 		\end{tikzpicture}
 	\end{center} 
 	\caption{Simplified drawing of beam trajectory through the kicker.
@@ -172,11 +172,11 @@ using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of de
 Where $\rho$, is the bending radius, $\Delta x$ is the beam offset at the exit of the kicker, 
 and $\theta_{k}$ was is the total angle provided by the kicker. 
 
-From these equations, we relate the design parameters gap height, length of the plates, and 
-the kinetic energy of the beam. Next, further beam line considerations were included 
+From these equations, design parameters gap height, length of the plates, and 
+the kinetic energy of the beam are related. Next, further beam line considerations were included 
 to narrow down what angle the kicker needed to supply. 
 The largest drive beam energy achievable at the AWA is \SI{75}{MeV}. 
-Therefore the kinetic energy of the beam, T, was set as a constant.
+Therefore the kinetic energy of the beam, $T$, was set as a constant.
 Next mechanical constraints were considered. The two drive beam lines need to be separated
 by at least \SI{0.5}{m} so that magnets (quadrupoles and dipoles) can fit on each 
 beam line without competing for transverse space. 
@@ -198,7 +198,7 @@ beam line without competing for transverse space.
 			The two beam lines must also be at least \SI{0.5}{m} apart.}\label{fig:triangle}
 \end{figure*}
 
-Using geometry as shown in Figure \ref{fig:triangle}, an upper limit on the 
+Using geometry as shown in Figure~\ref{fig:triangle}, an upper limit on the 
 combined kicker and septum angle ($\theta_k+\theta_s$) is based on the existing dipoles at the AWA.
 The maximum dipole bend angle, $\theta_d$, is $20^\circ$. 
 Therefore, $\theta_{total}$  must be less than $20^\circ$. 
@@ -210,14 +210,14 @@ This has the added benefit of reducing energy spread.
 If the beam is bent at a smaller angle, 
 less coherent synchrotron radiation (CSR) and transverse position spread will be induced.
 
-Using the equations from Section \ref{theory}, 
+Using the equations from Section~\ref{theory}, 
 tables were made for different plate lengths giving possible gap, angle, and x offset values for comparison. 
 The maximum beam energy was used, \SI{75}{MeV}, and the expected pulsar voltage was used, \SI{35}{kV}.
 Kicker lengths of \SI{0.42}{m}, \SI{0.5}{m}, and \SI{0.6}{m} were investigated.
 From these calculations, the range of possible kicker angles fell between \SI{1}{^\circ} and \SI{3}{^\circ}.
 The longest kicker plate option was investigated further with the understanding that 
 a larger kicker angle would shorten the drift distance between the kicker and septum, 
-and the results for this configuration are shown in Table \ref{tab:kickparam}.
+and the results for this configuration are shown in Table~\ref{tab:kickparam}.
 A shorter drift would mean less divergence in the beam before it reaches the next focusing optic (quadrupole).
 \begin{table}%[hbt]
 	%   \vspace*{-.5\baselineskip}
@@ -230,16 +230,16 @@ A shorter drift would mean less divergence in the beam before it reaches the nex
 		\toprule
 		\toprule
 		%\rowcolor{blue!30} 
-		\textbf{Plate Gap [mm]} & \textbf{Angle [deg]}  & \textbf{X Offset [mm]} \\ \hline
-		%\midrule
+		\textbf{Plate Gap [mm]} & \textbf{Angle [deg]}  & \textbf{X Offset [mm]} \\ 
+		\midrule
 		20 & 3.2   & 16.7    \\ %[3pt]
 		25 & 2.57  & 13.4  \\ %[3pt]
 		30 & 2.14  & 11.1 \\		 
 		35 & 1.83  & 9.6	  \\
 		40 & 1.6   & 8.4		 \\
 		45 & 1.43  & 7.4      \\
-		50 & 1.28  & 6.7   \\ \hline
-		%\bottomrule
+		50 & 1.28  & 6.7   \\ 
+		\bottomrule
 	\end{tabular}	
 	\end{center}
 \end{table}
@@ -248,22 +248,22 @@ Next simulations were done to give an estimation of the beam size at the entranc
 Typical operating conditions at the AWA were used: accelerating cavities on crest, buck focusing at \SI{500}{A}, 
 matching solenoid at \SI{255}{A}, and quadrupoles nearly in a 1:2:1 configuration with \SI{1.7}{A} and \SI{-3.3}{A}.
 These are not optimized running conditions, which gives a good upper bound for how the beam will behave before tuning.
-An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table \ref{tab:kickparam}. 
+An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table~\ref{tab:kickparam}. 
 \begin{figure}
 	\begin{center}		
 		\begin{tikzpicture}[scale=0.7]
 		\node (fig1) at (0,0)
-		{\includegraphics[width=0.5\textwidth]{./images/scatter_kicker_entrance}%
-		\includegraphics[width=0.5\textwidth]{./images/scatter_kicker_exit}};
-		\node[fill=white, inner sep=2pt] (txt2) at (6,-4) {X [mm]};
-		\node[fill=white, inner sep=2pt] (txt2) at (-5,-4) {X [mm]};
+		{\includegraphics[width=0.48\textwidth]{./images/scatter_kicker_entrance}%
+		\includegraphics[width=0.48\textwidth]{./images/scatter_kicker_exit}};
+		\node[fill=white, inner sep=2pt] (txt2) at (6.2,-3.8) {X [mm]};
+		\node[fill=white, inner sep=2pt] (txt2) at (-5,-3.8) {X [mm]};
 		\end{tikzpicture}
 	\end{center} 
 	\caption{Simulation of the transverse size of a \SI{40}{nC} 
 			beam at the entrance and exit of proposed kicker configuration.}
 	\label{fig:beamsizekicker}
 \end{figure}  
-The resulting beam sizes were about \SI{15}{mm} to \SI{19}{mm} as shown in Figure \ref{fig:beamsizekicker}. 
+The resulting beam sizes were about \SI{15}{mm} to \SI{19}{mm} as shown in Figure~\ref{fig:beamsizekicker}. 
 This requires that the kicker gap be comfortably larger than \SI{20}{mm}, 
 and have room for the beam centroid deflection that the kicker will cause.
 The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
@@ -276,7 +276,7 @@ not $\pm$ \SI{35}{kV} as expected.
 These two factors would drive the possible kick angle below \SI{2}{^\circ}, 
 if the kicker plates remained the same length.
 The next question was whether to push for a larger angle by elongating the kicker plates, 
-or whether plate gap values at \SI{40}{mm} and above were sufficient, see Table \ref{tab:kickparam}.
+or whether plate gap values at \SI{40}{mm} and above were sufficient, see Table~\ref{tab:kickparam}.
 Additional mechanical constraints between the kicker and septum were considered. 
 One beam pipe will connect the two and the deflected and undeflected 
 beams must travel in the same pipe until reaching the septum.
@@ -301,10 +301,10 @@ Therefore, it was decided to elongate the kicker plates to accommodate the large
 			Distance between kicker and septum	&  \SI{1}{m} \\
 			Distance between deflected/undeflected beam pipe in septum	& \SI{100}{mm} \\
 			Distance between parallel drive lines	& \SI{0.5}{m} \\
-			Beam Energy 				& 65 MV\\ 
-			Linac Voltages 				& 24-25 MV \\
-			Kicker Angle				& -2$^\circ$ \\
-			Septum Angle				& -15$^\circ$\\ 
+			Beam Energy 				& \SI{65}{MV}\\ 
+			Linac Voltages 				& $24-25$\SI{}{MV} \\
+			Kicker Angle				& $-2^\circ$ \\
+			Septum Angle				& $-15^\circ$\\ 
 			\bottomrule
 		\end{tabular}
 	\end{center}
@@ -330,8 +330,8 @@ In other words, if the kicker were unable to deliver a \SI{2}{^\circ}
 kick for a \SI{65}{MeV}, could the energy be lowered to still achieve
 a fully staged TBA demonstration. 
 With the pulsar output being variable between 18 and 30 kV,
-several feasible options were calculated using the equations in Section \ref{theory}, 
-and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}.
+several feasible options were calculated using the equations in Section~\ref{theory}, 
+and are shown in Figures~\ref{fig:kickerangles} and~\ref{fig:kickeroffset}.
 \begin{figure}%[h]
 	\begin{center}
 		\includegraphics[width=0.65\textwidth]{./images/AngleVsEnergy}
@@ -349,11 +349,11 @@ and are shown in Figures~\ref{fig:kickerangles} and \ref{fig:kickeroffset}.
 		\label{fig:kickeroffset}
 	\end{center}
 \end{figure}
-As a double check on the first order calculations in Figures \ref{fig:kickerangles} and \ref{fig:kickeroffset}, 
+As a double check on the first order calculations in Figures~\ref{fig:kickerangles} and~\ref{fig:kickeroffset}, 
 a PIC simulation was done to estimate the beam 
 trajectory in the kicker and septum. 
 This work includes RF cavities and space charge effects.
-The two estimates match within reason, see Figure \ref{fig:beamtraj}. 
+The two estimates match within reason, see Figure~\ref{fig:beamtraj}. 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.65\textwidth]{./images/tba_trajectory}
@@ -361,7 +361,7 @@ The two estimates match within reason, see Figure \ref{fig:beamtraj}.
 			it travels through the proposed TBA beam line. 
 			Beam is traveling right to left in this simulation. 
 			Notice the x offset at the exit of the kicker (\SI{17.5}{m}), 
-			is nearly \SI{20}{mm} as predicted in Figure \ref{fig:kickeroffset}.}
+			is nearly \SI{20}{mm} as predicted in Figure~\ref{fig:kickeroffset}.}
 		\label{fig:beamtraj}
 	\end{center}
 \end{figure}
@@ -434,12 +434,12 @@ with the help of C.~Y.~Yao, A.~Brill, X.~Sun and C.~Jing.
 This technique measures reflections along a conductor and gives information about discontinuities in the line being measured. 
 This information was used to determine the impedance along the cables, feedthroughs, and plates of the kicker. 
 Ideally, the response would be \SI{50}{\ohm} to reduce reflections and resulting power loss. 
-The measurements, plotted by C.~Y.~Yao in Figure \ref{fig:TDR}, show a larger impedance at the feedthrough locations.
+The measurements, plotted by C.~Y.~Yao in Figure~\ref{fig:TDR}, show a larger impedance at the feedthrough locations.
 Due to resource and time constraints, it was a goal to use off the shelf parts where possible in fabrication of the kicker.
 Therefore, the feedthrough mismatch is expected because they were not specifically designed to couple to the plate geometry.
-A substantial amount of time and resources were spent to minimize reflections for the APS kickers plotted in Figure \ref{fig:TDR}.
+A substantial amount of time and resources were spent to minimize reflections for the APS kickers plotted in Figure~\ref{fig:TDR}.
 However, that kicker still deviates from \SI{50}{\ohm} near the feedthroughs.
-Given this comparison to the kickers fabricated at the APS, C.~Y.~Yao advised the mismatch we observed was not dangerous to 
+Given this comparison to the kickers fabricated at the APS, C.~Y.~Yao advised the mismatch observed was not dangerous to 
 the pulsar or cables that would drive the kicker.  
 The only negative result is the reduced amount of voltage supplied to the plates, and therefore, a reduction in the kick given to the beam.
 	\begin{figure}
@@ -491,8 +491,8 @@ done to optimize for future TBA runs, see Table~\ref{tab:krunparam}.
 			Quad 2					& \SI{-1.53}{A}  \\
 			Quad 3					& \SI{3.08}{A}  \\
 			Quad 4					& \SI{-1.53}{A}  \\
-			Cavity phases   		& -20$^\circ$ \\
-			Beam Energy 				& 65 MV\\ 
+			Cavity phases   		& $-20^\circ$ \\
+			Beam Energy 				& \SI{65}{MeV}\\ 
 			\bottomrule
 		\end{tabular}
 	\end{center}
@@ -517,7 +517,7 @@ A simplified experimental setup is shown in Figure~\ref{fig:kyag}.
 	\label{fig:kyag}
 \end{figure*}
 The centroid position of the beam was measured for several kicker voltages, and a linear fit was performed.
-The R value for the fit in Figure \ref{fig:linear} is 0.99704. This shows that the beam offset 
+The R value for the fit in Figure~\ref{fig:linear} is 0.99704. This shows that the beam offset 
 is fairly linear with respect to kicker voltage. 
 \begin{figure}
 	\centering
@@ -527,12 +527,12 @@ is fairly linear with respect to kicker voltage.
 \end{figure}
 
 Using the x offset numbers found in Figure~\ref{fig:linear}, 
-the measured angle vs. first order approximations from Section~\ref{theory} can be compared . 
+the measured angle vs. first order approximations from Section~\ref{theory} can be compared. 
 Note the x offset seen on the YAG screen is not solely due to the trajectory in the kicker.
 The contributions to the total deflection must be broken into two parts: the deflection of the beam inside the kicker, 
 and the position change when the beam is drifting towards the YAG screen after it exits the kicker.
 The latter part can be approximated using the triangle shown in Figure~\ref{fig:kicker-geometry}.
-\lsnote{{\it Using that figure, tan(thetak) = ldrift/deltax, so it seems like you need ldrift/tan(thetak) in the  following equation, instead of a product.}} Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
+Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
 Combining these two terms, the equation for the x offset seen during the experiment
 can be written as:
 \begin{equation}
@@ -573,7 +573,7 @@ With these $\Delta x$ values, Equation~\ref{eq:kdata} can be rewritten to
 solve for the experimentally achieved angle $\theta_{k}$.
 
 Next the energy measurement was analyzed to determine the beam energy. 
-The method described in Chapter \ref{chp:exp} was used, 
+The method described in Chapter~\ref{chp:exp} was used, 
 and the current measured to bend the beam \SI{15}{^\circ} was about \SI{9}{A}.
 This corresponds to an energy of about \SI{62}{MeV}. 
 This energy was then used to calculate the ideal angle values vs. kicker voltage.
@@ -594,7 +594,7 @@ to the ideal values for a \SI{65}{MeV} beam.
 \end{figure}
 
 Beam size data on the YAG screen after the kicker was taken, 
-see Figure \ref{fig:kickerbeamsize} for examples of this data. 
+see Figure~\ref{fig:kickerbeamsize} for examples of this data. 
 These measurements were used to calculate the total beam size and 
 centroid location of the beam. A combination fit was used to extract 
 the beam sizes as described in Section~\ref{sec:beamsize}. 
@@ -639,7 +639,6 @@ This parameter had a strong impact on the beam sizes, with a range of \SI{1.5}{m
 in the x direction and \SI{0.3}{mm} in the y direction.
 It's clear the field strength and asymmetries in the RF field map 
 are strongly affecting the results presented in Figure~\ref{fig:beamsize}.
-Details of the simulation set up for these tests can be found in Appendix~\ref{gunsims}.
 The gradient that achieved the agreement seen in Figure~\ref{fig:beamsize} was \SI{55}{MV/m}.
 This is considerably lower than the reported AWA maximum gradient of \SI{85}{MV/m}.
 It is possible that the lower gradient and resulting asymmetric beam size effect is 
@@ -673,15 +672,14 @@ With the third item partially addressed (see Section~\ref{theory}),
 it remained to determine if an optics solution exists that can satisfy the 
 first two requirements (transmission and bunch length). 
 In the case of bunch length, there was no set goal, but a clear understanding 
-that a shorter bunch will generate more power in the PETS structures [ref here]. 
-\lsnote{{\it <-Put in a reference or remove} Since the PETS } 
+that a shorter bunch will generate more power in the PETS structures~\cite{recent-tba}. 
 The structure aperture of \SI{17.6}{mm} is roughly three times smaller than the rest of the beam line, 
 care must be taken to achieve good transmission there.
 
 As a first check of the rough design, a point to point matrix calculation was done 
 to determine if the beam size could be maintained near the kicker.
 Next the simulation studies presented in Chapter~\ref{simulations} were used as a  
-base line for the final optimization. The genetic algorithm in OPAL
+base line for the final optimization. The genetic algorithm in \verb|OPAL|
 was used to achieve the optics design required for testing fully staged TBA. 
 Solutions were found that meet the requirements listed above.
 
@@ -710,7 +708,7 @@ would allow transport through the kicker (see Figure~\ref{fig:full-staging}),
 by establishing that the beam size could be maintained near the kicker during transport.  
 Four quadruple strengths and the five distances between the quadrupoles are parameters under consideration. 
 To reduce the number of variables from ten to four, the drift lengths are set to be sums of focal lengths, as in
-the quadruplet telescope module described by K. Brown in \cite{brown}.  
+the quadruplet telescope module described by K. Brown in~\cite{brown}.  
 The transfer matrix $R$, is defined as:  
 \begin{equation}
 	R_q =  R_{d5}  \cdot R_{q4} \cdot   R_{d4} \cdot R_{q3} \cdot R_{d3} \cdot R_{q2} \cdot R_{d2} \cdot R_{q1} \cdot R_{d1}, 
@@ -747,7 +745,7 @@ the first quadrupole was required to be at least $\SI{3}{m}$ away from the exit 
 last accelerating cavity in the linac. This gives the initial drift length and value
 for $f_1$, see Figure~\ref{fig:p2p}.
 To achieve point to point transport of the beam as described in~\cite{brown}, 
-we can equate $f_1 = f_4$ and $f_2 = f_3$. This reduces Equation~\ref{kb2} to:
+$f_1 = f_4$ and $f_2 = f_3$. This reduces Equation~\ref{kb2} to:
 \begin{equation}
 R_q =
 \begin{bmatrix}
@@ -760,11 +758,11 @@ Given the total distance, D, available for the
 quads in the beam line, \SI{3.8}{m}, and referring to Figure~\ref{fig:p2p}, 
 an equation is written to solve for the focal length $f_1$: 
 \begin{align}
-D = 2 \left(f_1+f_2+f_3+f_4\right)\\
-= 4f_1 + 4 f_2 \\
-8f_1 = \SI{3.8}{m} \\
-f_1 = \SI{0.475}{m}
-\end{align}.
+D = 2 \left(f_1+f_2+f_3+f_4\right),\\
+= 4f_1 + 4 f_2, \\
+8f_1 = \SI{3.8}{m}, \\
+f_1 = \SI{0.475}{m}.
+\end{align}
 
 For completion, the focal length is converted into a field strength 
 to determine whether or not this configuration is possible given 
@@ -773,14 +771,12 @@ the currently installed hardware at the AWA:
 \frac{1}{f} = kl\, ,
 \end{equation}
 where $l$ is the quadrupole's effective length, and k is the gradient with respect to  
-the beam energy and magnet strength \cite{Wiedemann}: \lsnote{{\it There is a problem with the units in the following equation.  k should have units of $1/m^{2}$, so that kl has units of 1/m.  It looks like you have a mix of the $1/Brho$ and $e/p$ forms.}}
-\begin{equation}
-k = \SI{0.2998}{} \frac{g[\SI{}{T/m}]}{p [\SI{}{GeV/c}]}\label{k}.
-\end{equation}
+the beam energy and magnet strength~\cite{Wiedemann}.
+
 The beam energy and the effective length of the quadrupole are needed for a numerical estimate of 
 the quadrupole gradient needed to maintain the beam size at the kicker. 
 Given an energy of \SI{65}{MeV}, a quadrupole length of \SI{11}{cm}, 
-and Equation~\ref{k} we can calculate this configuration would require a 
+and Equation~\ref{k}, this configuration would require a 
 magnet strength of \SI{\pm4.14}{T/m}. This is feasible considering the 
 max strength is \SI{\pm9}{T/m}. This also gives some indication 
 that there should be several possible solutions found during optimization
@@ -797,7 +793,7 @@ exist at \SI{40}{nC} that allow the beam to be transmitted at 100\% through the 
 Second, from the set of feasible solutions, the optics designs with the smallest bunch lengths should be identified.
 These two conditions combined will provide an optics solution that provides the most power output from the PETS structure for acceleration of the witness beam. 
 
-The built-in GA in OPAL was again used for these simulations. 
+The built-in GA in \verb|OPAL| was again used for these simulations. 
 Several rounds of optimizations were tried and many failed for various reasons, 
 some of which include:
 \begin{itemize}
@@ -818,7 +814,7 @@ must be decided empirically after trial and error.
 This can be computationally expensive, 
 and there is no clear guidance on what type of problem set up will be 
 best for unique optimization problems such as the beam dynamics in this case.
-Luckily, ANL provides excellent computational resources \cite{lcrc}, and
+Luckily, ANL provides excellent computational resources~\cite{lcrc}, and
 the availability of compute time was not a limiting factor in this work.
 
 \Subsection{Optimization Setup}\label{setup}
@@ -900,7 +896,7 @@ This helps reduce transverse beam size growth in the last dipole.
 		\end{tabular}
 	\end{center}
 \end{table}
-In code form, these parameters translate to an OPAL input file that 
+In code form, these parameters translate to an \verb|OPAL| input file that 
 can be found in Appendix~\ref{opt-tba-code}.
 \begin{table}%[h!]
 	\begin{center}
@@ -913,18 +909,18 @@ can be found in Appendix~\ref{opt-tba-code}.
 			%\rowcolor{blue!30} 
 			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ 
 			\midrule
-			Cavity Phases		&  -20$^\circ$ \\
-			Laser Radius		& 9 mm \\
-			Laser Full Width Half Max	& 10 ps \\
-			Gun Voltage 				& 64 MV\\ 
-			Linac Voltages 				& 24-25 MV \\
-			Kicker Angle				& -2$^\circ$ \\
-			Septum Angle				& -15$^\circ$\\ 
+			Cavity Phases		&  $-20^\circ$ \\
+			Laser Radius		& \SI{9}{mm} \\
+			Laser Full Width Half Max	& \SI{10}{ps} \\
+			Gun Voltage 				& \SI{64}{MV}\\ 
+			Linac Voltages 				& $24-25$\SI{}{MV} \\
+			Kicker Angle				& $-2^\circ$ \\
+			Septum Angle				& $-15^\circ$\\ 
 			\bottomrule
 		\end{tabular}
 	\end{center}
 \end{table}
-The OPAL input file and other files needed to run simulations on the ANL cluster 
+The \verb|OPAL| input file and other files needed to run simulations on the ANL cluster 
 can be found in the repository listed above.
 Details of how to specify the magnet settings, phases, and element locations defined 
 in Table~\ref{tab:variables} are also in the repository.
@@ -945,7 +941,7 @@ First, a Pareto front comparing the trade-off between bunch length and transvers
 	\centering
 	\includegraphics[width=0.65\textwidth]{images/x_vs_z_pareto_front_Q5}
 	\caption{Simulated Pareto front of transverse beam size in x vs. bunch length.
-		This data was a result of the simulation setup in Section \ref{setup}.}
+		This data was a result of the simulation setup in Section~\ref{setup}.}
 	\label{fig:xz-pareto}
 \end{figure}
 While the beam size data in Figure~\ref{fig:xz-pareto} is promising, the bunch lengths are too long.
@@ -960,7 +956,7 @@ limiting factor in areas with tight apertures such as the PETS.
 	\centering
 	\includegraphics[width=0.75\textwidth]{./images/xy_vs_pxpy_pareto_front_Q5}
 	\caption{Simulated Pareto front of beam size vs. momentum.
-		This data was a result of the simulation setup in Section \ref{setup}.}
+		This data was a result of the simulation setup in Section~\ref{setup}.}
 	\label{fig:tba-paretoxy}
 \end{figure}
 Note the two curves in Figure~\ref{fig:tba-paretoxy}, may not represent the same 
@@ -974,18 +970,18 @@ may or may not be the best optics scenario for the y dimension.
 
 With this in mind, the Pareto front was re-plotted in Figure~\ref{fig:tba-pareto} 
 with one key difference. The y values were forced to coincide with the same 
-design variables used in the x dimension. The same was done for bunch length.  \lsnote{{\it I am confused here: you say `bunch length' (referring to Fig. 4.20) but the plots don't have the bunch length anywhere on them, only the transverse momentum spread.  Maybe you mislabeled them?  Otherwise the following comment on power generation is not supported.  If the bunch length really is not on figure 4.20 - then what bunch lengths correspond to those data points?  Basically, if not on plot, you need to specifically tell reader what the corresponding bunch lengths were - if only by saying that all points in Figure 4.20 had bunchlength of less than 2mm.}}
-Now a true point to point comparison is possible in these plots.
-We chose the values of momentum spread to coincide with small horizontal beam size, 
+design variables used in the x dimension. Now a true point to point comparison is possible in these plots.
+Note, $\sigma_x$ is always plotted in blue, and $\sigma_y$ or $\sigma_z$ are plotted in orange.
+The momentum spread values coincide with small horizontal beam size, 
 since this was more difficult to achieve than small vertical beam size, see Figure~\ref{fig:tba-paretoxy}. 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{./images/xz_vs_px_pareto_front_Q5}%
 	\includegraphics[width=0.5\textwidth]{images/xy_vs_px_pareto_front_Q5}
 	\caption{Simulated Pareto front of beam sizes vs. momentum.
-		Adjusted to force y beam sizes and bunch length \lsnote{{\it but no bunchlength in plots, so need a comment on that}} to correspond to same design variables 
-		as the x beam sizes.
-		This data was a result of the simulation setup in Section \ref{setup}.}
+		Adjusted to force y beam sizes and bunch length (orange curves) to correspond to same design variables 
+		as the x beam sizes (blue curves).
+		This data was a result of the simulation setup in Section~\ref{setup}.}
 	\label{fig:tba-pareto}
 \end{figure}
 The momentum variance in Figure~\ref{fig:tba-pareto} is small in comparison to 
@@ -996,10 +992,10 @@ Note, the horizontal beam sizes are not as small as in Figure~\ref{fig:xz-pareto
 but this is considered acceptable given the improved bunch length values.
 There is truly a ``trade-off'' to be made between the two.
 Table~\ref{tab:designopt}, shows a summary of 
-design variables and beam sizes for Figure~\ref{fig:tba-pareto}.  \lsnote{{\it There are no beam sizes in the table, except bunch length.  Also, table caption says Input parameters, but the bunch length is not an input parameter.}}
+design variables and beam sizes for Figure~\ref{fig:tba-pareto}.  
 \begin{table}%[h!]
 	\begin{center}
-		\caption{Input Parameters for large scale TBA optimization runs.
+		\caption{Parameters for large scale TBA optimization runs.
 		Points are numbered for later reference.}
 		\label{tab:designopt}
 		\rowcolors{2}{blue!10}{white}   
@@ -1011,10 +1007,10 @@ design variables and beam sizes for Figure~\ref{fig:tba-pareto}.  \lsnote{{\it T
 			\midrule
 			{Buck Focusing Solenoid [A]}	& 478 &  395   & 357   & 328 \\
 			Matching Solenoid [A]	& 197	&  209   & 211   & 211  \\
-			Quadrupole 1 [T-m]		& -0.8	&  1.10  & -0.72 & -0.21 \\ 
-			Quadrupole 2 [T-m]		& 0.9	&  -1.88 & 0.20  & 0.37  \\
-			Quadrupole 3 [T-m]		& 0.8	&  0.39  & -0.73 & -0.26\\
-			Quadrupole 4 [T-m]		& -1.0	&  0.61  & 1.92  & 0.25 \\ 
+			Quadrupole 1 [T$\cdot$m]		& -0.8	&  1.10  & -0.72 & -0.21 \\ 
+			Quadrupole 2 [T$\cdot$m]		& 0.9	&  -1.88 & 0.20  & 0.37  \\
+			Quadrupole 3 [T$\cdot$m]		& 0.8	&  0.39  & -0.73 & -0.26\\
+			Quadrupole 4 [T$\cdot$m]		& -1.0	&  0.61  & 1.92  & 0.25 \\ 
 			Bunch Length [mm]		& 1.5	& 1.58	 & 1.68  & 1.9 \\
 			\bottomrule
 		\end{tabular}
@@ -1129,7 +1125,7 @@ Initially, a point to point matrix calculation was done to determine if the
 beam size entering the first four quadrupoles could be maintained near the kicker.
 This exercise resulted in determining that the field strength needed for a point to point beam transfer is \SI{\pm 4.14}{T/m}, 
 which is well below the hardware limit of \SI{\pm9}{T/m}. 
-Next, a beam line optimization was done using the built in genetic algorithm in OPAL.  
+Next, a beam line optimization was done using the built in genetic algorithm in \verb|OPAL|.  
 Six design variables and five objectives were used. 
 The results are plotted, and confirm the beam line geometry can deliver 
 a \SI{40}{nC} beam to the PETS location with 100\% transmission.

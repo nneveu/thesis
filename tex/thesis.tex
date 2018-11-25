@@ -20,6 +20,7 @@
 \usepackage{amsmath} % \boldsymbol
 \usepackage{graphicx} % \includegraphics
 \usepackage[nodayofweek]{datetime} % \today
+\usepackage{cprotect}
 
 % If we use hyperref, we can automatically embed this metadata into the PDF
 \usepackage{hyperref}
@@ -111,32 +112,22 @@
 
 %%%  Acknowledgement %%%
 \begin{acknowledgement}     % acknowledgement environment, this is optional
-	\par Starting in the order that they entered my life, I would like to acknowledge and thank
-	the people who helped me survive the PhD process.	
-	First, to my family, who's support and encouragement was expansive.
-	Thank you for always believing I could make it.
-	Special thanks to my Mom for preparing me for the Chicago winters, 
-	and helping me move on two occasions.	
+	\par I would like to acknowledge and thank
+	the people who supported me during the PhD process.	
+	First, to my family, thank you for always believing I could make it.
+	To Lalo, thank you for your patience and love. I am grateful you are in my life.
 	
-	To Lalo, the love of my life, I can't thank you enough for listening to my endless complaints,
-	and never once telling me to stop. Your patience is limitless, and I'm grateful you use it on me!
-	All joking aside, you help me stay grounded, and I appreciate that.
-	
-	To Linda, the best advisor a student could ask for. 
+	Linda, you are the best adviser a student could ask for. 
 	Thank you for always keeping my best interests in mind.
-	And upmost, thank you for helping me graduate when I was ready!	
-	
-	To John, I learned a lot from you! You taught me almost everything I know about photoinjectors, and I'll always remember and be grateful for that.
+	To John and the AWA group, thanks for teaching about photoinjectors
+	and for giving me the opportunity to work at a national lab.
 		
-	To Jeff, I really enjoyed our meetings!
-	Thanks for exposing me to the interesting world of optimization, 
-	and for teaching me about version control! 
+	Jeff, thanks for exposing me to the interesting world of optimization. 
+	\mbox{Andreas}, I don't know what you saw in me a few years ago, but I'm glad you noticed.
+	Collaborating with you two has been both exciting and challenging.
 	
-	To Andreas, I don't know what you saw in me a few years ago, but I'm glad you noticed.
-	Collaborating with you has been a joy that is both exciting and challenging.
-	
-	To Nancy, thanks for being my support system away from home. 
-	Being at Argonne wouldn't have been the same without you.
+	To Nancy and my IIT friends, thanks for being my support system away from home. 
+	My time in Illinois would have been a lot harder without you all.
 \end{acknowledgement}
 
 % Table of Contents
@@ -167,10 +158,11 @@
 \clearpage
 
 
+
 %%% Abstract %%%
 \begin{abstract}           % abstract environment, this is optional
 	\par Two beam acceleration (TBA) is a candidate for future high energy physics machines and FEL user facilities. 
-	This is a scheme in which an electron accelerator uses a "drive" beam to transport and supply the RF power needed for acceleration
+	This is a scheme in which an electron accelerator uses a ``drive'' beam to transport and supply the RF power needed for acceleration
 	on a secondary and independent 'witness' accelerator. This technology is attractive for its potential to 
 	improve the efficiency and simplicity of large scale machines. At the Argonne Wakefield Accelerator Facility (AWA), 
 	research into this potential accelerator scheme is ongoing. Completed experiments include a simplified staging set up, 
@@ -202,19 +194,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \input{introduction}
 \clearpage
 
-%\input{exp_setup}
-%\clearpage
+\input{exp_setup}
+\clearpage
 
-%\input{simulations}
-%\clearpage
+\input{simulations}
+\clearpage
 
-%\input{beam_line_design}
-%\clearpage
+\input{beam_line_design}
+\clearpage
 
-%\input{LindaSpentz_conclusion.tex}
 \input{conclusion.tex}
 \clearpage
 
@@ -227,7 +219,7 @@
 \Appendix{RF Measurement Data}\label{rf}
 \begin{table} %or [hbt] ?
 	\caption{Power meter readings taken during RF measurements.
-	Where Att. stands for attenuation. Bolded measurements were taken on a second day, 
+	Where Att. stands for attenuation. Bold measurements were taken on a second day, 
 	without the \SI{10}{dB} attenuator shown in Figure~\ref{fig:tikzdrivegun}.}
 	\rowcolors{3}{blue!15}{white}
 	\begin{center}
@@ -262,12 +254,12 @@ Specifications for the splitters used during RF measurements can be found at the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 \Appendix{How to build OPAL on Bebop at ANL} \label{build}
 This set of instructions is tailored to the bebop cluster at ANL. 
-Intel compilers and intel-MPI were used to build OPAL and all 
+Intel compilers and Intel-MPI were used to build \verb|OPAL| and all 
 the libraries it is dependent on.
-\begin{enumerate}[label=Step \arabic*:]
-	\item Load modules 
+\begin{enumerate}[label=\textbf{Step \arabic*:}]
+	\item \textbf{Load modules} 
 
-I purge modules first, this will force an error message if any changes
+Purging modules first will force an error message if any changes
 to the system modules occur.
 \begin{lstlisting}
 	module purge
@@ -277,67 +269,59 @@ to the system modules occur.
 	module load gmp   
 	module load mpfr  
 	module load mpc   
-	module load hdf5   
+	module load hdf5/1.10.1-wcenhsf  
 	module load gsl   
+	module load boost
 	module load intel-mkl
 	module load szip
 \end{lstlisting}
 
-    \item Set environment variables for compilers 
+    \item \textbf{Set environment variables for compilers }
  
-These variables point to intel compilers. 
+These variables point to Intel compilers. 
 \begin{lstlisting}
+I_MPI_CC=icc;I_MPI_CXX=icpc;I_MPI_F90=ifort;I_MPI_F77=ifort
+export I_MPI_CC I_MPI_CXX I_MPI_F90 I_MPI_F77
+
 CC=mpiicc;CXX=mpiicpc;F90=ifort;F77=ifort
 export CC CXX F90 F77
-\end{lstlisting}
+\end{lstlisting} 
+\vspace{2em}
 
-    \item Set environment variables for self built libraries.
+    \item \textbf{Set environment variables for self built libraries}
     
-I built these libraries separately because they were not available as 
+These libraries were built separately because they were not available as 
 modules on the cluster. 
 
 \begin{lstlisting}
-	export PATH="/blues/gpfs/home/neveu/git/H5hut-2.0.0rc3/build:${PATH}"
-	
-	export H5HUT_HOME=$HOME/git/H5hut-2.0.0rc3/build_intel
-	export H5HUT_PREFIX=$H5HUT_HOME
-	export H5HUT_DIR=$H5HUT_HOME
-	export H5HUT_INCLUDE_DIR=$H5HUT_HOME/include
-	export H5HUT_LIBRARY_DIR=$H5HUT_HOME/lib
-	
-	export BOOST_HOME=$HOME/git/boost_1_62_0/build/
-	export BOOST_DIR=$BOOST_HOME
-	export BOOST_PREFIX=$BOOST_HOME
-	export BOOST_INCLUDE_DIR=$BOOST_HOME/include
-	export BOOST_LIBRARY_DIR=$BOOST_HOME/lib
-	export BOOST_ROOT=/home/neveu/git/boost_1_62_0/
-	echo $BOOST_ROOT
-	echo $BOOST_DIR
+export SOFTWARE="/lcrc/project/AWA-beam-dynamics/software"
+export PATH="$SOFTWARE/H5hut-2.0.0rc4_build:${PATH}"
+
+export H5HUT_HOME=$SOFTWARE/H5hut-2.0.0rc4_build
+export H5HUT_PREFIX=$H5HUT_HOME
+export H5HUT_DIR=$H5HUT_HOME
+export H5HUT_INCLUDE_DIR=$H5HUT_HOME/include
+export H5HUT_LIBRARY_DIR=$H5HUT_HOME/lib
+
 \end{lstlisting}
 
-    \item Call cmake 
+    \item \textbf{Call cmake }
     
-There are two cmake calls I use depending on if I'm building for 
+There are two cmake calls used depending on if the code is being built for 
 BDW (\verb|-axCORE-AVX2|) or KNL (\verb|-axMIC-AVX512|) architecture. 
     
 \begin{lstlisting}
-cmake -DCMAKE_INSTALL_PREFIX=/home/neveu/software/opal-1.9/bdw -DCMAKE_CXX_FLAGS="-lsz -axCORE-AVX2" ..
+cmake -DCMAKE_INSTALL_PREFIX=/lcrc/project/AWA-beam-dynamics/software/bdw -DCMAKE_CXX_FLAGS=``-lsz -axCORE-AVX2'' ..
 \end{lstlisting}
 
-    \item Call make, then make install
-I usually call make with a large number of cores to speed up the compilation.    
+    \item \textbf{Call make, then make install}
+Calling make with a large number of cores to speed up the compilation.    
 \begin{lstlisting}
 	make -j 30 
 	make install
 \end{lstlisting}
 
 \end{enumerate}
-
-
-
-%\moretox
-
-\Appendix{Converting 3D field maps to OPAL convention}\label{3dmaps}
 
 
 \Appendix{OPAL Optimization Input File} \label{opt-tba-code}

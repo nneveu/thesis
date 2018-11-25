@@ -155,7 +155,7 @@ using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of de
 		\end{tikzpicture}
 	\end{center} 
 	\caption{Simplified drawing of beam trajectory through the kicker.
-	Where L is the length of the kicker, $\Delta x$ is the beam offset at the exit of the kicker, 
+	Here L is the length of the kicker, $\Delta x$ is the beam offset at the exit of the kicker, 
 	$\rho$ is the bending radius, and $\theta_k$ is the kicker angle. }
 	\label{fig:kicker-geometry}
 \end{figure*}
@@ -169,7 +169,7 @@ using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of de
 	\triangle x = \left(1-\cos\theta_{k}\right)\rho \, ,
 	\label{eq:kx}
 \end{equation}
-Where $\rho$, is the bending radius, $\Delta x$ is the beam offset at the exit of the kicker, 
+where $\rho$, is the bending radius, $\Delta x$ is the beam offset at the exit of the kicker, 
 and $\theta_{k}$ was is the total angle provided by the kicker. 
 
 From these equations, design parameters gap height, length of the plates, and 
@@ -247,7 +247,7 @@ A shorter drift would mean less divergence in the beam before it reaches the nex
 Next simulations were done to give an estimation of the beam size at the entrance and exit of the kicker.
 Typical operating conditions at the AWA were used: accelerating cavities on crest, buck focusing at \SI{500}{A}, 
 matching solenoid at \SI{255}{A}, and quadrupoles nearly in a 1:2:1 configuration with \SI{1.7}{A} and \SI{-3.3}{A}.
-These are not optimized running conditions, which gives a good upper bound for how the beam will behave before tuning.
+These are not optimized running conditions, and give a good upper bound for how the beam will behave before tuning.
 An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table~\ref{tab:kickparam}. 
 \begin{figure}
 	\begin{center}		
@@ -414,7 +414,7 @@ Two HV tests were performed at the APS. This was done to ensure the electrical c
 between the feedthroughs and kicker plates were free of shorts. 
 The first test consisted of HV applied in increments to ports 3 and 4 on the kicker.  
 Ports 1 and 2 were shorted to ground. There was no leakage current up to \SI{8}{kV} RMS.
-The second test reversed the set up with 3 and 4 grounded and ports 1 and 2 exposed. 
+The second test reversed the setup with 3 and 4 grounded and ports 1 and 2 exposed. 
 There was no leakage current up to \SI{9}{kV} RMS, which was the maximum voltage of the test equipment.
 Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in the APS Faraday cage.
 \begin{figure}%[h]
@@ -465,7 +465,7 @@ The only negative result is the reduced amount of voltage supplied to the plates
 Once the kicker was installed, measurements were done to verify it worked as designed with beam.  
 The voltage was scanned to check for linearity of the beam offset with voltage.  
 The beam size and angle of deflection were measured and compared to simulation results.  
-Details of the set up, and results of the studies follow.
+Details of the setup, and results of the studies follow.
 
 The kicker was installed in the AWA drive beam line approximately \SI{16.5}{m} downstream of the cathode.
 The HV pulsar was located on the roof of the bunker.
@@ -512,12 +512,12 @@ A simplified experimental setup is shown in Figure~\ref{fig:kyag}.
 		\end{tikzpicture}
 	\end{center} 
 	\caption{Simplified drawing of kicker and YAG screen where beam size and offset data 
-		was taken. This experimental set up was used to calculate 
+		was taken. This experimental setup was used to calculate 
 		the angle provided by the kicker for a \SI{30}{nC} beam at \SI{65}{MeV}.}
 	\label{fig:kyag}
 \end{figure*}
 The centroid position of the beam was measured for several kicker voltages, and a linear fit was performed.
-The R value for the fit in Figure~\ref{fig:linear} is 0.99704. This shows that the beam offset 
+The $R$ value for the fit in Figure~\ref{fig:linear} is 0.99704. This shows that the beam offset 
 is fairly linear with respect to kicker voltage. 
 \begin{figure}
 	\centering
@@ -539,7 +539,7 @@ can be written as:
 	\Delta x = \Delta x_{kicker} + \Delta x_{drift}\, ,
 \end{equation}
 \begin{equation}
-	\Delta x = \left(1-\cos\theta_{k}\right)\rho + \frac{L_{drift}}{\tan \theta_{k}}\, ,
+	\Delta x = \left(1-\cos\theta_{k}\right)\rho + L_{drift} \theta_{k}\, ,
 	\label{eq:kdata}
 \end{equation}
 where $\rho$ is the bending radius in the kicker, and $L_{drift}$ is \SI{0.28}{m} as shown in Figure~\ref{fig:kyag}.
@@ -637,7 +637,7 @@ Therefore, this is not the major contributing factor.
 Next, several gradient values in the gun were simulated. 
 This parameter had a strong impact on the beam sizes, with a range of \SI{1.5}{mm} 
 in the x direction and \SI{0.3}{mm} in the y direction.
-It's clear the field strength and asymmetries in the RF field map 
+It is clear the field strength and asymmetries in the RF field map 
 are strongly affecting the results presented in Figure~\ref{fig:beamsize}.
 The gradient that achieved the agreement seen in Figure~\ref{fig:beamsize} was \SI{55}{MV/m}.
 This is considerably lower than the reported AWA maximum gradient of \SI{85}{MV/m}.
@@ -651,7 +651,7 @@ From simulations, the laser radius mismatch contributes an estimated \SI{0.3}{mm
 between the x and y dimensions. Also in simulation, a difference of about \SI{1.5}{mm} 
 is attributed to the gun gradient and asymmetries in the RF fields. 
 This is an unexpected and meaningful result for the AWA, and will inform experiments moving forward.
-Finally, there is a variance of ~\SI{0.5}{mm} attributed to the kicker through analysis of the 
+Finally, there is a variance of~\SI{0.5}{mm} attributed to the kicker through analysis of the 
 data shown in Figure~\ref{fig:beamsize}.
 Note, these errors are not a major hurdle for TBA experiments, as they can
 be mitigated with precise control of the quadrupoles.
@@ -739,7 +739,7 @@ R_q =
 0 & \frac{f_1 f_3}{f_2 f_4}	
 \end{bmatrix},\label{kb2}
 \end{equation}
-where $f_1 \ldots f_4$ stand for the focal lengths of each quad before the kicker. 
+where $f_1 \ldots f_4$ stand for the focal lengths of each quadrupole before the kicker. 
 Due to other experiments in the AWA tunnel, 
 the first quadrupole was required to be at least $\SI{3}{m}$ away from the exit of the 
 last accelerating cavity in the linac. This gives the initial drift length and value
@@ -755,7 +755,7 @@ R_q =
 \end{equation}
 The problem set-up can be further simplified by assuming $f_1=f_2$. 
 Given the total distance, D, available for the
-quads in the beam line, \SI{3.8}{m}, and referring to Figure~\ref{fig:p2p}, 
+quadrupoles in the beam line, \SI{3.8}{m}, and referring to Figure~\ref{fig:p2p}, 
 an equation is written to solve for the focal length $f_1$: 
 \begin{align}
 D = 2 \left(f_1+f_2+f_3+f_4\right),\\
@@ -775,8 +775,8 @@ the beam energy and magnet strength~\cite{Wiedemann}.
 
 The beam energy and the effective length of the quadrupole are needed for a numerical estimate of 
 the quadrupole gradient needed to maintain the beam size at the kicker. 
-Given an energy of \SI{65}{MeV}, a quadrupole length of \SI{11}{cm}, 
-and Equation~\ref{k}, this configuration would require a 
+Given an energy of \SI{65}{MeV}, and a quadrupole length of \SI{11}{cm}, 
+this configuration would require a 
 magnet strength of \SI{\pm4.14}{T/m}. This is feasible considering the 
 max strength is \SI{\pm9}{T/m}. This also gives some indication 
 that there should be several possible solutions found during optimization
@@ -793,7 +793,7 @@ exist at \SI{40}{nC} that allow the beam to be transmitted at 100\% through the 
 Second, from the set of feasible solutions, the optics designs with the smallest bunch lengths should be identified.
 These two conditions combined will provide an optics solution that provides the most power output from the PETS structure for acceleration of the witness beam. 
 
-The built-in GA in \verb|OPAL| was again used for these simulations. 
+The built-in GA in \verb|OPAL| was used for these simulations. 
 Several rounds of optimizations were tried and many failed for various reasons, 
 some of which include:
 \begin{itemize}
@@ -812,14 +812,14 @@ which also houses all plotting and simulation scripts used in this chapter.
 Some drawbacks of using a GA, are that many simulation parameters 
 must be decided empirically after trial and error.
 This can be computationally expensive, 
-and there is no clear guidance on what type of problem set up will be 
+and there is no clear guidance on what type of problem setup will be 
 best for unique optimization problems such as the beam dynamics in this case.
 Luckily, ANL provides excellent computational resources~\cite{lcrc}, and
 the availability of compute time was not a limiting factor in this work.
 
 \Subsection{Optimization Setup}\label{setup}
 The most successful optimization problem to date entailed minimizing the 
-3D beam size, transverse momentum, and energy spread at the fifth quarupole on the drive line.
+3D beam size, transverse momentum, and energy spread at the fifth quadrupole on the drive line.
 Three constraints were used to limit the maximum beam size and asymmetry (transverse roundness) considered by the algorithm.
 The difference in x and y was included as a constraint, because failed optimization runs in the 
 past had converged on solutions that had a very small beam size in x, and an unrealistic and large 
@@ -964,7 +964,7 @@ design variables for a point to point comparison. A Pareto analysis always
 chooses the best points with respect to the objectives chosen. This guarantees no 
 relationship between all objectives. 
 For example, the smallest beam size in y, at less than \SI{0.35}{mm} on Figure~\ref{fig:tba-paretoxy}, 
-may not have the same input parameter settings for the matching solenoid or quad strengths, as the smallest x position 
+may not have the same input parameter settings for the matching solenoid or quadrupole strengths, as the smallest x position 
 at a little over \SI{2.5}{mm}. In other words, the best optics scenario for the x dimension
 may or may not be the best optics scenario for the y dimension. 
 

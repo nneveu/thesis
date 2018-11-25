@@ -9,7 +9,7 @@ a fair amount of setup and preliminary measurements must be made and understood.
 In this chapter, background information on the facility will be presented, 
 including the changes required  to achieve fully independent staging.
 The laser pulse train generated at the facility was measured and improved 
-through the characteristics of the ultraviolet optics being used. 
+through the characteristics of the ultraviolet~(UV) optics being used. 
 RF measurements were done to understand the power distribution in the gun and linac.
 Several beam diagnostics are introduced, such as beam size measurements using 
 fluorescent screens, bunch length measurements using coherent transition radiation, 
@@ -31,7 +31,7 @@ The beam to be accelerated starts at the witness gun (bottom left in Figure~\ref
 and traverses through two accelerating structures powered by beams counter-propagating through 
 an independent accelerator. The drive beam from which the energy is extracted starts at the drive gun (far right in Figure~\ref{fig:bunker}).
 The layout of the drive accelerator must be changed from the current layout shown in the figure to achieve independent staging.  
-It can be seen that the same drive beam bunch train passes through both decelerators, 
+The same drive beam bunch train passes through both decelerators, 
 whereas for independent staging the decelerating structures would be powered by separate bunch trains
 that are separated into independent beam lines by a fast rise time kicker and septum, see Figure~\ref{fig:singlestage}. 
 \begin{figure}
@@ -290,7 +290,7 @@ runs which were using the four splitter setup.
 	\end{center}
 \end{figure}
 Equations~\ref{eq:i4} and~\ref{eq:i6} don't account for mirror losses in the delay legs, 
-therefore a lower pulse intensity is expected in experimental measurements. The path of laser pulse one and
+therefore a lower pulse intensity is expected in experimental measurements. The path of laser pulse 1 and
 pulse 4 in the train can be described in the format of Equation~\ref{eq:i4}.
 The number of splitters is four, and both pulses are transmitted three 
 times and reflected once: 
@@ -337,7 +337,7 @@ also be a source of power difference at the cavities.
  
 In an effort to determine these differences, 
 power measurements of the drive gun, and linac tanks 
-one through six on the drive line were taken.
+two through six on the drive line were taken.
 The next sections detail the calibration used during power measurements and the 
 resulting values that informed simulations. 
 
@@ -406,7 +406,7 @@ signal generator. The resulting power was $P_s=\SI{-8.92}{dBm}$}
 		\end{circuitikz}
 	\end{center} 
 	\caption{Experimental setup when calibrating cables from the gun location to the control room. 
-		Where $C_1$ is a short blue heliax, $C_2$ is a long heliax to the control room, 
+		Here $C_1$ is a short blue heliax, $C_2$ is a long heliax to the control room, 
 		and $C_3$ is a short yellow heliax to the 6 GHz scope or power meter.}
 	\label{fig:tikzcalibration}
 \end{figure*}
@@ -474,7 +474,7 @@ maximum power to the gun, typical of TBA running conditions.
 		\end{circuitikz}
 	\end{center} 
 	\caption{Experimental setup when measuring power from gun to control room. 
-		Where $\SI{53.2}{dB}$ of attenuation is due to the gun probe itself, 
+		Here $\SI{53.2}{dB}$ of attenuation is due to the gun probe itself, 
 		$\SI{36}{dB}$ of additional attenuation is from the gun pickup probe cable in the tunnel, 
 		$C_2$ is a long heliax to the control room. The $\SI{9.5}{dB}$  splitter sends half the signal to the   
 		low level RF (LLRF) control system, and half to the power meter. 
@@ -489,8 +489,8 @@ to know the true power signal out of the gun:
 \begin{equation}
 P_g =P_{meas} + A_{probe}+A_1 + C_2 + S + C_3 + A_2, 
 \end{equation}
-where A's represent attenuators, C's represent cable calibration numbers, 
-and S is the attenuation due to the splitter in the control room:
+where $A_i$ represent attenuators, $C_i$ represent cable calibration numbers, 
+and $S$ is the attenuation due to the splitter in the control room:
 \begin{equation*}
 \begin{aligned}
 P_g \, \SI{}{[dBm]} = \\
@@ -619,11 +619,11 @@ Taking an energy measurement requires a beam trajectory
 that is centered through the preceding quadrupole magnets. Otherwise, the beam 
 may experience unintentional steering from the quadrupole magnets, and possibly excessive non-uniform fields 
 if it enters the dipole off-axis. The centering is checked by powering the two 
-quads before the dipole. The center is found by focusing 
+quadrupoles before the dipole. The center is found by focusing 
 in the x-direction, and then the y-direction. If the beam 
 moves horizontally or vertically as it is being focused, 
-the quad is ``steering'', because the beam is entering the magnets off-axis.
-Once the beam is centered through the quads on YAG screen 1, 
+the quadrupole is ``steering'', because the beam is entering the magnets off-axis.
+Once the beam is centered through the quadrupoles on YAG screen 1, 
 the dipole is then turned on to bend the beam.
 The two YAG screens are positioned so that when the dipole is off, 
 a centered beam will hit YAG screen 1. When the dipole is turned
@@ -665,7 +665,7 @@ After the current is determined, the magnetic field ($B$) is calculated:
 	\SI{}{B\,[T]} = (180.9708\cdot \SI{}{I\,[A]} - 7.2053)\cdot 10^{-4}.
 	\label{eq:b}
 \end{equation}
-The slope and intercept were calculated using the measured $B$ vs. $I$ for the dipole.
+The slope and intercept were calculated using the measured $B$ vs. $I$ curve for the dipole.
 \begin{figure*}
 	\begin{center}		
 		\begin{tikzpicture}[scale=1]
@@ -679,7 +679,8 @@ The slope and intercept were calculated using the measured $B$ vs. $I$ for the d
 		\end{tikzpicture}
 	\end{center} 
 	\caption{Simplified drawing of the beam trajectory through a dipole with a uniform field. }
-\end{figure*}\label{fig:dipole-geometry}
+	\label{fig:dipole-geometry}
+\end{figure*}
 
 There are several geometric calculations that need to be done using the magnetic field value
 before the energy can be calculated. The dipole geometry and variables used are shown in Figure~\ref{fig:dipole-geometry}.
@@ -698,7 +699,7 @@ beam after the dipole can be estimated:
 Using the relationship, $B\rho$~\cite{Wiedemann},
 the magnetic field in Tesla, B, and the beam momentum can be related: %\nrnote{\it check units}
 \begin{equation}
-	p\SI{}{\,\left[\frac{MeV}{c}\right]} = 0.2998\, B\cdot \rho \cdot 10^{3}.
+	p\SI{}{\,\left[\frac{MeV}{c}\right]} = 0.2998\, B\cdot \rho \cdot 10^{3},
 	\label{eq:pdipole}
 \end{equation}
 \begin{equation}
@@ -736,11 +737,11 @@ This is how the the energy calculation is done for all measurements at the AWA.
 
 Transverse beam size imaging and measurements are crucial to the 
 operations at AWA. During experiments, these diagnostics give 
-give valuable information about the machine setup, help with alignment, 
+valuable information about the machine setup, help with alignment, 
 and are used as a reference for tuning the beam line.
 Basically, beam size measurements are the quickest way to evaluate the
 optics configuration on the machine. 
-These measurements are taken using YAG screens at multiple z locations along the beam line.
+These measurements are taken using YAG screens at multiple $z$ locations along the beam line.
 The code used to produce all images in the following sections can be found at this git repository: 
 \url{https://github.com/nneveu/imageProcessing}.
 Note, all image routines referenced in this section can be found on the repository.
@@ -857,7 +858,7 @@ First both the beam image and background image need to be loaded into
 arrays using the \verb|readimage()| function.
 Next, a choice must be made on whether only one frame will be used 
 as the background, or if averaging will be done. 
-The dark current is a stable effect, but there can be some slight jitter.
+The dark current is a stable effect, but there can be some jitter.
 Averaging can smooth jitter out in some cases, and can be done with 
 the \verb|average_images()| routine. 
 Next, a call to \verb|background_subtraction()| will do a simple pixel to 
@@ -889,7 +890,7 @@ the resulting fit, as shown in in Figure~\ref{fig:combo}.
 \end{figure}
 
 \noindent\textbf{Step 5: Add profile and dimensions to display image}
-While the data in Step 4 is mostly numerical, it is helpful to 
+While the data in Step~4 is mostly numerical, it is helpful to 
 display the beam profiles alongside the beam image. 
 This can be done with \verb|add_dist_to_image()|. 
 Both x and y projections are added to each axis, and give a visual representation of the beam size. 
@@ -948,7 +949,7 @@ In order to measure the bunch length, an auto-correlation scan
 of the Coherent Transition Radiation (CTR) produced by the electron distribution~\cite{Happek, WBarry} was performed.
 CTR is produced by the bunch when it passes through a metallic foil inserted into the beam line. 
 The CTR is transported into a Michelson interferometer (MI)
-where it's split and directed into two MI arms with a half-transparent pellicle~\cite{PhysRevSTAB.9.082801}. 
+where it is split and directed into two MI arms with a half-transparent pellicle~\cite{PhysRevSTAB.9.082801}. 
 The CTR beams are then combined together at the exit of the MI with the variable path difference.
 The resulting CTR intensity is registered with a liquid helium cooled IR Labs
 bolometer~\cite{IRlabs} as a function of path difference.
